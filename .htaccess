@@ -1,0 +1,73 @@
+AddDefaultCharset UTF-8
+DirectoryIndex index.php
+php_flag display_errors on
+
+#ErrorDocument 404 /lego/404.html
+ErrorDocument 404 /404.html
+
+#Options +FollowSymLinks
+RewriteEngine on
+#RewriteBase /lego
+RewriteBase /
+
+RewriteCond %{HTTP_HOST} (.*)
+RewriteCond %{REQUEST_URI} /$ [NC]
+RewriteCond %{REQUEST_URI} !adminka/$ [NC]
+RewriteCond %{REQUEST_URI} !kcfinder [NC]
+RewriteRule ^(.*)(/)$ $1 [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+RewriteCond %{REQUEST_URI} (.*)/index.php$
+RewriteRule ^(.*)$ %1 [R=301,L]
+RewriteCond %{REQUEST_URI} (.*)/index.html$
+RewriteRule ^(.*)$ %1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#RewriteCond %{REQUEST_URI} ^/lego/(.*)[/]{1}(.*)$ [NC]
+RewriteCond %{REQUEST_URI} ^/(.*)[/]{1}(.*)$ [NC]
+
+RewriteRule ^(.*)$ http://%1/$1 [R=404,L]
+
+#RewriteRule ^page-(\d+)?$ ?view=main&page=$1
+#
+#RewriteRule ^recipe-(\d+)-(.*)(\D+)?$ ?view=recipe&id=$1
+#
+#RewriteRule ^info-(\d+).html?$ ?view=info_page&id=$1
+#
+#
+#RewriteRule ^dish-cat-(\d+)-(.*)-(\d+)?$ ?view=page_cat_dish&id=$1&page=$3
+#RewriteRule ^dish-cat-(\d+)-(.*)(\D+)?$ ?view=page_cat_dish&id=$1
+#
+#RewriteRule ^ingredients?$ ?view=ingredients
+#
+#RewriteRule ^ingredient-(\d+)-(.*)-(\d+)?$ ?view=page_ingredient&id=$1&page=$3
+#RewriteRule ^ingredient-(\d+)-(.*)(\D+)?$ ?view=page_ingredient&id=$1
+#
+#RewriteRule ^articles-(\d+)?$ ?view=articles&page=$1
+#RewriteRule ^articles?$ ?view=articles
+#
+#RewriteRule ^article-(\d+)-(.*)(\D+)?$ ?view=article_page&id=$1
+#
+#RewriteRule ^rss?$ ?view=rss
+#
+#RewriteRule ^rss-articles?$ ?view=rss_articles
+#
+#RewriteRule ^rss-recipes?$ ?view=rss_recipes
+#
+#RewriteRule ^rss-anews?$ ?view=rss_anews
+#
+#RewriteRule ^user(\d+)?$ ?view=user_page&id=$1
+#
+#RewriteRule ^user(\d+)-edit?$ ?view=user_page_edit&id=$1
+#RewriteRule ^user(\d+)-edit-cancel?$ ?view=user_page_edit&id=$1&cancel=1
+#
+#RewriteRule ^site-(\d+)-(.*)(\D+)?$ ?view=site_page&id=$1
+#
+#RewriteRule ^search=(.*)?$ ?view=search&search=$1
+#
+#RewriteRule ^new-recipe-submit?$ ?ajax=new_recipe
+#RewriteRule ^new-recipe-cancel?$ ?view=new_recipe&cancel=1
+#RewriteRule ^new-recipe(.*)?$ ?view=new_recipe
