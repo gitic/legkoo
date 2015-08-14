@@ -3,4 +3,3 @@
 defined(ACCESS_VALUE) or die('Access denied');
 
 echo 'main';
-
