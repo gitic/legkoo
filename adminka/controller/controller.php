@@ -28,7 +28,7 @@ if(isset($_GET['view'])){
     $view = $_GET['view'];
 }
 else{
-    $view = 'recipes';
+    $view = 'info_pages';
 }
 //Подключаем вид
 require_once VIEW.'index.php';
