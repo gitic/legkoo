@@ -3,7 +3,7 @@
 defined(ACCESS_VALUE) or die('Access denied');
 
 //домен
-define('PATH', 'http://localhost/lego');
+define('PATH', 'http://novodom.dp.ua');
 
 //админка
 define('ADMIN', PATH.'adminka/');
@@ -24,10 +24,10 @@ define('VIEW', 'view/');
 define('HOST', 'localhost');
 
 //пользователь
-define('DB_USER', 'root');
+define('DB_USER', 'ricettio');
 
 //пароль
-define('PASS', '');
+define('PASS', 'qricettio777q');
 
 //БД
 define('DB_NAME', 'lego');
