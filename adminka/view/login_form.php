@@ -10,7 +10,7 @@ if(isset($_POST['submit'])){
         $record = $result->fetch_object();
         $_SESSION['admin'] = $login;
         setcookie("leguida", $record->id, time()+60*60*24*90);
-        echo '<script type="text/javascript">window.location = "?view=infopages"</script>';
+        echo '<script type="text/javascript">window.location = "?view=info_pages"</script>';
         die();
     }
 }
