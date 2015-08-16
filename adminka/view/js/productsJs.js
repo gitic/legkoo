@@ -1,43 +1,37 @@
 $(function(){
-    var page = 'articles';
+    var page = 'products';
     
-    $('#edit_form').submit(function (e){
-//        e.preventDefault();
-        var sortedIDs = $( ".sortable" ).sortable("toArray",{attribute:'class'});
-        var products = '';
-        for(var i=0;i<sortedIDs.length;i++){
-            var cName = sortedIDs[i].split(' ')[1];
-            products+=cName+',';
-        };
-        products = products.substr(0,products.length-1);
-        $('#products').val(products);
-    });
-    
-    //Добавление товара
-    $('.add_tag').on('click',function (){
-        var title = $('.productName').val();
-        if(title != ''){
-            var id = $('.productName').attr('id');
-            var node = "<li class='ui-state-default'><img class='gImg' src='../content/products/14/photo.jpg' width='100' border='0'><span class='pTitle'>Товар 1<br><i>артикул: 14</i></span><span class='delFoto'><i class='fa fa-times'></i></span></li>";
-            $('.sortable').append(node);
-        }
+    //Поиск по товарам
+    $('.sbox').keyup(function (){
+        var sbox = $(this).val();
+        $.ajax({
+            url:'./?ajax='+page,
+            type:'POST',
+            data: {type:'search',sbox:sbox,rowID:'-1'},
+            success: function (data, textStatus, jqXHR) {
+                if(data.trim() !== 'error'){
+                    $('#ajaxContent').html(data);
+                }
+                else{
+                    showError('Произошла ошибка');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
     });
     //Удаление товара
-    $('body').on('click','.delFoto',function (){
-        e = this;
-        $(e).parent().remove();
-    });
-    
-    //Удаление статьи
     $('body').on('click','.del',function (e){
         e.preventDefault();
+        var sbox = $('.sbox').val();
         var className = $(this).prop('class');
         var rowID = className.split(' ')[2];
         if(confirm('Подтвердить удаление?')){
         $.ajax({
             url:'./?ajax='+page,
             type:'POST',
-            data: {type:'del',rowID:rowID},
+            data: {type:'del',rowID:rowID,sbox:sbox},
             success: function (data, textStatus, jqXHR) {
                 if(data.trim() !== 'error'){
                     $('#ajaxContent').html(data);
@@ -53,7 +47,7 @@ $(function(){
         }
     });
     
-    //Видимость сайта
+    //Видимость товара
     $('body').on('click','.visible',function (e){
         e.preventDefault();
         var btn = $(this).children();
@@ -97,12 +91,21 @@ $(function(){
         var rowId = $('.rowId').val();
         var iWidth;
         var iHeight;
+        var iName;
         switch (cName){
             case 'f1':
+                iName = cName;
                 iWidth = 1000;
                 iHeight = 600;
                 break;
             case 'f2':
+                iName = cName;
+                iWidth = 700;
+                iHeight = 467;
+                break;
+            case 'gallery':
+                iName = $('#gLastIndex').val();
+                rowId = rowId+"/gallery";
                 iWidth = 700;
                 iHeight = 467;
                 break;
@@ -114,15 +117,25 @@ $(function(){
             var files = FileAPI.getFiles(evt);
             var xhr = FileAPI.upload({
                 url: './?ajax=ImgUpload',
-                data:{dir:iconDir,rowId:rowId,image_name:cName,width:iWidth,height:iHeight},
+                data:{dir:iconDir,rowId:rowId,image_name:iName,width:iWidth,height:iHeight},
                 files: { photos: files[0] },
                 filecomplete: function (err, xhr){
                     $(".loadstatus."+cName).hide();
+                    $(el).val('');
                     if( !err ){
                         var str = xhr.responseText;
                         result = JSON.parse(str);
                         if(!result['error']){
-                            $('.previewImg.'+cName).attr("src",result['data']);
+                            switch (cName){
+                                case 'gallery':
+                                    $('.sortable').append("<li class='ui-state-default'><img class='gImg' src='"+result['data']+"' width='160' height='120' border='0'><span class='delFoto'><i class='fa fa-times'></i></span></li>");
+                                    iName++;
+                                    $('#gLastIndex').val(iName);
+                                break;
+                                default:
+                                    $('.previewImg.'+cName).attr("src",result['data']);
+                                break;
+                            }
                         }
                         else{
                             alert(result['error']);
@@ -178,6 +191,39 @@ $(function(){
         }
     });
     
+    //Удаление фотографии из галереи
+    $('body').on('click','.delFoto',function (){
+        e = this;
+        var src = $(e).parent().children().attr('src');
+        if(src.indexOf('tmp') == -1){
+            src = src.substring(0,src.indexOf('?'));
+            src = src.substring(src.lastIndexOf('/')+1);
+            var toDelete = $('#galleryDelete').val();
+            toDelete+=src+',';
+            $('#galleryDelete').val(toDelete);
+        }
+        $(e).parent().remove();
+    });
+    
+    //Отправка формы
+    $('#edit_form').submit(function (e){
+//        e.preventDefault();
+        var lastId = $('#gLastIndex').val();
+        var line = lastId;
+        var toUpload = '';
+        $('.gImg').each(function (){
+            var src = $(this).attr('src');
+            src = src.substring(3,src.indexOf('?'));
+            line+=','+src;
+            if(src.indexOf('tmp') != -1){
+                toUpload+=src+',';
+            }
+        });
+        line = line.replaceAll('/tmp','');
+        $('#galleryRow').val(line);
+        $('#galleryUpload').val(toUpload);
+    });
+    
     //Транслит имени
     $('body').on('keyup','#title', function(){
         var title = $('#title').val();
@@ -198,38 +244,4 @@ $(function(){
             }
         });
     });
-    setAutocomplete($('.productName'));
 });
-//Функция автозаполнения
-function setAutocomplete(element){
-    element.autocomplete({
-        source: "./?ajax=articles",
-        minLength: 2,
-        select: function( event, ui ) {
-            var id = ui.item.id;
-            var title = ui.item.value;
-            var articul = ui.item.articul;
-            var photo = ui.item.photo;
-            var node = "<li class='ui-state-default "+id+"'><img class='gImg' src='../"+photo+"' width='100' border='0'><span class='pTitle'>"+title+"<br><i>артикул: "+articul+"</i></span><span class='delFoto'><i class='fa fa-times'></i></span></li>";
-            $('.sortable').append(node);
-        },
-        search: function( event, ui ) {
-            $(this).attr('id','new');
-        },
-        response: function( event, ui ) {
-            console.log(ui.content);
-            var name = $(this).val();
-            for(var i=0;i<ui.content.length;i++){
-                if(ui.content[i].value.toLowerCase() == name.toLowerCase()){
-                    $(this).attr('id',ui.content[i].id);
-                }
-            }
-        },
-        close: function( event, ui ) {$('.productName').val('');}
-    })
-    .autocomplete( "instance" )._renderItem = function( ul, item ) {
-      return $( "<li><img src='../"+item.photo+"' width='100' border='0'>" )
-        .append( "<a style='float:right'>" + item.value + "<br><i>артикул: " + item.articul + "</i></a>" )
-        .appendTo( ul );
-    };
-}

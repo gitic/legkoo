@@ -1,12 +1,11 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
-class Product {
+class Accessory {
     var $id;
     var $visible;
     var $title;
     var $translit;
-    var $quantity;
     var $date_add;
     var $date_edit;
     var $articul;
@@ -20,7 +19,7 @@ class Product {
     var $price;
     var $male;
     var $female;
-    var $elements;
+    var $el_number;
     var $size;
     var $discount;
     var $label_new;
@@ -43,7 +42,7 @@ class Product {
             $str.="$key='$value' AND ";
         }
         $selectorStr = substr_replace($str, '', strripos($str," AND "));
-        $result = $connection->query("SELECT *  FROM products WHERE ({$selectorStr}) LIMIT 1");
+        $result = $connection->query("SELECT *  FROM accessories WHERE ({$selectorStr}) LIMIT 1");
 
         $record = $result->fetch_object();$result->free();
         if(is_null($record)){return FALSE;}
@@ -68,7 +67,7 @@ class Product {
         }
         $fieldsStr = substr_replace($fields, '', strripos($fields,","));
         $valuesStr = substr_replace($values, '', strripos($values,","));
-        $query = "INSERT INTO products ($fieldsStr) VALUES ($valuesStr)";
+        $query = "INSERT INTO accessories ($fieldsStr) VALUES ($valuesStr)";
         if(!$connection->query($query)){
 //            echo $connection->error;
             return FALSE;
@@ -94,7 +93,7 @@ class Product {
             $sStr.="$key='$value' $divider ";
         }
         $selectorStr = substr_replace($sStr, '', strripos($sStr," $divider "));
-        $query = "UPDATE products SET $valuesStr WHERE $selectorStr";
+        $query = "UPDATE accessories SET $valuesStr WHERE $selectorStr";
         $result = $connection->query($query);
         if(!$result){
 //            echo $connection->error;

@@ -16,8 +16,8 @@ if (isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST") {
     $rowId = $_POST['rowId'];
     $fileDir = $_POST['dir'];
     $uploaddir = "../content/tmp/{$fileDir}/{$rowId}/";
-    if (!is_dir($dir)) {
-        mkdir($uploaddir, 0777);
+    if (!is_dir($uploaddir)) {
+        mkdir($uploaddir, 0777,true);
     }
     if(isset($_POST['width']) && isset($_POST['height'])){
         $setWidth = $_POST['width'];

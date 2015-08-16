@@ -16,7 +16,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                 <thead>
                         <tr>
                             <td>id</td>
-                            <td width="550">title</td>
+                            <td width="550">Название</td>
                             <td></td>
                             <td></td>
                         </tr>

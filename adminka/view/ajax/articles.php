@@ -1,6 +1,26 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
+$pageDir = 'articles';
+
+//Автозаполнение ингредиентов
+if(isset($_GET['term'])){
+    $term = trim(strip_tags($_GET['term']));//retrieve the search term that autocomplete sends
+
+    $sql = "SELECT title as value,id,articul,photo FROM products WHERE visible= '1' AND (title LIKE '%".$term."%' OR articul LIKE '%".$term."%')";
+    $result = $conn->query($sql);//query the database for entries containing the term
+
+    while ($row = $result->fetch_array())//loop through the retrieved values
+    {
+        $row['value']=$row['value'];
+        $row['id']=(int)$row['id'];
+        $row['articul']=(int)$row['articul'];
+        $row['photo']=$row['photo'];
+        $row_set[] = $row;//build an array
+    }
+    echo json_encode($row_set,JSON_UNESCAPED_UNICODE);//format the array into json data
+    die();
+}
 
 if(isset($_POST['type']) && isset($_POST['rowID'])){
     $type = $_POST['type'];
@@ -9,29 +29,17 @@ if(isset($_POST['type']) && isset($_POST['rowID'])){
         case 'del':
             $rowID = $_POST['rowID'];
             //Удаление дирректории сайта
-            $dir = '../'.CONTENT.'articles/'.$rowID;
+            $dir = '../'.CONTENT.$pageDir.'/'.$rowID;
             if(is_dir($dir)){
                 delDir($dir);
             }
-            $result = $conn->query("DELETE FROM articles WHERE id='{$rowID}'");
+            $result = $conn->query("DELETE FROM $pageDir WHERE id='{$rowID}'");
             $numRows = $conn->affected_rows;
             if($numRows == 0){
                 die('error');
             }
             //////// Вывод списка статей
-            $result = $conn->query('SELECT id,title,visible,views FROM articles ORDER BY id DESC');
-            while (list($id,$title,$visible,$views) = $result->fetch_array()){
-                if($visible == 1){$visClass = 'fa fa-circle';}
-                else{$visClass = 'fa fa-circle-o';}
-                echo    "<tr>"
-                        . "<td class='visible' align='center'><a class='row visible {$id}' title='Видимость'><i class='{$visClass}'></i></a></td>"
-                        . "<td>{$id}</td>"
-                        . "<td><div class='views'><i class='fa fa-eye'></i>{$views}</div><span>{$title}</span></td>"
-                        . "<td><a class='row edit {$id}' href='?view=article_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
-                        . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
-                        . "</tr>";
-            }
-            $result->free();
+            print_articles($conn);
             ////////
             die();
             break;
@@ -43,7 +51,7 @@ if(isset($_POST['type']) && isset($_POST['rowID'])){
             $values = array('visible'=>$setVisible);
             
             $selector = array('id'=>$rowID);
-            $success = Article::updateArticle($values, $selector, $conn);
+            $success = Article::update($values, $selector, $conn);
             if(!$success){
                 die('error');
             }
