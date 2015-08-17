@@ -43,7 +43,11 @@ defined(ACCESS_VALUE) or die('Access denied');
 </div>
 
 <div id="content">
-    <div></div>
+    <div id="main">
+        <a href="#">
+            <img src="<?=VIEW?>images/bionicle.jpg"/>
+        </a>
+    </div>
 </div>
 
 <div id="subscribe">
