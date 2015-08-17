@@ -396,7 +396,7 @@ a#madeby {
 	padding:3px 10px 3px 5px;
 }
 
-#content form div.block input.inp {
+#content form div.block input.inp,.inp {
 	border:1px solid #E5E5E5;
 	color:#000;
 	font-family: 'Open Sans', sans-serif;
@@ -662,53 +662,19 @@ input.add:hover {
     border-radius: 4px;
     padding: 5px;
 }
-.del_step{
-    position: absolute;
-    top:0;
-    right: 22px;
-    cursor: pointer;
-    display: none;
+
+.sortable { list-style-type: none; margin: 30px 0 0 0; padding: 0; width: 100%; }
+.sortable li { position: relative;margin: 3px 3px 3px 0; padding: 1px; float: left; width: 160px; height: 120px; font-size: 4em; text-align: center;}
+.sortable li .delFoto{
+    position: absolute;font-size: 16px;cursor: pointer;right: 5px
 }
-.step{
-    position: relative
+.sortable.line li { position: relative;margin: 3px 3px 3px 0; padding: 1px; float: left; width: 500px; height: auto; font-size: 4em; text-align: center;}
+.sortable.line li img{float: left}
+.sortable.line li .pTitle{float: left;font-size: 14px;margin-left: 5px}
+.sortable.line li .pTitle i{font-size: 12px;}
+.sortable.line li .delFoto{
+    position: absolute;font-size: 14px;cursor: pointer;right: 5px
 }
-.step p{
-    font-size: 1.5em;
-    margin-left: 152px;
-}
-.step textarea{
-    width:494px;
-    height:100px;
-}
-.step .fileUpload{
-    position:absolute;
-    margin-left:10px;
-}
-.step .urlBlock{
-    position: absolute;
-    margin: 30px 0 0 10px;
-}
-.step .loadstatus{
-    display:none;
-    position: absolute;
-    margin: 80px 0 0 5px;
-}
-#addStep{
-    background: #ff9000;
-    color: #fff;
-    width: 130px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 265px;
-}
-#addStep:hover{
-    background: #FFC171;
-}
-#sortable { list-style-type: none; margin: 0; padding: 0; }
-#sortable li {cursor:move;margin-bottom: 50px;}
 
 #ing_preview{
     margin-left:153px;

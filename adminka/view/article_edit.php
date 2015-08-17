@@ -16,13 +16,14 @@ else{
 if(isset($_POST['submit'])){
     if(isset($_POST['visible'])){$visible = 1;}else{$visible = 0;}
     if(isset($_POST['top'])){$top = 1;}else{$top = 0;}
-    $title = mb_ucfirst($_POST['title']);
-    $translit = $_POST['translit'];
-    $user_id = $_POST['user_id'];
-    $site_id = $_POST['site_id'];
-    $category = $_POST['category'];
-    $preview = $_POST['preview'];
+    $title = mb_ucfirst(clear($conn, htmlentities($_POST['title'],ENT_QUOTES)));
+    $translit = clear($conn, htmlentities($_POST['translit'],ENT_QUOTES));
+    $category = clear($conn, htmlentities($_POST['category'],ENT_QUOTES));
+    $preview = clear($conn, htmlentities($_POST['preview'],ENT_QUOTES));
     $text = $_POST['text'];
+    $products = clear($conn, htmlentities($_POST['products'],ENT_QUOTES));
+    $seo_description = clear($conn, htmlentities($_POST['seo_description'],ENT_QUOTES));
+    $seo_keywords = clear($conn, htmlentities($_POST['seo_keywords'],ENT_QUOTES));
     
     //Сохраняем внешние изображения
     $html = $text;
@@ -37,23 +38,25 @@ if(isset($_POST['submit'])){
         }
 
         for ($i = 0; $i < count($urls); $i++){
-            $iName = substr(strrchr($urls[$i],'/'), 1);
-            $file_ext = strrchr($iName, '.');
-            $iName = $i.$file_ext;
-            if(!is_file('../'.$dir.'image/'.$iName)){
-                $image = new SimpleImage();
-                $succes = $image->load($urls[$i]);
-                if($succes){
-                    if($image->getWidth() > 1000){
-                        $image->resizeToWidth(1000);
+            if(strpos($urls[$i], PATH)=== false){
+                $iName = substr(strrchr($urls[$i],'/'), 1);
+                $file_ext = strrchr($iName, '.');
+                $iName = $i.$file_ext;
+                if(!is_file('../'.$dir.'image/'.$iName)){
+                    $image = new SimpleImage();
+                    $succes = $image->load($urls[$i]);
+                    if($succes){
+                        if($image->getWidth() > 1000){
+                            $image->resizeToWidth(1000);
+                        }
+                        else if($image->getHeight() > 1000){
+                            $image->resizeToHeight(1000);
+                        }
+                        $image->save('../'.$dir.'image/'.$iName);
                     }
-                    else if($image->getHeight() > 1000){
-                        $image->resizeToHeight(1000);
-                    }
-                    $image->save('../'.$dir.'image/'.$iName);
+                    $replace = PATH.'/'.$dir.'image/'.$iName;
+                    $text = str_replace($urls[$i], $replace, $text);
                 }
-                $replace = PATH.'/'.$dir.'image/'.$iName;
-                $text = str_replace($urls[$i], $replace, $text);
             }
         }
     }
@@ -63,11 +66,12 @@ if(isset($_POST['submit'])){
         'top'=>$top,
         'title'=>$title,
         'translit'=>$translit,
-        'user_id'=>$user_id,
-        'site_id'=>$site_id,
         'preview'=>$preview,
         'category'=>$category,
-        'text'=>$text 
+        'text'=>$text,
+        'products'=>$products,
+        'seo_description'=>$seo_description,
+        'seo_keywords'=>$seo_keywords
     );
 //    print_arr($values);
     $success = Article::update($values, array('id'=>$rowId), $conn);
@@ -78,23 +82,18 @@ if(isset($_POST['submit'])){
         //Обновление иконки
         if(is_dir($tmpImgDir)){
             $dir = "content/$pageDir/$rowId";
-            $img = $tmpImgDir.'picture.jpg';
+            if(!is_dir('../'.$dir)){
+                mkdir('../'.$dir, 0777);
+            }
+            $img = $tmpImgDir.'f1.jpg';
             $image = new SimpleImage();
             $succes = $image->load($img);
-            if($succes){
-                if(!is_dir('../'.$dir)){
-                    mkdir('../'.$dir, 0777);
-                }
-                $image->save('../'.$dir.'/main_b.jpg');
-                $image->cutToSize(300,300);
-                $image->save('../'.$dir.'/main_s.jpg');
-                $pictures = array('picture_b'=>$dir.'/main_b.jpg','picture_s'=>$dir.'/main_s.jpg');
-                Article::updateArticle($pictures, array('id'=>$rowId), $conn);
-//                echo 'Иконка изменена<br>';
-            }
-            else{
-//                echo 'Ошибка загрузки<br>';
-            }
+            $image->save('../'.$dir.'/photo.jpg');
+            $img = $tmpImgDir.'f2.jpg';
+            $succes = $image->load($img);
+            $image->save('../'.$dir.'/action_photo.jpg');
+            $pictures = array('photo'=>$dir.'/photo.jpg','action_photo'=>$dir.'/action_photo.jpg');
+            Article::update($pictures, array('id'=>$rowId), $conn);
             delDir($tmpImgDir);
         }
         echo '<script type="text/javascript">window.location = "?view='.$pageDir.'"</script>';
@@ -118,7 +117,7 @@ $article->getFomDb(array('id'=>$rowId), $conn);
 
 $_SESSION['KCFINDER'] = array(
     'disabled' => false,
-    'uploadURL' => "../../content/articles/$article->id",
+    'uploadURL' => "../../content/$pageDir/$article->id",
     'uploadDir' => ""
 );
 ?>
@@ -162,12 +161,24 @@ $_SESSION['KCFINDER'] = array(
         Редактирование статьи
 </h1>
 <div id="content">
-        <form name="edit_form" action="" method="post" enctype="multipart/form-data">
+        <form id='edit_form' name="edit_form" action="" method="post" enctype="multipart/form-data">
             <input type="text" hidden name="rowId" class="rowId" value="<?=$article->id?>"/>
+            <div class="block">
+                <label>SEO description</label>
+                <input class="inp" id="seo_description" name="seo_description" style="width:494px" value="<?=$article->seo_description?>" placeholder="" />
+            </div>
+            <div class="block">
+                <label>SEO keywords</label>
+                <input class="inp" id="seo_keywords" name="seo_keywords" style="width:494px" value="<?=$article->seo_keywords?>" placeholder="" />
+            </div>
             <div class="block">
                 <label>Фото</label>
                 <div class='uploader f1'>
-                        <img class='previewImg f1' src='' width='150' height='100' border='0'>
+                        <?php 
+                            $link = '';
+                            if($article->photo != ''){$link='../'.$article->photo;}
+                        ?>
+                        <img class='previewImg f1' src='<?=$link?>' width='150' height='100' border='0'>
                         
                         <div class="block">
                             <input class='fileUpload f1' type='file' name='photos' />
@@ -179,8 +190,12 @@ $_SESSION['KCFINDER'] = array(
             </div>
             <div class="block">
                 <label>Фото для акции</label>
-                <div class='uploader f1'>
-                        <img class='previewImg f2' src='' width='150' height='100' border='0'>
+                <div class='uploader f2'>
+                        <?php 
+                            $link = '';
+                            if($article->action_photo != ''){$link='../'.$article->action_photo;}
+                        ?>
+                        <img class='previewImg f2' src='<?=$link?>' width='150' height='100' border='0'>
                         
                         <div class="block">
                             <input class='fileUpload f2' type='file' name='photos' />
@@ -226,8 +241,8 @@ $_SESSION['KCFINDER'] = array(
             <div class="block">
                 <label>Категория</label>
                 <select class="inp category" name="category" style="width:200px;">
-                    <option value='0'>Статья</option>
-                    <option value='1'>Новость</option>
+                    <option value='0'>Новость</option>
+                    <option value='1'>Акция</option>
                 </select>
             </div>
             
@@ -238,7 +253,29 @@ $_SESSION['KCFINDER'] = array(
             
             <div class="block">
                     <label class="left">Текст статьи</label>
-                    <textarea class="inp editor" name="text" style="width:494px" rows="8"><?=$article->text?></textarea> 
+                    <textarea class="inp editor" name="text" style="width:494px;" rows="8"><?=$article->text?></textarea> 
+                <div class="clear"></div>
+            </div>
+            
+            <div class="block">
+                    <label class="left">Прикрепить товары</label>
+                    <input hidden type='hidden' class="inp" id="products" name="products" value=""/>
+                    <input style="width:400px;" type="text" value="" placeholder="Артикул или название товара" class="inp productName"/>
+                    <!--<div class="add_tag ing"><i class="fa fa-plus-square"></i></div>-->
+                    <script>
+                $(function() {
+                  $( ".sortable" ).sortable();
+                  $( ".sortable" ).disableSelection();
+                });
+            </script>
+            <ul class="sortable line">
+                <?php
+                    $result = $conn->query("SELECT * FROM products WHERE id IN ({$article->products}) ORDER BY FIND_IN_SET(id, '{$article->products}')");
+                    while ($record = $result->fetch_object()):
+                ?>
+                <li class='ui-state-default <?=$record->id?>'><img class='gImg' src='../<?=$record->photo?>' width='100' border='0'><span class='pTitle'><?=$record->title?><br><i>артикул: <?=$record->articul?></i></span><span class='delFoto'><i class='fa fa-times'></i></span></li>
+                <?php endwhile;?>
+            </ul>
                 <div class="clear"></div>
             </div>
 

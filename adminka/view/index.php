@@ -16,13 +16,7 @@ if(!isset($_SESSION['admin'])){
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php require_once 'blocks_site/head.php';?>
-        <script src="../lib/jquery-1.11.2.min.js"></script>
-        <script src="../lib/jquery.cookie.js"></script>
-        <script src="../lib/file_api/FileAPI.min.js"></script>
-        <script src="../lib/file_api/FileAPI.exif.js"></script>
-        <script src="../lib/file_api/jquery.fileapi.min.js"></script>
-        
+        <?php require_once 'blocks_site/head.php';?>       
     </head>
     <body>
         <div id="wrap">
