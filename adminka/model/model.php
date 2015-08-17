@@ -52,3 +52,38 @@ function print_articles($conn){
     $result->free();
     ////////
 }
+
+//Отображение списка категорий блюд
+function showCatDishesRows(array $cat_dishes,$sub=0){
+    foreach ($cat_dishes as $row) {
+        if($row['visible'] == 1){$visClass = 'fa fa-circle';}
+        else{$visClass = 'fa fa-circle-o';}
+
+        if($sub == 0){$id = $row['id'];$id_index = '';$space='';}
+        else{$id = '';$id_index = $row['id_index'];$space='&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp';}
+        $delBtn = '';
+        $visibleBtn = '';
+        $arrowBtn = '<td></td><td></td>';
+        $pos = '';
+        if(!isset($row['sub'])){
+            $delBtn = "<a class='row del {$row['id']}' href='#' title='Удалить'><i class='fa fa-times'></i></a>";
+        }
+        if($row['id_index']==0){
+            $arrowBtn = "<td style='cursor:pointer;' class='row up {$row['id']}'><i class='fa fa-chevron-up'></i><input hidden type='text' id='pos_{$row['id']}' value='{$row['position']}'/></td>";
+            $arrowBtn.= "<td style='cursor:pointer;' class='row down {$row['id']}'><i class='fa fa-chevron-down'></i></td>";
+            $pos = $row['position'];
+        }
+        $visibleBtn = "<a class='row visible {$row['id']}' title='Видимость'><i class='{$visClass}'></i></a>";
+        echo    "<tr>"      
+                . "<td align='center'>{$visibleBtn}</td>"
+                . "<td>{$id}</td>"
+                . "<td><span>{$space} {$row['title']}</span></td>"
+                . "$arrowBtn"
+                . "<td><a class='row edit {$row['id']}' href='?view=category_edit&id={$row['id']}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
+                . "<td>{$delBtn}</td>"
+                . "</tr>";
+        if(isset($row['sub'])){
+            showCatDishesRows($row['sub'],1);
+        }
+    }
+}

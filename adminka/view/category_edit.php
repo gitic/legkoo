@@ -2,9 +2,9 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 
-$pageDir = 'articles';
+$pageDir = 'categories';
 if(!isset($_GET['id'])){
-    die("Статья не найдена <br> <a href='?view=$pageDir'>назад</a>");
+    die("Категория не найдена <br> <a href='?view=$pageDir'>назад</a>");
 }
 else{  
     $rowId = $_GET['id'];
@@ -15,26 +15,33 @@ else{
 //Обработка формы
 if(isset($_POST['submit'])){
     if(isset($_POST['visible'])){$visible = 1;}else{$visible = 0;}
-    if(isset($_POST['top'])){$top = 1;}else{$top = 0;}
+    $category = clear($conn, htmlentities($_POST['category'],ENT_QUOTES));
+    $cat_hidden = clear($conn, htmlentities($_POST['cat_hidden'],ENT_QUOTES));
     $title = mb_ucfirst(clear($conn, htmlentities($_POST['title'],ENT_QUOTES)));
     $translit = clear($conn, htmlentities($_POST['translit'],ENT_QUOTES));
-    $category = clear($conn, htmlentities($_POST['category'],ENT_QUOTES));
-    $preview = clear($conn, htmlentities($_POST['preview'],ENT_QUOTES));
-    $text = $_POST['text'];
-    $products = clear($conn, htmlentities($_POST['products'],ENT_QUOTES));
-    $seo_description = clear($conn, htmlentities($_POST['seo_description'],ENT_QUOTES));
-    $seo_keywords = clear($conn, htmlentities($_POST['seo_keywords'],ENT_QUOTES));
-    
+    $position = clear($conn, htmlentities($_POST['position'],ENT_QUOTES));
+    if($category != $cat_hidden){
+        switch ($category) {
+            case '0':
+                $result = $conn->query("SELECT COUNT(*) FROM categories WHERE id_index='0'");
+                $numRows = $result->fetch_row();
+                $numRows = $numRows[0] + 1;
+                $position = $numRows;
+                break;
+
+            default:
+                $position = 0;
+                break;
+        }
+    }
+    $description = $_POST['description'];
     //Сохраняем внешние изображения
-    $html = $text;
+    $html = $description;
     preg_match_all("/<[Ii][Mm][Gg][\s]{1}[^>]*[Ss][Rr][Cc][^=]*=[ '\"\s]*([^ \"'>\s#]+)[^>]*>/", $html, $matches);
     $urls = $matches[1];
     if(count($urls)>0){
-        if(!is_dir('../'.$dir)){
-            mkdir('../'.$dir, 0777);
-        }
         if(!is_dir('../'.$dir.'image')){
-            mkdir('../'.$dir.'image', 0777);
+            mkdir('../'.$dir.'image', 0777,true);
         }
 
         for ($i = 0; $i < count($urls); $i++){
@@ -55,26 +62,21 @@ if(isset($_POST['submit'])){
                         $image->save('../'.$dir.'image/'.$iName);
                     }
                     $replace = PATH.'/'.$dir.'image/'.$iName;
-                    $text = str_replace($urls[$i], $replace, $text);
+                    $description = str_replace($urls[$i], $replace, $description);
                 }
             }
         }
     }
     //Сохраняем внешние изображения//
     $values = array(
+        'id_index'=>$category,
         'visible'=>$visible,
-        'top'=>$top,
         'title'=>$title,
         'translit'=>$translit,
-        'preview'=>$preview,
-        'category'=>$category,
-        'text'=>$text,
-        'products'=>$products,
-        'seo_description'=>$seo_description,
-        'seo_keywords'=>$seo_keywords
+        'description'=>$description,
+        'position'=>$position
     );
-//    print_arr($values);
-    $success = Article::update($values, array('id'=>$rowId), $conn);
+    $success = Category::update($values, array('id'=>$rowId), $conn);
     if(!$success){
         die("Ошибка при обновлении <br> <a href='?view={$pageDir}'>назад</a>");
     }
@@ -85,8 +87,8 @@ if(isset($_POST['submit'])){
             if(!is_dir('../'.$dir)){
                 mkdir('../'.$dir, 0777,true);
             }
-            $img1 = $dir.'/photo.jpg';;
-            $img2 = $dir.'/action_photo.jpg';;
+            $img1 = $dir.'/logo.jpg';;
+            $img2 = $dir.'/photo.jpg';;
             $image = new SimpleImage();
             
             if(file_exists($tmpImgDir.'f1.jpg')){        
@@ -99,36 +101,34 @@ if(isset($_POST['submit'])){
                 $image->save('../'.$img2);
             }else if(!file_exists('../'.$img2)){$img2='';}
             
-            $pictures = array('photo'=>$img1,'action_photo'=>$img2);
-            Article::update($pictures, array('id'=>$rowId), $conn);
+            $pictures = array('logo'=>$img1,'photo'=>$img2);
+            Category::update($pictures, array('id'=>$rowId), $conn);
             delDir($tmpImgDir);
         }
+        $result = $conn->query("SELECT id FROM categories WHERE id_index='0' ORDER BY position");
+        $numRows = $conn->affected_rows;
+        if($numRows != 0){
+            $i=0;
+            while ($record = $result->fetch_object()){
+                $i++;
+                $conn->query("UPDATE categories SET position='{$i}' WHERE id='{$record->id}'");
+            }
+        }
         echo '<script type="text/javascript">window.location = "?view='.$pageDir.'"</script>';
-        die();
+//        die("Обновлено <br> <a href='?view=$pageDir'>назад</a>");
     }    
 }
-else{
-    if(is_dir($tmpImgDir)){
-        delDir($tmpImgDir);
-    }
-}
-if(isset($_GET['cancel'])){
-    if(is_dir($tmpImgDir)){
-        delDir($tmpImgDir);
-    }
-    echo '<script type="text/javascript">window.location = "?view='.$pageDir.'"</script>';
-    die();
-}
-$article = new Article();
-$article->getFomDb(array('id'=>$rowId), $conn);
+
+$category = new Category();
+$category->getFomDb(array('id'=>$rowId), $conn);
 
 $_SESSION['KCFINDER'] = array(
     'disabled' => false,
-    'uploadURL' => "../../content/$pageDir/$article->id",
+    'uploadURL' => "../../content/$pageDir/$category->id",
     'uploadDir' => ""
 );
 ?>
-<script src="<?=VIEW?>js/articlesJs.js"></script>
+<script src="<?=VIEW?>js/categoriesJs.js"></script>
 <script src="../lib/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
     tinymce.init({
@@ -163,27 +163,18 @@ $_SESSION['KCFINDER'] = array(
         }
     });
 </script>
-
 <h1>
-        Редактирование статьи
+        Редактирование категории
 </h1>
 <div id="content">
-        <form id='edit_form' name="edit_form" action="" method="post" enctype="multipart/form-data">
-            <input type="text" hidden name="rowId" class="rowId" value="<?=$article->id?>"/>
+        <form name="edit_form" action="" method="post" enctype="multipart/form-data">
+            <input type="text" hidden name="rowId" class="rowId" value="<?=$category->id?>"/>
             <div class="block">
-                <label>SEO description</label>
-                <input class="inp" id="seo_description" name="seo_description" style="width:494px" value="<?=$article->seo_description?>" placeholder="" />
-            </div>
-            <div class="block">
-                <label>SEO keywords</label>
-                <input class="inp" id="seo_keywords" name="seo_keywords" style="width:494px" value="<?=$article->seo_keywords?>" placeholder="" />
-            </div>
-            <div class="block">
-                <label>Фото</label>
+                <label>Логотип</label>
                 <div class='uploader f1'>
                         <?php 
                             $link = '';
-                            if($article->photo != ''){$link='../'.$article->photo;}
+                            if($category->logo != ''){$link='../'.$category->logo;}
                         ?>
                         <img class='previewImg f1' src='<?=$link?>' width='150' height='100' border='0'>
                         
@@ -196,11 +187,11 @@ $_SESSION['KCFINDER'] = array(
                 </div>
             </div>
             <div class="block">
-                <label>Фото для акции</label>
+                <label>Фото</label>
                 <div class='uploader f2'>
                         <?php 
                             $link = '';
-                            if($article->action_photo != ''){$link='../'.$article->action_photo;}
+                            if($category->photo != ''){$link='../'.$category->photo;}
                         ?>
                         <img class='previewImg f2' src='<?=$link?>' width='150' height='100' border='0'>
                         
@@ -215,7 +206,7 @@ $_SESSION['KCFINDER'] = array(
             <div class="block">
                 <label for="visible">Видимость</label>
                     <?php
-                        if($article->visible == 1){
+                        if($category->visible == 1){
                             echo '<input id="visible" name="visible" checked="checked" type="checkbox" />';
                         }
                         else{
@@ -225,73 +216,52 @@ $_SESSION['KCFINDER'] = array(
 
             </div>
             <div class="block">
-                    <label for="top">Топ</label>
-                    <?php
-                        if($article->top == 1){
-                            echo '<input id="top" name="top" checked="checked" type="checkbox"/>';
-                        }
-                        else{
-                            echo '<input id="top" name="top" type="checkbox"/>';
-                        }
-                    ?>
+                <label>Ингредиент</label>
+                <input class="inp" id="title" name="title" style="width:494px" value="<?=$category->title?>" placeholder="Название ингредиента" required />
             </div>
-            <div class="block">
-                <label>Статья</label>
-                <input class="inp" id="title" name="title" style="width:494px" value="<?=$article->title?>" placeholder="Название статьи" required />
-            </div>
-            
             <div class="block">
                 <label>Транслит</label>
-                <input class="inp" id="translit" name="translit" style="width:494px" value="<?=$article->translit?>" placeholder="Название статьи" required />
+                <input class="inp" id="translit" name="translit" style="width:494px" value="<?=$category->translit?>" placeholder="Название ингредиента" required />
             </div>
-            
+            <?php
+                $attr = '';
+                $conn->query("SELECT id FROM categories WHERE id_index='{$category->id}'");               
+                if($conn->affected_rows > 0){$attr = 'disabled';}
+            ?>
             <div class="block">
                 <label>Категория</label>
-                <select class="inp category" name="category" style="width:200px;">
-                    <option value='0'>Новость</option>
-                    <option value='1'>Акция</option>
+                <input id='cat_hidden' hidden name='cat_hidden' value="<?=$category->id_index?>" />
+                <input id='position' hidden name='position' value="<?=$category->position?>" />
+                <select class="inp category" name="category" style="width:150px;">
+                    <option value='0'>Основная категория</option>
+                    <?php
+                        $conn->query("SELECT id FROM categories WHERE id_index='{$category->id}'");
+                        if($conn->affected_rows == 0){
+                            $result = $conn->query("SELECT id,title FROM $pageDir WHERE id_index='0' AND id!='{$category->id}'");
+                            while (list($id, $title) = $result->fetch_array()){
+                                echo " <option value='{$id}'>{$title}</option>";
+                            }
+                        }                     
+                    ?>
                 </select>
+                <script>
+                    $(function() {
+                        $(".inp.category").val('<?=$category->id_index?>');
+                    });
+                </script>
             </div>
             
             <div class="block">
-                    <label class="left">Краткое описание</label>
-                    <textarea class="inp" name="preview" style="width:494px" rows="8"><?=$article->preview?></textarea> 
-            </div>
-            
-            <div class="block">
-                    <label class="left">Текст статьи</label>
-                    <textarea class="inp editor" name="text" style="width:494px;" rows="8"><?=$article->text?></textarea> 
+                    <label class="left">Описание категории</label>
+                    <textarea class="inp editor" name="description" style="width:494px;" rows="8"><?=$category->description?></textarea> 
                 <div class="clear"></div>
             </div>
-            
-            <div class="block">
-                    <label class="left">Прикрепить товары</label>
-                    <input hidden type='hidden' class="inp" id="products" name="products" value=""/>
-                    <input style="width:400px;" type="text" value="" placeholder="Артикул или название товара" class="inp productName"/>
-                    <!--<div class="add_tag ing"><i class="fa fa-plus-square"></i></div>-->
-                    <script>
-                $(function() {
-                  $( ".sortable" ).sortable();
-                  $( ".sortable" ).disableSelection();
-                });
-            </script>
-            <ul class="sortable line">
-                <?php
-                if($article->products != ''):
-                    $result = $conn->query("SELECT * FROM products WHERE id IN ({$article->products}) ORDER BY FIND_IN_SET(id, '{$article->products}')");
-                    while ($record = $result->fetch_object()):
-                ?>
-                <li class='ui-state-default <?=$record->id?>'><img class='gImg' src='../<?=$record->photo?>' width='100' border='0'><span class='pTitle'><?=$record->title?><br><i>артикул: <?=$record->articul?></i></span><span class='delFoto'><i class='fa fa-times'></i></span></li>
-                <?php endwhile;
-                endif;?>
-            </ul>
-                <div class="clear"></div>
-            </div>
-
+        
             <div id="bottom-btn">
                 <input name="id" type="hidden" value="">
                 <input name="submit" type="submit" value="сохранить" />
-                <a href="?view=article_edit&id=<?=$article->id?>&cancel=1" class="cancel">отмена</a>
+                <a href="?view=<?=$pageDir?>" class="cancel">отмена</a>
+                <a style='display:none;' href="" title="Удалить" class="del"><i class="fa fa-times"></i></a>
             </div>
             
         </form>
