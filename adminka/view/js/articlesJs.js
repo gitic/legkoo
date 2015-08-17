@@ -228,7 +228,9 @@ function setAutocomplete(element){
         close: function( event, ui ) {$('.productName').val('');}
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
-      return $( "<li><img src='../"+item.photo+"' width='100' border='0'>" )
+        var photo = '';
+        if(item.photo != ''){photo = '../'+item.photo;}
+      return $( "<li><img src='"+photo+"' width='100' border='0'>" )
         .append( "<a style='float:right'>" + item.value + "<br><i>артикул: " + item.articul + "</i></a>" )
         .appendTo( ul );
     };
