@@ -90,7 +90,7 @@ a#logo img {
 }
 
 #searchField input.btn {
-    background-color:#FED102;
+    background-color:#EEE405;
     border:none;
     color:#fff;
     cursor:pointer;
@@ -109,7 +109,7 @@ a#logo img {
 }
 
 #topMenuSecond {
-    background-color:#0B5EAD;
+    background-color:#499CD0;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     position:relative;
 }
@@ -148,19 +148,22 @@ nav ul li a:hover {
 }
 
 nav ul li a span {
-    border-right:1px dashed #3d92e3;
+    border-right:1px dashed #78CDE4;
     display:block;
     padding:0 15px;
 }
 
 a#basketSmall {
-    color:rgba(255,255,255,0.9);
+    color:rgba(255,255,255,1);
     float:right;
-    font-size:19px;
+    font-size:16px;
     font-weight:300;
-    background-color:#3d92e3;
-    padding:15px;
+    padding:16px 10px 15px 10px;
     text-decoration:none;
+}
+
+a#basketSmall i {
+    color:rgba(255,255,255,0.7);
 }
 
 #breadcrumbs {
@@ -181,13 +184,64 @@ a#basketSmall {
     text-decoration:none;
 }
 
+#slider {
+    margin:30px 0 0 0;
+}
+
+#slider img {
+    width:100%;
+}
+
 #content {
     min-height:500px;
     width:100%;
 }
 
+#main {
+    margin:0 auto;
+    max-width:1000px;
+    padding:0 10px;
+}
+
+#catPreview {
+    padding:30px 0;
+    text-align:center;
+}
+
+h3 {
+    color:#666;
+    font-size:30px;
+    font-weight:500;
+    text-align:left;
+    margin:30px 0 0 0;
+}
+
+a.catPreviewBlock {
+    border-radius:5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display:inline-block;
+    height:294px;
+    margin:0 10px 23px 10px;
+    width:220px;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+a.catPreviewBlock:hover {
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+a.catPreviewBlock img {
+    border-radius:5px;
+    height:294px;
+    width:220px;
+}
+
 #subscribe {
-    background-color:#0B5EAD;
+    background-color:#499CD0;
     width:100%;
 }
 
@@ -197,9 +251,25 @@ a#basketSmall {
     padding:10px;
 }
 
+.social {
+    float:right;
+}
+
+.social a {
+    color:#fff;
+    font-size:20px;
+    margin:0 5px;
+}
+
 #footer {
     background-color:#F5F5F5;
     width:100%;
+}
+
+#footerBody {
+    margin:0 auto;
+    max-width:1000px;
+    padding:0 10px;
 }
 
 #copyright {
