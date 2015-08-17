@@ -181,6 +181,22 @@ a#basketSmall {
     text-decoration:none;
 }
 
+#content {
+    min-height:500px;
+    width:100%;
+}
+
+#subscribe {
+    background-color:#0B5EAD;
+    width:100%;
+}
+
+#subscribeBody {
+    margin:0 auto;
+    max-width:1000px;
+    padding:10px;
+}
+
 #footer {
     background-color:#F5F5F5;
     width:100%;
@@ -188,5 +204,5 @@ a#basketSmall {
 
 #copyright {
     background-color:#F5F5F5;
-    border-top:1px solid #aaa;
+    border-top:1px solid #eee;
 }

@@ -42,6 +42,16 @@ defined(ACCESS_VALUE) or die('Access denied');
     </div>
 </div>
 
+<div id="content">
+    <div></div>
+</div>
+
+<div id="subscribe">
+    <div id="subscribeBody">
+        dsdf
+    </div>
+</div>
+
 <div id="footer">
     fsdf
 </div>
