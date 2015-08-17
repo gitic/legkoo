@@ -116,7 +116,7 @@ $(function(){
             $(".loadstatus."+cName).css({'display':'inline'});
             var files = FileAPI.getFiles(evt);
             var xhr = FileAPI.upload({
-                url: './?ajax=ImgUpload',
+                url: './?ajax=imgUpload',
                 data:{dir:iconDir,rowId:rowId,image_name:iName,width:iWidth,height:iHeight},
                 files: { photos: files[0] },
                 filecomplete: function (err, xhr){

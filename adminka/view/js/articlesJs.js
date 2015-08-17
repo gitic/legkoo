@@ -113,7 +113,7 @@ $(function(){
             $(".loadstatus."+cName).css({'display':'inline'});
             var files = FileAPI.getFiles(evt);
             var xhr = FileAPI.upload({
-                url: './?ajax=ImgUpload',
+                url: './?ajax=imgUpload',
                 data:{dir:iconDir,rowId:rowId,image_name:cName,width:iWidth,height:iHeight},
                 files: { photos: files[0] },
                 filecomplete: function (err, xhr){
@@ -204,7 +204,7 @@ $(function(){
 function setAutocomplete(element){
     element.autocomplete({
         source: "./?ajax=articles",
-        minLength: 2,
+        minLength: 1,
         select: function( event, ui ) {
             var id = ui.item.id;
             var title = ui.item.value;

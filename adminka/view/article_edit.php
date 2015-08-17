@@ -270,11 +270,13 @@ $_SESSION['KCFINDER'] = array(
             </script>
             <ul class="sortable line">
                 <?php
+                if($article->products != ''):
                     $result = $conn->query("SELECT * FROM products WHERE id IN ({$article->products}) ORDER BY FIND_IN_SET(id, '{$article->products}')");
                     while ($record = $result->fetch_object()):
                 ?>
                 <li class='ui-state-default <?=$record->id?>'><img class='gImg' src='../<?=$record->photo?>' width='100' border='0'><span class='pTitle'><?=$record->title?><br><i>артикул: <?=$record->articul?></i></span><span class='delFoto'><i class='fa fa-times'></i></span></li>
-                <?php endwhile;?>
+                <?php endwhile;
+                endif;?>
             </ul>
                 <div class="clear"></div>
             </div>
