@@ -41,3 +41,11 @@ defined(ACCESS_VALUE) or die('Access denied');
         <a href="#">главная</a> / каталог
     </div>
 </div>
+
+<div id="footer">
+    fsdf
+</div>
+
+<div id="copyright">
+    ds
+</div>

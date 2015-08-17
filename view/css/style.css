@@ -61,7 +61,7 @@ a#logo {
     display:block;
     height:60px;
     overflow:hidden;
-    margin:10px 0;
+    padding:10px 0;
     width:60px;
 }
 
@@ -74,7 +74,7 @@ a#logo img {
     border:1px solid #f3f3f3;
     border-radius:3px;
     float:right;
-    margin:10px 0 0 0;
+    margin:20px 0 0 0;
     width:400px;
 }
 
@@ -111,6 +111,7 @@ a#logo img {
 #topMenuSecond {
     background-color:#0B5EAD;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    position:relative;
 }
 
 #topMenuSecondBody {
@@ -181,5 +182,11 @@ a#basketSmall {
 }
 
 #footer {
+    background-color:#F5F5F5;
     width:100%;
+}
+
+#copyright {
+    background-color:#F5F5F5;
+    border-top:1px solid #aaa;
 }
