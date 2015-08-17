@@ -1,4 +1,8 @@
 AddDefaultCharset UTF-8
+php_value upload_max_filesize 256M
+php_value post_max_size 256M
+php_value max_execution_time 1600
+php_value max_input_time 1600
 DirectoryIndex index.php
 php_flag display_errors on
 
