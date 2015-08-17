@@ -36,3 +36,8 @@ defined(ACCESS_VALUE) or die('Access denied');
         </div>
     </div>
 </div>
+<div id="breadcrumbs">
+    <div id="breadcrumbsBody">
+        <a href="#">главная</a> / каталог
+    </div>
+</div>

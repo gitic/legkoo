@@ -161,3 +161,25 @@ a#basketSmall {
     padding:15px;
     text-decoration:none;
 }
+
+#breadcrumbs {
+    background-color:#F5F5F5;
+}
+
+#breadcrumbsBody {
+    color:#999;
+    font-size:13px;
+    font-weight:300;
+    margin:0 auto;
+    max-width:1000px;
+    padding:15px 10px;
+}
+
+#breadcrumbsBody a {
+    color:#666;
+    text-decoration:none;
+}
+
+#footer {
+    width:100%;
+}
