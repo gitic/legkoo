@@ -17,7 +17,7 @@ $category->getFomDb(array('id'=>$id), $conn);
 
 <div id="content">
     <div id="main">
-        <h1>Купить конструктор LEGO® Architecture</h1>
+        <h1>Купить конструктор LEGO® <?=$category->title?></h1>
         <div class="catLogo">
             <img src="<?=$category->logo?>"/>
         </div>
