@@ -51,6 +51,12 @@ input[disabled] {
     cursor: not-allowed;
 }
 
+h1 {
+    font-size:30px;
+    font-weight:500;
+    margin:30px 0 0 0;
+}
+
 #topMenuFirst {
     margin:0 auto;
     max-width:1000px;
