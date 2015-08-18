@@ -365,14 +365,18 @@ a.catPreviewBlock img {
     width:48%;
 }
 
-.productGallery a {
+.productGallery span {
     display:inline-block;
     margin:0 1%;
     width:23%;
 }
 
-.productGallery a img {
+.productGallery span img {
     width:100%;
+}
+
+.productGallery span img:hover{
+    cursor: pointer;
 }
 
 .productData {
