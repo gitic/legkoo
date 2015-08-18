@@ -21,7 +21,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <a href="<?=PATH?>"><span>главная</span></a>
                     </li>
                     <li>
-                        <a href="?view=category"><span>каталог</span></a>
+                        <a href="catalog"><span>каталог</span></a>
                     </li>
                     <li>
                         <a href="#"><span>новости и акции</span></a>
