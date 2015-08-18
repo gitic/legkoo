@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
     if(isset($_POST['visible'])){$visible = 1;}else{$visible = 0;}
     $category = clear($conn, htmlentities($_POST['category'],ENT_QUOTES));
     $cat_hidden = clear($conn, htmlentities($_POST['cat_hidden'],ENT_QUOTES));
-    $title = mb_ucfirst(clear($conn, htmlentities($_POST['title'],ENT_QUOTES)));
+    $title = clear($conn, htmlentities($_POST['title'],ENT_QUOTES));
     $translit = clear($conn, htmlentities($_POST['translit'],ENT_QUOTES));
     $position = clear($conn, htmlentities($_POST['position'],ENT_QUOTES));
     if($category != $cat_hidden){

@@ -8,7 +8,7 @@ if(isset($_POST['submit'])){
     $numRows = $numRows[0] + 1;
     $title = $_POST['name'];
     $newCategory = new Category();
-    $newCategory->title = mb_ucfirst($title);
+    $newCategory->title = $title;
     $newCategory->visible = 1;
     $newCategory->translit = mb_strtolower(translitIt($title));
     $newCategory->position = $numRows;

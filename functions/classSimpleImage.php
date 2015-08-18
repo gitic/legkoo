@@ -56,10 +56,13 @@ class SimpleImage {
    }
    function output($image_type=IMAGETYPE_JPEG) {
       if( $image_type == IMAGETYPE_JPEG ) {
+         header("Content-type: image/jpeg");
          imagejpeg($this->image);
       } elseif( $image_type == IMAGETYPE_GIF ) {
+         header("Content-type: image/gif");
          imagegif($this->image);
       } elseif( $image_type == IMAGETYPE_PNG ) {
+         header("Content-type: image/png");
          imagepng($this->image);
       }
    }
