@@ -240,6 +240,63 @@ a.catPreviewBlock img {
     width:220px;
 }
 
+#newProduct {
+    padding:30px 0;
+    text-align:center;
+}
+
+.productPreview {
+    border:1px solid #f5f5f5;
+    border-radius:2px;
+    display:inline-block;
+    margin:0 5px 20px 5px;
+    padding:10px;
+    width:280px;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    vertical-align:top;
+}
+
+.productPreview:hover {
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+}
+
+.productPreview img.big {
+    width:80%;
+}
+
+.previewTitle {
+    color:#aaa;
+    font-size:13px;
+    font-weight:300;
+    height:110px;
+    padding:10px;
+    text-align:left;
+}
+
+.previewTitle a {
+    color:#499CD0;
+    display:block;
+    font-size:19px;
+    font-weight:500;
+    margin:5px 0 10px 0;
+    text-decoration:none;
+}
+
+.previewTitle span {
+    float:right;
+}
+
+.previewPrice {
+    color:#888;
+    font-size:30px;
+    padding:0 10px;
+    text-align:right;
+}
+
 #subscribe {
     background-color:#499CD0;
     width:100%;
@@ -269,10 +326,59 @@ a.catPreviewBlock img {
 #footerBody {
     margin:0 auto;
     max-width:1000px;
-    padding:0 10px;
+    padding:15px 10px 5px 10px;
+}
+
+#footerBody h4 {
+    font-size:15px;
+    margin:0 0 10px 0;
+}
+
+#footerBody .block {
+    float:left;
+    font-size:16px;
+    padding:15px 2%;
+    width:29%;
+}
+
+#footerBody p {
+    color:#777;
+    margin:0 0 10px 0;
+}
+
+#footerBody p a {
+    color:#777;
+    text-decoration:none;
+}
+
+#footerBody p a:hover {
+    text-decoration:underline;
+}
+
+a.footLogo {
+    display:block;
+    height:60px;
+    overflow:hidden;
+    padding:0;
+    width:60px;
+}
+
+a.footLogo img {
+    height:60px;
+    width:60px;
 }
 
 #copyright {
     background-color:#F5F5F5;
     border-top:1px solid #eee;
+    color:#777;
+    font-weight:300;
+    font-size:13px;
+    padding:10px;
+    text-align:center;
+}
+
+#copyright p {
+    max-width:1000px;
+    margin:0 auto;
 }
