@@ -61,6 +61,12 @@ defined(ACCESS_VALUE) or die('Access denied');
                 <div class="previewPrice">
                     1600 грн
                 </div>
+                <div class="previewBtn">
+                    <span>
+                        в корзину
+                    </span>
+                </div>
+                <div class="clear"></div>
             </div>
             <div class="productPreview">
                 <a href="#">
@@ -133,11 +139,11 @@ defined(ACCESS_VALUE) or die('Access denied');
         </div>
         <div class="block">
             <h4>ИНФОРМАЦИЯ</h4>
-            <p><i class="fa fa-hand-o-right"></i> <a href="#">Оплата и доставка</a></p>
-            <p><i class="fa fa-hand-o-right"></i> <a href="#">Дисконтная программа</a></p>
-            <p><i class="fa fa-hand-o-right"></i> <a href="#">Обратная связь</a></p>
-            <p><i class="fa fa-hand-o-right"></i> <a href="#">Условия соглашения</a></p>
-            <p><i class="fa fa-hand-o-right"></i> <a href="#">Гарантия</a></p>
+            <p><i class="fa fa-angle-right"></i> <a href="#">Оплата и доставка</a></p>
+            <p><i class="fa fa-angle-right"></i> <a href="#">Дисконтная программа</a></p>
+            <p><i class="fa fa-angle-right"></i> <a href="#">Обратная связь</a></p>
+            <p><i class="fa fa-angle-right"></i> <a href="#">Условия соглашения</a></p>
+            <p><i class="fa fa-angle-right"></i> <a href="#">Гарантия</a></p>
         </div>
         <div class="block contacts">
             <h4>КОНТАКТЫ</h4>

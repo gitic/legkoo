@@ -90,7 +90,7 @@ a#logo img {
 }
 
 #searchField input.btn {
-    background-color:#EEE405;
+    background-color:#FFEB3B;
     border:none;
     color:#fff;
     cursor:pointer;
@@ -109,7 +109,7 @@ a#logo img {
 }
 
 #topMenuSecond {
-    background-color:#499CD0;
+    background-color:#0277BD;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     position:relative;
 }
@@ -134,7 +134,7 @@ nav ul li a {
     font-size:16px;
     font-weight:700;
     display:inline-block;
-    padding:17px 0 13px 0;
+    padding:17px 0 12px 0;
     text-transform:uppercase;
     -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
@@ -144,7 +144,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    border-bottom:3px solid #E30613;
+    border-bottom:3px solid #FF5722;
 }
 
 nav ul li a span {
@@ -278,7 +278,7 @@ a.catPreviewBlock img {
 }
 
 .previewTitle a {
-    color:#499CD0;
+    color:#0277BD;
     display:block;
     font-size:19px;
     font-weight:500;
@@ -292,13 +292,15 @@ a.catPreviewBlock img {
 
 .previewPrice {
     color:#888;
+    float:left;
     font-size:30px;
     padding:0 10px;
     text-align:right;
+    width:130px;
 }
 
 #subscribe {
-    background-color:#499CD0;
+    background-color:#0277BD;
     width:100%;
 }
 
