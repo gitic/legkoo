@@ -176,10 +176,10 @@ $_SESSION['KCFINDER'] = array(
                             $link = '';
                             if($category->logo != ''){$link='../'.$category->logo;}
                         ?>
-                        <img class='previewImg f1' src='<?=$link?>' width='150' height='100' border='0'>
+                        <img class='previewImg f1' src='<?=$link?>' width='500' height='150' border='0'>
                         
                         <div class="block">
-                            <input class='fileUpload f1' type='file' name='photos' />
+                            <input class='fileUpload f1' type='file' name='photos'/>
                             <input class='inp loadUrlInp f1' style="width: 300px;" name="pic1" value="" type="text" placeholder="Ссылка из интернета">
                             <button type='button' class='loadUrlBtn f1'>Загрузить</button>
                         </div>
@@ -193,7 +193,7 @@ $_SESSION['KCFINDER'] = array(
                             $link = '';
                             if($category->photo != ''){$link='../'.$category->photo;}
                         ?>
-                        <img class='previewImg f2' src='<?=$link?>' width='150' height='100' border='0'>
+                        <img class='previewImg f2' src='<?=$link?>' width='150' height='200' border='0'>
                         
                         <div class="block">
                             <input class='fileUpload f2' type='file' name='photos' />
