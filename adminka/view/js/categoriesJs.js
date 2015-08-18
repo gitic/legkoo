@@ -28,10 +28,10 @@ $(function(){
     //Видимость категории
     $('body').on('click','.visible',function (e){
         e.preventDefault();
-        var btn = $(this);
-        var className = $(this).prop('class');
+        var btn = $(this).children();
+        var className = btn.prop('class');
         var rowID = className.split(' ')[2];
-        var visClass = $(this).children().prop('class');
+        var visClass = btn.children().prop('class');
         switch (visClass){
             case 'fa fa-circle-o':
                 var setVisible = 1;

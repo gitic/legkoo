@@ -75,7 +75,7 @@ function showCatDishesRows(array $cat_dishes,$sub=0){
         }
         $visibleBtn = "<a class='row visible {$row['id']}' title='Видимость'><i class='{$visClass}'></i></a>";
         echo    "<tr>"      
-                . "<td align='center'>{$visibleBtn}</td>"
+                . "<td class='visible' align='center'>{$visibleBtn}</td>"
                 . "<td>{$id}</td>"
                 . "<td><span>{$space} {$row['title']}</span></td>"
                 . "$arrowBtn"
