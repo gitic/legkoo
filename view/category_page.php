@@ -1,7 +1,12 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
-
+if(!isset($_GET['id'])){
+    die('Страница не найдена');
+}
+$id=$_GET['id'];
+$category = new Category();
+$category->getFomDb(array('id'=>$id), $conn);
 ?>
 
 <div id="breadcrumbs">
@@ -14,28 +19,19 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="main">
         <h1>Купить конструктор LEGO® Architecture</h1>
         <div class="catLogo">
-            <img src="http://legkostroy.com.ua/image/cache/data/category/Architecture-500x150.jpg"/>
+            <img src="<?=$category->logo?>"/>
         </div>
-        <div id="catProduct">            
-            <div class="productPreview">
-                <a href="#">
-                    <img src="http://legkoo.com.ua/image/cache/data/Products/Architecture/21022_alt1-1000x1000.jpg" class="big"/>
-                </a>
-                <div class="previewTitle">
-                    <p><span>Арт. 75106</span>LEGO Star Wars</p>
-                    <div class="clear"></div>
-                    <a href="#">Имперский десантный корабль Имперский десантный корабль</a>
-                </div>
-                <div class="previewPrice">
-                    1600 <span>грн</span>
-                </div>
-                <div class="previewBtn">
-                    <span>
-                        В КОРЗИНУ
-                    </span>
-                </div>
-                <div class="clear"></div>
-            </div>
+        <div id="catProduct">
+            <?php
+                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC";
+                $result = $conn->query($sql);
+                echo $conn->error;
+                while ($record = $result->fetch_object()){
+                    $product = new Product();
+                    $product = $record;
+                    printProductCart($product);
+                }
+            ?>
         </div>
     </div>
 </div>

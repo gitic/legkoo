@@ -14,9 +14,14 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="main">
         <h1>Каталог LEGO</h1>
         <div id="catPreview">            
-            <a href="?view=category_page" class="catPreviewBlock">
-                <img src="<?=VIEW?>images/bionicle.jpg"/>
-            </a>
+            <?php
+                $result = $conn->query("SELECT * FROM categories WHERE visible='1'");
+                while ($record = $result->fetch_object()){
+                    $category = new Category();
+                    $category = $record;
+                    printCategoryCart($category);
+                }
+            ?>
         </div>
     </div>
 </div>
