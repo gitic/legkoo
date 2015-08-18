@@ -2,6 +2,12 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 
+if(!isset($_GET['id'])){
+    die('Страница не найдена');
+}
+$id=$_GET['id'];
+$product = new Product();
+$product->getFomDb(array('id'=>$id), $conn);
 ?>
 
 <div id="breadcrumbs">
@@ -13,19 +19,24 @@ defined(ACCESS_VALUE) or die('Access denied');
 <div id="content">
     <div id="product">
         <div class="productGallery">
-            <img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg" class="big"/>
-            <a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a><a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a><a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a><a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a>
+            <img src="<?=$product->photo?>" class="big"/>
+            <?php
+                $gArr = explode(',', $product->gallery);
+                for($i=1;$i<count($gArr);$i++):
+            ?>
+                <a href="#"><img src="<?=$gArr[$i]?>"/></a>
+            <?php endfor;?>
         </div>
         <div class="productData">
-            <h1>Микосвит <span>артикул: 21122</span></h1>
+            <h1><?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
             <div class="block">
-                <p>Возраст: <strong>8-12</strong></p>
-                <p>Количество деталей: <strong>8-12</strong></p>
-                <p>Размеры (Д*Ш*В): <strong>480мм x 378мм x 94мм</strong></p>
+                <p>Возраст: <strong><?=$product->age_from?>-<?=$product->age_to?></strong></p>
+                <p>Количество деталей: <strong><?=$product->elements?></strong></p>
+                <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
             </div>
             <div class="block">
                 <div class="productPrice">
-                    1600 <span>грн</span>
+                    <?=$product->price?> <span>грн</span>
                 </div>
             </div>
             <div class="block">
@@ -40,7 +51,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             </div>
             <div class="block">
                 <div class="productAbout">
-                    <p>Описание: Найди затонувший клад с помощью корабля исследователей морских глубин! На дне океана замечен затонувший корабль с грузом золотых слитков. Поднимайся на борт исследовательского судна и отправляйся на место! Эта модель LEGO® City оснащена новейшим высокотехнологичным водолазным оборудованием. Выводи подлодку с дистанционным управлением и подводный скутер и активируй систему лебедки, чтобы опустить подлодку в воду. Залезай в защитную клетку от акул и присоединяйся к другим ныряльщикам глубоко под поверхностью океана. Опасайся белой акулы, рыбы-меча и осьминога, когда будешь поднимать золотые слитки из затонувшего судна. Но будь осторожен... следи чтобы под водой на тебя не обрушились останки затонувшего корабля! В набор входят 7 минифигурок: 2 члена команды, 4 аквалангиста и глубоководный ныряльщик.</p>
+                    <?=$product->description?>
                 </div>
             </div>
         </div>
