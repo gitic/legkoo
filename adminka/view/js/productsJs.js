@@ -217,8 +217,8 @@ $(function(){
     
     //Обработка выбора вида блюда
     $('body').on('change','.category',function(){
-        var dishId = $('.category').val();
-        switch (dishId){
+        var catId = $('.category').val();
+        switch (catId){
             case '0':
                 $('.sub_category').html('');
                 $('.sub_category').css({'display':'none'});
@@ -228,7 +228,7 @@ $(function(){
                 $.ajax({
                     url:'./?ajax='+page,
                     type:'POST',
-                    data: {cat_id:dishId},
+                    data: {cat_id:catId},
                     success: function (data, textStatus, jqXHR) {
                         if(data.trim() !== 'error'){
                             $('.sub_category').html(data);
