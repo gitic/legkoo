@@ -9,7 +9,7 @@ $id=$_GET['id'];
 $product = new Product();
 $product->getFomDb(array('id'=>$id), $conn);
 ?>
-
+<script src="<?=VIEW?>js/productJs.js"></script>
 <div id="breadcrumbs">
     <div id="breadcrumbsBody">
         <a href="#">главная</a> / каталог
@@ -19,12 +19,13 @@ $product->getFomDb(array('id'=>$id), $conn);
 <div id="content">
     <div id="product">
         <div class="productGallery">
-            <img src="<?=$product->photo?>" class="big"/>
+            <?php $gArr = explode(',', $product->gallery);?>
+            <img src="<?=$gArr[1]?>" class="big"/>
             <?php
-                $gArr = explode(',', $product->gallery);
+                
                 for($i=1;$i<count($gArr);$i++):
             ?>
-                <a href="#"><img src="<?=$gArr[$i]?>"/></a>
+                <span><img src="<?=$gArr[$i]?>"/></span>
             <?php endfor;?>
         </div>
         <div class="productData">
@@ -43,15 +44,15 @@ $product->getFomDb(array('id'=>$id), $conn);
                 <div class="productBuy">
                     Количество: <div class="numbers"><input value="1" type="text" />
                         <div class="increase">
-                            <span>+</span>
-                            <span>-</span>
+                            <span class='plusBtn'>+</span>
+                            <span class='minusBtn'>-</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="block">
                 <div class="productAbout">
-                    <?=$product->description?>
+                    <p>Описание:</p> <?=$product->description?>
                 </div>
             </div>
         </div>
