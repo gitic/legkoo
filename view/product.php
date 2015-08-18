@@ -11,90 +11,39 @@ defined(ACCESS_VALUE) or die('Access denied');
 </div>
 
 <div id="content">
-    <div id="main">
-        <div id="slider">
-            <img src="<?=VIEW?>images/banner.jpg" alt=""/>
+    <div id="product">
+        <div class="productGallery">
+            <img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg" class="big"/>
+            <a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a><a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a><a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a><a href="#"><img src="http://legkoo.com.ua/image/cache/data/Products/Bionicle/70778-1-500x500.jpg"/></a>
         </div>
-        <h3>НОВИНКИ LEGO</h3>
-        <div id="newProduct">
-            <div class="productPreview">
-                <a href="#">
-                    <img src="http://legkoo.com.ua/image/cache/data/Products/Architecture/21022_alt1-1000x1000.jpg" class="big"/>
-                </a>
-                <div class="previewTitle">
-                    <p><span>Арт. 75106</span>LEGO Star Wars</p>
-                    <div class="clear"></div>
-                    <a href="#">Имперский десантный корабль Имперский десантный корабль</a>
-                </div>
-                <div class="previewPrice">
+        <div class="productData">
+            <h1>Микосвит <span>артикул: 21122</span></h1>
+            <div class="block">
+                <p>Возраст: <strong>8-12</strong></p>
+                <p>Количество деталей: <strong>8-12</strong></p>
+                <p>Размеры (Д*Ш*В): <strong>480мм x 378мм x 94мм</strong></p>
+            </div>
+            <div class="block">
+                <div class="productPrice">
                     1600 <span>грн</span>
                 </div>
-                <div class="previewBtn">
-                    <span>
-                        В КОРЗИНУ
-                    </span>
-                </div>
-                <div class="clear"></div>
             </div>
-            <div class="productPreview">
-                <a href="#">
-                    <img src="http://legkoo.com.ua/image/cache/data/Products/Architecture/21022_alt1-1000x1000.jpg" class="big"/>
-                </a>
-                <div class="previewTitle">
-                    <p><span>Арт. 75106</span>LEGO Star Wars</p>
-                    <div class="clear"></div>
-                    <a href="#">Имперский десантный корабль </a>
+            <div class="block">
+                <div class="productBuy">
+                    Количество: <div class="numbers"><input value="1" type="text" />
+                        <div class="increase">
+                            <span>+</span>
+                            <span>-</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="previewPrice">
-                    1600 <span>грн</span>
-                </div>
-                <div class="previewBtn">
-                    <span>
-                        В КОРЗИНУ
-                    </span>
-                </div>
-                <div class="clear"></div>
             </div>
-            <div class="productPreview">
-                <a href="#">
-                    <img src="http://legkoo.com.ua/image/cache/data/Products/Architecture/21022_alt1-1000x1000.jpg" class="big"/>
-                </a>
-                <div class="previewTitle">
-                    <p><span>Арт. 75106</span>LEGO Star Wars</p>
-                    <div class="clear"></div>
-                    <a href="#">Имперский</a>
+            <div class="block">
+                <div class="productAbout">
+                    <p>Описание: Найди затонувший клад с помощью корабля исследователей морских глубин! На дне океана замечен затонувший корабль с грузом золотых слитков. Поднимайся на борт исследовательского судна и отправляйся на место! Эта модель LEGO® City оснащена новейшим высокотехнологичным водолазным оборудованием. Выводи подлодку с дистанционным управлением и подводный скутер и активируй систему лебедки, чтобы опустить подлодку в воду. Залезай в защитную клетку от акул и присоединяйся к другим ныряльщикам глубоко под поверхностью океана. Опасайся белой акулы, рыбы-меча и осьминога, когда будешь поднимать золотые слитки из затонувшего судна. Но будь осторожен... следи чтобы под водой на тебя не обрушились останки затонувшего корабля! В набор входят 7 минифигурок: 2 члена команды, 4 аквалангиста и глубоководный ныряльщик.</p>
                 </div>
-                <div class="previewPrice">
-                    1600 <span>грн</span>
-                </div>
-                <div class="previewBtn">
-                    <span>
-                        В КОРЗИНУ
-                    </span>
-                </div>
-                <div class="clear"></div>
             </div>
         </div>
-        <h3>СЕРИИ LEGO</h3>
-        <div id="catPreview">            
-            <a href="#" class="catPreviewBlock">
-                <img src="<?=VIEW?>images/bionicle.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="http://legkoo.com.ua/image/cache/data/Categories/Architecture-200x267.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="http://legkoo.com.ua/image/cache/data/Categories/CLASSIC-200x267.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="http://legkoo.com.ua/image/cache/data/Categories/Disney_Princess-200x267.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="<?=VIEW?>images/bionicle.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="<?=VIEW?>images/bionicle.jpg"/>
-            </a>
-        </div>
+        <div class="clear"></div>
     </div>
 </div>
