@@ -51,6 +51,19 @@ if(isset($_POST['type']) && isset($_POST['rowID'])){
             break;
     }
 }
-else{
+else if(!isset($_POST['cat_id'])){
     die('Неверный запрос');
+}
+else{
+    //Обработка выбора вида блюда
+    $catId = $_POST['cat_id'];
+    $result = $conn->query("SELECT id,title FROM categories WHERE id_index='$catId'");
+    if($result && $conn->affected_rows > 0){
+        while (list($id, $title) = $result->fetch_array()){
+            echo " <option value='{$id}'>{$title}</option>";
+        }
+    }
+    else{
+        echo "<option value='0'>---</option>";
+    }
 }

@@ -1,43 +1,21 @@
 $(function(){
-    var page = 'products';
-    
-    //Поиск по товарам
-    $('.sbox').keyup(function (){
-        var sbox = $(this).val();
-        $.ajax({
-            url:'./?ajax='+page,
-            type:'POST',
-            data: {type:'search',sbox:sbox,rowID:'-1'},
-            success: function (data, textStatus, jqXHR) {
-                if(data.trim() !== 'error'){
-                    $('#ajaxContent').html(data);
-                }
-                else{
-                    showError('Произошла ошибка');
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                alert(textStatus+' '+errorThrown);
-            }
-        });
-    });
-    //Удаление товара
+    var page = 'categories';
+    //Удаление категории
     $('body').on('click','.del',function (e){
         e.preventDefault();
-        var sbox = $('.sbox').val();
         var className = $(this).prop('class');
         var rowID = className.split(' ')[2];
         if(confirm('Подтвердить удаление?')){
         $.ajax({
             url:'./?ajax='+page,
             type:'POST',
-            data: {type:'del',rowID:rowID,sbox:sbox},
+            data: {type:'del',rowID:rowID},
             success: function (data, textStatus, jqXHR) {
                 if(data.trim() !== 'error'){
                     $('#ajaxContent').html(data);
                 }
                 else{
-                    showError('Ошибка при удалении статьи');
+                    showError('Ошибка при удалении категории');
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -47,13 +25,13 @@ $(function(){
         }
     });
     
-    //Видимость товара
+    //Видимость категории
     $('body').on('click','.visible',function (e){
         e.preventDefault();
-        var btn = $(this).children();
-        var className = btn.prop('class');
+        var btn = $(this);
+        var className = $(this).prop('class');
         var rowID = className.split(' ')[2];
-        var visClass = btn.children().prop('class');
+        var visClass = $(this).children().prop('class');
         switch (visClass){
             case 'fa fa-circle-o':
                 var setVisible = 1;
@@ -68,10 +46,35 @@ $(function(){
             data: {type:'visible',visible:setVisible,rowID:rowID},
             success: function (data, textStatus, jqXHR) {
                 if(data.trim() !== 'error'){
-                    if(data == 0){
+                    if(data.trim() == 0){
                         $('.row.visible.'+rowID+'').children().prop('class','fa fa-circle-o');
                     }
                     else{$('.row.visible.'+rowID+'').children().prop('class','fa fa-circle');}
+                }
+                else{
+                    showError('Произошла ошибка');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
+    });
+    
+    //Изменение позиции категории
+    $('body').on('click','.up,.down', function(){
+        var className = $(this).prop('class');
+        var arr = className.split(' ');
+        var direction = arr[1];
+        var rowID = arr[2];
+        var position = $('#pos_'+rowID+'').val();
+        $.ajax({
+            url:'./?ajax='+page,
+            type:'POST',
+            data: {type:'position',rowID:rowID,direction:direction,position:position},
+            success: function (data, textStatus, jqXHR) {
+                if(data.trim() !== 'error'){
+                    $('#ajaxContent').html(data);
                 }
                 else{
                     showError('Произошла ошибка');
@@ -91,18 +94,14 @@ $(function(){
         var rowId = $('.rowId').val();
         var iWidth;
         var iHeight;
-        var iName;
         switch (cName){
             case 'f1':
-                iName = cName;
-                iWidth = 300;
-                iHeight = 300;
+                iWidth = 500;
+                iHeight = 150;
                 break;
-            case 'gallery':
-                iName = $('#gLastIndex').val();
-                rowId = rowId+"/gallery";
-                iWidth = 600;
-                iHeight = 600;
+            case 'f2':
+                iWidth = 300;
+                iHeight = 400;
                 break;
         }
 
@@ -112,25 +111,15 @@ $(function(){
             var files = FileAPI.getFiles(evt);
             var xhr = FileAPI.upload({
                 url: './?ajax=imgUpload',
-                data:{dir:iconDir,rowId:rowId,image_name:iName,width:iWidth,height:iHeight},
+                data:{dir:iconDir,rowId:rowId,image_name:cName,width:iWidth,height:iHeight},
                 files: { photos: files[0] },
                 filecomplete: function (err, xhr){
                     $(".loadstatus."+cName).hide();
-                    $(el).val('');
                     if( !err ){
                         var str = xhr.responseText;
                         result = JSON.parse(str);
                         if(!result['error']){
-                            switch (cName){
-                                case 'gallery':
-                                    $('.sortable').append("<li class='ui-state-default'><img class='gImg' src='"+result['data']+"' width='160' height='120' border='0'><span class='delFoto'><i class='fa fa-times'></i></span></li>");
-                                    iName++;
-                                    $('#gLastIndex').val(iName);
-                                break;
-                                default:
-                                    $('.previewImg.'+cName).attr("src",result['data']);
-                                break;
-                            }
+                            $('.previewImg.'+cName).attr("src",result['data']);
                         }
                         else{
                             alert(result['error']);
@@ -149,8 +138,12 @@ $(function(){
         var iHeight;
         switch (cName){
             case 'f1':
+                iWidth = 500;
+                iHeight = 150;
+                break;
+            case 'f2':
                 iWidth = 300;
-                iHeight = 300;
+                iHeight = 400;
                 break;
         }
         if((url.indexOf('http://') !== -1) || (url.indexOf('https://') !== -1)){
@@ -179,78 +172,6 @@ $(function(){
         }
         else{
             alert('Неверный формат ссылки');
-        }
-    });
-    
-    //Удаление фотографии из галереи
-    $('body').on('click','.delFoto',function (){
-        e = this;
-        var src = $(e).parent().children().attr('src');
-        if(src.indexOf('tmp') == -1){
-            src = src.substring(0,src.indexOf('?'));
-            src = src.substring(src.lastIndexOf('/')+1);
-            var toDelete = $('#galleryDelete').val();
-            toDelete+=src+',';
-            $('#galleryDelete').val(toDelete);
-        }
-        $(e).parent().remove();
-    });
-    
-    //Отправка формы
-    $('#edit_form').submit(function (e){
-//        e.preventDefault();
-        var lastId = $('#gLastIndex').val();
-        var line = lastId;
-        var toUpload = '';
-        $('.gImg').each(function (){
-            var src = $(this).attr('src');
-            src = src.substring(3,src.indexOf('?'));
-            line+=','+src;
-            if(src.indexOf('tmp') != -1){
-                toUpload+=src+',';
-            }
-        });
-        line = line.replaceAll('/tmp','');
-        $('#galleryRow').val(line);
-        $('#galleryUpload').val(toUpload);
-    });
-    
-    //Обработка выбора вида блюда
-    $('body').on('change','.category',function(){
-        var dishId = $('.category').val();
-        switch (dishId){
-            case '0':
-                $('.sub_category').html('');
-                $('.sub_category').css({'display':'none'});
-                $('#next_arrow').css({'display':'none'});
-                break;
-            default :
-                $.ajax({
-                    url:'./?ajax='+page,
-                    type:'POST',
-                    data: {cat_id:dishId},
-                    success: function (data, textStatus, jqXHR) {
-                        if(data.trim() !== 'error'){
-                            $('.sub_category').html(data);
-                            if(data.indexOf("value='0'") != -1){
-                                $('.sub_category').css({'display':'none'});
-                                $('#next_arrow').css({'display':'none'});
-                            }
-                            else{
-                                $('.sub_category').css({'display':'inline-block'});
-                                $('#next_arrow').css({'display':'inline-block'});
-                            }
-                            
-                        }
-                        else{
-                            showError('Произошла ошибка');
-                        }
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        alert(textStatus+' '+errorThrown);
-                    }
-                });
-                break;
         }
     });
     

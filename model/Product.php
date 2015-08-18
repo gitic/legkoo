@@ -6,6 +6,7 @@ class Product {
     var $visible;
     var $title;
     var $translit;
+    var $category;
     var $quantity;
     var $date_add;
     var $date_edit;

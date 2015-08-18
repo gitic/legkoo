@@ -8,9 +8,10 @@ class Category {
     var $title;
     var $translit;
     var $logo;
+    var $photo;
     var $description;
     var $promo_link;
-    var $photo;
+    var $position;
     
     function __construct() {}
     /**

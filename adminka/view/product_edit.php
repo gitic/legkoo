@@ -20,6 +20,12 @@ if(isset($_POST['submit'])){
     $seo_keywords = clear($conn, htmlentities($_POST['seo_keywords'],ENT_QUOTES));
     $title = mb_ucfirst(clear($conn, htmlentities($_POST['title'],ENT_QUOTES)));
     $translit = clear($conn, htmlentities($_POST['translit'],ENT_QUOTES));
+    if($_POST['sub_category'] != '0'){
+        $category = preg_replace('/[^0-9]+/ui', '', $_POST['sub_category']);
+    }
+    else{
+        $category = preg_replace('/[^0-9]+/ui', '', $_POST['category']);
+    }
     $articul = preg_replace('/[^0-9]+/ui', '', $_POST['articul']);
     $quantity = preg_replace('/[^0-9]+/ui', '', $_POST['quantity']);
     $video = clear($conn, htmlentities($_POST['video'],ENT_QUOTES));
@@ -84,6 +90,7 @@ if(isset($_POST['submit'])){
         'visible'=>$visible,
         'title'=>$title,
         'translit'=>$translit,
+        'category'=>$category,
         'articul'=>$articul,
         'quantity'=>$quantity,
         'video'=>$video,
@@ -275,6 +282,56 @@ $_SESSION['KCFINDER'] = array(
             <div class="block">
                 <label>Транслит</label>
                 <input class="inp" id="translit" name="translit" style="width:494px" value="<?=$product->translit?>" placeholder="Название товара" required />
+            </div>
+            
+            <?php
+                $result = $conn->query("SELECT id_index FROM categories WHERE id='$product->category'");
+                if($result && $conn->affected_rows >0){
+                    $record = $result->fetch_object();
+                    if($record->id_index == 0){
+                        $category = $product->category;
+                        $sub_category = 0;
+                        $attr = "display:none";
+                    }
+                    else{
+                        $category = $record->id_index;
+                        $sub_category = $product->category;
+                        $attr = "display:inline-block";
+                    }
+                }
+                else{
+                    $attr = "display:none";
+                }
+            ?>
+            <div class="block">
+                    <label>Категория товара</label>
+                    <select class="inp category" name="category" style="width:200px;">
+                        <option value='0'>---</option>
+                        <?php
+                            $result = $conn->query("SELECT id,title FROM categories WHERE id_index='0'");
+                            while (list($id, $title) = $result->fetch_array()){
+                                echo " <option value='{$id}'>{$title}</option>";
+                            }
+                        ?>
+                    </select>
+                    <i style="<?=$attr?>" id='next_arrow' class="fa fa-arrow-right"></i>
+                    <select class="inp sub_category" name="sub_category" style="width:200px;<?=$attr?>">
+                        <option value='0'>---</option>
+                        <?php
+                            $result = $conn->query("SELECT id,title FROM categories WHERE id_index='$category'");
+                            while (list($id, $title) = $result->fetch_array()){
+                                echo " <option value='{$id}'>{$title}</option>";
+                            }
+                        ?>
+                    </select>
+                    <?php if(isset($category) && isset($sub_category)):?>
+                        <script>
+                            $(function() {
+                                $(".inp.category").val('<?=$category?>');
+                                $(".inp.sub_category").val('<?=$sub_category?>');
+                            });
+                        </script>
+                    <?php endif;?>
             </div>
             
             <div class="block">
