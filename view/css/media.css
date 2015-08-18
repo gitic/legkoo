@@ -2,6 +2,15 @@
     nav {
         display:none;
     }
+    .productGallery {
+        margin:0;
+        padding:0 2%;
+        width:96%;
+    }
+
+    .productGallery img.big {
+        max-width:100%;
+    }
 }
 
 @media (max-width:650px) { 
