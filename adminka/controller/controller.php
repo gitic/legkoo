@@ -10,6 +10,7 @@ require_once '../functions/functions.php';
 require_once '../functions/classSimpleImage.php';
 
 //Подключение классов Объектов(модели)
+require_once '../model/Accessory.php';
 require_once '../model/Article.php';
 require_once '../model/Category.php';
 require_once '../model/Infopage.php';

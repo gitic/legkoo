@@ -10,13 +10,11 @@ require_once 'functions/functions.php';
 require_once 'functions/classSimpleImage.php';
 
 //require_once 'model/autoload.php';
-//require_once 'model/User.php';
-//require_once 'model/Ingredient.php';
-//require_once 'model/DishCategory.php';
-//require_once 'model/Site.php';
-//require_once 'model/Recipe.php';
-//require_once 'model/InfoPage.php';
-//require_once 'model/Article.php';
+require_once 'model/Accessory.php';
+require_once 'model/Article.php';
+require_once 'model/Category.php';
+require_once 'model/Infopage.php';
+require_once 'model/Product.php';;
 
 // массив метаданных
 $meta = array();
