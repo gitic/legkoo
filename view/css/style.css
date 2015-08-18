@@ -52,9 +52,17 @@ input[disabled] {
 }
 
 h1 {
-    font-size:40px;
+    color:#444;
+    font-size:30px;
     font-weight:500;
     margin:30px 0 0 0;
+}
+
+h1 span {
+    color:#999;
+    display:block;
+    font-size:16px;
+    font-weight:300;
 }
 
 #topMenuFirst {
@@ -209,6 +217,12 @@ a#basketSmall i {
     padding:0 10px;
 }
 
+#product {
+    margin:0 auto;
+    max-width:1000px;
+    padding:30px 10px;
+}
+
 #catPreview {
     padding:30px 0;
     text-align:center;
@@ -336,11 +350,129 @@ a.catPreviewBlock img {
 }
 
 .catLogo {
+    padding:15px 0;
     text-align:center;
 }
 
 .catLogo img {
     max-width:100%;
+}
+
+.productGallery {
+    float:left;
+    margin:0 2% 0 0;
+    text-align:center;
+    width:48%;
+}
+
+.productGallery a {
+    display:inline-block;
+    margin:0 1%;
+    width:23%;
+}
+
+.productGallery a img {
+    width:100%;
+}
+
+.productData {
+    float:left;
+    padding:0 0 0 2%;
+    width:48%;
+}
+
+.productData h1 {
+    border-bottom:1px dashed #eee;
+    color:#0277BD;
+    margin:0 0 15px 0;
+    padding:0 0 15px 0;
+}
+
+.productGallery img.big {
+    border:1px solid #f5f5f5;
+    padding:1%;
+    margin:0 0 10px 0;
+    width:97%;
+}
+
+.productData .block {
+    border-bottom:1px dashed #eee;
+    margin:0 0 15px 0;
+    padding:0 0 5px 0;
+}
+
+.productData p {
+    font-size:16px;
+    font-weight:300;
+    padding:0 0 10px 0;
+}
+
+.productData p strong {
+    font-weight:400;
+}
+
+.productPrice {
+    color:#E30613;
+    font-size:40px;
+    padding:0 0 10px 0;
+}
+
+.productPrice span {
+    color:#E30613;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.productBuy {
+    font-size:16px;
+    font-weight:300;
+}
+
+.numbers {
+    display:inline-block;
+    position:relative;
+    width:100px;
+}
+
+.numbers input {
+    border:1px solid #eee;
+    padding:15px;
+    font-size:16px;
+    margin:0 0 10px 10px;
+    width:30px;
+    text-align:center;
+}
+
+.productAbout {
+    padding:0 0 10px 0;
+}
+
+.productAbout p {
+    font-size:14px;
+    font-weight:300;
+    line-height:20px;
+}
+
+.increase {
+    right:3px;
+    position:absolute;
+    top:0;
+}
+
+.increase span {
+    color:#888;
+    cursor:pointer;
+    display:block;
+    width:23px;
+    height:23px;
+    text-align:center;
+    font-size:20px;
+    border:1px solid #eee;
+}
+
+.increase span:hover {
+    background-color:#f5f5f5;
+    color:#000;
 }
 
 #subscribe {
