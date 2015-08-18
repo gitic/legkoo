@@ -25,7 +25,7 @@ function printProductCart($product){?>
 <?php }
 
 function printCategoryCart($category){?>
-    <a href="?view=category&id=<?=$category->id?>" class="catPreviewBlock">
+    <a href="?view=category_page&id=<?=$category->id?>" class="catPreviewBlock">
         <img src="<?=$category->photo?>"/>
     </a>
 <?php }?>
