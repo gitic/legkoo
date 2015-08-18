@@ -241,7 +241,7 @@ $_SESSION['KCFINDER'] = array(
                             $link = '';
                             if($product->photo != ''){$link='../'.$product->photo;}
                         ?>
-                        <img class='previewImg f1' src='<?=$link?>' width='150' height='100' border='0'>
+                        <img class='previewImg f1' src='<?=$link?>' width='200' height='200' border='0'>
                         
                         <div class="block">
                             <input class='fileUpload f1' type='file' name='photos' />

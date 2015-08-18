@@ -12,24 +12,9 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 <div id="content">
     <div id="main">
-        <h1>КАТАЛОГ LEGO</h1>
+        <h1>Каталог LEGO</h1>
         <div id="catPreview">            
-            <a href="#" class="catPreviewBlock">
-                <img src="<?=VIEW?>images/bionicle.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="http://legkoo.com.ua/image/cache/data/Categories/Architecture-200x267.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="http://legkoo.com.ua/image/cache/data/Categories/CLASSIC-200x267.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="http://legkoo.com.ua/image/cache/data/Categories/Disney_Princess-200x267.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
-                <img src="<?=VIEW?>images/bionicle.jpg"/>
-            </a>
-            <a href="#" class="catPreviewBlock">
+            <a href="?view=category_page" class="catPreviewBlock">
                 <img src="<?=VIEW?>images/bionicle.jpg"/>
             </a>
         </div>

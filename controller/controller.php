@@ -62,9 +62,9 @@ else{
             $meta['keywords'] = 'lego';
             break;
         default :
-            $meta['title'] = 'Ricettio.com - пошаговые рецепты с фотографиями';
-            $meta['description'] = 'Ricettio.com - пошаговые рецепты с фотографиями. Приготовление еды дома с удовольствием!';
-            $meta['keywords'] = 'Ricettio.com - пошаговые рецепты с фотографиями. Приготовление еды дома с удовольствием!';
+            $meta['title'] = 'Lego';
+            $meta['description'] = 'Lego';
+            $meta['keywords'] = 'Lego';
             break;
     }
     
