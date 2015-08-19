@@ -36,9 +36,15 @@ $category->getFomDb(array('id'=>$product->category), $conn);
         </div>
         <div class="productData">
             <div class="block">
-                <p>Возраст: <strong><?=$product->age_from?>-<?=$product->age_to?></strong></p>
+                <?php
+                    $till = '+';
+                    if($product->age_to != 0){$till = '-'.$product->age_to;}
+                ?>
+                <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
                 <p>Количество деталей: <strong><?=$product->elements?></strong></p>
+                <?php if($product->size != ''):?>
                 <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
+                <?php endif;?>
             </div>
             <div class="block">
                 <div class="productPrice">
