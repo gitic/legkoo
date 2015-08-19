@@ -1,7 +1,7 @@
 $(function(){
     $('.productGallery span > img').on('click', function (){
         var src = $(this).attr('src');
-        $('.big').attr('src',src);
+        $('.bigFoto').attr('src',src);
     });
     
     $('.plusBtn').on('click',function (){
