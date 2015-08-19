@@ -285,7 +285,8 @@ a.catPreviewBlock img {
 }
 
 .productPreview img.big {
-    width:80%;
+    width:100%;
+    display:block;
 }
 
 .previewTitle {
@@ -368,7 +369,7 @@ a.catPreviewBlock img {
 .productGallery span {
     display:inline-block;
     margin:0 1%;
-    width:23%;
+    width:22%;
 }
 
 .productGallery span img {
@@ -385,18 +386,16 @@ a.catPreviewBlock img {
     width:48%;
 }
 
-.productData h1 {
-    border-bottom:1px dashed #eee;
+#product h1 {
     color:#0277BD;
     margin:0 0 15px 0;
     padding:0 0 15px 0;
 }
 
-.productGallery img.big {
-    border:1px solid #f5f5f5;
+.productGallery img.bigFoto {
     padding:1%;
     margin:0 0 10px 0;
-    width:97%;
+    width:98%;
 }
 
 .productData .block {
@@ -430,6 +429,7 @@ a.catPreviewBlock img {
 .productBuy {
     font-size:16px;
     font-weight:300;
+    float:left;
 }
 
 .numbers {
@@ -479,6 +479,26 @@ a.catPreviewBlock img {
     color:#000;
 }
 
+.btn span {
+    color:#fff;
+    cursor:pointer;
+    display:inline-block;
+    font-size:17px;
+    font-weight:700;
+    opacity:0.6;
+    padding:15px 20px;
+    border-radius:4px;
+}
+
+.btn span:hover {
+    opacity:1;
+}
+
+.btn.buy span {
+    background-color:#E30613;
+    float:right;
+}
+
 #subscribe {
     background-color:#0277BD;
     width:100%;
@@ -498,6 +518,92 @@ a.catPreviewBlock img {
     color:#fff;
     font-size:20px;
     margin:0 5px;
+}
+
+#order table {
+    margin:30px 0;
+    width:100%;
+}
+
+#order table thead {
+    text-align:center;
+    font-size:13px;
+    font-weight:300;
+}
+
+#order table thead tr td {
+    padding:10px 0;
+}
+
+#order table tr td {
+    border-bottom:1px dashed #f7f7f7;
+    padding:5px;
+}
+
+.orderFoto {
+    width:15%;
+}
+
+.orderFoto img {
+    width:100%;
+}
+
+.orderTitle {
+    text-align:center;
+    width:30%;
+}
+
+.orderTitle a {
+    color: #0277BD;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 5px 0 10px 0;
+    text-decoration: none;
+}
+
+.orderTitle span {
+    color: #aaa;
+    font-size: 13px;
+    font-weight: 300;
+    display:block;
+}
+
+.orderCount {
+    text-align:center;
+}
+
+.orderCount input {
+    border:1px solid #f5f5f5;
+    font-size:14px;
+    padding:5px 10px;
+    width:20px;
+    text-align:center;
+}
+
+.orderSale {
+    text-align:center;
+}
+
+.orderSale span {
+    text-align:center;
+    font-size:14px;
+    color:#666;
+}
+
+.orderPrice {
+    text-align:center;
+}
+
+.orderPrice strong {
+    color:#0277BD;
+    font-size:20px;
+}
+
+.orderDel span {
+    color:#ccc;
+    padding:10px;
+    font-size:20px;
+    cursor:pointer;
 }
 
 #footer {

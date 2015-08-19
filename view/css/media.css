@@ -3,13 +3,34 @@
         display:none;
     }
     .productGallery {
-        margin:0;
+        margin:0 0 20px 0;
         padding:0 2%;
         width:96%;
     }
+    
+    #order table thead tr td {
+        font-size:12px;
+        padding:3px;
+    }
 
-    .productGallery img.big {
-        max-width:100%;
+    .productGallery img.bigFoto {
+        width:100%;
+    }
+
+    .productData {
+        width:96%;
+    }
+    
+    .orderFoto {
+        display:none;
+    }
+    
+    .orderTitle a {
+        font-size:13px;
+    }
+    
+    .orderPrice strong {
+        font-size:14px;
     }
 }
 
@@ -52,5 +73,24 @@
     
     a.catPreviewBlock:hover {
         box-shadow: none;
+    }
+    
+    .productPrice {
+        text-align:center;
+    }
+    
+    .productBuy {
+        font-size:14px;
+    }
+    .numbers {
+        width: 75px;
+    }
+    .numbers input {
+        border: 1px solid #eee;
+        padding:16px 10px;
+        font-size: 14px;
+        margin: 0 0 10px 5px;
+        width: 20px;
+        text-align: center;
     }
 }
