@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     $title = $_POST['title'];
     $date = date('Y-m-d H:i:s');
     $newProduct = new Product();
-    $newProduct->title = mb_ucfirst($title);
+    $newProduct->title = $title;
     $newProduct->translit = mb_strtolower(translitIt($title));
     $newProduct->visible = 0;
     $newProduct->date_add = $date;

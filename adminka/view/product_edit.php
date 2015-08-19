@@ -18,7 +18,7 @@ if(isset($_POST['submit'])){
     $date_edit = date('Y-m-d H:i:s');
     $seo_description = clear($conn, htmlentities($_POST['seo_description'],ENT_QUOTES));
     $seo_keywords = clear($conn, htmlentities($_POST['seo_keywords'],ENT_QUOTES));
-    $title = mb_ucfirst(clear($conn, htmlentities($_POST['title'],ENT_QUOTES)));
+    $title = clear($conn, htmlentities($_POST['title'],ENT_QUOTES));
     $translit = clear($conn, htmlentities($_POST['translit'],ENT_QUOTES));
     if($_POST['sub_category'] != '0'){
         $category = preg_replace('/[^0-9]+/ui', '', $_POST['sub_category']);

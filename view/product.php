@@ -72,5 +72,6 @@ $category->getFomDb(array('id'=>$product->category), $conn);
             </div>
         </div>
         <div class="clear"></div>
+        <input class='productID' type="hidden" hidden value="<?=$product->id?>">
     </div>
 </div>

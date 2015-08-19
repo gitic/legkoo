@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     $title = $_POST['title'];
     $date = date('Y-m-d H:i:s');
     $newArticle = new Article();
-    $newArticle->title = mb_ucfirst($title);
+    $newArticle->title = $title;
     $newArticle->translit = mb_strtolower(translitIt($title));
     $newArticle->visible = 0;
     $newArticle->category = 0;

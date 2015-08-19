@@ -16,7 +16,7 @@ else{
 if(isset($_POST['submit'])){
     if(isset($_POST['visible'])){$visible = 1;}else{$visible = 0;}
     if(isset($_POST['top'])){$top = 1;}else{$top = 0;}
-    $title = mb_ucfirst(clear($conn, htmlentities($_POST['title'],ENT_QUOTES)));
+    $title = clear($conn, htmlentities($_POST['title'],ENT_QUOTES));
     $translit = clear($conn, htmlentities($_POST['translit'],ENT_QUOTES));
     $category = clear($conn, htmlentities($_POST['category'],ENT_QUOTES));
     $preview = clear($conn, htmlentities($_POST['preview'],ENT_QUOTES));

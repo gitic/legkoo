@@ -15,7 +15,7 @@ else{
 //Обработка формы
 if(isset($_POST['submit'])){
     if(isset($_POST['visible'])){$visible = 1;}else{$visible = 0;}
-    $title = mb_ucfirst($_POST['title']);
+    $title = $_POST['title'];
     $text = clear($conn, $_POST['text']);
     $values = array(
         'title'=>$title,

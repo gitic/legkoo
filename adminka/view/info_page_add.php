@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     $title = $_POST['title'];
     $date = date('Y-m-d H:i:s');
     $newInfoPage = new Infopage();
-    $newInfoPage->title = mb_ucfirst($title);
+    $newInfoPage->title = $title;
     $newInfoPage->translit = mb_strtolower(translitIt($title));
     $newInfoPage->visible = 0;
     $newInfoPage->date_add = $date;
