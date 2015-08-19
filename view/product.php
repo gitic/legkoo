@@ -18,18 +18,19 @@ $product->getFomDb(array('id'=>$id), $conn);
 
 <div id="content">
     <div id="product">
+        <h1><?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
         <div class="productGallery">
             <?php $gArr = explode(',', $product->gallery);?>
-            <img src="<?=$gArr[1]?>" class="big"/>
+            <img src="<?=$gArr[1]?>" class="bigFoto"/>
             <?php
                 
                 for($i=1;$i<count($gArr);$i++):
             ?>
                 <span><img src="<?=$gArr[$i]?>"/></span>
             <?php endfor;?>
+                
         </div>
         <div class="productData">
-            <h1><?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
             <div class="block">
                 <p>Возраст: <strong><?=$product->age_from?>-<?=$product->age_to?></strong></p>
                 <p>Количество деталей: <strong><?=$product->elements?></strong></p>
@@ -49,6 +50,10 @@ $product->getFomDb(array('id'=>$id), $conn);
                         </div>
                     </div>
                 </div>
+                <div class="btn buy">
+                    <span>КУПИТЬ</span>
+                </div>
+                <div class="clear"></div>
             </div>
             <div class="block">
                 <div class="productAbout">
