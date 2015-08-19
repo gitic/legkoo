@@ -112,4 +112,33 @@ class SimpleImage {
         } 
         $this->image = $new_image;
     }
+    
+    public function maxarea($width, $height = null)	{
+        $height = $height ? $height : $width;
+
+        if ($this->getWidth() > $width) {
+                $this->resizeToWidth($width);
+        }
+        if ($this->getHeight() > $height) {
+                $this->resizeToheight($height);
+        }
+    }
+        
+    public function maxareafill($width, $height, $red = 255, $green = 255, $blue = 255) {
+        $this->maxarea($width, $height);
+        $new_image = imagecreatetruecolor($width, $height); 
+        $color_fill = imagecolorallocate($new_image, $red, $green, $blue);
+        imagefill($new_image, 0, 0, $color_fill);   
+        imagecopyresampled(	$new_image, 
+                                            $this->image, 
+                                            floor(($width - $this->getWidth())/2), 
+                                            floor(($height-$this->getHeight())/2), 
+                                            0, 0, 
+                                            $this->getWidth(), 
+                                            $this->getHeight(), 
+                                            $this->getWidth(), 
+                                            $this->getHeight()
+                                    ); 
+        $this->image = $new_image;
+    }
 }

@@ -92,17 +92,20 @@ $(function(){
         var iWidth;
         var iHeight;
         var iName;
+        var sizeType;
         switch (cName){
             case 'f1':
                 iName = cName;
                 iWidth = 300;
                 iHeight = 300;
+                sizeType = 'cut';
                 break;
             case 'gallery':
                 iName = $('#gLastIndex').val();
                 rowId = rowId+"/gallery";
                 iWidth = 600;
                 iHeight = 600;
+                sizeType = 'fill';
                 break;
         }
 
@@ -112,7 +115,7 @@ $(function(){
             var files = FileAPI.getFiles(evt);
             var xhr = FileAPI.upload({
                 url: './?ajax=imgUpload',
-                data:{dir:iconDir,rowId:rowId,image_name:iName,width:iWidth,height:iHeight},
+                data:{dir:iconDir,rowId:rowId,image_name:iName,width:iWidth,height:iHeight,sizeType:sizeType},
                 files: { photos: files[0] },
                 filecomplete: function (err, xhr){
                     $(".loadstatus."+cName).hide();

@@ -15,6 +15,10 @@ $whitelist = array(".jpg", ".jpeg", ".gif", ".png", ".JPG", ".JPEG", ".GIF", ".P
 if (isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST") {
     $rowId = $_POST['rowId'];
     $fileDir = $_POST['dir'];
+    $sizeType = 'cut';
+    if(isset($_POST['sizeType'])){
+        $sizeType = $_POST['sizeType'];
+    }
     $uploaddir = "../content/tmp/{$fileDir}/{$rowId}/";
     if (!is_dir($uploaddir)) {
         mkdir($uploaddir, 0777,true);
@@ -124,7 +128,14 @@ if (isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST") {
                         if (isset($setWidth) && isset($setHeight)) {
                             $image = new SimpleImage();
                             $image->load($newname);
-                            $image->cutToSize($setWidth, $setHeight);
+                            switch ($sizeType) {
+                                case 'fill':
+                                    $image->maxareafill($setWidth, $setHeight);
+                                    break;
+                                default:
+                                    $image->cutToSize($setWidth, $setHeight);
+                                    break;
+                            }
                             $image->save($newname);
                         }
                         $data['data'] = $newname . "?" . time();
