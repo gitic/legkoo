@@ -11,7 +11,9 @@ $category->getFomDb(array('id'=>$id), $conn);
 
 <div id="breadcrumbs">
     <div id="breadcrumbsBody">
-        <a href="#">главная</a> / каталог
+        <a href="<?=PATH?>">главная</a> / 
+        <a href="catalog">каталог</a> / 
+        <a href="category-<?=$category->id?>-lego-<?=$category->translit?>"><?=$category->title?></a>
     </div>
 </div>
 

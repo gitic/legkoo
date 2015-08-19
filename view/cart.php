@@ -6,7 +6,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 <div id="breadcrumbs">
     <div id="breadcrumbsBody">
-        <a href="#">главная</a> / корзина
+        <a href="<?=PATH?>">главная</a> / <a href="cart">корзина</a>
     </div>
 </div>
 

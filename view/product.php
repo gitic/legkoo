@@ -8,11 +8,15 @@ if(!isset($_GET['id'])){
 $id=$_GET['id'];
 $product = new Product();
 $product->getFomDb(array('id'=>$id), $conn);
+$category = new Category();
+$category->getFomDb(array('id'=>$product->category), $conn);
 ?>
 <script src="<?=VIEW?>js/productJs.js"></script>
 <div id="breadcrumbs">
     <div id="breadcrumbsBody">
-        <a href="#">главная</a> / каталог
+        <a href="<?=PATH?>">главная</a> / <a href="catalog">каталог</a> / 
+        <a href="category-<?=$product->category?>-lego-<?=$category->translit?>"><?=$category->title?></a> / 
+        <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>"><?=$product->title?></a>
     </div>
 </div>
 
