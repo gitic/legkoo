@@ -415,13 +415,13 @@ a.catPreviewBlock img {
 }
 
 .productPrice {
-    color:#E30613;
+    color:#6DBE14;
     font-size:40px;
     padding:0 0 10px 0;
 }
 
 .productPrice span {
-    color:#E30613;
+    color:#6DBE14;
     font-size: 20px;
     font-weight: 300;
 }
@@ -495,7 +495,7 @@ a.catPreviewBlock img {
 }
 
 .btn.buy span {
-    background-color:#E30613;
+    background-color:#6DBE14;
     float:right;
 }
 
