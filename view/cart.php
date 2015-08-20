@@ -36,7 +36,7 @@ $cookie = json_decode($cookie);
                         <td></td>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="mainBody">
                     <?php
                     $ids = '';
                     foreach ($cookie as $x) {$ids.=$x->id.',';}

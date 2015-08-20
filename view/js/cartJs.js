@@ -18,11 +18,36 @@ $(function(){
         var arrId = $(this).attr('class').split(' ')[1];
         var cart = $.cookie('mlscart');
         var cartArr = JSON.parse(cart);
-//        cartArr.splice(arrId);
-        console.log(cartArr);
-//        var json = JSON.stringify(cartArr);
-//        $.cookie('mlscart', json, { expires: 7 });
+        cartArr.splice(arrId,1);
+        var json = JSON.stringify(cartArr);
+        $.cookie('mlscart', json, { expires: 7 });
         $(this).parent().remove();
+        
+        var i = 0;
+        $('.orderCount').each(function (){
+            var arrId = $(this).attr('class').split(' ')[1];
+            if(parseInt(arrId)>=1){
+                $(this).attr('class','orderCount '+i);
+                i++;
+            }
+        });
+        var i = 0;
+        $('.orderPrice').each(function (){
+            var arrId = $(this).attr('class').split(' ')[1];
+            if(parseInt(arrId)>=1){
+                $(this).attr('class','orderPrice '+i);
+                i++;
+            }
+        });
+        var i = 0;
+        $('.orderDel').each(function (){
+            var arrId = $(this).attr('class').split(' ')[1];
+            if(parseInt(arrId)>=1){
+                $(this).attr('class','orderDel '+i);
+                i++;
+            }
+        });
+        countTotal(cartArr);
     });
 });
 
