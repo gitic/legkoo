@@ -61,6 +61,12 @@ else{
             $meta['description'] = 'Lego';
             $meta['keywords'] = 'lego';
             break;
+        
+        case 'product':
+            $meta['title'] = 'Конструктор Lego Название LEGO® Категория 41032';
+            $meta['description'] = 'Купить Lego Конструктор название LEGO® Категория 41032 доступная цена, доставка в Киев, Харьков, Днепропетровск, Одесса, Львов';
+            $meta['keywords'] = 'Конструктор Lego Название LEGO® Категория 41032';
+            break;
         default :
             $meta['title'] = 'Lego';
             $meta['description'] = 'Lego';
