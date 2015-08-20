@@ -21,53 +21,57 @@ $category->getFomDb(array('id'=>$product->category), $conn);
 </div>
 
 <div id="content">
-    <div id="product">
-        <h1><?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
+    <div id="product" itemscope itemtype="http://schema.org/Product">
+        <h1 itemprop="name"><?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
         <div class="productGallery">
             <?php $gArr = explode(',', $product->gallery);?>
-            <img src="<?=$gArr[1]?>" class="bigFoto"/>
+            <img src="<?=$gArr[1]?>" class="bigFoto" itemprop="image" alt="<?=$product->title?>" title="<?=$product->title?>"/>
             <?php
                 
                 for($i=1;$i<count($gArr);$i++):
             ?>
-                <span><img src="<?=$gArr[$i]?>"/></span>
+                <span><img src="<?=$gArr[$i]?>" alt="<?=$product->title?>" title="<?=$product->title?>"/></span>
             <?php endfor;?>
                 
         </div>
         <div class="productData">
-            <div class="block">
-                <?php
-                    $till = '+';
-                    if($product->age_to != 0){$till = '-'.$product->age_to;}
-                ?>
-                <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
-                <p>Количество деталей: <strong><?=$product->elements?></strong></p>
-                <?php if($product->size != ''):?>
-                <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
-                <?php endif;?>
-            </div>
-            <div class="block">
-                <div class="productPrice">
-                    <?=$product->price?> <span>грн</span>
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div class="block">
+                    <?php
+                        $till = '+';
+                        if($product->age_to != 0){$till = '-'.$product->age_to;}
+                    ?>
+                    <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
+                    <p>Количество деталей: <strong><?=$product->elements?></strong></p>
+                    <?php if($product->size != ''):?>
+                    <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
+                    <?php endif;?>
                 </div>
-            </div>
-            <div class="block">
-                <div class="productBuy">
-                    Количество: <div class="numbers"><input value="1" type="text" />
-                        <div class="increase">
-                            <span class='plusBtn'>+</span>
-                            <span class='minusBtn'>-</span>
-                        </div>
+                <div class="block">
+                    <div class="productPrice">
+                        <?=$product->price?> <span>грн</span>
+                        <meta itemprop="price" content="<?=$product->price?>">
+                        <meta itemprop="priceCurrency" content="UAH">
                     </div>
                 </div>
-                <div class="btn buy">
-                    <span>КУПИТЬ</span>
+                <div class="block">
+                    <div class="productBuy">
+                        Количество: <div class="numbers"><input value="1" type="text" />
+                            <div class="increase">
+                                <span class='plusBtn'>+</span>
+                                <span class='minusBtn'>-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn buy">
+                        <span>КУПИТЬ</span>
+                    </div>
+                    <div class="clear"></div>
                 </div>
-                <div class="clear"></div>
-            </div>
-            <div class="block">
-                <div class="productAbout">
-                    <p>Описание:</p> <?=$product->description?>
+                <div class="block">
+                    <div class="productAbout" itemprop="description">
+                        <p>Описание:</p> <?=$product->description?>
+                    </div>
                 </div>
             </div>
         </div>
