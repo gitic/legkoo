@@ -1,9 +1,10 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
-
+$cookie = $_COOKIE["mlscart"];
+$cookie = json_decode($cookie);
 ?>
-
+<script src="<?=VIEW?>js/cartJs.js"></script>
 <div id="breadcrumbs">
     <div id="breadcrumbsBody">
         <a href="<?=PATH?>">главная</a> / <a href="cart">корзина</a>
@@ -36,75 +37,40 @@ defined(ACCESS_VALUE) or die('Access denied');
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="orderFoto">
-                           <img src="http://novodom.dp.ua/content/products/1/gallery/6.jpg"/> 
-                        </td>
-                        <td class="orderTitle">
-                            <span>Артикул: 21121</span>
-                           <a href="#" target="_blank">Архитектурная студия</a>
-                        </td>
-                        <td class="orderCount">
-                           <input value="1" type="text" />
-                        </td>
-                        <td class="orderSale">
-                            <span>10%</span>
-                        </td>
-                        <td class="orderPrice">
-                            <strong>15000 грн</strong>
-                        </td>
-                        <td class="orderDel">
-                            <span class="del">
-                                <i class="fa fa-times"></i>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="orderFoto">
-                           <img src="http://novodom.dp.ua/content/products/1/gallery/6.jpg"/> 
-                        </td>
-                        <td class="orderTitle">
-                            <span>Артикул: 21121</span>
-                           <a href="#" target="_blank">Архитектурная студия</a>
-                        </td>
-                        <td class="orderCount">
-                           <input value="1" type="text" />
-                        </td>
-                        <td class="orderSale">
-                            <span>10%</span>
-                        </td>
-                        <td class="orderPrice">
-                            <strong>15000 грн</strong>
-                        </td>
-                        <td class="orderDel">
-                            <span class="del">
-                                <i class="fa fa-times"></i>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="orderFoto">
-                           <img src="http://novodom.dp.ua/content/products/1/gallery/6.jpg"/> 
-                        </td>
-                        <td class="orderTitle">
-                            <span>Артикул: 21121</span>
-                           <a href="#" target="_blank">Архитектурная студия</a>
-                        </td>
-                        <td class="orderCount">
-                           <input value="1" type="text" />
-                        </td>
-                        <td class="orderSale">
-                            <span>10%</span>
-                        </td>
-                        <td class="orderPrice">
-                            <strong>15000 грн</strong>
-                        </td>
-                        <td class="orderDel">
-                            <span class="del">
-                                <i class="fa fa-times"></i>
-                            </span>
-                        </td>
-                    </tr>
+                    <?php
+                    $ids = '';
+                    foreach ($cookie as $x) {$ids.=$x->id.',';}
+                    $ids = substr($ids, 0, strripos($ids, ','));
+                        $result = $conn->query("SELECT * FROM products WHERE id IN ($ids) ORDER BY FIND_IN_SET(id,'$ids')");
+                        $i = 0;
+                        while ($record = $result->fetch_object()):
+                            $product = new Product();
+                            $product = $record;
+                    ?>
+                        <tr>
+                            <td class="orderFoto">
+                               <img src="<?=$product->photo?>"/> 
+                            </td>
+                            <td class="orderTitle">
+                                <span>Артикул: <?=$product->articul?></span>
+                               <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>" target="_blank"><?=$product->title?></a>
+                            </td>
+                            <td class="orderCount <?=$i?>">
+                               <input value="<?=$cookie[$i]->count?>" type="text" />
+                            </td>
+                            <td class="orderSale">
+                                <span><?=$product->discount?></span>
+                            </td>
+                            <td class="orderPrice <?=$i?>">
+                                <strong><span><?=$product->price * $cookie[$i]->count ?></span> грн</strong>
+                            </td>
+                            <td class="orderDel <?=$i?>">
+                                <span class="del">
+                                    <i class="fa fa-times"></i>
+                                </span>
+                            </td>
+                        </tr>
+                    <?php $i++;endwhile;?>
                 </tbody>
             </table>
         </div>

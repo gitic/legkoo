@@ -13,7 +13,7 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="topMenuSecond">
         <div id="topMenuSecondBody">
             <a href="cart" id="basketSmall">
-                <i class="fa fa-shopping-cart"></i> ТОВАРОВ: 0
+                <i class="fa fa-shopping-cart"></i> ТОВАРОВ: <span>0</span>
             </a>
             <nav>
                 <ul>
