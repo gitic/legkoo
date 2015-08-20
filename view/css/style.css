@@ -672,3 +672,21 @@ a.footLogo img {
     max-width:1000px;
     margin:0 auto;
 }
+
+.addNotify{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    line-height: 150px;
+}
+.addNotify > div{
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background: #fff;
+    border: 1px solid black;
+    margin: 1px auto;
+    margin-top: 150px;
+}

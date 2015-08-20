@@ -68,6 +68,7 @@ function setCart(e,val){
     var json = JSON.stringify(cartArr);
     $.cookie('mlscart', json, { expires: 7 });
     countTotal(cartArr);
+    $('.orderPrice.'+arrId+' strong').html("<img width='25px' src='view/images/loader.gif'>");
     $.ajax({
         url:'./?ajax=cart',
         type:'POST',
@@ -75,7 +76,7 @@ function setCart(e,val){
         success: function (data, textStatus, jqXHR) {
             if(data.trim() !== 'error'){
                 var totalPrice = data*val;
-                $('.orderPrice.'+arrId+' span').html(totalPrice);
+                $('.orderPrice.'+arrId+' strong').html(totalPrice+' грн');
             }
             else{
                 alert('Произошла ошибка');

@@ -15,7 +15,7 @@ function printProductCart($product){?>
         <div class="previewPrice">
             <?=$product->price?> <span>грн</span>
         </div>
-        <div class="previewBtn">
+        <div class="previewBtn <?=$product->id?>">
             <span>
                 В КОРЗИНУ
             </span>

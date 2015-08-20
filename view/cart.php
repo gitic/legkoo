@@ -1,8 +1,10 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
-$cookie = $_COOKIE["mlscart"];
-$cookie = json_decode($cookie);
+if(isset($_COOKIE["mlscart"])){
+    $cookie = $_COOKIE["mlscart"];
+    $cookie = json_decode($cookie);
+}
 ?>
 <script src="<?=VIEW?>js/cartJs.js"></script>
 <div id="breadcrumbs">
@@ -15,6 +17,7 @@ $cookie = json_decode($cookie);
     <div id="main">
         <h1>Корзина покупок</h1>
         <div id="order">
+            <?php if(isset($cookie)):?>
             <table>
                 <thead>
                     <tr>
@@ -62,7 +65,7 @@ $cookie = json_decode($cookie);
                                 <span><?=$product->discount?></span>
                             </td>
                             <td class="orderPrice <?=$i?>">
-                                <strong><span><?=$product->price * $cookie[$i]->count ?></span> грн</strong>
+                                <strong><?=$product->price * $cookie[$i]->count ?> грн</strong>
                             </td>
                             <td class="orderDel <?=$i?>">
                                 <span class="del">
@@ -73,6 +76,9 @@ $cookie = json_decode($cookie);
                     <?php $i++;endwhile;?>
                 </tbody>
             </table>
+            <?php else:?>
+                <p style="text-align: center">Корзина пуста</p>
+            <?php endif;?>
         </div>
     </div>
 </div>
