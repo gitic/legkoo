@@ -106,16 +106,17 @@ a#logo img {
 #searchField input.btn {
     background-color:#F5F5F5;
     border:none;
-    color:#999;
+    color:#ccc;
     cursor:pointer;
     font-family:'Roboto', sans-serif;
     font-size:12px;
-    font-weight:300;
+    font-weight:400;
     padding:14px 5px 12px 5px;
     width:97px;
 }
 
-#searchField input.btn:hover {background-color:#FFEB3B;    color:#fff;}
+#searchField input.btn:hover {background-color:#6DBE14;    color:#fff;
+border-radius:3px;}
 
 #searchField i {
     background-color:#F5F5F5;
@@ -125,7 +126,7 @@ a#logo img {
 }
 
 #topMenuSecond {
-    background-color:#0277BD;
+    background-color:#2196F3;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     position:relative;
 }
@@ -148,7 +149,7 @@ nav ul li a {
     border-bottom:3px solid transparent;
     color:#fff;
     font-size:16px;
-    font-weight:700;
+    font-weight:400;
     display:inline-block;
     padding:17px 0 12px 0;
     text-transform:uppercase;
@@ -160,7 +161,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    border-bottom:3px solid #FF5722;
+    border-bottom:3px solid #E64A19;
 }
 
 nav ul li a span {
@@ -173,7 +174,7 @@ a#basketSmall {
     color:rgba(255,255,255,1);
     float:right;
     font-size:16px;
-    font-weight:300;
+    font-weight:400;
     padding:16px 10px 15px 10px;
     text-decoration:none;
 }
@@ -333,8 +334,8 @@ a.catPreviewBlock img {
 }
 
 .previewBtn span {
-    background-color:#6DBE14;
-    border-radius:5px;
+    background-color:#4CAF50;
+    border-radius:3px;
     color:#fff;
     cursor:pointer;
     display:inline-block;
@@ -392,6 +393,7 @@ a.catPreviewBlock img {
     color:#0277BD;
     margin:0 0 15px 0;
     padding:0 0 15px 0;
+    font-weight:300;
 }
 
 .productGallery img.bigFoto {
@@ -497,12 +499,12 @@ a.catPreviewBlock img {
 }
 
 .btn.buy span {
-    background-color:#6DBE14;
+    background-color:#4CAF50;
     float:right;
 }
 
 #subscribe {
-    background-color:#0277BD;
+    background-color:#2196F3;
     width:100%;
 }
 
@@ -618,9 +620,9 @@ a.catPreviewBlock img {
 }
 
 .orderDel span {
-    color:#ccc;
+    color:#aaa;
     padding:10px;
-    font-size:20px;
+    font-size:14px;
     cursor:pointer;
 }
 
@@ -850,7 +852,7 @@ a.footLogo img {
 }
 
 a.send {
-    background-color:#6DBE14;
+    background-color:#4CAF50;
     color:#fff;
     cursor:pointer;
     display:inline-block;
