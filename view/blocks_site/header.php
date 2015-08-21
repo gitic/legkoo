@@ -29,11 +29,11 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <li>
                         <a href="catalog"><span>каталог</span></a>
                     </li>
-                    <li>
+<!--                    <li>
                         <a href="#"><span>новости и акции</span></a>
-                    </li>
+                    </li>-->
                     <li>
-                        <a href="#"><span>доставка и оплата</span></a>
+                        <a href="info-1"><span>доставка и оплата</span></a>
                     </li>
                     <div class="clear"></div>
                 </ul>

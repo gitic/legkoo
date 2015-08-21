@@ -11,5 +11,14 @@ $infopage->getFomDb(array('id'=>$id), $conn);
 
 ?>
 
+<div id="breadcrumbs">
+    <div id="breadcrumbsBody">
+        <a href="<?=PATH?>">главная</a> / <?=$infopage->title?>
+    </div>
+</div>
 
-<h1><?=$infopage->title?></h1>
+<div id="content">
+    <div id="info">
+        <h1><?=$infopage->title?></h1>
+    </div>
+</div>
