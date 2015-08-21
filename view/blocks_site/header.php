@@ -12,7 +12,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <div id="topMenu">
     <div id="topMenuFirst">
         <div id="searchField">
-            <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="ПОИСК" type="submit" class="btn"/>
+            <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="поиск" type="submit" class="btn"/>
         </div>
         <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
     </div>

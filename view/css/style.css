@@ -109,14 +109,14 @@ a#logo img {
     color:#ccc;
     cursor:pointer;
     font-family:'Roboto', sans-serif;
-    font-size:12px;
-    font-weight:400;
-    padding:14px 5px 12px 5px;
+    font-size:16px;
+    font-weight:300;
+    padding:11px 5px 10px 5px;
     width:97px;
 }
 
-#searchField input.btn:hover {background-color:#6DBE14;    color:#fff;
-border-radius:3px;}
+#searchField input.btn:hover {background-color:#4CAF50;    color:#fff;
+border-radius:0 3px 3px 0;}
 
 #searchField i {
     background-color:#F5F5F5;
@@ -241,7 +241,7 @@ h3 {
 
 a.catPreviewBlock {
     border-radius:5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display:inline-block;
     height:294px;
     margin:0 10px 23px 10px;
@@ -254,7 +254,7 @@ a.catPreviewBlock {
 }
 
 a.catPreviewBlock:hover {
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
 }
 
 a.catPreviewBlock img {
@@ -284,7 +284,7 @@ a.catPreviewBlock img {
 }
 
 .productPreview:hover {
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
 }
 
 .productPreview img.big {
@@ -343,6 +343,11 @@ a.catPreviewBlock img {
     font-size:16px;
     opacity:0.7;
     padding:10px 15px;
+        -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 .previewBtn span:hover {
@@ -492,6 +497,11 @@ a.catPreviewBlock img {
     opacity:0.8;
     padding:15px 20px;
     border-radius:4px;
+        -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 .btn span:hover {
@@ -644,9 +654,10 @@ a.catPreviewBlock img {
 
 #footerBody .block {
     float:left;
-    font-size:16px;
+    font-size:15px;
     padding:15px 2%;
     width:29%;
+    font-weight:300;
 }
 
 #footerBody p {
@@ -725,7 +736,7 @@ a.footLogo img {
 
 .addNotify p a.btn {
     float:right;
-    background-color:#6DBE14;
+    background-color:#4CAF50;
     color:#fff;
     cursor:pointer;
     display:inline-block;
@@ -774,11 +785,13 @@ a.footLogo img {
     opacity:0.5;
     color:#fff;
     width:30px;
-    height:27px;
+    height:23px;
     display:inline-block;
     text-align:center;
-    padding:3px 0 0 0;
+    padding:7px 0 0 0;
     font-weight:300;
+    font-size:14px;
+    font-weight:700;
     font-style:normal;
 }
 
@@ -862,6 +875,11 @@ a.send {
     padding:15px 20px;
     border-radius:4px;
     margin-top:20px;
+        -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 a.send:hover {
