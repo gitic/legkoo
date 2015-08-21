@@ -64,7 +64,7 @@ $category->getFomDb(array('id'=>$product->category), $conn);
                         </div>
                     </div>
                     <div class="btn buy">
-                        <span>КУПИТЬ</span>
+                        <span>В КОРЗИНУ</span>
                     </div>
                     <div class="clear"></div>
                 </div>

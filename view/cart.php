@@ -18,7 +18,7 @@ if(isset($_COOKIE["mlscart"])){
         <h1>Корзина покупок</h1>
         <div id="order">
             <?php if(isset($cookie) && count($cookie) != 0):?>
-            <table>
+            <table cellspacing="0">
                 <thead>
                     <tr>
                         <td class="orderFoto">
@@ -65,7 +65,7 @@ if(isset($_COOKIE["mlscart"])){
                                 <span><?=$product->discount?></span>
                             </td>
                             <td class="orderPrice <?=$i?>">
-                                <strong><?=$product->price * $cookie[$i]->count ?> грн</strong>
+                                <strong><?=$product->price * $cookie[$i]->count ?></strong> грн
                             </td>
                             <td class="orderDel <?=$i?>">
                                 <span class="del">
@@ -74,11 +74,82 @@ if(isset($_COOKIE["mlscart"])){
                             </td>
                         </tr>
                     <?php $i++;endwhile;?>
+                        <tr>
+                            <td class="orderFoto"></td>
+                            <td colspan="5" class="sum">Итого: <strong>12314</strong> грн</td>
+                        </tr>
                 </tbody>
             </table>
             <?php else:?>
                 <p style="text-align: center">Корзина пуста</p>
             <?php endif;?>
+        </div>
+        <div id="steps">
+            <h3><em>1</em> Контактная информация:</h3>
+            <div class="step">
+                <span>Все поля обязательны для заполнения.</span>
+                <form>
+                    <div class="block">
+                        <strong>Имя</strong>
+                        <input value="" type="text" class="inp"/>
+                        <span>для обращения к Вам</span>
+                    </div>
+                    <div class="block">
+                        <strong>E-Mail</strong>
+                        <input value="" type="text" class="inp"/>
+                        <span>для отправки деталей заказа</span>
+                    </div>
+                    <div class="block">
+                        <strong>Телефон</strong>
+                        <input value="" type="text" class="inp"/>
+                        <span>для уточнения деталей</span>
+                    </div>
+                    <div class="block">
+                        <strong>Комментарий к заказу</strong>
+                        <textarea rows="5"></textarea>
+                    </div>
+                </form>
+            </div>
+            <h3><em>2</em> Способ доставки:</h3>
+            <div class="step">
+                <form>
+                    <div class="block">
+                        <strong>Выберите способ доставки:</strong>
+                        <select>
+                            <option value="0">---</option>
+                            <option value="1">На склад "Новой Почты" (за счет получателя).</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <h3><em>3</em> Способ оплаты:</h3>
+            <div class="step">
+                <form>
+                    <div class="block">
+                        <strong>Выберите способ оплаты:</strong>
+                        <select>
+                            <option value="0">---</option>
+                            <option value="1">Наличными при получении</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <h3><em>4</em> Подтверждение:</h3>
+            <div class="step">
+                <div class="block conf">
+                    <p>Имя: <strong>куце</strong></p>
+                    <p>Электронная почта: <strong></strong></p>
+                    <p>Телефон: <strong>+7 (324) 543-56-54</strong></p>
+                    <p>Точное время доставки уточнит менеджер при согласовании деталей заказа</p>
+                    <p>Цена: <strong>19 497 грн</strong></p>
+                </div>
+            </div>
+            <div class="block">
+                <input type="checkbox" id="aggr"> <label for="aggr">Я прочитал и согласен с правилами <a href="#" target="_blank">Условия соглашения</a></label>
+                <div class="btn buy">
+                    <a href="#" class="send">ОФОРМИТЬ ЗАКАЗ</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
