@@ -3,8 +3,9 @@ $(function(){
         var val = $(this).val();
         val = val.replace(/[^0-9]/g, "");
         $(this).val(val);
-        
-        setCart(this,val);    
+        if(val != '' && val != 0){
+            setCart(this,val);
+        }    
     });
     $('.orderCount input').on('change',function (){
         var val = $(this).val();
@@ -58,6 +59,9 @@ function countTotal(cartArr){
     }
     $.cookie('mlscartnum', total, { expires: 7 });
     $('#basketSmall span').html(total);
+    if(total == 0){
+        $('#order').html('<p style="text-align: center">Корзина пуста</p>');
+    }
 }
 function setCart(e,val){
     var arrId = $(e).parent().attr('class').split(' ')[1];
@@ -68,7 +72,7 @@ function setCart(e,val){
     var json = JSON.stringify(cartArr);
     $.cookie('mlscart', json, { expires: 7 });
     countTotal(cartArr);
-    $('.orderPrice.'+arrId+' strong').html("<img width='25px' src='view/images/loader.gif'>");
+    $('.orderPrice.'+arrId+' strong').html("<img width='25px' src='view/images/loader.GIF'>");
     $.ajax({
         url:'./?ajax=cart',
         type:'POST',

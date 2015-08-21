@@ -17,7 +17,7 @@ if(isset($_COOKIE["mlscart"])){
     <div id="main">
         <h1>Корзина покупок</h1>
         <div id="order">
-            <?php if(isset($cookie)):?>
+            <?php if(isset($cookie) && count($cookie) != 0):?>
             <table>
                 <thead>
                     <tr>
