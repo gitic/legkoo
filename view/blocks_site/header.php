@@ -4,8 +4,9 @@ defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <div class='addNotify'>
     <div>
-        <p style="text-align: center">Товар добавлен в корзину</p>
-        <p style="text-align: center"><span style='cursor: pointer' class="skipNotify">Продолжить покупки</span> <a href="cart">Перейти в корзину</a></p>
+        <strong>Товар добавлен в корзину</strong>
+        <p><a href="cart" class="btn">ОФОРМИТЬ ЗАКАЗ</a><span class="skipNotify">ПРОДОЛЖИТЬ ПОКУПКИ</span>
+        <div class="clear"></div></p>
     </div>
 </div>
 <div id="topMenu">
