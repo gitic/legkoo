@@ -80,7 +80,7 @@ function setCart(e,val){
         success: function (data, textStatus, jqXHR) {
             if(data.trim() !== 'error'){
                 var totalPrice = data*val;
-                $('.orderPrice.'+arrId+' strong').html(totalPrice+' грн');
+                $('.orderPrice.'+arrId+' strong').html(totalPrice+'');
             }
             else{
                 alert('Произошла ошибка');

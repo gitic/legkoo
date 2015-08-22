@@ -69,7 +69,7 @@ if(isset($_COOKIE["mlscart"])){
                             </td>
                             <td class="orderDel <?=$i?>">
                                 <span class="del">
-                                    <i class="fa fa-times"></i>
+                                    <i class="fa fa-times-circle-o"></i>
                                 </span>
                             </td>
                         </tr>

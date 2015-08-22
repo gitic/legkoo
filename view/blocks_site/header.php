@@ -12,7 +12,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <div id="topMenu">
     <div id="topMenuFirst">
         <div id="searchField">
-            <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="ПОИСК" type="submit" class="btn"/>
+            <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="поиск" type="submit" class="btn"/>
         </div>
         <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
     </div>
@@ -29,11 +29,11 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <li>
                         <a href="catalog"><span>каталог</span></a>
                     </li>
-                    <li>
+<!--                    <li>
                         <a href="#"><span>новости и акции</span></a>
-                    </li>
+                    </li>-->
                     <li>
-                        <a href="#"><span>доставка и оплата</span></a>
+                        <a href="info-1"><span>доставка и оплата</span></a>
                     </li>
                     <div class="clear"></div>
                 </ul>
