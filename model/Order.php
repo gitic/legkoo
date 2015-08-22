@@ -9,6 +9,7 @@ class Order {
     var $phone;
     var $comment;
     var $delivery_type;
+    var $delivery_adress;
     var $payment_type;
     var $products;
     var $notes;
