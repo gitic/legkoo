@@ -37,7 +37,7 @@ $(function(){
     
     //Удаление товара
     $('.orderDel .del').on('click',function (){
-        var arrId = $(this).attr('class').split(' ')[1];
+        var arrId = $(this).parent().attr('class').split(' ')[1];
         var cart = $.cookie('mlscart');
         var cartArr = JSON.parse(cart);
         cartArr.splice(arrId,1);

@@ -7,8 +7,9 @@ $(function(){
     
     $('.previewBtn span').on('click', function (){
         var productID = $(this).parent().attr('class').split(' ')[1];
+        var productName = $(this).children('input').val();
         var num = 1;
-        addToCart(productID,num);
+        addToCart(productID,num,productName);
     });
     $('.skipNotify').on('click',function (){
         $('.addNotify').css({'display':'none'});
@@ -22,7 +23,7 @@ $(function(){
     
     
 });
-function addToCart(productID,num){
+function addToCart(productID,num,productName){
     var cart = $.cookie('mlscart');
         var cartArr = new Array();
         
@@ -61,6 +62,7 @@ function addToCart(productID,num){
         }
         $.cookie('mlscartnum', total, { expires: 7 });
         $('#basketSmall span').html(total);
+        $('.addNotify strong span').html(productName);
         $('.addNotify').css({'display':'block'});
 }
 function showError(text){

@@ -17,6 +17,7 @@ function printProductCart($product){?>
         </div>
         <div class="previewBtn <?=$product->id?>">
             <span>
+                <input type="hidden" value="<?=$product->title?>">
                 В КОРЗИНУ
             </span>
         </div>
