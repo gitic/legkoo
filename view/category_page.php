@@ -57,7 +57,7 @@ $category->getFomDb(array('id'=>$id), $conn);
             <?php
                 $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC";
                 $result = $conn->query($sql);
-                echo $conn->error;
+//                echo $conn->error;
                 while ($record = $result->fetch_object()){
                     $product = new Product();
                     $product = $record;

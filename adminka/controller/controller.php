@@ -15,6 +15,7 @@ require_once '../model/Article.php';
 require_once '../model/Category.php';
 require_once '../model/Infopage.php';
 require_once '../model/Product.php';
+require_once '../model/Order.php';
 
 //Обработка ajax запросов
 if(isset($_GET['ajax'])){

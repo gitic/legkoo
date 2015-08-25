@@ -1,35 +1,21 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
-class Product {
+class Order {
     var $id;
-    var $visible;
-    var $title;
-    var $translit;
-    var $category;
-    var $quantity;
+    var $status;
     var $date_add;
-    var $date_edit;
-    var $articul;
-    var $photo;
-    var $gallery;
-    var $video;
-    var $instruction;
-    var $age_from;
-    var $age_to;
-    var $description;
-    var $price;
-    var $old_price;
-    var $male;
-    var $female;
-    var $elements;
-    var $size;
-    var $label_new;
-    var $label_hit;
-    var $label_action;
-    var $label_exclusive;
-    var $seo_description;
-    var $seo_keywords;
+    var $fio;
+    var $email;
+    var $phone;
+    var $comment;
+    var $delivery_type;
+    var $delivery_adress;
+    var $payment_type;
+    var $products;
+    var $sum;
+    var $discount;
+    var $notes;
     
     function __construct() {}
     /**
@@ -44,7 +30,7 @@ class Product {
             $str.="$key='$value' AND ";
         }
         $selectorStr = substr_replace($str, '', strripos($str," AND "));
-        $result = $connection->query("SELECT *  FROM products WHERE ({$selectorStr}) LIMIT 1");
+        $result = $connection->query("SELECT *  FROM orders WHERE ({$selectorStr}) LIMIT 1");
 
         $record = $result->fetch_object();$result->free();
         if(is_null($record)){return FALSE;}
@@ -69,7 +55,7 @@ class Product {
         }
         $fieldsStr = substr_replace($fields, '', strripos($fields,","));
         $valuesStr = substr_replace($values, '', strripos($values,","));
-        $query = "INSERT INTO products ($fieldsStr) VALUES ($valuesStr)";
+        $query = "INSERT INTO orders ($fieldsStr) VALUES ($valuesStr)";
         if(!$connection->query($query)){
 //            echo $connection->error;
             return FALSE;
@@ -95,7 +81,7 @@ class Product {
             $sStr.="$key='$value' $divider ";
         }
         $selectorStr = substr_replace($sStr, '', strripos($sStr," $divider "));
-        $query = "UPDATE products SET $valuesStr WHERE $selectorStr";
+        $query = "UPDATE orders SET $valuesStr WHERE $selectorStr";
         $result = $connection->query($query);
         if(!$result){
 //            echo $connection->error;

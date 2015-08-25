@@ -2,6 +2,26 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 
+
+function print_orders($conn){
+    //////// Вывод списка статей
+    $result = $conn->query('SELECT id,status,date_add,fio,phone,email,sum FROM orders ORDER BY id DESC');
+    while (list($id,$status,$date_add,$fio,$phone,$email,$sum) = $result->fetch_array()){
+        echo    "<tr>"
+                . "<td>{$id}</td>"
+                . "<td>{$date_add}</td>"
+                . "<td>{$status}</td>"
+                . "<td><span>{$fio}</span></td>"
+                . "<td>{$phone}</td>"
+                . "<td>{$email}</td>"
+                . "<td>{$sum}</td>"
+                . "<td><a class='row edit {$id}' href='?view=order_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
+                . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
+                . "</tr>";
+    }
+    $result->free();
+    ////////
+}
 function print_products($conn,$search=''){
     //////// Вывод списка товаров
     $q = '';

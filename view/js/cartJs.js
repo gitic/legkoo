@@ -1,4 +1,23 @@
 $(function(){
+    //Заполнение шага 4
+    $('.inp.fio,.inp.email,.inp.phone').on('change',function (){
+        var value = $(this).val();
+        var cName = $(this).attr('class').split(' ')[1];
+        $('#'+cName).html(value);
+    });
+    
+    //Пользовательское соглашение и активация кнопки
+    $('#aggr').click(function (){
+        if($(this).is(':checked')){
+            $('.send').prop('disabled', false);
+            $('.send').attr('class','send btnEnable');
+        }
+        else{
+            $('.send').prop('disabled', true);
+            $('.send').attr('class','send btnDisable');
+        }
+    });
+    
     $('.orderCount input').on('keyup',function (){
         var val = $(this).val();
         val = val.replace(/[^0-9]/g, "");
@@ -15,14 +34,16 @@ $(function(){
             setCart(this,1);
         }
     });
-    $('.orderDel').on('click',function (){
+    
+    //Удаление товара
+    $('.orderDel .del').on('click',function (){
         var arrId = $(this).attr('class').split(' ')[1];
         var cart = $.cookie('mlscart');
         var cartArr = JSON.parse(cart);
         cartArr.splice(arrId,1);
         var json = JSON.stringify(cartArr);
         $.cookie('mlscart', json, { expires: 7 });
-        $(this).parent().remove();
+        $(this).parent().parent().remove();
         
         var i = 0;
         $('.orderCount').each(function (){
@@ -49,6 +70,34 @@ $(function(){
             }
         });
         countTotal(cartArr);
+    });
+    
+    //Отправка формы
+    $('#cart_form').submit(function (e){
+//        e.preventDefault();
+        var fio = $.trim($('.fio').val());
+        var email = $('.email').val();
+        var phone = $('.phone').val();
+        
+        $('.fio').removeClass('errorClass');
+        $('.email').removeClass('errorClass');
+        $('.phone').removeClass('errorClass');
+        
+        if(fio === ''){
+            $('.fio').addClass('errorClass');
+            $('html, body').animate({ scrollTop: $('.fio').offset().top-50 }, 'slow');
+            e.preventDefault();
+        }
+        if(email === ''){
+            $('.email').addClass('errorClass');
+            $('html, body').animate({ scrollTop: $('.email').offset().top-50 }, 'slow');
+            e.preventDefault();
+        }
+        if(phone === ''){
+            $('.phone').addClass('errorClass');
+            $('html, body').animate({ scrollTop: $('.phone').offset().top-50 }, 'slow');
+            e.preventDefault();
+        }
     });
 });
 
@@ -80,7 +129,13 @@ function setCart(e,val){
         success: function (data, textStatus, jqXHR) {
             if(data.trim() !== 'error'){
                 var totalPrice = data*val;
-                $('.orderPrice.'+arrId+' strong').html(totalPrice+'');
+                $('.orderPrice.'+arrId+' strong').html(totalPrice);
+                var amount = 0;
+                $('.orderPrice strong').each(function (){
+                    amount = amount + parseInt($(this).html());
+                });
+                $('.sum strong').html(amount);
+                $('#price').html(amount+' грн');
             }
             else{
                 alert('Произошла ошибка');
@@ -90,7 +145,4 @@ function setCart(e,val){
             alert(textStatus+' '+errorThrown);
         }
     });
-}
-function clearCart(){
-    
 }

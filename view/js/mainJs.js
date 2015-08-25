@@ -6,8 +6,6 @@ $(function(){
     $('#basketSmall span').html(total);
     
     $('.previewBtn span').on('click', function (){
-//        $.removeCookie('mlscart');
-//        $.removeCookie('mlscartnum');
         var productID = $(this).parent().attr('class').split(' ')[1];
         var num = 1;
         addToCart(productID,num);
@@ -15,6 +13,14 @@ $(function(){
     $('.skipNotify').on('click',function (){
         $('.addNotify').css({'display':'none'});
     });
+    
+    $('#searchField').submit(function (e){
+        e.preventDefault();
+        var query = $(this).children('.inp').val();
+        window.location.href = "search="+query;
+    });
+    
+    
 });
 function addToCart(productID,num){
     var cart = $.cookie('mlscart');
@@ -56,4 +62,9 @@ function addToCart(productID,num){
         $.cookie('mlscartnum', total, { expires: 7 });
         $('#basketSmall span').html(total);
         $('.addNotify').css({'display':'block'});
+}
+function showError(text){
+    if(text == undefined){text = 'Произошла ошибка';}
+    $('.error').html(text);
+    $('.error').css({'display':'block'});
 }
