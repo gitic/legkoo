@@ -31,7 +31,6 @@ RewriteRule ^(.*)$ %1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-#RewriteCond %{REQUEST_URI} ^/lego/(.*)[/]{1}(.*)$ [NC]
 RewriteCond %{REQUEST_URI} ^/(.*)[/]{1}(.*)$ [NC]
 
 RewriteRule ^(.*)$ http://%1/$1 [R=404,L]

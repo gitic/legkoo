@@ -131,7 +131,7 @@ if(isset($_COOKIE["mlscart"])){
                         </div>
                         <div class="block">
                             <strong>E-Mail</strong>
-                            <input placeholder="E-Mail" name ="email" value="" type="text" class="inp email"/>
+                            <input placeholder="E-Mail" name ="email" value="" type="email" class="inp email"/>
                             <span>для отправки деталей заказа</span>
                         </div>
                         <div class="block">
@@ -176,7 +176,7 @@ if(isset($_COOKIE["mlscart"])){
                     </div>
                 </div>
                 <div class="block">
-                    <input type="checkbox" id="aggr"> <label for="aggr">Я прочитал и согласен с правилами <a href="#" target="_blank">Условия соглашения</a></label>
+                    <input type="checkbox" id="aggr"> <label for="aggr">Я прочитал и согласен с правилами <a href="info-4" target="_blank">Условия соглашения</a></label>
                     <div class="btn buy">
                         <input disabled disabled="disabled" class="send" name="submit" type="submit" value="ОФОРМИТЬ ЗАКАЗ" />
                     </div>
