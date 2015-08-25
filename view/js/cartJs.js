@@ -108,6 +108,12 @@ function countTotal(cartArr){
     }
     $.cookie('mlscartnum', total, { expires: 7 });
     $('#basketSmall span').html(total);
+    var amount = 0;
+    $('.orderPrice strong').each(function (){
+        amount = amount + parseInt($(this).html());
+    });
+    $('.sum strong').html(amount);
+    $('#price').html(amount+' грн');
     if(total == 0){
         $('#order').html('<p style="text-align: center">Корзина пуста</p>');
     }
@@ -120,7 +126,6 @@ function setCart(e,val){
     var productId = cartArr[arrId].id;
     var json = JSON.stringify(cartArr);
     $.cookie('mlscart', json, { expires: 7 });
-    countTotal(cartArr);
     $('.orderPrice.'+arrId+' strong').html("<img width='25px' src='view/images/loader.GIF'>");
     $.ajax({
         url:'./?ajax=cart',
@@ -130,12 +135,7 @@ function setCart(e,val){
             if(data.trim() !== 'error'){
                 var totalPrice = data*val;
                 $('.orderPrice.'+arrId+' strong').html(totalPrice);
-                var amount = 0;
-                $('.orderPrice strong').each(function (){
-                    amount = amount + parseInt($(this).html());
-                });
-                $('.sum strong').html(amount);
-                $('#price').html(amount+' грн');
+                countTotal(cartArr);
             }
             else{
                 alert('Произошла ошибка');
