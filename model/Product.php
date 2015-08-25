@@ -19,11 +19,11 @@ class Product {
     var $age_to;
     var $description;
     var $price;
+    var $old_price;
     var $male;
     var $female;
     var $elements;
     var $size;
-    var $discount;
     var $label_new;
     var $label_hit;
     var $label_action;

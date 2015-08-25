@@ -70,9 +70,6 @@ if(isset($_COOKIE["mlscart"])){
                         <td class="orderCount">
                            Кол
                         </td>
-                        <td class="orderSale">
-                            Скидка
-                        </td>
                         <td class="orderPrice">
                             Итого
                         </td>
@@ -101,9 +98,6 @@ if(isset($_COOKIE["mlscart"])){
                             </td>
                             <td class="orderCount <?=$i?>">
                                <input value="<?=$cookie[$i]->count?>" type="text" />
-                            </td>
-                            <td class="orderSale">
-                                <span><?=$product->discount?></span>
                             </td>
                             <td class="orderPrice <?=$i?>">
                                 <?php

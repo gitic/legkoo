@@ -14,6 +14,12 @@ $(function(){
         $('.addNotify').css({'display':'none'});
     });
     
+    $('#searchField').submit(function (e){
+        e.preventDefault();
+        var query = $(this).children('.inp').val();
+        window.location.href = "search="+query;
+    });
+    
     
 });
 function addToCart(productID,num){

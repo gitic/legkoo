@@ -34,11 +34,11 @@ if(isset($_POST['submit'])){
     $age_from = preg_replace('/[^0-9]+/ui', '', $_POST['age_from']);
     $age_to = preg_replace('/[^0-9]+/ui', '', $_POST['age_to']);
     $price = preg_replace('/[^0-9]+/ui', '', $_POST['price']);
+    $old_price = preg_replace('/[^0-9]+/ui', '', $_POST['old_price']);
     if(isset($_POST['male'])){$male = 1;}else{$male = 0;}
     if(isset($_POST['female'])){$female = 1;}else{$female = 0;}
     $elements = preg_replace('/[^0-9]+/ui', '', $_POST['elements']);
     $size = clear($conn, htmlentities($_POST['size'],ENT_QUOTES));
-    $discount = preg_replace('/[^0-9]+/ui', '', $_POST['discount']);
     if(isset($_POST['label_new'])){$label_new = 1;}else{$label_new = 0;}
     if(isset($_POST['label_hit'])){$label_hit = 1;}else{$label_hit = 0;}
     if(isset($_POST['label_action'])){$label_action = 1;}else{$label_action = 0;}
@@ -99,11 +99,11 @@ if(isset($_POST['submit'])){
         'age_from'=>$age_from,
         'age_to'=>$age_to,
         'price'=>$price,
+        'old_price'=>$old_price,
         'male'=>$male,
         'female'=>$female,
         'elements'=>$elements,
         'size'=>$size,
-        'discount'=>$discount,
         'label_new'=>$label_new,
         'label_hit'=>$label_hit,
         'label_action'=>$label_action,
@@ -381,6 +381,11 @@ $_SESSION['KCFINDER'] = array(
             </div>
             
             <div class="block">
+                    <label class="left">Старая цена</label>
+                    <input class="inp" id="old_price" name="old_price" style="width:494px" value="<?=$product->old_price?>"/>
+            </div>
+            
+            <div class="block">
                 <label >Предназначение</label>
                     <?php
                         if($product->male == 1){
@@ -409,11 +414,6 @@ $_SESSION['KCFINDER'] = array(
             <div class="block">
                     <label class="left">Размер коробки</label>
                     <input class="inp" id="size" name="size" style="width:494px" value="<?=$product->size?>"/>
-            </div>
-            
-            <div class="block">
-                    <label class="left">Скидка</label>
-                    <input class="inp" id="discount" name="discount" style="width:494px" value="<?=$product->discount?>"/>
             </div>
             
             <div class="block">
