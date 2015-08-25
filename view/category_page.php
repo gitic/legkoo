@@ -26,9 +26,12 @@ $category->getFomDb(array('id'=>$id), $conn);
         <div id="catSort">
             <div class="block">
                 <p>Цена: </p>
-                вакып
+                <select>
+                    <option value="0">Все</option>
+                    <option value="1">12+</option>
+                </select>
             </div>
-            <div class="block">
+            <div class="block mid">
                 <p>Возраст: </p>
                 <select>
                     <option value="0">Все</option>

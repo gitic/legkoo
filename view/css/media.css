@@ -104,9 +104,11 @@
         padding:0 0 15px 0;
     }
 
-    #catSort .block p {
-        text-align:left;
-        padding:0 2%;
+    #catSort .block.mid {
+        clear:both;
+        text-align:center;
+        width:100%;
+        padding:0 0 15px 0;
     }
 }
 

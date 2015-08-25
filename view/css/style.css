@@ -113,6 +113,11 @@ a#logo img {
     font-weight:300;
     padding:11px 5px 10px 5px;
     width:97px;
+        -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
 #searchField input.btn:hover {background-color:#4CAF50;    color:#fff;
@@ -953,10 +958,15 @@ label {
     width:33%;
 }
 
+#catSort .block.mid {
+    width:34%;
+}
+
 #catSort .block p {
     color: #111;
     font-weight: 300;
-    padding:0 0 4px 0;
+    padding:0 2% 4px 2%;
+    text-align:left;
 }
 
 #catSort .block select {
@@ -967,5 +977,5 @@ label {
     font-weight: 500;
     font-size: 16px;
     padding: 11px 2% 9px 2%;
-    width: 96%;
+    width: 100%;
 }
