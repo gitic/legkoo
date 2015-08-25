@@ -20,5 +20,8 @@ $infopage->getFomDb(array('id'=>$id), $conn);
 <div id="content">
     <div id="info">
         <h1><?=$infopage->title?></h1>
+        <div class="text">
+            <?=$infopage->text?>
+        </div>
     </div>
 </div>
