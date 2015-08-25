@@ -93,7 +93,7 @@ select:focus {
 /* --- Форма входа --- */
 
 #wrap {
-	width:1000px;
+	/*width:1000px;*/
 }
 
 #menu {
@@ -208,7 +208,7 @@ a#madeby {
 	float:left;
 	margin:0 0 0 230px;
 	padding:10px 20px;
-	width:730px;
+	/*width:730px;*/
 }
 
 #main h1 {

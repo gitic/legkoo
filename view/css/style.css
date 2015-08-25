@@ -864,7 +864,7 @@ a.footLogo img {
     font-size:20px;
 }
 
-a.send {
+input.send {
     background-color:#4CAF50;
     color:#fff;
     cursor:pointer;
@@ -882,10 +882,21 @@ a.send {
     transition: all .4s ease-in-out;
 }
 
-a.send:hover {
+input.send:hover {
     opacity:1;
 }
 
 label {
     font-weight:300;
+}
+
+.error{
+    display: none;
+    color: red;
+    border:1px solid red;
+    padding: 10px 3px;
+    text-align: center;
+}
+.errorClass{
+    border:1px solid red !important;
 }

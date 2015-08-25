@@ -4,6 +4,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 class Order {
     var $id;
     var $status;
+    var $date_add;
     var $fio;
     var $email;
     var $phone;
@@ -12,6 +13,8 @@ class Order {
     var $delivery_adress;
     var $payment_type;
     var $products;
+    var $sum;
+    var $discount;
     var $notes;
     
     function __construct() {}
