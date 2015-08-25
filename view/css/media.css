@@ -1,7 +1,71 @@
 @media (max-width:700px) { 
     nav {
+        border-bottom: 0;
+        height: auto;
+        padding:0 0 10px 0;
+        position:relative;
+        float:left;
+        max-width:200px;
+    }
+
+    nav a {
+        font-size:16px!important;
+        position:relative;
+        border-bottom:none!important;
+        padding:10px 0 0 0;
+    }
+	
+    nav ul {
+        display: none;
+        height: auto;
+        width: 100%;
+        padding-top:10px;
+    }
+    nav a#pull {
+        display: block;
+        color:#fff;
+        position: relative!important;
+        text-align:left;
+        z-index: 99;
+        padding: 10px 10px 10px 0!important;
+        border-bottom:0;
+        top:7px;
+        left:10px;
+        font-size:16px!important;
+    }
+    nav a#pull:after {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        position: absolute;
+        left: 5px;
+        margin:0 20px 0 0;
+    }
+    nav li {
+        display: block;
+        float: none;
+        width: 100%;
+    }
+    nav li a span {
+        border-right:none!important;
+        border-bottom:1px dashed #78CDE4;
+        display:inline-block;
+        padding:0 3px 10px 3px!important;
+    }
+
+    nav a.sel {
+        border-bottom:0;
+        font-weight:700;
+    } 
+
+    nav ul li a:hover {
+        border-bottom:1px dashed #78CDE4;
+    }
+
+    a#basketSmall em {
         display:none;
     }
+    
     .productGallery {
         margin:0 0 20px 0;
         padding:0 2%;

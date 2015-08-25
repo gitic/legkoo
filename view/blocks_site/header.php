@@ -19,10 +19,10 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="topMenuSecond">
         <div id="topMenuSecondBody">
             <a href="cart" id="basketSmall">
-                <i class="fa fa-shopping-cart"></i> ТОВАРОВ: <span>0</span>
+                <i class="fa fa-shopping-cart"></i> <em>ТОВАРОВ:</em> <span>0</span>
             </a>
-            <nav>
-                <ul>
+            <nav class="clearfix">
+                <ul class="clearfix">
                     <li>
                         <a href="<?=PATH?>"><span>главная</span></a>
                     </li>
@@ -37,6 +37,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     </li>
                     <div class="clear"></div>
                 </ul>
+                <a href="#" id="pull"><i class="fa fa-bars"></i></a>
             </nav>
             <div class="clear"></div>
         </div>
