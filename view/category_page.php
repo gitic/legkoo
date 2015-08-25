@@ -23,35 +23,56 @@ $category->getFomDb(array('id'=>$id), $conn);
         <div class="catLogo">
             <img src="<?=$category->logo?>"/>
         </div>
+        <?php 
+            $result = $conn->query("SELECT MIN(price) AS minPrice, MAX(price) AS maxPrice,MIN(age_from) AS ageFrom, MAX(age_to) AS ageTo FROM products WHERE category = '$id';");
+            $record = $result->fetch_object();
+            $minPrice = $record->minPrice;
+            $maxPrice = $record->maxPrice;
+            $ageFrom = $record->ageFrom;
+            $ageTo = $record->ageTo;
+        ?>
         <script>
         $(function() {
-            $( "#slider-range" ).slider({
+            
+            $( "#slider-price" ).slider({
                 range: true,
-                min: 0,
-                max: 16,
-                values: [ 0, 16 ],
+                min: <?=$minPrice?>,
+                max: <?=$maxPrice?>,
+                values: [ <?=$minPrice?>, <?=$maxPrice?> ],
                 slide: function( event, ui ) {
-                  $( "#amount" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                  $( "#amount_price" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
                 }
             });
-            $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
+            $( "#amount_price" ).val( "" + $( "#slider-price" ).slider( "values", 0 ) + " - " + $( "#slider-price" ).slider( "values", 1 ) );
+            
+            $( "#slider-age" ).slider({
+                range: true,
+                min: <?=$ageFrom?>,
+                max: <?=$ageTo?>,
+                values: [ <?=$ageFrom?>, <?=$ageTo?> ],
+                slide: function( event, ui ) {
+                  $( "#amount_age" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount_age" ).val( "" + $( "#slider-age" ).slider( "values", 0 ) + " - " + $( "#slider-age" ).slider( "values", 1 ) );
+            
+            
         });
         </script>
 
         <div id="catSort">
             <div class="block">
-                <i class="fa fa-angle-down"></i>
-                <p>Цена: </p>
-                <select>
-                    <option value="0">Все</option>
-                    <option value="1">12+</option>
-                </select>
+                <p style='margin: 0 40px'>
+                    <label for="amount_price">Цена:</label>
+                    <input type="text" id="amount_price" readonly style="border:0; color:#f6931f; font-weight:bold;"><br><br>
+                    <div style='margin: 0 40px' id="slider-price"></div>
+                </p>
             </div>
             <div class="block mid">
                 <p style='margin: 0 40px'>
-                    <label for="amount">Возраст:</label>
-                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"><br><br>
-                    <div style='margin: 0 40px' id="slider-range"></div>
+                    <label for="amount_age">Возраст:</label>
+                    <input type="text" id="amount_age" readonly style="border:0; color:#f6931f; font-weight:bold;"><br><br>
+                    <div style='margin: 0 40px' id="slider-age"></div>
                 </p>
             </div>
             <div class="block">
