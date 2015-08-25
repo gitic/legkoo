@@ -41,13 +41,13 @@ $searchStr = clear($conn, $searchStr);
 
                 $q="(t1.title LIKE '%$words[0]%'";
                 if(count($words)>1){
-                    for($i=1;$i<count($words);$i++){$q.="AND t1.title LIKE '%$words[$i]%'";}$q.=')';
+                    for($i=1;$i<count($words);$i++){$q.="OR t1.title LIKE '%$words[$i]%'";}$q.=')';
                 }
                 else {$q.=')';}
                 
                 $q2="(t1.articul LIKE '%$words[0]%'";
                 if(count($words)>1){
-                    for($i=1;$i<count($words);$i++){$q2.="AND t1.articul LIKE '%$words[$i]%'";}$q2.=')';
+                    for($i=1;$i<count($words);$i++){$q2.="OR t1.articul LIKE '%$words[$i]%'";}$q2.=')';
                 }
                 else {$q2.=')';}
                 
