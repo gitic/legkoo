@@ -131,7 +131,7 @@ if(isset($_COOKIE["mlscart"])){
                         </div>
                         <div class="block">
                             <strong>E-Mail</strong>
-                            <input placeholder="E-Mail" name ="email" value="" type="text" class="inp email"/>
+                            <input placeholder="E-Mail" name ="email" value="" type="email" class="inp email"/>
                             <span>для отправки деталей заказа</span>
                         </div>
                         <div class="block">
@@ -168,15 +168,15 @@ if(isset($_COOKIE["mlscart"])){
                 <h3><em>4</em> Подтверждение:</h3>
                 <div class="step">
                     <div class="block conf">
-                        <p>Имя: <strong id='fio'>куце</strong></p>
+                        <p>Имя: <strong id='fio'></strong></p>
                         <p>Электронная почта: <strong id='email'></strong></p>
-                        <p>Телефон: <strong id='phone'>+7 (324) 543-56-54</strong></p>
+                        <p>Телефон: <strong id='phone'></strong></p>
                         <p>Точное время доставки уточнит менеджер при согласовании деталей заказа</p>
                         <p>Цена: <strong id='price'><?=$amount?> грн</strong></p>
                     </div>
                 </div>
                 <div class="block">
-                    <input type="checkbox" id="aggr"> <label for="aggr">Я прочитал и согласен с правилами <a href="#" target="_blank">Условия соглашения</a></label>
+                    <input type="checkbox" id="aggr"> <label for="aggr">Я прочитал и согласен с правилами <a href="info-4" target="_blank">Условия соглашения</a></label>
                     <div class="btn buy">
                         <input disabled disabled="disabled" class="send" name="submit" type="submit" value="ОФОРМИТЬ ЗАКАЗ" />
                     </div>
