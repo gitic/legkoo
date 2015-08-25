@@ -6,6 +6,7 @@ php_value max_input_time 1600
 DirectoryIndex index.php
 php_flag display_errors on
 
+
 #ErrorDocument 404 /lego/404.html
 ErrorDocument 404 /404.html
 
@@ -35,8 +36,19 @@ RewriteCond %{REQUEST_URI} ^/(.*)[/]{1}(.*)$ [NC]
 
 RewriteRule ^(.*)$ http://%1/$1 [R=404,L]
 
-#RewriteRule ^page-(\d+)?$ ?view=main&page=$1
-#
+RewriteRule ^search=(.*)?$ ?view=search&search=$1
+
+RewriteRule ^page-(\d+)?$ ?view=main&page=$1
+
+RewriteRule ^catalog?$ ?view=category
+
+RewriteRule ^category-(.*)-(.*)(\D+)?$ ?view=category_page&id=$1
+
+RewriteRule ^product-(.*)-(.*)(\D+)?$ ?view=product&id=$1
+
+RewriteRule ^cart?$ ?view=cart
+
+#RewriteRule ^product-(.*)?$ ?view=product_page&translit=$1
 #RewriteRule ^recipe-(\d+)-(.*)(\D+)?$ ?view=recipe&id=$1
 #
 #RewriteRule ^info-(\d+).html?$ ?view=info_page&id=$1
