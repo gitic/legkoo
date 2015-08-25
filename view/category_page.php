@@ -25,6 +25,7 @@ $category->getFomDb(array('id'=>$id), $conn);
         </div>
         <div id="catSort">
             <div class="block">
+                <i class="fa fa-angle-down"></i>
                 <p>Цена: </p>
                 <select>
                     <option value="0">Все</option>
@@ -32,6 +33,7 @@ $category->getFomDb(array('id'=>$id), $conn);
                 </select>
             </div>
             <div class="block mid">
+                <i class="fa fa-angle-down"></i>
                 <p>Возраст: </p>
                 <select>
                     <option value="0">Все</option>
@@ -39,6 +41,7 @@ $category->getFomDb(array('id'=>$id), $conn);
                 </select>
             </div>
             <div class="block">
+                <i class="fa fa-angle-down"></i>
                 <p>Сортировать по: </p>
                 <select>
                     <option value="0">Все</option>
