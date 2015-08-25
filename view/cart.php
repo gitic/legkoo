@@ -168,9 +168,9 @@ if(isset($_COOKIE["mlscart"])){
                 <h3><em>4</em> Подтверждение:</h3>
                 <div class="step">
                     <div class="block conf">
-                        <p>Имя: <strong id='fio'>куце</strong></p>
+                        <p>Имя: <strong id='fio'></strong></p>
                         <p>Электронная почта: <strong id='email'></strong></p>
-                        <p>Телефон: <strong id='phone'>+7 (324) 543-56-54</strong></p>
+                        <p>Телефон: <strong id='phone'></strong></p>
                         <p>Точное время доставки уточнит менеджер при согласовании деталей заказа</p>
                         <p>Цена: <strong id='price'><?=$amount?> грн</strong></p>
                     </div>

@@ -23,6 +23,21 @@ $category->getFomDb(array('id'=>$id), $conn);
         <div class="catLogo">
             <img src="<?=$category->logo?>"/>
         </div>
+        <script>
+        $(function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 16,
+                values: [ 0, 16 ],
+                slide: function( event, ui ) {
+                  $( "#amount" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) + " - " + $( "#slider-range" ).slider( "values", 1 ) );
+        });
+        </script>
+
         <div id="catSort">
             <div class="block">
                 <i class="fa fa-angle-down"></i>
@@ -33,12 +48,11 @@ $category->getFomDb(array('id'=>$id), $conn);
                 </select>
             </div>
             <div class="block mid">
-                <i class="fa fa-angle-down"></i>
-                <p>Возраст: </p>
-                <select>
-                    <option value="0">Все</option>
-                    <option value="1">12+</option>
-                </select>
+                <p style='margin: 0 40px'>
+                    <label for="amount">Возраст:</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;"><br><br>
+                    <div style='margin: 0 40px' id="slider-range"></div>
+                </p>
             </div>
             <div class="block">
                 <i class="fa fa-angle-down"></i>

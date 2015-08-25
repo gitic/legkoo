@@ -61,12 +61,6 @@
 
 
 
-<!-- Autocomplete -->
-<h2 class="demoHeaders">Autocomplete</h2>
-<div>
-	<input id="autocomplete" title="type &quot;a&quot;">
-</div>
-
 
 
 
@@ -253,6 +247,15 @@
 </ul>
 
 
+<!-- Slider -->
+<h2 class="demoHeaders">Slider</h2>
+<div id="slider"></div>
+
+
+
+<!-- Datepicker -->
+<h2 class="demoHeaders">Datepicker</h2>
+<div id="datepicker"></div>
 
 
 
@@ -261,25 +264,6 @@
 
 
 
-
-
-<!-- Menu -->
-<h2 class="demoHeaders">Menu</h2>
-<ul style="width:100px;" id="menu">
-	<li>Item 1</li>
-	<li>Item 2</li>
-	<li>Item 3
-		<ul>
-			<li>Item 3-1</li>
-			<li>Item 3-2</li>
-			<li>Item 3-3</li>
-			<li>Item 3-4</li>
-			<li>Item 3-5</li>
-		</ul>
-	</li>
-	<li>Item 4</li>
-	<li>Item 5</li>
-</ul>
 
 
 
@@ -306,32 +290,23 @@
 
 
 
-var availableTags = [
-	"ActionScript",
-	"AppleScript",
-	"Asp",
-	"BASIC",
-	"C",
-	"C++",
-	"Clojure",
-	"COBOL",
-	"ColdFusion",
-	"Erlang",
-	"Fortran",
-	"Groovy",
-	"Haskell",
-	"Java",
-	"JavaScript",
-	"Lisp",
-	"Perl",
-	"PHP",
-	"Python",
-	"Ruby",
-	"Scala",
-	"Scheme"
-];
-$( "#autocomplete" ).autocomplete({
-	source: availableTags
+
+
+
+
+
+
+
+
+$( "#datepicker" ).datepicker({
+	inline: true
+});
+
+
+
+$( "#slider" ).slider({
+	range: true,
+	values: [ 17, 67 ]
 });
 
 
@@ -339,18 +314,6 @@ $( "#autocomplete" ).autocomplete({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-$( "#menu" ).menu();
 
 
 
