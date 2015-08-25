@@ -23,6 +23,27 @@ $category->getFomDb(array('id'=>$id), $conn);
         <div class="catLogo">
             <img src="<?=$category->logo?>"/>
         </div>
+        <div id="catSort">
+            <div class="block">
+                <p>Цена: </p>
+                вакып
+            </div>
+            <div class="block">
+                <p>Возраст: </p>
+                <select>
+                    <option value="0">Все</option>
+                    <option value="1">12+</option>
+                </select>
+            </div>
+            <div class="block">
+                <p>Сортировать по: </p>
+                <select>
+                    <option value="0">Все</option>
+                    <option value="1">12+</option>
+                </select>
+            </div>
+            <div class="clear"></div>
+        </div>
         <div id="catProduct">
             <?php
                 $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC";
