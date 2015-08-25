@@ -44,8 +44,11 @@ $category->getFomDb(array('id'=>$id), $conn);
                 <i class="fa fa-angle-down"></i>
                 <p>Сортировать по: </p>
                 <select>
-                    <option value="0">Все</option>
-                    <option value="1">12+</option>
+                    <option value="" selected="selected">По умолчанию</option>
+                    <option value="">Наименование (А -&gt; Я)</option>
+                    <option value="">Наименование (Я -&gt; А)</option>
+                    <option value="">Цена (по возрастанию)</option>
+                    <option value="p">Цена (по убыванию)</option>
                 </select>
             </div>
             <div class="clear"></div>
