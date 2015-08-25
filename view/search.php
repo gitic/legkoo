@@ -19,7 +19,7 @@ $searchStr = clear($conn, $searchStr);
 <div id="content">
     <div id="main">
         <h1>Поиск "<?=$searchStr?>":</h1>
-        <div id="catProduct">
+        <div id="catProduct" class="search">
             <?php
         
             if(strlen($searchStr) < 3){
