@@ -44,7 +44,14 @@ $searchStr = clear($conn, $searchStr);
                     for($i=1;$i<count($words);$i++){$q.="AND t1.title LIKE '%$words[$i]%'";}$q.=')';
                 }
                 else {$q.=')';}
-                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE $q AND t1.visible='1' UNION "
+                
+                $q2="(t1.articul LIKE '%$words[0]%'";
+                if(count($words)>1){
+                    for($i=1;$i<count($words);$i++){$q2.="AND t1.articul LIKE '%$words[$i]%'";}$q2.=')';
+                }
+                else {$q2.=')';}
+                
+                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE ($q OR $q2) AND t1.visible='1' UNION "
                         . "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.category=$category AND t1.visible='1'"
                         . "ORDER BY id DESC";
                 $result = $conn->query($sql);
