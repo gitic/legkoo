@@ -61,12 +61,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
 <div id="content">
         <form name="edit_form" action="" method="post" enctype="multipart/form-data">
             <input type="text" hidden name="rowId" class="rowId" value="<?=$order->id?>"/>
-            
-            <div class="block">
-                <label class="left">Заметки</label>
-                <textarea disabled="disabled" class="inp" name="notes" style="width:494px;" rows="8"><?=$order->notes?></textarea> 
-                <div class="clear"></div>
-            </div>
+           
             <div class="block">
                 <label>Дата</label>
                 <input class="inp" id="date_add" name="date_add" style="width:494px" value="<?=$order->date_add?>" disabled="disabled"/>
@@ -89,7 +84,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <div class="block">
                     <label class="left">Комментарий к заказу</label>
-                    <textarea disabled="disabled" class="inp" name="comment" style="width:494px;" rows="8"><?=$order->comment?></textarea> 
+                    <textarea disabled="disabled" class="inp" name="comment" style="width:494px;"><?=$order->comment?></textarea> 
                 <div class="clear"></div>
             </div>
             
@@ -126,10 +121,10 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                 $arr = json_decode($order->products);
 //                print_arr($arr);
             ?>
-            <div class="block">
-                <table style="width:100%;text-align:left;border-collapse: collapse">
+            <div class="block table">
+                <table>
                     <tbody>
-                        <tr style='border: 1px solid black'>
+                        <tr>
                             <td>Артикул</td>
                             <td>Название</td>
                             <td>Количество</td>
@@ -139,11 +134,11 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                         <?php
                             foreach ($arr as $product):
                         ?>
-                        <tr class="product <?=$product->id?>" style='border: 1px solid black;'>
+                        <tr class="product <?=$product->id?>">
                             <td><input hidden class="pID <?=$product->id?>" value="<?=$product->id?>"/><?=$product->articul?></td>
                             <td valign="top"><img style='float: left' width="70" src="../<?=$product->img?>"> <?=$product->title?></td>
-                            <td><input disabled="disabled" class="inp count <?=$product->id?>" style="width: 20px" value="<?=$product->count?>"/></td>
-                            <td><input disabled="disabled" class="inp price <?=$product->id?>" style="width: 50px" value="<?=$product->price?>"/></td>
+                            <td><input disabled="disabled" class="inp count <?=$product->id?>" value="<?=$product->count?>"/></td>
+                            <td><input disabled="disabled" class="inp price <?=$product->id?>" value="<?=$product->price?>"/></td>
                             <td><i style="display:none;cursor:pointer" class="fa fa-times del"></i></td>
                         </tr>
                         <?php endforeach;?>
@@ -153,8 +148,8 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             
             <div class="block">
-                <label>Товары</label>
-                <input  disabled="disabled" readonly class="inp" id="orderSum" name="productsSum" style="width:50px" value="<?=$order->sum?>"/>
+                <label>Сумма</label>
+                <input  disabled="disabled" readonly class="inp" id="orderSum" name="productsSum" style="width:50px" value="<?=$order->sum?> грн"/>
                 <div class="clear"></div>
             </div>
             <div class="block">
@@ -169,11 +164,15 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             <div class="block">
                 <label style="font-weight: bold">Всего</label>
-                <input disabled="disabled" class="inp" id="orderTotal" name="productsSum" style="width:50px" value="<?=$order->sum?>"/>
+                <input disabled="disabled" class="inp" id="orderTotal" name="productsSum" style="width:50px" value="<?=$order->sum?> грн"/>
                 <div class="clear"></div>
             </div>
             
-        
+            <div class="block">
+                <label class="left">Заметки</label>
+                <textarea disabled="disabled" class="inp" name="notes" style="width:494px;"><?=$order->notes?></textarea> 
+                <div class="clear"></div>
+            </div>
             <div id="bottom-btn">
                 <input name="id" type="hidden" value="">
                 <input style="display:none;" class='save' name="submit" type="submit" value="сохранить" />

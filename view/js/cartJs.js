@@ -88,12 +88,12 @@ $(function(){
             $('html, body').animate({ scrollTop: $('.fio').offset().top-50 }, 'slow');
             e.preventDefault();
         }
-        if(email === ''){
+        else if(email === ''){
             $('.email').addClass('errorClass');
             $('html, body').animate({ scrollTop: $('.email').offset().top-50 }, 'slow');
             e.preventDefault();
         }
-        if(phone === ''){
+        else if(phone === ''){
             $('.phone').addClass('errorClass');
             $('html, body').animate({ scrollTop: $('.phone').offset().top-50 }, 'slow');
             e.preventDefault();

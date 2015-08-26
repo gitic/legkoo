@@ -2,13 +2,15 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 ?>
-<div class='addNotify'>
-    <div>
-        <strong>Товар "<span></span>" добавлен в корзину</strong>
-        <p><a href="cart" class="btn">ОФОРМИТЬ ЗАКАЗ</a><span class="skipNotify">ПРОДОЛЖИТЬ ПОКУПКИ</span>
-        <div class="clear"></div></p>
+<noindex>
+    <div class='addNotify'>
+        <div>
+            <strong>Товар "<span></span>" добавлен в корзину</strong>
+            <p><a rel="nofollow" href="cart" class="btn">ОФОРМИТЬ ЗАКАЗ</a><span class="skipNotify">ПРОДОЛЖИТЬ ПОКУПКИ</span>
+            <div class="clear"></div></p>
+        </div>
     </div>
-</div>
+</noindex>
 <div id="topMenu">
     <div id="topMenuFirst">
         <form id="searchField">
@@ -18,9 +20,11 @@ defined(ACCESS_VALUE) or die('Access denied');
     </div>
     <div id="topMenuSecond">
         <div id="topMenuSecondBody">
-            <a href="cart" id="basketSmall">
-                <i class="fa fa-shopping-cart"></i> <em>ТОВАРОВ:</em> <span>0</span>
-            </a>
+            <noindex>
+                <a rel="nofollow" href="cart" id="basketSmall">
+                    <i class="fa fa-shopping-cart"></i> <em>ТОВАРОВ:</em> <span>0</span>
+                </a>
+            </noindex>
             <nav class="clearfix">
                 <ul class="clearfix">
                     <li>
