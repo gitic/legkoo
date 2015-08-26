@@ -69,10 +69,10 @@ $category->getFomDb(array('id'=>$product->category), $conn);
                     </div>
                     <div class="clear"></div>
                 </div>
-                <div class="block">
-                    <div class="productAbout" itemprop="description">
-                        <p>Описание:</p> <?=$product->description?>
-                    </div>
+            </div>
+            <div class="block">
+                <div class="productAbout" itemprop="description">
+                    <p>Описание:</p> <?=$product->description?>
                 </div>
             </div>
         </div>

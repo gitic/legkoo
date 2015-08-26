@@ -230,6 +230,7 @@ a#basketSmall em {
     margin:0 auto;
     max-width:1000px;
     padding:15px 10px;
+    text-transform:lowercase;
 }
 
 #breadcrumbsBody a {

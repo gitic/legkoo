@@ -1,0 +1,13 @@
+User-agent: *
+# Files
+Disallow: /config.php
+
+# Directories
+Crawl-delay: 3
+Disallow: /adminka
+Disallow: /controller
+Disallow: /functions
+Disallow: /model
+Disallow: /search
+
+Host: 
