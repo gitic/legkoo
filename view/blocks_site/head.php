@@ -21,6 +21,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <script src="lib/jquery.cookie.js"></script>
 <link href="lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 <script src="lib/jquery-ui/jquery-ui.min.js"></script>
+<script src="lib/touch-punch.js"></script>
 <script src="<?=VIEW?>js/mainJs.js"></script>
 
 <script>
