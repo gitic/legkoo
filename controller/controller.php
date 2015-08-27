@@ -58,13 +58,13 @@ else{
     
     switch ($view) {
         case 'main':
-            $meta['title'] = 'Lego';
-            $meta['description'] = 'Lego';
-            $meta['keywords'] = 'lego';
+            $meta['title'] = 'LEGO (ЛЕГО) интернет-магазин: купить LEGO конструкторы и игрушки ЛЕГО с доставкой по Киеву и Украине: Legkoo';
+            $meta['description'] = 'LEGO: купить ЛЕГО в интернет-магазине. Цены, описания, фото, каталог конструкторов ЛЕГО и игрушек LEGO в официальном магазине Legkoo. Доставка и розничные магазины ЛЕГО по Украине';
+            $meta['keywords'] = ' лего заказать купить продажа каталог конструктор игрушки доставка lego интернет магазин';
             break;
               
         case 'category':
-            $meta['title'] = "";
+            $meta['title'] = "Конструкторы Lego";
             $meta['description'] = "";
             $meta['keywords'] = "";
             break;
