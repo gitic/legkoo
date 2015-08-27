@@ -15,7 +15,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <h1>Каталог LEGO</h1>
         <div id="catPreview">            
             <?php
-                $result = $conn->query("SELECT * FROM categories WHERE visible='1'");
+                $result = $conn->query("SELECT * FROM categories WHERE visible='1' ORDER BY title ASC");
                 while ($record = $result->fetch_object()){
                     $category = new Category();
                     $category = $record;
