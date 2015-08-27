@@ -3,7 +3,7 @@
 defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="ru">
     <head>
         <meta charset="UTF-8">
         <title><?=$meta['title']?></title>
