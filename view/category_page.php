@@ -30,7 +30,13 @@ defined(ACCESS_VALUE) or die('Access denied');
         ?>
         <script>
         $(function() {
-            
+            $('.sortSelect').on('change',function (){
+                var sortVal = $(this).val();
+                var range = $('#amount_price').val().split(' ');
+                var from = range[0];
+                var to = range[2];
+                sendData('<?=$id?>','sort',from,to,sortVal);
+            });
             $( "#slider-price" ).slider({
                 range: true,
                 min: <?=$minPrice?>,
@@ -40,30 +46,17 @@ defined(ACCESS_VALUE) or die('Access denied');
                   $( "#amount_price" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
                 },
                 change: function( event, ui ) {
-                    sendData('<?=$id?>','price',ui.values[0],ui.values[1]);
+                    var sortVal = $('.sortSelect').val();
+                    sendData('<?=$id?>','price',ui.values[0],ui.values[1],sortVal);
                 }
             });
             $( "#amount_price" ).val( "" + $( "#slider-price" ).slider( "values", 0 ) + " - " + $( "#slider-price" ).slider( "values", 1 ) );
             
-            $( "#slider-age" ).slider({
-                range: true,
-                min: <?=$ageFrom?>,
-                max: <?=$ageTo?>,
-                values: [ <?=$ageFrom?>, <?=$ageTo?> ],
-                slide: function( event, ui ) {
-                  $( "#amount_age" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
-                },
-                change: function( event, ui ) {
-                    sendData('<?=$id?>','age',ui.values[0],ui.values[1]);
-                }
-            });
-            $( "#amount_age" ).val( "" + $( "#slider-age" ).slider( "values", 0 ) + " - " + $( "#slider-age" ).slider( "values", 1 ) );
-            
-            function sendData(id,type,from,to){
+            function sendData(id,type,from,to,sortVal){
                 $.ajax({
                     url:'./?ajax=category_page',
                     type:'POST',
-                    data: {id:id,type:type,from:from,to:to},
+                    data: {id:id,type:type,from:from,to:to,sort:sortVal},
                     success: function (data, textStatus, jqXHR) {
                         if(data.trim() !== 'error'){
                             $('#catProduct').html(data);
@@ -88,22 +81,22 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <div style='margin: 0 40px' id="slider-price"></div>
                 </p>
             </div>
-            <div class="block mid">
+<!--            <div class="block mid">
                 <p style='margin: 0 40px'>
                     <label for="amount_age">Возраст:</label>
                     <input type="text" id="amount_age" readonly style="border:0; color:#f6931f; font-weight:bold;"><br><br>
                     <div style='margin: 0 40px' id="slider-age"></div>
                 </p>
-            </div>
+            </div>-->
             <div class="block">
                 <i class="fa fa-angle-down"></i>
                 <p>Сортировать по: </p>
-                <select>
-                    <option value="" selected="selected">По умолчанию</option>
-                    <option value="">Наименование (А -&gt; Я)</option>
-                    <option value="">Наименование (Я -&gt; А)</option>
-                    <option value="">Цена (по возрастанию)</option>
-                    <option value="p">Цена (по убыванию)</option>
+                <select class='sortSelect'>
+                    <option value="0" selected="selected">По умолчанию</option>
+                    <option value="1">Наименование (А -&gt; Я)</option>
+                    <option value="2">Наименование (Я -&gt; А)</option>
+                    <option value="3">Цена (по возрастанию)</option>
+                    <option value="4">Цена (по убыванию)</option>
                 </select>
             </div>
             <div class="clear"></div>
