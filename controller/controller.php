@@ -62,18 +62,23 @@ else{
             $meta['description'] = 'Lego';
             $meta['keywords'] = 'lego';
             break;
-        
-        
+              
         case 'category':
-            $meta['title'] = 'Лего НАЗВАНИЕ: купить конструктор LEGO® НАЗВАНИЕ на Legkoo';
-            $meta['description'] = 'Купить набор Лего НАЗВАНИЕ в интернет-магазине с доставкой по Украине. Конструктор LEGO® НАЗВАНИЕ в наличии и под заказ';
-            $meta['keywords'] = 'Лего НАЗВАНИЕ купить конструктор набор LEGO® НАЗВАНИЕ цена недорого продажа интернет-магазин';
+            $meta['title'] = "";
+            $meta['description'] = "";
+            $meta['keywords'] = "";
+            break;
+        
+        case 'category_page':
+            $id=$_GET['id'];
+            $category = new Category();
+            $category->getFomDb(array('id'=>$id), $conn);
+            $meta['title'] = "Лего $category->title: купить конструктор LEGO® $category->title на Legkoo";
+            $meta['description'] = "Купить набор Лего $category->title в интернет-магазине с доставкой по Украине. Конструктор LEGO® $category->title в наличии и под заказ";
+            $meta['keywords'] = "Лего $category->title купить конструктор набор LEGO® $category->title цена недорого продажа интернет-магазин";
             break;
         
         case 'product':
-            if(!isset($_GET['id'])){
-                die('Страница не найдена');
-            }
             $id=$_GET['id'];
             $product = new Product();
             $product->getFomDb(array('id'=>$id), $conn);
@@ -84,6 +89,28 @@ else{
             $meta['description'] = "Купить Конструктор $product->title LEGO® $category->title $product->articul доступная цена, доставка в Киев, Харьков, Днепропетровск, Одесса, Львов";
             $meta['keywords'] = "Конструктор $product->title LEGO® $category->title $product->articul";
             break;
+        
+        case 'info_page':
+            $id=$_GET['id'];
+            $infopage = new Infopage();
+            $infopage->getFomDb(array('id'=>$id), $conn);
+            $meta['title'] = "$infopage->title";
+            $meta['description'] = "";
+            $meta['keywords'] = "";
+            break;
+        
+        case 'cart':
+            $meta['title'] = "Корзина";
+            $meta['description'] = "";
+            $meta['keywords'] = "";
+            break;
+        
+        case 'search':
+            $meta['title'] = "Поиск";
+            $meta['description'] = "";
+            $meta['keywords'] = "";
+            break;
+        
         default :
             $meta['title'] = 'Lego';
             $meta['description'] = 'Lego';
