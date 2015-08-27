@@ -20,7 +20,6 @@ defined(ACCESS_VALUE) or die('Access denied');
             <img src="<?=$category->logo?>"/>
         </div>
         <?php 
-        echo $id;
             $result = $conn->query("SELECT MIN(price) AS minPrice, MAX(price) AS maxPrice,MIN(age_from) AS ageFrom, MAX(age_to) AS ageTo FROM products WHERE category = '$id';");
             $record = $result->fetch_object();
             $minPrice = $record->minPrice;
