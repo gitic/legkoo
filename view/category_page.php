@@ -20,6 +20,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             <img src="<?=$category->logo?>"/>
         </div>
         <?php 
+        echo $id;
             $result = $conn->query("SELECT MIN(price) AS minPrice, MAX(price) AS maxPrice,MIN(age_from) AS ageFrom, MAX(age_to) AS ageTo FROM products WHERE category = '$id';");
             $record = $result->fetch_object();
             $minPrice = $record->minPrice;
@@ -37,6 +38,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                 values: [ <?=$minPrice?>, <?=$maxPrice?> ],
                 slide: function( event, ui ) {
                   $( "#amount_price" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                },
+                change: function( event, ui ) {
+                    sendData('<?=$id?>','price',ui.values[0],ui.values[1]);
                 }
             });
             $( "#amount_price" ).val( "" + $( "#slider-price" ).slider( "values", 0 ) + " - " + $( "#slider-price" ).slider( "values", 1 ) );
@@ -48,11 +52,31 @@ defined(ACCESS_VALUE) or die('Access denied');
                 values: [ <?=$ageFrom?>, <?=$ageTo?> ],
                 slide: function( event, ui ) {
                   $( "#amount_age" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                },
+                change: function( event, ui ) {
+                    sendData('<?=$id?>','age',ui.values[0],ui.values[1]);
                 }
             });
             $( "#amount_age" ).val( "" + $( "#slider-age" ).slider( "values", 0 ) + " - " + $( "#slider-age" ).slider( "values", 1 ) );
             
-            
+            function sendData(id,type,from,to){
+                $.ajax({
+                    url:'./?ajax=category_page',
+                    type:'POST',
+                    data: {id:id,type:type,from:from,to:to},
+                    success: function (data, textStatus, jqXHR) {
+                        if(data.trim() !== 'error'){
+                            $('#catProduct').html(data);
+                        }
+                        else{
+                            showError('Ошибка при удалении статьи');
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(textStatus+' '+errorThrown);
+                    }
+                });
+            }
         });
         </script>
 
@@ -88,7 +112,6 @@ defined(ACCESS_VALUE) or die('Access denied');
             <?php
                 $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC";
                 $result = $conn->query($sql);
-//                echo $conn->error;
                 while ($record = $result->fetch_object()){
                     $product = new Product();
                     $product = $record;
