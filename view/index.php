@@ -16,7 +16,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             <meta property="og:url" content="<?=request_url()?>" />
             <meta property="og:image" content="<?=PATH?>/<?=$product->photo?>" />
             <meta property="og:site_name" content="<?=TITLE?>" />
-            <meta property="og:description" content=""/>
+            <meta property="og:description" content="<?= mb_substr(strip_tags($product->description), 0, 150, 'UTF-8').'...'?>"/>
         <?php endif;?>
     </head>
     <body>
