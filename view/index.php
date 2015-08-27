@@ -11,11 +11,11 @@ defined(ACCESS_VALUE) or die('Access denied');
         <meta name="keywords" content="<?=$meta['keywords']?>">	
         <?php require_once 'blocks_site/head.php'; ?>
         <?php if($view == 'product'):?>
-            <meta property="og:title" content="" />
+        <meta property="og:title" content="LEGO <?=$product->title?> <?=$product->articul?>" />
             <meta property="og:type" content="product" />
-            <meta property="og:url" content="" />
-            <meta property="og:image" content="" />
-            <meta property="og:site_name" content="" />
+            <meta property="og:url" content="<?=request_url()?>" />
+            <meta property="og:image" content="<?=PATH?>/<?=$product->photo?>" />
+            <meta property="og:site_name" content="<?=TITLE?>" />
             <meta property="og:description" content=""/>
         <?php endif;?>
     </head>
