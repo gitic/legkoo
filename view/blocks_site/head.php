@@ -10,6 +10,8 @@ defined(ACCESS_VALUE) or die('Access denied');
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
+<meta name='yandex-verification' content='401582a70e4711f0' />
+
 <link rel="shortcut icon" href="<?=VIEW?>images/favicon.png">
 <link rel="stylesheet" type="text/css" href="<?=VIEW?>css/style.css?<?=time()?>" />
 <link rel="stylesheet" type="text/css" href="<?=VIEW?>css/media.css?<?=time()?>" />
