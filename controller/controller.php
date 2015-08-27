@@ -73,7 +73,7 @@ else{
             $category = new Category();
             $category->getFomDb(array('id'=>$product->category), $conn);
 
-            $meta['title'] = "Конструктор Lego $product->title LEGO® $category->title $product->articul";
+            $meta['title'] = "Конструктор $product->title LEGO® $category->title $product->articul";
             $meta['description'] = "Купить Конструктор $product->title LEGO® $category->title $product->articul доступная цена, доставка в Киев, Харьков, Днепропетровск, Одесса, Львов";
             $meta['keywords'] = "Конструктор $product->title LEGO® $category->title $product->articul";
             break;
