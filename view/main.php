@@ -2,7 +2,6 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 ?>
-
 <div id="content">
     <div id="main">
         <div id="slider">

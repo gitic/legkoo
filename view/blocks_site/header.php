@@ -3,10 +3,17 @@
 defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <noindex>
-    <div class='addNotify'>
+    <div class='notify addNotify'>
         <div>
             <strong>Товар "<span></span>" добавлен в корзину</strong>
             <p><a rel="nofollow" href="cart" class="btn">ОФОРМИТЬ ЗАКАЗ</a><span class="skipNotify">ПРОДОЛЖИТЬ ПОКУПКИ</span>
+            <div class="clear"></div></p>
+        </div>
+    </div>
+    <div class='notify orderSend'>
+        <div>
+            <strong>Спасибо за ваш заказ!</strong>
+            <p><span class="skipNotify">ЗАКРЫТЬ</span>
             <div class="clear"></div></p>
         </div>
     </div>

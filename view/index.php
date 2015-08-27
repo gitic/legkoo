@@ -20,6 +20,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <?php require_once 'blocks_site/head.php'; ?>
     </head>
     <body>
+        <?php if(file_exists('controller/'.$view.'.php')) {require_once 'controller/'.$view.'.php';}?>
         
         <?php require_once VIEW.'blocks_site/header.php'; ?>
         

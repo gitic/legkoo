@@ -770,7 +770,7 @@ a.footLogo img {
     margin:0 auto;
 }
 
-.addNotify{
+.notify{
     display: none;
     position: fixed;
     width: 100%;
@@ -778,7 +778,7 @@ a.footLogo img {
     z-index: 999;
     background-color:rgba(0,0,0,0.4);
 }
-.addNotify > div{
+.notify > div{
     position: relative;
     width: 500px;
     background: #fff;
@@ -789,7 +789,7 @@ a.footLogo img {
     
 }
 
-.addNotify strong {
+.notify strong {
     display:block;
     text-align:center;
     font-weight:300;
@@ -797,12 +797,12 @@ a.footLogo img {
     padding:30px 0 10px 0;
 }
 
-.addNotify p {
+.notify p {
     display:block;
     padding:30px 0 0 0;
 }
 
-.addNotify p a.btn {
+.notify p a.btn {
     float:right;
     background-color:#4CAF50;
     color:#fff;
@@ -815,11 +815,11 @@ a.footLogo img {
     border-radius:4px;
 }
 
-.addNotify p a.btn:hover {
+.notify p a.btn:hover {
     opacity:1;
 }
 
-.addNotify p span {
+.notify p span {
     background-color:#aaa;
     color:#fff;
     cursor:pointer;
@@ -831,7 +831,7 @@ a.footLogo img {
     border-radius:4px;
 }
 
-.addNotify p span:hover {
+.notify p span:hover {
     opacity:1;
 }
 
