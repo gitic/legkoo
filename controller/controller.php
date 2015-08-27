@@ -64,9 +64,18 @@ else{
             break;
         
         case 'product':
-            $meta['title'] = 'Конструктор Lego Название LEGO® Категория 41032';
-            $meta['description'] = 'Купить Lego Конструктор название LEGO® Категория 41032 доступная цена, доставка в Киев, Харьков, Днепропетровск, Одесса, Львов';
-            $meta['keywords'] = 'Конструктор Lego Название LEGO® Категория 41032';
+            if(!isset($_GET['id'])){
+                die('Страница не найдена');
+            }
+            $id=$_GET['id'];
+            $product = new Product();
+            $product->getFomDb(array('id'=>$id), $conn);
+            $category = new Category();
+            $category->getFomDb(array('id'=>$product->category), $conn);
+
+            $meta['title'] = "Конструктор Lego $product->title LEGO® $category->title $product->articul";
+            $meta['description'] = "Купить Конструктор $product->title LEGO® $category->title $product->articul доступная цена, доставка в Киев, Харьков, Днепропетровск, Одесса, Львов";
+            $meta['keywords'] = "Конструктор $product->title LEGO® $category->title $product->articul";
             break;
         default :
             $meta['title'] = 'Lego';

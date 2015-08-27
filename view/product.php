@@ -2,14 +2,7 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 
-if(!isset($_GET['id'])){
-    die('Страница не найдена');
-}
-$id=$_GET['id'];
-$product = new Product();
-$product->getFomDb(array('id'=>$id), $conn);
-$category = new Category();
-$category->getFomDb(array('id'=>$product->category), $conn);
+//Запросы в Controller
 ?>
 <script src="<?=VIEW?>js/productJs.js"></script>
 <div id="breadcrumbs">
