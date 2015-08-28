@@ -1,32 +1,9 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
-class Product {
+class Label {
     var $id;
-    var $visible;
     var $title;
-    var $translit;
-    var $category;
-    var $quantity;
-    var $date_add;
-    var $date_edit;
-    var $articul;
-    var $photo;
-    var $gallery;
-    var $video;
-    var $instruction;
-    var $age_from;
-    var $age_to;
-    var $description;
-    var $price;
-    var $old_price;
-    var $male;
-    var $female;
-    var $elements;
-    var $size;
-    var $labels;
-    var $seo_description;
-    var $seo_keywords;
     
     function __construct() {}
     /**
@@ -41,7 +18,7 @@ class Product {
             $str.="$key='$value' AND ";
         }
         $selectorStr = substr_replace($str, '', strripos($str," AND "));
-        $result = $connection->query("SELECT *  FROM products WHERE ({$selectorStr}) LIMIT 1");
+        $result = $connection->query("SELECT *  FROM labels WHERE ({$selectorStr}) LIMIT 1");
 
         $record = $result->fetch_object();$result->free();
         if(is_null($record)){return FALSE;}
@@ -66,7 +43,7 @@ class Product {
         }
         $fieldsStr = substr_replace($fields, '', strripos($fields,","));
         $valuesStr = substr_replace($values, '', strripos($values,","));
-        $query = "INSERT INTO products ($fieldsStr) VALUES ($valuesStr)";
+        $query = "INSERT INTO labels ($fieldsStr) VALUES ($valuesStr)";
         if(!$connection->query($query)){
 //            echo $connection->error;
             return FALSE;
@@ -92,7 +69,7 @@ class Product {
             $sStr.="$key='$value' $divider ";
         }
         $selectorStr = substr_replace($sStr, '', strripos($sStr," $divider "));
-        $query = "UPDATE products SET $valuesStr WHERE $selectorStr";
+        $query = "UPDATE labels SET $valuesStr WHERE $selectorStr";
         $result = $connection->query($query);
         if(!$result){
 //            echo $connection->error;

@@ -39,10 +39,7 @@ if(isset($_POST['submit'])){
     if(isset($_POST['female'])){$female = 1;}else{$female = 0;}
     $elements = preg_replace('/[^0-9]+/ui', '', $_POST['elements']);
     $size = clear($conn, htmlentities($_POST['size'],ENT_QUOTES));
-    if(isset($_POST['label_new'])){$label_new = 1;}else{$label_new = 0;}
-    if(isset($_POST['label_hit'])){$label_hit = 1;}else{$label_hit = 0;}
-    if(isset($_POST['label_action'])){$label_action = 1;}else{$label_action = 0;}
-    if(isset($_POST['label_exclusive'])){$label_exclusive = 1;}else{$label_exclusive = 0;}
+    $labels = clear($conn, htmlentities($_POST['labels'],ENT_QUOTES));
     $galleryUpload = clear($conn, htmlentities($_POST['galleryUpload'],ENT_QUOTES));
     $galleryDelete = clear($conn, htmlentities($_POST['galleryDelete'],ENT_QUOTES));
     $galleryRow = clear($conn, htmlentities($_POST['galleryRow'],ENT_QUOTES));
@@ -104,10 +101,7 @@ if(isset($_POST['submit'])){
         'female'=>$female,
         'elements'=>$elements,
         'size'=>$size,
-        'label_new'=>$label_new,
-        'label_hit'=>$label_hit,
-        'label_action'=>$label_action,
-        'label_exclusive'=>$label_exclusive,
+        'labels'=>$labels,
         'gallery'=>$galleryRow
     );
 //    print_arr($values);
@@ -419,38 +413,20 @@ $_SESSION['KCFINDER'] = array(
             <div class="block">
                 <label >Метки</label>
                     <div>
-                    <?php
-                        if($product->label_new == 1){
-                            echo '<div style="display: inline-block"><input id="label_new" name="label_new" checked="checked" type="checkbox" /><label for="label_new">Новинка</label></div>';
-                        }
-                        else{
-                            echo '<div style="display: inline-block"><input id="label_new" name="label_new" type="checkbox" /><label for="label_new">Новинка</label></div>';
-                        }
-                    ?>
-                    <?php
-                        if($product->label_hit == 1){
-                            echo '<div style="display: inline-block"><input id="label_hit" name="label_hit" checked="checked" type="checkbox" /><label for="label_hit">Хит продаж</label></div>';
-                        }
-                        else{
-                            echo '<div style="display: inline-block"><input id="label_hit" name="label_hit" type="checkbox" /><label for="label_hit">Хит продаж</label></div>';
-                        }
-                    ?>
-                    <?php
-                        if($product->label_action == 1){
-                            echo '<div style="display: inline-block"><input id="label_action" name="label_action" checked="checked" type="checkbox" /><label for="label_action">Акция</label></div>';
-                        }
-                        else{
-                            echo '<div style="display: inline-block"><input id="label_action" name="label_action" type="checkbox" /><label for="label_action">Акция</label></div>';
-                        }
-                    ?>
-                    <?php
-                        if($product->label_exclusive == 1){
-                            echo '<div style="display: inline-block"><input id="label_exclusive" name="label_exclusive" checked="checked" type="checkbox" /><label for="label_exclusive">Эксклюзив</label></div>';
-                        }
-                        else{
-                            echo '<div style="display: inline-block"><input id="label_exclusive" name="label_exclusive" type="checkbox" /><label for="label_exclusive">Эксклюзив</label></div>';
-                        }
-                    ?>
+                        <?php
+                            $lArr = explode(',', $product->labels);
+                            $result = $conn->query("SELECT * FROM labels");
+                            while ($label = $result->fetch_object()):
+                                $check = '';
+                                foreach ($lArr as $x) {
+                                    if($x == $label->id){
+                                        $check = 'checked="checked"';
+                                    }
+                                }
+                        ?>
+                            <div style="display: inline-block"><input id="label_<?=$label->id?>" class="label <?=$label->id?>" <?=$check?> type="checkbox" /><label for="label_<?=$label->id?>"><?=$label->title?></label></div>
+                        <?php endwhile;?>
+                            <input id="labels" name="labels" type="hidden" />
                     </div>
 
             </div>

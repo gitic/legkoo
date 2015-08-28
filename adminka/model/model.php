@@ -16,7 +16,7 @@ function print_orders($conn){
                 . "<td>{$email}</td>"
                 . "<td>{$sum}</td>"
                 . "<td><a class='row edit {$id}' href='?view=order_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
-                . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
+//                . "<td><a style='display:none' class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
                 . "</tr>";
     }
     $result->free();
@@ -35,7 +35,6 @@ function print_products($conn,$search=''){
         }
         else {$q.="OR articul LIKE '$words[0]'";$q.=')';}
     }
-    echo $q;
     $result = $conn->query("SELECT id,title,visible,articul,price,quantity FROM products $q ORDER BY id DESC");
     while (list($id,$title,$visible,$articul,$price,$quantity) = $result->fetch_array()){
         if($visible == 1){$visClass = 'fa fa-circle';}
@@ -106,4 +105,19 @@ function showCatDishesRows(array $cat_dishes,$sub=0){
             showCatDishesRows($row['sub'],1);
         }
     }
+}
+
+function print_labels($conn){
+    //////// Вывод списка статей
+    $result = $conn->query('SELECT id,title FROM labels ORDER BY id DESC');
+    while (list($id,$title) = $result->fetch_array()){
+        echo    "<tr>"
+                . "<td>{$id}</td>"
+                . "<td><span>{$title}</span></td>"
+                . "<td><a class='row edit {$id}' href='?view=label_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
+                . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
+                . "</tr>";
+    }
+    $result->free();
+    ////////
 }
