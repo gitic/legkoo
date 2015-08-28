@@ -78,6 +78,7 @@ $(function(){
         var fio = $.trim($('.fio').val());
         var email = $('.email').val();
         var phone = $('.phone').val();
+        var deliveryType = $('.delivery_type').val();
         
         $('.fio').removeClass('errorClass');
         $('.email').removeClass('errorClass');
@@ -97,6 +98,50 @@ $(function(){
             $('.phone').addClass('errorClass');
             $('html, body').animate({ scrollTop: $('.phone').offset().top-50 }, 'slow');
             e.preventDefault();
+        }
+        else if((deliveryType === '1' || deliveryType === '0') && $('#delivery_city').val() === ''){
+            if(deliveryType === '1'){$('#delivery_city').addClass('errorClass');}
+            else if(deliveryType === '0'){$('.delivery_type').addClass('errorClass');}
+            
+            $('html, body').animate({ scrollTop: $('#delivery_city').offset().top-50 }, 'slow');
+            e.preventDefault();
+        }
+        
+        
+        if(deliveryType === '1'){
+            var city = $('#delivery_city').val();
+            var adress = $( "#select_delivery_adress option:selected" ).text();
+            $('#delivery_adress').val(city+', '+adress);
+        }
+    });
+    
+    //Запросы к Новой почте
+    setAutocomplete($('#delivery_city'));
+    
+    //Изменение способа доставки
+    $('.delivery_type').on('change',function (){
+        var val = $(this).val();      
+        $('#delivery_city').val('');
+        $('#select_delivery_adress').html("<option value='0'>---</option>");
+        $('#delivery_adress').val('');
+        switch (val){
+            case '0':
+                $('.npBlock').css({'display':'none'});
+                $('#delivery_adress').attr('type','hidden');
+                break;
+            case '1':
+                $('.npBlock').css({'display':'block'});
+                $('#delivery_adress').attr('type','hidden');
+                break;
+            case '2':
+                $('.npBlock').css({'display':'none'});
+                $('#delivery_adress').attr('type','text');
+                break;
+            case '3':
+                $('.npBlock').css({'display':'none'});
+                $('#delivery_adress').attr('type','text');
+                $('#delivery_adress').val('ТЦ «Гранд Плаза», Днепропетровск просп. Карла Маркса 67-Д');
+                break;
         }
     });
 });
@@ -143,6 +188,72 @@ function setCart(e,val){
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert(textStatus+' '+errorThrown);
+        }
+    });
+}
+
+function setAutocomplete(element){
+    element.autocomplete({
+        source: function( request, response ) {
+            var city = request.term;
+            $.ajax({
+                url: "https://api.novaposhta.ua/v2.0/json/",
+                dataType: "jsonp",
+                data: {
+                    "modelName": "Address",
+                    "calledMethod": "getCities",
+                    "methodProperties": {
+                        "FindByString": city
+                    },
+                    "apiKey": "c676d6fb43bbd952ed71c119aed6417c"
+                },
+                success: function( data ) {
+                    response( $.map( data.data, function( item ) {
+                        return {
+                            label: item.DescriptionRu,
+                            value: item.DescriptionRu,
+                            ref: item.Ref
+                        };
+                    }));
+                }
+            });
+        },
+        minLength: 3,
+        select: function( event, ui ) {
+            var cityRef = ui.item.ref;
+            getNumbers(cityRef);
+        },
+        response: function( event, ui ) {
+            var name = $(this).val();
+            for(var i=0;i<ui.content.length;i++){
+                if(ui.content[i].value.toLowerCase() == name.toLowerCase()){
+                    $(this).attr('value',ui.content[i].value);
+                    var cityRef = ui.content[i].ref;
+                    getNumbers(cityRef);
+                }
+            }
+        }
+    });
+}
+
+function getNumbers(cityRef){
+    $.ajax({
+        url: "https://api.novaposhta.ua/v2.0/json/",
+        dataType: "jsonp",
+        data: {
+            "modelName": "Address",
+            "calledMethod": "getWarehouses",
+            "methodProperties": {
+                "CityRef": cityRef
+            },
+            "apiKey": "c676d6fb43bbd952ed71c119aed6417c"
+        },
+        success: function( data ) {
+            data = data.data;
+            $('#select_delivery_adress').html('');
+            for(var i=0;i<data.length;i++){
+                $('#select_delivery_adress').append("<option value='"+(i+1)+"'>"+data[i].DescriptionRu+"</option>");
+            }
         }
     });
 }

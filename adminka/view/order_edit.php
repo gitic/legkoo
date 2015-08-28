@@ -93,6 +93,8 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                     <select disabled="disabled" class="inp delivery_type" name="delivery_type" style="min-width: 300px">
                         <option value="0">---</option>
                         <option value="1">На склад "Новой Почты" (за счет получателя).</option>
+                        <option value="2">Адресная доставка по Украине(Новая Почта).</option>
+                        <option value="3">Самовывоз.</option>
                     </select>
                     <input class="inp" id="delivery_adress" name="delivery_adress" value="<?=$order->delivery_adress?>" placeholder="ФИО" disabled="disabled"/>
                     <script>
@@ -108,6 +110,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                     <select disabled="disabled" class="inp payment_type" name="payment_type" style="min-width: 300px">
                         <option value="0">---</option>
                         <option value="1">Наличными при получении</option>
+                        <option value="2">Кредитная карта</option>
                     </select>
                     <script>
                         $(function() {
