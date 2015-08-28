@@ -76,7 +76,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             <div class="block">
                 <p style='margin: 0 40px'>
                     <label for="amount_price">Цена:</label>
-                    <input type="text" id="amount_price" readonly style="border:0; color:#f6931f; font-weight:bold;"><br><br>
+                    <input type="text" id="amount_price" readonly style="border:0; color:#333; background-color:#f5f5f5; font-weight:bold;"><br><br>
                     <div style='margin: 0 40px' id="slider-price"></div>
                 </p>
             </div>
