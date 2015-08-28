@@ -24,6 +24,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <link href="lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 <script src="lib/jquery-ui/jquery-ui.min.js"></script>
 <script src="lib/touch-punch.js"></script>
+<script src="lib/jquery.elevate_zoom-2.2.3.min.js"></script>
 <script src="<?=VIEW?>js/mainJs.js"></script>
 
 <script>

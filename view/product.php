@@ -18,7 +18,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <h1 itemprop="name"><?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
         <div class="productGallery">
             <?php $gArr = explode(',', $product->gallery);?>
-            <img src="<?=$gArr[1]?>" class="bigFoto" itemprop="image" alt="<?=$product->title?>" title="<?=$product->title?>"/>
+            <img data-zoom-image="<?=$gArr[1]?>" src="<?=$gArr[1]?>" class="bigFoto" itemprop="image" alt="<?=$product->title?>" title="<?=$product->title?>"/>
             <?php
                 
                 for($i=1;$i<count($gArr);$i++):
