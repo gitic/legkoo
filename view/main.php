@@ -4,9 +4,9 @@ defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <div id="content">
     <div id="main">
-        <div id="slider">
-            <img src="<?=VIEW?>images/banner.jpg" alt=""/>
-        </div>
+<!--        <div id="slider">
+            <img src="images/banner.jpg" alt=""/>
+        </div>-->
         <h3>НОВИНКИ LEGO</h3>
         <div id="newProduct">
             <?php
