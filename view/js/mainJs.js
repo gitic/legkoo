@@ -1,4 +1,14 @@
 $(function(){
+    //Уведомления
+        var notify = $.cookie('notify');
+        if(notify == undefined){
+            $.cookie('notify', 'none', { expires: 7 });
+        }
+        else if(notify == 'orderSend'){
+            $('.orderSend').css({'display':'block'}); 
+        }
+    //Уведомления
+
     var total = $.cookie('mlscartnum');
     if(total == undefined){
         total = 0;  
@@ -12,7 +22,8 @@ $(function(){
         addToCart(productID,num,productName);
     });
     $('.skipNotify').on('click',function (){
-        $('.addNotify').css({'display':'none'});
+        $('.notify').css({'display':'none'});
+        $.cookie('notify', 'none', { expires: 7 });
     });
     
     $('#searchField').submit(function (e){
