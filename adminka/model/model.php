@@ -47,7 +47,7 @@ function print_products($conn,$search=''){
                 . "<td>{$quantity}</td>"
                 . "<td>{$price}</td>"
                 . "<td><a class='row edit {$id}' href='?view=product_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
-                . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
+//                . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
                 . "</tr>";
     }
     $result->free();

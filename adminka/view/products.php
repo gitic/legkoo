@@ -27,7 +27,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                             <td>Количество</td>
                             <td>Цена</td>
                             <td></td>
-                            <td></td>
+                            <!--<td></td>-->
                         </tr>
                 </thead>
                 <tbody id='ajaxContent'>
