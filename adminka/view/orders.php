@@ -13,7 +13,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 </div>
 <p class='error'><span></span></p>
 <div id="content">
-        <div class="block">
+        <div style='display:none' class="block">
             <label for='sbox'>Поиск</label>
             <input class="inp sbox" id="sbox" name="sbox" style="width:494px" value="" placeholder="Название товара или артикул"/>
         </div>
@@ -28,7 +28,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                             <td>E-mail</td>
                             <td>Сумма заказа</td>
                             <td></td>
-                            <td></td>
+                            <!--<td></td>-->
                         </tr>
                 </thead>
                 <tbody id='ajaxContent'>

@@ -216,6 +216,14 @@ $(function(){
         line = line.replaceAll('/tmp','');
         $('#galleryRow').val(line);
         $('#galleryUpload').val(toUpload);
+        var labels = '';
+        $('.label').each(function(){
+            if($(this).is(':checked')){
+                var lid = $(this).attr('class').split(' ')[1];
+                labels += ','+lid;
+            }
+        });
+        $('#labels').val(labels.substr(1));
     });
     
     //Обработка выбора вида блюда
