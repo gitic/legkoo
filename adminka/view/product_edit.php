@@ -302,7 +302,7 @@ $_SESSION['KCFINDER'] = array(
                     <select class="inp category" name="category" style="width:200px;">
                         <option value='0'>---</option>
                         <?php
-                            $result = $conn->query("SELECT id,title FROM categories WHERE id_index='0'");
+                            $result = $conn->query("SELECT id,title FROM categories WHERE id_index='0' ORDER BY title ASC");
                             while (list($id, $title) = $result->fetch_array()){
                                 echo " <option value='{$id}'>{$title}</option>";
                             }
