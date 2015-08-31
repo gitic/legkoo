@@ -15,7 +15,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 <div id="content">
     <div id="product" itemscope itemtype="http://schema.org/Product">
-        <h1 itemprop="name"><?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
+        <h1 itemprop="name">Конструктор <?=$product->title?> <span>артикул: <?=$product->articul?></span></h1>
         <div class="productGallery">
             <?php $gArr = explode(',', $product->gallery);?>
             <img data-zoom-image="<?=$gArr[1]?>" src="<?=$gArr[1]?>" class="bigFoto" itemprop="image" alt="<?=$product->title?>" title="<?=$product->title?>"/>
