@@ -1,11 +1,16 @@
 $(function(){
+    var screenWidth = screen.width;
+    var screenHeight = screen.height;
     // переключение фото
     $('.productGallery span > img').on('click', function (){
         var src = $(this).attr('src');
         $('.bigFoto').attr('src',src);
-        $('.bigFoto').attr('data-zoom-image',src);
-        var ez = $('.bigFoto').data('elevateZoom');
-        ez.swaptheimage(src, src);
+        if (screenWidth >= 768 && screenHeight >= 768){
+            $('.bigFoto').attr('data-zoom-image',src);
+            var ez = $('.bigFoto').data('elevateZoom');
+            ez.swaptheimage(src, src);
+        }
+        
     });
     // плюс 1
     $('.plusBtn').on('click',function (){
@@ -30,5 +35,7 @@ $(function(){
         $('.numbers > input').val(1);
     });
     //ZOOM
-    $('.bigFoto').elevateZoom();
+    if (screenWidth >= 768 && screenHeight >= 768){
+        $('.bigFoto').elevateZoom();
+    }
 });

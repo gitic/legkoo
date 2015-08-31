@@ -1,4 +1,11 @@
 $(function(){
+    
+    //проверка телефона
+    $('.phone').on('change',function (){
+        var value = $(this).val();
+        value = value.replace(/[^0-9 () +]/g, "");
+        $(this).val(value);
+    });
     //Заполнение шага 4
     $('.inp.fio,.inp.email,.inp.phone').on('change',function (){
         var value = $(this).val();
@@ -79,10 +86,15 @@ $(function(){
         var email = $('.email').val();
         var phone = $('.phone').val();
         var deliveryType = $('.delivery_type').val();
+        var paymentType = $('.payment_type').val();
         
         $('.fio').removeClass('errorClass');
         $('.email').removeClass('errorClass');
         $('.phone').removeClass('errorClass');
+        $('#delivery_city').removeClass('errorClass');
+        $('.delivery_type').removeClass('errorClass');
+        $('.payment_type').removeClass('errorClass');
+        $('#delivery_adress').removeClass('errorClass');
         
         if(fio === ''){
             $('.fio').addClass('errorClass');
@@ -101,12 +113,20 @@ $(function(){
         }
         else if((deliveryType === '1' || deliveryType === '0') && $('#delivery_city').val() === ''){
             if(deliveryType === '1'){$('#delivery_city').addClass('errorClass');}
-            else if(deliveryType === '0'){$('.delivery_type').addClass('errorClass');}
-            
-            $('html, body').animate({ scrollTop: $('#delivery_city').offset().top-50 }, 'slow');
+            else if(deliveryType === '0'){$('.delivery_type').addClass('errorClass');}    
+            $('html, body').animate({ scrollTop: $('.delivery_type').offset().top-50 }, 'slow');
             e.preventDefault();
         }
-        
+        else if(deliveryType === '2' && $('#delivery_adress').val() === ''){
+                $('#delivery_adress').addClass('errorClass');
+                $('html, body').animate({ scrollTop: $('#delivery_adress').offset().top-50 }, 'slow');
+                e.preventDefault();
+        }
+        else if(paymentType === '0'){
+            $('.payment_type').addClass('errorClass');
+            $('html, body').animate({ scrollTop: $('.payment_type').offset().top-50 }, 'slow');
+            e.preventDefault();
+        }
         
         if(deliveryType === '1'){
             var city = $('#delivery_city').val();
@@ -124,6 +144,7 @@ $(function(){
         $('#delivery_city').val('');
         $('#select_delivery_adress').html("<option value='0'>---</option>");
         $('#delivery_adress').val('');
+        $('#delivery_adress').attr('disabled',false);
         switch (val){
             case '0':
                 $('.npBlock').css({'display':'none'});
@@ -141,6 +162,7 @@ $(function(){
                 $('.npBlock').css({'display':'none'});
                 $('#delivery_adress').attr('type','text');
                 $('#delivery_adress').val('ТЦ «Гранд Плаза», Днепропетровск просп. Карла Маркса 67-Д');
+                $('#delivery_adress').attr('disabled',true);
                 break;
         }
     });
