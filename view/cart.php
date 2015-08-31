@@ -81,19 +81,19 @@ defined(ACCESS_VALUE) or die('Access denied');
                 <form id='cart_form' name="cart_form" action="" method="post" enctype="multipart/form-data" autocomplete="off">
                 <h3><em>1</em> Контактная информация:</h3>
                 <div class="step">
-                    <span>Все поля обязательны для заполнения.</span>
+                    <span>Все поля (<span style="color:red;display: inline">*</span>) обязательны для заполнения.</span>
                         <div class="block">
-                            <strong>Имя</strong>
+                            <strong><span style="color:red;display: inline">*</span> Имя</strong>
                             <input placeholder="ФИО" name ="fio" value="" type="text" class="inp fio"/>
                             <span>для обращения к Вам</span>
                         </div>
                         <div class="block">
-                            <strong>E-Mail</strong>
+                            <strong><span style="color:red;display: inline">*</span> E-Mail</strong>
                             <input placeholder="E-Mail" name ="email" value="" type="email" class="inp email"/>
                             <span>для отправки деталей заказа</span>
                         </div>
                         <div class="block">
-                            <strong>Телефон</strong>
+                            <strong><span style="color:red;display: inline">*</span> Телефон</strong>
                             <input placeholder="Телефон для связи" name="phone" value="" type="text" class="inp phone"/>
                             <span>для уточнения деталей</span>
                         </div>
@@ -105,7 +105,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                 <h3><em>2</em> Способ доставки:</h3>
                 <div class="step">
                         <div class="block">
-                            <strong>Выберите способ доставки:</strong>
+                            <strong><span style="color:red;display: inline">*</span> Выберите способ доставки:</strong>
                             <select class='delivery_type' name="delivery_type">
                                 <option value="0">---</option>
                                 <option value="1">На склад "Новой Почты" (за счет получателя).</option>
@@ -124,8 +124,8 @@ defined(ACCESS_VALUE) or die('Access denied');
                 <h3><em>3</em> Способ оплаты:</h3>
                 <div class="step">
                         <div class="block">
-                            <strong>Выберите способ оплаты:</strong>
-                            <select name="payment_type">
+                            <strong><span style="color:red;display: inline">*</span> Выберите способ оплаты:</strong>
+                            <select class="payment_type" name="payment_type">
                                 <option value="0">---</option>
                                 <option value="1">Наличными при получении</option>
                                 <option value="2">Кредитная карта</option>
