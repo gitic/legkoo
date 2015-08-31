@@ -15,11 +15,15 @@ $(function(){
     }
     $('#basketSmall span').html(total);
     
+    //В Корзину
     $('.previewBtn span').on('click', function (){
-        var productID = $(this).parent().attr('class').split(' ')[1];
-        var productName = $(this).children('input').val();
-        var num = 1;
-        addToCart(productID,num,productName);
+        var bClass = $(this).attr('class');
+        if(bClass !== 'disabled'){
+            var productID = $(this).parent().attr('class').split(' ')[1];
+            var productName = $(this).children('input').val();
+            var num = 1;
+            addToCart(productID,num,productName);
+        }
     });
     $('.skipNotify').on('click',function (){
         $('.notify').css({'display':'none'});

@@ -16,9 +16,17 @@ function printProductCart($product){?>
             <?=$product->price?> <span>грн</span>
         </div>
         <div class="previewBtn <?=$product->id?>">
-            <span>
+            <?php 
+                $addClass = '';
+                $text = 'В КОРЗИНУ';
+                if($product->quantity <=0){
+                    $addClass = "class='disabled'";
+                    $text = 'НЕТ В НАЛИЧИИ';
+                }
+            ?>
+            <span <?=$addClass?>>
                 <input type="hidden" value="<?=$product->title?>">
-                В КОРЗИНУ
+                <?=$text?>
             </span>
         </div>
         <div class="clear"></div>

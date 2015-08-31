@@ -6,12 +6,21 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
     $postCookie = $_COOKIE['mlscart'];
     $postCart = json_decode($postCookie);
     $sum = 0;
+    $values = '';
     foreach ($postCart as $x) {
         $product = new Product();
         $product->getFomDb(array('id'=>$x->id), $conn);
         $orderCart[] = array('id'=>$product->id,'title'=>$product->title,'articul'=>$product->articul,'count'=>$x->count,'price'=>$product->price,'img'=>$product->photo);
         $sum = $sum + $x->count * $product->price;
+        
+        $newQuantity = ($product->quantity) - ($x->count);
+        $values .= ",($product->id,$newQuantity)";
     }
+    //Обновляем количество товаров
+        $values = substr($values, 1);
+        $sql = "INSERT INTO products (id,quantity) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity)";
+        $conn->query($sql);
+    //Обновляем количество товаров
     $orderCart = json_encode($orderCart,JSON_UNESCAPED_UNICODE);
     
     $order = new Order();

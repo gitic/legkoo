@@ -575,10 +575,12 @@ a.catPreviewBlock img {
 .btn span:hover {
     opacity:1;
 }
-
+.btn.buy{
+    display: inline-block;
+    float: right;
+}
 .btn.buy span {
     background-color:#4CAF50;
-    float:right;
 }
 
 #subscribe {
@@ -936,9 +938,9 @@ a.footLogo img {
     font-size:20px;
 }
 
-.send[disabled] {
-    background-color:#bbb;
-    cursor: not-allowed;
+.send[disabled],.disabled {
+    background-color:#bbb !important;
+    cursor: not-allowed !important;
 }
 
 input.send {

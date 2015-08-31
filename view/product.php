@@ -57,8 +57,16 @@ defined(ACCESS_VALUE) or die('Access denied');
                         </div>
                     </div>
                     <div class="btn buy">
+                        <?php 
+                            $addClass = '';
+                            $text = 'В КОРЗИНУ';
+                            if($product->quantity <=0){
+                                $addClass = "class='disabled'";
+                                $text = 'НЕТ В НАЛИЧИИ';
+                            }
+                        ?>
                         <input type="hidden" value="<?=$product->title?>">
-                        <span>В КОРЗИНУ</span>
+                        <span <?=$addClass?>><?=$text?></span>
                     </div>
                     <div class="clear"></div>
                 </div>

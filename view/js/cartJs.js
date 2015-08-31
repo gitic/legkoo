@@ -82,6 +82,7 @@ $(function(){
     //Отправка формы
     $('#cart_form').submit(function (e){
 //        e.preventDefault();
+        $('.inp').attr('disabled',false);
         var fio = $.trim($('.fio').val());
         var email = $('.email').val();
         var phone = $('.phone').val();

@@ -83,7 +83,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             
             <div class="block">
-                    <label class="left">Комментарий к заказу</label>
+                    <label class="left">Комментарий клиента</label>
                     <textarea disabled="disabled" class="inp" name="comment" style="width:494px;"><?=$order->comment?></textarea> 
                 <div class="clear"></div>
             </div>
@@ -96,7 +96,8 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                         <option value="2">Адресная доставка по Украине(Новая Почта).</option>
                         <option value="3">Самовывоз.</option>
                     </select>
-                    <input class="inp" id="delivery_adress" name="delivery_adress" value="<?=$order->delivery_adress?>" placeholder="ФИО" disabled="disabled"/>
+                    <div class="clear"></div>
+                    <input style="width:494px;margin-left: 153px" class="inp" id="delivery_adress" name="delivery_adress" value="<?=$order->delivery_adress?>" placeholder="Адрес доставки" disabled="disabled"/>
                     <script>
                         $(function() {
                             $(".inp.delivery_type").val('<?=$order->delivery_type?>');
@@ -152,7 +153,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <div class="block">
                 <label>Сумма</label>
-                <input  disabled="disabled" readonly class="inp" id="orderSum" name="productsSum" style="width:50px" value="<?=$order->sum?> грн"/>
+                <input  disabled="disabled" readonly class="inp" id="orderSum" name="productsSum" style="width:50px" value="<?=$order->sum?>"/>грн
                 <div class="clear"></div>
             </div>
             <div class="block">
@@ -167,7 +168,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             <div class="block">
                 <label style="font-weight: bold">Всего</label>
-                <input disabled="disabled" class="inp" id="orderTotal" name="productsSum" style="width:50px" value="<?=$order->sum?> грн"/>
+                <input disabled="disabled" class="inp" id="orderTotal" name="productsSum" style="width:50px" value="<?=$order->sum?>"/>грн
                 <div class="clear"></div>
             </div>
             

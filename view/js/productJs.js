@@ -28,11 +28,15 @@ $(function(){
     });
     // в корзиу
     $('.buy').on('click',function (){
-        var productID = $('.productID').val();
-        var productName = $(this).children('input').val();
-        var num = $('.numbers > input').val();
-        addToCart(productID,num,productName);
-        $('.numbers > input').val(1);
+        var bClass = $(this).children('span').attr('class');
+        if(bClass !== 'disabled'){
+            var productID = $('.productID').val();
+            var productName = $(this).children('input').val();
+            var num = $('.numbers > input').val();
+            addToCart(productID,num,productName);
+            $('.numbers > input').val(1);
+        }
+        
     });
     //ZOOM
     if (screenWidth >= 768 && screenHeight >= 768){
