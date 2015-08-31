@@ -9,5 +9,7 @@ Disallow: /controller
 Disallow: /functions
 Disallow: /model
 Disallow: /search
+Disallow: /info
+Disallow: /cart
 
-Host: 
+Host: legkoo.com.ua
