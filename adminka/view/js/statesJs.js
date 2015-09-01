@@ -1,7 +1,13 @@
 $(function(){
-    var page = 'labels';
-
-    //Удаление товара
+    var page = 'states';
+    $('#Binded').jPicker({
+        window:{
+              title: null,
+              position:{x: 'screenCenter',y: '10px'}
+        },
+        images:{clientPath: '../lib/jpicker/images/'}
+        });
+    //Удаление статуса
     $('body').on('click','.del',function (e){
         e.preventDefault();
         var className = $(this).prop('class');

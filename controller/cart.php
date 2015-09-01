@@ -25,6 +25,7 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
     
     $order = new Order();
     
+    $order->status = 1;
     $order->fio = clear($conn, htmlentities($_POST['fio']));
     $order->email = clear($conn, htmlentities($_POST['email']));
     $order->phone = clear($conn, htmlentities($_POST['phone']));

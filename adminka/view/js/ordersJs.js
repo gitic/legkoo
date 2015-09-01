@@ -1,11 +1,26 @@
 $(function(){
     var page = 'orders';
+    setAutocomplete($('.productName'));
     
+    $('.state').on('change',function (){
+        var val = $(this).val();
+        var rowId = $('.rowId').val();
+        $.ajax({
+            url:'./?ajax='+page,
+            type:'POST',
+            data: {type:'state',rowId:rowId,state:val},
+//            success: function (data, textStatus, jqXHR) {},
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
+    });
     $('.editOrder,.save').on('click',function (e){
         e.preventDefault();
         var val = $('.inp.fio').attr('disabled');
         switch (val){
             case 'disabled':
+                $('.productName').css({'display':'block'});
                 $('.inp').each(function (){
                     var exeptArr = ['date_add','comment']; 
                     var cName = $(this).attr('class').split(' ')[1];
@@ -25,6 +40,7 @@ $(function(){
                 $('.cancel.reload').css({'display':'inline-block'});
                 break;
             default :
+                $('.productName').css({'display':'none'});
                 //СОХРАНИТЬ
                 var i=0;
                 var products = new Array();
@@ -67,7 +83,11 @@ $(function(){
                     }
                 });
                 $('.inp').each(function (){
-                    $(this).attr('disabled',true);
+                    var exeptArr = ['state']; 
+                    var cName = $(this).attr('class').split(' ')[1];
+                    if(exeptArr.indexOf(cName) === -1){
+                       $(this).attr('disabled',true); 
+                    }
                 });
                 $('.del').each(function (){
                     $(this).css({'display':'none'});
@@ -79,7 +99,7 @@ $(function(){
                 break;  
         }
     });
-    $('.del').on('click',function (){
+    $('body').on('click','.del',function (){
         $(this).parent().parent().remove();
         var els = $('.del').length;
         if(els == 1){
@@ -93,7 +113,7 @@ $(function(){
         window.location.reload();
     });
     
-    $('.inp.count,.inp.price,#orderDiscount,#orderDelivery').on('change',function (){
+    $('body').on('change','.inp.count,.inp.price,#orderDiscount,#orderDelivery',function (){
         var text = $(this).val();
         if(text == ''){$(this).val(0);}
         text = text.replace(/\,/, ".");
@@ -117,4 +137,49 @@ function onChangeProduct(){
     var delivery = parseFloat($('#orderDelivery').val());
     total = total-discount+delivery;
     $('#orderTotal').val(total);
+}
+
+//Функция автозаполнения
+function setAutocomplete(element){
+    element.autocomplete({
+        source: "./?ajax=orders",
+        minLength: 1,
+        select: function( event, ui ) {
+            var id = ui.item.id;
+            var title = ui.item.value;
+            var articul = ui.item.articul;
+            var photo = ui.item.photo;
+            var price = ui.item.price;
+            var node = "<tr class='product "+title+"'>\n\
+                            <td><input hidden class='pId "+id+"' value='"+id+"'/><span>"+articul+"</span></td>\n\
+                            <td valign='top'><img style='float: left' width='70' src='../"+photo+"'><span>"+title+"</span></td>\n\
+                            <td><input class='inp count "+id+"' value='1'/></td>\n\
+                            <td><input class='inp price "+id+"' value='"+price+"'/></td>\n\
+                            <td><i style='display:none;cursor:pointer' class='fa fa-times del'></i></td>\n\
+                        </tr>";
+            $('.table tbody').append(node);
+            onChangeProduct();
+            $('.del').css({'display':'block'});
+        },
+        search: function( event, ui ) {
+            $(this).attr('id','new');
+        },
+        response: function( event, ui ) {
+            console.log(ui.content);
+            var name = $(this).val();
+            for(var i=0;i<ui.content.length;i++){
+                if(ui.content[i].value.toLowerCase() == name.toLowerCase()){
+                    $(this).attr('id',ui.content[i].id);
+                }
+            }
+        },
+        close: function( event, ui ) {$('.productName').val('');}
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+        var photo = '';
+        if(item.photo != ''){photo = '../'+item.photo;}
+      return $( "<li><img src='"+photo+"' width='50' border='0'>" )
+        .append( "<a style='float:right'>" + item.value + "<br><i>артикул: " + item.articul + "</i></a>" )
+        .appendTo( ul );
+    };
 }

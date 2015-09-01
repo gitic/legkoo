@@ -63,6 +63,23 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             <input type="text" hidden name="rowId" class="rowId" value="<?=$order->id?>"/>
            
             <div class="block">
+                <label>Статус</label>
+                <select id='state' class="inp state" name="state" style="min-width: 300px">
+                <?php
+                    $result = $conn->query("SELECT * FROM states");
+                    while ($state = $result->fetch_object()):
+                ?>
+                    <option style='background-color: #<?=$state->colour?>' value="<?=$state->id?>"><?=$state->title?></option>
+                <?php endwhile;?>
+                </select>
+                <script>
+                    $(function() {
+                        $(".inp.state").val('<?=$order->status?>');
+                    });
+                </script>
+            </div>
+            
+            <div class="block">
                 <label>Дата</label>
                 <input class="inp date_add" id="date_add" style="width:494px" value="<?=$order->date_add?>" disabled="disabled"/>
             </div>
@@ -150,6 +167,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                         <?php endforeach;?>
                     </tbody>
                 </table>
+                <input disabled="disabled" style="width:400px;display:none" type="text" value="" placeholder="Артикул или название товара" class="inp productName"/>
                 <input hidden type='hidden' id='products' name='products' value=''/>
                 <div class="clear"></div>
             </div>

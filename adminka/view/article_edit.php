@@ -268,13 +268,12 @@ $_SESSION['KCFINDER'] = array(
                     <label class="left">Прикрепить товары</label>
                     <input hidden type='hidden' class="inp" id="products" name="products" value=""/>
                     <input style="width:400px;" type="text" value="" placeholder="Артикул или название товара" class="inp productName"/>
-                    <!--<div class="add_tag ing"><i class="fa fa-plus-square"></i></div>-->
                     <script>
-                $(function() {
-                  $( ".sortable" ).sortable();
-                  $( ".sortable" ).disableSelection();
-                });
-            </script>
+                        $(function() {
+                          $( ".sortable" ).sortable();
+                          $( ".sortable" ).disableSelection();
+                        });
+                    </script>
             <ul class="sortable line">
                 <?php
                 if($article->products != ''):

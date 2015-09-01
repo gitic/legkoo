@@ -230,7 +230,7 @@ function setAutocomplete(element){
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
         var photo = '';
         if(item.photo != ''){photo = '../'+item.photo;}
-      return $( "<li><img src='"+photo+"' width='100' border='0'>" )
+        return $( "<li><img src='"+photo+"' width='50' border='0'>" )
         .append( "<a style='float:right'>" + item.value + "<br><i>артикул: " + item.articul + "</i></a>" )
         .appendTo( ul );
     };

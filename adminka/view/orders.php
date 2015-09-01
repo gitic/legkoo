@@ -32,7 +32,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                         </tr>
                 </thead>
                 <tbody id='ajaxContent'>
-                    <?= print_orders($conn);?>
+                    <?=print_orders($conn);?>
                 </tbody>
         </table>
 </div>

@@ -3,6 +3,26 @@
 defined(ACCESS_VALUE) or die('Access denied');
 $pageDir = 'orders';
 
+
+//Автозаполнение ингредиентов
+if(isset($_GET['term'])){
+    $term = trim(strip_tags($_GET['term']));//retrieve the search term that autocomplete sends
+
+    $sql = "SELECT id,title,articul,photo,price FROM products WHERE visible= '1' AND (title LIKE '%".$term."%' OR articul LIKE '%".$term."%')";
+    $result = $conn->query($sql);//query the database for entries containing the term
+
+    while ($row = $result->fetch_array())//loop through the retrieved values
+    {
+        $row['value']=$row['title'];
+        $row['id']=(int)$row['id'];
+        $row['articul']=(int)$row['articul'];
+        $row['photo']=$row['photo'];
+        $row['price']=$row['price'];
+        $row_set[] = $row;//build an array
+    }
+    echo json_encode($row_set,JSON_UNESCAPED_UNICODE);//format the array into json data
+    die();
+}
 if(isset($_POST['type']) && isset($_POST['rowId'])){
     $type = $_POST['type'];
     switch ($type) {
@@ -20,6 +40,37 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             $discount = preg_replace('/[^0-9]+/ui', '', $_POST['discount']);
             $delivery = preg_replace('/[^0-9]+/ui', '', $_POST['delivery']);
             $total = preg_replace('/[^0-9]+/ui', '', $_POST['total']);
+            
+            if(isset($_COOKIE['products'])){
+                $values = '';
+                $oldCookie = $_COOKIE['products'];
+                $oldProducts = json_decode($oldCookie);
+                $newProducts = json_decode($products);
+                foreach ($oldProducts as $x) {
+                    $oldArr[$x->id] = $x->count;
+                }
+                foreach ($newProducts as $x) {
+                    $newArr[$x->id] = $x->count;
+                }
+                $oldElementsDel = array_diff_key ($oldArr, $newArr);
+                $newElementsAdd = array_diff_key ($newArr, $oldArr);
+                $changeElements = array_intersect_key($oldArr,$newArr);
+                foreach ($changeElements as $key => $value) {
+                    if($newArr[$key] != $value){
+                        $n = $newArr[$key] - $value;
+                        $values .= ",($key,$n)";
+                    }
+                }
+                foreach ($oldElementsDel as $key => $value) {
+                    $values .= ",($key,-$value)";
+                }
+                foreach ($newElementsAdd as $key => $value) {
+                    $values .= ",($key,$value)";
+                }
+                $values = substr($values, 1);
+                $sql = "INSERT INTO products (id,quantity) VALUES $values ON DUPLICATE KEY UPDATE quantity = quantity - VALUES(quantity)";
+                $conn->query($sql);
+            }
             
             $values = array(
                 'fio'=>$fio,
@@ -41,6 +92,11 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             else{
                 echo 'Обновлено';
             }
+            break;
+        case 'state':
+            $rowId = $_POST['rowId'];
+            $status = $_POST['state'];
+            $conn->query("UPDATE $pageDir SET status='{$status}' WHERE id='{$rowId}'");
             break;
     }
 }

@@ -34,6 +34,9 @@ defined(ACCESS_VALUE) or die('Access denied');
     <li>
         <a href="?view=info_pages" class="<?php if($view == 'info_pages'){echo 'sel';}?>">Инфостраницы <i class="fa fa-info"></i></a>
     </li>
+    <li>
+        <a href="?view=states" class="<?php if($view == 'states'){echo 'sel';}?>">Статусы <i class="fa fa-info"></i></a>
+    </li>
 </ul>
 <ul>
     <li class="tl">

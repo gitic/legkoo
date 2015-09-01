@@ -5,17 +5,21 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 function print_orders($conn){
     //////// Вывод списка статей
-    $result = $conn->query('SELECT id,status,date_add,fio,phone,email,sum FROM orders ORDER BY id DESC');
-    while (list($id,$status,$date_add,$fio,$phone,$email,$sum) = $result->fetch_array()){
+    $sql = "SELECT t1.*,t2.title AS sTitle,t2.colour AS sColour "
+            . "FROM orders AS t1 "
+            . "LEFT JOIN states AS t2 ON t1.status = t2.id "
+            . "ORDER BY id DESC";
+    $result = $conn->query($sql);
+    while ($record = $result->fetch_object()){
         echo    "<tr>"
-                . "<td>{$id}</td>"
-                . "<td>{$date_add}</td>"
-                . "<td>{$status}</td>"
-                . "<td><span>{$fio}</span></td>"
-                . "<td>{$phone}</td>"
-                . "<td>{$email}</td>"
-                . "<td>{$sum}</td>"
-                . "<td><a class='row edit {$id}' href='?view=order_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
+                . "<td>{$record->id}</td>"
+                . "<td>{$record->date_add}</td>"
+                . "<td style='background-color:#{$record->sColour};color:black;text-align:center'>{$record->sTitle}</td>"
+                . "<td><span>{$record->fio}</span></td>"
+                . "<td>{$record->phone}</td>"
+                . "<td>{$record->email}</td>"
+                . "<td>{$record->sum}</td>"
+                . "<td><a class='row edit {$record->id}' href='?view=order_edit&id={$record->id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
 //                . "<td><a style='display:none' class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
                 . "</tr>";
     }
@@ -108,13 +112,28 @@ function showCatDishesRows(array $cat_dishes,$sub=0){
 }
 
 function print_labels($conn){
-    //////// Вывод списка статей
+    //////// Вывод списка меток
     $result = $conn->query('SELECT id,title FROM labels ORDER BY id DESC');
     while (list($id,$title) = $result->fetch_array()){
         echo    "<tr>"
                 . "<td>{$id}</td>"
                 . "<td><span>{$title}</span></td>"
                 . "<td><a class='row edit {$id}' href='?view=label_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
+                . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
+                . "</tr>";
+    }
+    $result->free();
+    ////////
+}
+function print_states($conn){
+    //////// Вывод списка статусов
+    $result = $conn->query('SELECT id,title,colour FROM states ORDER BY id DESC');
+    while (list($id,$title,$colour) = $result->fetch_array()){
+        echo    "<tr>"
+                . "<td>{$id}</td>"
+                . "<td><span>{$title}</span></td>"
+                . "<td style='background-color:#{$colour}'></td>"
+                . "<td><a class='row edit {$id}' href='?view=state_edit&id={$id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
                 . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
                 . "</tr>";
     }
