@@ -345,7 +345,7 @@ $_SESSION['KCFINDER'] = array(
             
             <div class="block">
                     <label class="left">Видео</label>
-                    <input class="inp" id="video" name="video" style="width:494px" value="<?=$product->video?>" placeholder="Ссылка на видео"/>
+                    <textarea placeholder="Ссылка на видео" class="inp" name="video" style="width:494px;" rows="8"><?=$product->video?></textarea> 
             </div>
             
             <div class="block">

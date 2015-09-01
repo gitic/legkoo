@@ -1,9 +1,6 @@
 $(function(){
     var page = 'orders';
     
-    $('.inp.count').on('focus',function (){
-        alert('dsfdaas');
-    });
     $('.editOrder,.save').on('click',function (e){
         e.preventDefault();
         var val = $('.inp.fio').attr('disabled');
