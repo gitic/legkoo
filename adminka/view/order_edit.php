@@ -123,7 +123,6 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <?php
                 $arr = json_decode($order->products);
-//                print_arr($order->products);
             ?>
             <script>
                 $.cookie('products', '<?=$order->products?>', { expires: 90 });
@@ -151,7 +150,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                         <?php endforeach;?>
                     </tbody>
                 </table>
-                <input hidden type='hidden' id="products" name='products' value="">
+                <input hidden type='hidden' id='products' name='products' value=''/>
                 <div class="clear"></div>
             </div>
             
