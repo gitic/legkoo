@@ -388,7 +388,7 @@ a.catPreviewBlock img {
     font-size:30px;
     padding:0 0 0 10px;
     text-align:left;
-    width:130px;
+    width:110px;
 }
 
 .previewPrice span {
@@ -408,9 +408,9 @@ a.catPreviewBlock img {
     cursor:pointer;
     display:inline-block;
     font-weight:300;
-    font-size:16px;
+    font-size:15px;
     opacity:0.7;
-    padding:10px 15px;
+    padding:10px 10px;
         -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
