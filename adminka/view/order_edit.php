@@ -63,8 +63,8 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             <input type="text" hidden name="rowId" class="rowId" value="<?=$order->id?>"/>
            
             <div class="block">
-                <label>Статус</label>
-                <select id='state' class="inp state" name="state" style="min-width: 300px">
+                <label>Статус заказа</label>
+                <select id='state' class="inp state" name="state">
                 <?php
                     $result = $conn->query("SELECT * FROM states");
                     while ($state = $result->fetch_object()):
