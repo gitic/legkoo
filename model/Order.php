@@ -15,6 +15,8 @@ class Order {
     var $products;
     var $sum;
     var $discount;
+    var $delivery;
+    var $total;
     var $notes;
     
     function __construct() {}

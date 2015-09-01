@@ -59,17 +59,17 @@ $order->getFomDb(array('id'=>$rowId), $conn);
         Редактирование заказа
 </h1>
 <div id="content">
-        <form name="edit_form" action="" method="post" enctype="multipart/form-data">
+        <form id="edit_form" name="edit_form" action="" method="post" enctype="multipart/form-data">
             <input type="text" hidden name="rowId" class="rowId" value="<?=$order->id?>"/>
            
             <div class="block">
                 <label>Дата</label>
-                <input class="inp" id="date_add" name="date_add" style="width:494px" value="<?=$order->date_add?>" disabled="disabled"/>
+                <input class="inp date_add" id="date_add" style="width:494px" value="<?=$order->date_add?>" disabled="disabled"/>
             </div>
             
             <div class="block">
                 <label>ФИО</label>
-                <input class="inp" id="fio" name="fio" style="width:494px" value="<?=$order->fio?>" placeholder="ФИО" required disabled="disabled"/>
+                <input class="inp fio" id="fio" name="fio" style="width:494px" value="<?=$order->fio?>" placeholder="ФИО" required disabled="disabled"/>
             </div>
             
             <div class="block">
@@ -84,7 +84,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <div class="block">
                     <label class="left">Комментарий клиента</label>
-                    <textarea disabled="disabled" class="inp" name="comment" style="width:494px;"><?=$order->comment?></textarea> 
+                    <textarea disabled="disabled" class="inp comment" style="width:494px;border:1px solid #E5E5E5 !important;"><?=$order->comment?></textarea> 
                 <div class="clear"></div>
             </div>
             
@@ -123,8 +123,11 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <?php
                 $arr = json_decode($order->products);
-//                print_arr($arr);
+//                print_arr($order->products);
             ?>
+            <script>
+                $.cookie('products', '<?=$order->products?>', { expires: 90 });
+            </script>
             <div class="block table">
                 <table>
                     <tbody>
@@ -139,8 +142,8 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                             foreach ($arr as $product):
                         ?>
                         <tr class="product <?=$product->id?>">
-                            <td><input hidden class="pID <?=$product->id?>" value="<?=$product->id?>"/><?=$product->articul?></td>
-                            <td valign="top"><img style='float: left' width="70" src="../<?=$product->img?>"> <?=$product->title?></td>
+                            <td><input hidden class="pId <?=$product->id?>" value="<?=$product->id?>"/><span><?=$product->articul?></span></td>
+                            <td valign="top"><img style='float: left' width="70" src="../<?=$product->img?>"><span><?=$product->title?></span></td>
                             <td><input disabled="disabled" class="inp count <?=$product->id?>" value="<?=$product->count?>"/></td>
                             <td><input disabled="disabled" class="inp price <?=$product->id?>" value="<?=$product->price?>"/></td>
                             <td><i style="display:none;cursor:pointer" class="fa fa-times del"></i></td>
@@ -148,27 +151,28 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                         <?php endforeach;?>
                     </tbody>
                 </table>
+                <input hidden type='hidden' id="products" name='products' value="">
                 <div class="clear"></div>
             </div>
             
             <div class="block">
                 <label>Сумма</label>
-                <input  disabled="disabled" readonly class="inp" id="orderSum" name="productsSum" style="width:50px" value="<?=$order->sum?>"/>грн
+                <input  disabled="disabled" readonly class="inp sum" id="orderSum" name="sum" style="width:50px" value="<?=$order->sum?>"/>грн
                 <div class="clear"></div>
             </div>
             <div class="block">
                 <label>Скидка</label>
-                <input disabled="disabled" class="inp" id="orderDiscount" name="productsSum" style="width:50px" value="0"/>
+                <input disabled="disabled" class="inp" id="orderDiscount" name="discount" style="width:50px" value="<?=$order->discount?>"/>
                 <div class="clear"></div>
             </div>
             <div class="block">
                 <label>Доставка</label>
-                <input disabled="disabled" class="inp" id="orderDelivery" name="productsSum" style="width:50px" value="0"/>
+                <input disabled="disabled" class="inp" id="orderDelivery" name="delivery" style="width:50px" value="<?=$order->delivery?>"/>
                 <div class="clear"></div>
             </div>
             <div class="block">
                 <label style="font-weight: bold">Всего</label>
-                <input disabled="disabled" class="inp" id="orderTotal" name="productsSum" style="width:50px" value="<?=$order->sum?>"/>грн
+                <input disabled="disabled" class="inp" id="orderTotal" name="total" style="width:50px" value="<?=($order->sum)-($order->discount)+($order->delivery)?>"/>грн
                 <div class="clear"></div>
             </div>
             
@@ -177,8 +181,13 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                 <textarea disabled="disabled" class="inp" name="notes" style="width:494px;"><?=$order->notes?></textarea> 
                 <div class="clear"></div>
             </div>
+            
+            <div class="block">
+                <span class="notify" style="float:right;color:red;display:none">Обновлено</span>
+                <img class="loaderGif" style="float:right;display:none" src="<?=VIEW?>images/loader.GIF">
+                <div class="clear"></div>
+            </div>
             <div id="bottom-btn">
-                <input name="id" type="hidden" value="">
                 <input style="display:none;" class='save' name="submit" type="submit" value="сохранить" />
                 <input class='editOrder' name="submit" type="submit" value="Редактировать" />
                 <a href="?view=<?=$pageDir?>" class="cancel back">назад</a>

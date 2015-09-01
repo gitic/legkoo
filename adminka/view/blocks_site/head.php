@@ -7,8 +7,8 @@ defined(ACCESS_VALUE) or die('Access denied');
 	<link rel='stylesheet' type='text/css' href='<?=VIEW?>css/style.css' />
 	<link rel='stylesheet' href='../lib/icons/css/font-awesome.min.css'>
 	<link rel='shortcut icon' href='<?=VIEW?>images/favicon.png'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<!--	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>-->
         
         <script src="../lib/jquery-1.11.2.min.js"></script>
         <script src="../lib/jquery.cookie.js"></script>

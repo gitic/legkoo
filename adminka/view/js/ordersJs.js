@@ -1,14 +1,23 @@
 $(function(){
+    var page = 'orders';
+    
+    $('.inp.count').on('focus',function (){
+        alert('dsfdaas');
+    });
     $('.editOrder,.save').on('click',function (e){
         e.preventDefault();
-        var val = $('.inp').attr('disabled');
+        var val = $('.inp.fio').attr('disabled');
         switch (val){
             case 'disabled':
                 $('.inp').each(function (){
-                    $(this).attr('disabled',false);
+                    var exeptArr = ['date_add','comment']; 
+                    var cName = $(this).attr('class').split(' ')[1];
+                    if(exeptArr.indexOf(cName) === -1){
+                       $(this).attr('disabled',false); 
+                    }
                 });
                 var els = $('.del').length;
-                if(els != 1){
+                if(els !== 1){
                     $('.del').each(function (){
                         $(this).css({'display':'block'});
                     });
@@ -20,6 +29,46 @@ $(function(){
                 break;
             default :
                 //СОХРАНИТЬ
+                var i=0;
+                var products = new Array();
+                $('.product').each(function (){
+                    var pId = $(this).children('td:nth-child(1)').children('.pId').val();
+                    var articul = $(this).children('td:nth-child(1)').children('span').html();
+                    var src = $(this).children('td:nth-child(2)').children('img').attr('src').substring(3);
+                    var title = $(this).children('td:nth-child(2)').children('span').html();
+                    var count = $(this).children('td:nth-child(3)').children('input').val();
+                    var price = $(this).children('td:nth-child(4)').children('input').val();
+                    products[i] = {id:pId,title:title,articul:articul,count:count,price:price,img:src};
+                    i++;
+                });
+                products = JSON.stringify(products);
+                $('#products').val(products);
+                $('.loaderGif').css({'display':'block'});
+                var mdata = $('#edit_form').serialize();
+                mdata+= "&type=save";
+                $.ajax({
+                    url:'./?ajax='+page,
+                    type:'POST',
+                    data: mdata,
+                    success: function (data, textStatus, jqXHR) {
+                        $('.loaderGif').css({'display':'none'});
+                        if(data.trim() !== 'error'){
+                            $('.notify').html('Обновлено');
+                        }
+                        else{
+                            $('.notify').html('Произошла ошибка');
+                        }
+                        $('.notify').css({'display':'block','opacity':1});
+                        setTimeout (function(){
+                            $(".notify").animate({opacity: 0},800,function (){
+                                $('.notify').css({'display':'none'});
+                            });
+                        }, 2000);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert(textStatus+' '+errorThrown);
+                    }
+                });
                 $('.inp').each(function (){
                     $(this).attr('disabled',true);
                 });
@@ -30,8 +79,7 @@ $(function(){
                 $('.save').css({'display':'none'});
                 $('.cancel.back').css({'display':'inline-block'});
                 $('.cancel.reload').css({'display':'none'});
-                break;
-                
+                break;  
         }
     });
     $('.del').on('click',function (){
