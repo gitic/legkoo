@@ -125,7 +125,8 @@ $(function(){
         if(text == ''){$(this).val(0);}
         text = text.replace(/\,/, ".");
         text = text.replace(/[^0-9.]/g, "");
-        $(this).val(text);
+        text = parseFloat(text);
+        $(this).val(text.toFixed(2));
         onChangeProduct();
     });
 });
@@ -136,8 +137,9 @@ function onChangeProduct(){
         var id = $(this).attr('class').split(' ')[2];
         var v1 = parseInt($(this).val());$(this).val(v1);
         var v2 = parseFloat($('.inp.price.'+id).val());
-        var sum = v1*v2;
-        total = total+sum;
+        var sum = v1*v2*100;
+        sum = sum.toFixed(2);
+        total = (total+sum)/100;
     });
     $('#orderSum').val(total);
     var discount = parseFloat($('#orderDiscount').val());

@@ -178,7 +178,7 @@ function countTotal(cartArr){
     $('#basketSmall span').html(total);
     var amount = 0;
     $('.orderPrice strong').each(function (){
-        amount = amount + parseInt($(this).html());
+        amount = amount + parseFloat($(this).html());
     });
     $('.sum strong').html(amount);
     $('#price').html(amount+' грн');
@@ -198,10 +198,10 @@ function setCart(e,val){
     $.ajax({
         url:'./?ajax=cart',
         type:'POST',
-        data: {type:'price',rowID:productId},
+        data: {type:'price',rowID:productId,count:val},
         success: function (data, textStatus, jqXHR) {
             if(data.trim() !== 'error'){
-                var totalPrice = data*val;
+                var totalPrice = data;
                 $('.orderPrice.'+arrId+' strong').html(totalPrice);
                 countTotal(cartArr);
             }

@@ -35,6 +35,6 @@ function printProductCart($product){?>
 
 function printCategoryCart($category){?>
     <a href="category-<?=$category->id?>-lego-<?=$category->translit?>" class="catPreviewBlock">
-        <img src="<?=$category->photo?>"/>
+        <img src="<?=$category->photo?>" alt="<?=$category->title?>" title="<?=$category->title?>"/>
     </a>
 <?php }?>

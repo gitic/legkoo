@@ -42,14 +42,14 @@ defined(ACCESS_VALUE) or die('Access denied');
                 max: <?=$maxPrice?>,
                 values: [ <?=$minPrice?>, <?=$maxPrice?> ],
                 slide: function( event, ui ) {
-                  $( "#amount_price" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+                  $( "#amount_price" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] + ' грн');
                 },
                 change: function( event, ui ) {
                     var sortVal = $('.sortSelect').val();
                     sendData('<?=$id?>','price',ui.values[0],ui.values[1],sortVal);
                 }
             });
-            $( "#amount_price" ).val( "" + $( "#slider-price" ).slider( "values", 0 ) + " - " + $( "#slider-price" ).slider( "values", 1 ) );
+            $( "#amount_price" ).val( "" + $( "#slider-price" ).slider( "values", 0 ) + " - " + $( "#slider-price" ).slider( "values", 1 ) + ' грн');
             
             function sendData(id,type,from,to,sortVal){
                 $.ajax({

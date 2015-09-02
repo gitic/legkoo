@@ -33,8 +33,8 @@ if(isset($_POST['submit'])){
     $instruction = clear($conn, htmlentities($_POST['instruction'],ENT_QUOTES));
     $age_from = preg_replace('/[^0-9 .]+/ui', '', $_POST['age_from']);
     $age_to = preg_replace('/[^0-9 .]+/ui', '', $_POST['age_to']);
-    $price = preg_replace('/[^0-9]+/ui', '', $_POST['price']);
-    $old_price = preg_replace('/[^0-9]+/ui', '', $_POST['old_price']);
+    $price = preg_replace('/[^0-9 .]+/ui', '', $_POST['price']);
+    $old_price = preg_replace('/[^0-9 .]+/ui', '', $_POST['old_price']);
     if(isset($_POST['male'])){$male = 1;}else{$male = 0;}
     if(isset($_POST['female'])){$female = 1;}else{$female = 0;}
     $elements = preg_replace('/[^0-9]+/ui', '', $_POST['elements']);

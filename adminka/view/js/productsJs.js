@@ -265,6 +265,15 @@ $(function(){
         }
     });
     
+    //Меняем запятые на точки
+    $('body').on('change','#age_from,#age_to,#price,#old_price',function (){
+        var text = $(this).val();
+        if(text == ''){$(this).val(0);}
+        text = text.replace(/\,/, ".");
+        text = text.replace(/[^0-9.]/g, "");
+        $(this).val(text);
+    });
+    
     //Транслит имени
     $('body').on('keyup','#title', function(){
         var title = $('#title').val();

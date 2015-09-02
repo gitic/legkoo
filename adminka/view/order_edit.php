@@ -10,46 +10,6 @@ else{
     $rowId = $_GET['id'];
 }
 
-//Обработка формы
-if(isset($_POST['submit'])){
-    if(isset($_POST['visible'])){$visible = 1;}else{$visible = 0;}
-    $order = clear($conn, htmlentities($_POST['category'],ENT_QUOTES));
-    $cat_hidden = clear($conn, htmlentities($_POST['cat_hidden'],ENT_QUOTES));
-    $title = clear($conn, htmlentities($_POST['title'],ENT_QUOTES));
-    $translit = clear($conn, htmlentities($_POST['translit'],ENT_QUOTES));
-    $position = clear($conn, htmlentities($_POST['position'],ENT_QUOTES));
-    if($order != $cat_hidden){
-        switch ($order) {
-            case '0':
-                $result = $conn->query("SELECT COUNT(*) FROM categories WHERE id_index='0'");
-                $numRows = $result->fetch_row();
-                $numRows = $numRows[0] + 1;
-                $position = $numRows;
-                break;
-
-            default:
-                $position = 0;
-                break;
-        }
-    }
-    $description = $_POST['description'];
-    $values = array(
-        'id_index'=>$order,
-        'visible'=>$visible,
-        'title'=>$title,
-        'translit'=>$translit,
-        'description'=>$description,
-        'position'=>$position
-    );
-    $success = Order::update($values, array('id'=>$rowId), $conn);
-    if(!$success){
-        die("Ошибка при обновлении <br> <a href='?view={$pageDir}'>назад</a>");
-    }
-    else{
-        echo '<script type="text/javascript">window.location = "?view='.$pageDir.'"</script>';
-    }    
-}
-
 $order = new Order();
 $order->getFomDb(array('id'=>$rowId), $conn);
 

@@ -36,10 +36,10 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             $delivery_adress = clear($conn, htmlentities($_POST['delivery_adress']));
             $payment_type = preg_replace('/[^0-9]+/ui', '', $_POST['payment_type']);
             $products = $_POST['products'];
-            $sum = preg_replace('/[^0-9]+/ui', '', $_POST['sum']);
-            $discount = preg_replace('/[^0-9]+/ui', '', $_POST['discount']);
-            $delivery = preg_replace('/[^0-9]+/ui', '', $_POST['delivery']);
-            $total = preg_replace('/[^0-9]+/ui', '', $_POST['total']);
+            $sum = preg_replace('/[^0-9 .]+/ui', '', $_POST['sum']);
+            $discount = preg_replace('/[^0-9 .]+/ui', '', $_POST['discount']);
+            $delivery = preg_replace('/[^0-9 .]+/ui', '', $_POST['delivery']);
+            $total = preg_replace('/[^0-9 .]+/ui', '', $_POST['total']);
             
             if(isset($_COOKIE['products'])){
                 $values = '';
