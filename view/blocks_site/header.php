@@ -13,6 +13,7 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div class='notify orderSend'>
         <div>
             <strong>Спасибо за ваш заказ!</strong>
+            <p><em>Наш менеджер свяжется с Вами для уточнения заказа в ближайшее время.</em></p>
             <p><span class="skipNotify">ЗАКРЫТЬ</span>
             <div class="clear"></div></p>
         </div>
