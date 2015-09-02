@@ -31,8 +31,8 @@ if(isset($_POST['submit'])){
     $video = clear($conn, htmlentities($_POST['video'],ENT_QUOTES));
     $description = $_POST['description'];
     $instruction = clear($conn, htmlentities($_POST['instruction'],ENT_QUOTES));
-    $age_from = preg_replace('/[^0-9]+/ui', '', $_POST['age_from']);
-    $age_to = preg_replace('/[^0-9]+/ui', '', $_POST['age_to']);
+    $age_from = preg_replace('/[^0-9 .]+/ui', '', $_POST['age_from']);
+    $age_to = preg_replace('/[^0-9 .]+/ui', '', $_POST['age_to']);
     $price = preg_replace('/[^0-9]+/ui', '', $_POST['price']);
     $old_price = preg_replace('/[^0-9]+/ui', '', $_POST['old_price']);
     if(isset($_POST['male'])){$male = 1;}else{$male = 0;}

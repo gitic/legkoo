@@ -9,7 +9,14 @@ $(function(){
             url:'./?ajax='+page,
             type:'POST',
             data: {type:'state',rowId:rowId,state:val},
-//            success: function (data, textStatus, jqXHR) {},
+            success: function (data, textStatus, jqXHR) {
+                $('.notifyState').css({'display':'inline-block','opacity':1});
+                setTimeout (function(){
+                    $(".notifyState").animate({opacity: 0},800,function (){
+                        $('.notifyState').css({'display':'none'});
+                    });
+                }, 2000);
+            },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(textStatus+' '+errorThrown);
             }
@@ -66,8 +73,7 @@ $(function(){
                     success: function (data, textStatus, jqXHR) {
                         $('.loaderGif').css({'display':'none'});
                         if(data.trim() !== 'error'){
-//                            $('.notify').html('Обновлено');
-                            console.log(data);
+                            $('.notify').html('Обновлено');
                         }
                         else{
                             $('.notify').html('Произошла ошибка');

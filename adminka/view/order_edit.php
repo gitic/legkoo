@@ -72,6 +72,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                     <option style='background-color: #<?=$state->colour?>' value="<?=$state->id?>"><?=$state->title?></option>
                 <?php endwhile;?>
                 </select>
+                <span class="notifyState" style="color:red;display:none">Статус заказа изменен</span>
                 <script>
                     $(function() {
                         $(".inp.state").val('<?=$order->status?>');
