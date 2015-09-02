@@ -46,6 +46,9 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
                 $oldCookie = $_COOKIE['products'];
                 $oldProducts = json_decode($oldCookie);
                 $newProducts = json_decode($products);
+                //SET NEW COOKIE
+                setcookie("products", $products, time()+60*60*24*90);
+                //SET NEW COOKIE
                 foreach ($oldProducts as $x) {
                     $oldArr[$x->id] = $x->count;
                 }
@@ -68,6 +71,7 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
                     $values .= ",($key,$value)";
                 }
                 $values = substr($values, 1);
+                print_arr($values);
                 $sql = "INSERT INTO products (id,quantity) VALUES $values ON DUPLICATE KEY UPDATE quantity = quantity - VALUES(quantity)";
                 $conn->query($sql);
             }

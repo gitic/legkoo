@@ -66,7 +66,8 @@ $(function(){
                     success: function (data, textStatus, jqXHR) {
                         $('.loaderGif').css({'display':'none'});
                         if(data.trim() !== 'error'){
-                            $('.notify').html('Обновлено');
+//                            $('.notify').html('Обновлено');
+                            console.log(data);
                         }
                         else{
                             $('.notify').html('Произошла ошибка');
