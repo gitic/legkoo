@@ -4,6 +4,14 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 function printProductCart($product){?>
     <div class="productPreview">
+<!--        <div class="labels">
+            <span class="label new" title="Новинка">
+                <i class="fa fa-star"></i>
+            </span>
+            <span class="label sale" title="Акция">
+                <i class="fa fa-star"></i>
+            </span>
+        </div>-->
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
             <img src="<?=$product->photo?>" class="big"/>
         </a>
