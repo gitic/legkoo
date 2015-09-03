@@ -40,6 +40,9 @@ defined(ACCESS_VALUE) or die('Access denied');
             Разное
     </li>
     <li>
+        <a href="?view=parser" class="<?php if($view == 'parser'){echo 'sel';}?>">Парсер <i class="fa fa-sitemap"></i></a>
+    </li>
+    <li>
         <a href="?view=categories" class="<?php if($view == 'categories'){echo 'sel';}?>">Категории <i class="fa fa-sitemap"></i></a>
     </li>
     <li>
