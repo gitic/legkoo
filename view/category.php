@@ -12,7 +12,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 <div id="content">
     <div id="main">
-        <h1>Каталог LEGO</h1>
+        <h1>Каталог конструкторов LEGO®</h1>
         <div id="catPreview">            
             <?php
                 $result = $conn->query("SELECT * FROM categories WHERE visible='1' ORDER BY title ASC");

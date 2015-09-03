@@ -299,6 +299,23 @@ a#basketSmall em {
     text-align:center;
 }
 
+#main h1 {
+    color:#666;
+    font-size:30px;
+    font-weight:500;
+    text-align:left;
+    margin:30px 0 0 0;
+}
+
+#main h2 {
+    color:#666;
+    font-size:30px;
+    font-weight:500;
+    text-align:left;
+    margin:30px 0 0 0;
+}
+
+
 h3 {
     color:#666;
     font-size:30px;
@@ -342,6 +359,7 @@ a.catPreviewBlock img {
     display:inline-block;
     margin:0 5px 20px 5px;
     padding:10px;
+    position:relative;
     width:280px;
     -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
@@ -349,6 +367,31 @@ a.catPreviewBlock img {
     -ms-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
     vertical-align:top;
+}
+
+.labels {
+    position:absolute;
+    right:10px;
+    top:10px;
+}
+
+.label {
+    border-radius:50%;
+    color:#fff;
+    display:block;
+    height:32px;
+    font-size:20px;
+    padding:8px 0 0 0;
+    text-align:center;
+    width:40px;
+}
+
+.label.new {
+    background-color:rgba(76,175,80,0.7);
+}
+
+.label.sale {
+    background-color:rgba(255,152,0,0.7);
 }
 
 .productPreview:hover {
