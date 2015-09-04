@@ -13,8 +13,10 @@ else{
 //Обработка формы
 if(isset($_POST['submit'])){
     $title = clear($conn, htmlentities($_POST['title'],ENT_QUOTES));
+    $class = clear($conn, htmlentities($_POST['class'],ENT_QUOTES));
     $values = array(
-        'title'=>$title
+        'title'=>$title,
+        'class'=>$class
     );
     $success = Label::update($values, array('id'=>$rowId), $conn);
     if(!$success){
@@ -37,7 +39,11 @@ $label->getFomDb(array('id'=>$rowId), $conn);
 
             <div class="block">
                 <label>Название</label>
-                <input class="inp" id="title" name="title" style="width:494px" value="<?=$label->title?>" placeholder="Название товара" required />
+                <input class="inp" id="title" name="title" style="width:494px" value="<?=$label->title?>" placeholder="Название метки" required />
+            </div>
+            <div class="block">
+                <label>Класс</label>
+                <input class="inp" id="class" name="class" style="width:494px" value="<?=$label->class?>" placeholder="Класс метки" required />
             </div>
            
             <div id="bottom-btn">

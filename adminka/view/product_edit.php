@@ -419,14 +419,14 @@ $_SESSION['KCFINDER'] = array(
                             while ($label = $result->fetch_object()):
                                 $check = '';
                                 foreach ($lArr as $x) {
-                                    if($x == $label->id){
+                                    if($x == $label->title.'+'.$label->class){
                                         $check = 'checked="checked"';
                                     }
                                 }
                         ?>
-                            <div style="display: inline-block"><input id="label_<?=$label->id?>" class="label <?=$label->id?>" <?=$check?> type="checkbox" /><label for="label_<?=$label->id?>"><?=$label->title?></label></div>
+                        <div style="display: inline-block"><input value="<?=$label->title?>+<?=$label->class?>" id="label_<?=$label->id?>" class="label" <?=$check?> type="checkbox" /><label for="label_<?=$label->id?>"><?=$label->title?></label></div>
                         <?php endwhile;?>
-                            <input id="labels" name="labels" type="hidden" />
+                            <input id="labels" name="labels" type="text" />
                     </div>
 
             </div>

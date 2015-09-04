@@ -219,7 +219,7 @@ $(function(){
         var labels = '';
         $('.label').each(function(){
             if($(this).is(':checked')){
-                var lid = $(this).attr('class').split(' ')[1];
+                var lid = $(this).val();
                 labels += ','+lid;
             }
         });

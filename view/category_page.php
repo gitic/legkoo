@@ -3,6 +3,8 @@
 defined(ACCESS_VALUE) or die('Access denied');
 
 //запросы в Controller
+$result = $conn->query("SELECT COUNT(*) FROM products WHERE visible='1' AND category='$id'");
+$total_rows = $result->fetch_array()[0];
 ?>
 
 <div id="breadcrumbs">
@@ -28,13 +30,15 @@ defined(ACCESS_VALUE) or die('Access denied');
             $ageTo = $record->ageTo;
         ?>
         <script>
+        $.cookie('last', 9, { expires: 7 });
         $(function() {
             $('.sortSelect').on('change',function (){
                 var sortVal = $(this).val();
                 var range = $('#amount_price').val().split(' ');
                 var from = range[0];
                 var to = range[2];
-                sendData('<?=$id?>','sort',from,to,sortVal);
+                $.cookie('last', 9, { expires: 7 });
+                sendData('html','<?=$id?>','sort',from,to,sortVal,0);
             });
             $( "#slider-price" ).slider({
                 range: true,
@@ -45,20 +49,31 @@ defined(ACCESS_VALUE) or die('Access denied');
                   $( "#amount_price" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] + ' грн');
                 },
                 change: function( event, ui ) {
+                    $.cookie('last', 9, { expires: 7 });
                     var sortVal = $('.sortSelect').val();
-                    sendData('<?=$id?>','price',ui.values[0],ui.values[1],sortVal);
+                    sendData('html','<?=$id?>','sort',ui.values[0],ui.values[1],sortVal,0);
                 }
             });
             $( "#amount_price" ).val( "" + $( "#slider-price" ).slider( "values", 0 ) + " - " + $( "#slider-price" ).slider( "values", 1 ) + ' грн');
             
-            function sendData(id,type,from,to,sortVal){
+            function sendData(addType,id,type,from,to,sortVal,lastEl){
+                $('.showMore').remove();
                 $.ajax({
                     url:'./?ajax=category_page',
                     type:'POST',
-                    data: {id:id,type:type,from:from,to:to,sort:sortVal},
+                    data: {id:id,type:type,from:from,to:to,sort:sortVal,lastEl:lastEl},
                     success: function (data, textStatus, jqXHR) {
                         if(data.trim() !== 'error'){
-                            $('#catProduct').html(data);
+                            switch(addType){
+                                case 'html':
+                                    if(data !== 'empty'){$('#catProduct').html(data);}
+                                    else{$('.showMore').css({'display':none});}
+                                    break;
+                                case 'append':
+                                    if(data !== 'empty'){$('#catProduct').append(data);}
+                                    else{$('.showMore').css({'display':'none'});}
+                                    break;
+                            }
                         }
                         else{
                             showError('Ошибка при удалении статьи');
@@ -69,6 +84,19 @@ defined(ACCESS_VALUE) or die('Access denied');
                     }
                 });
             }
+            $('body').on('click','.showMore',function (){
+                var sortVal = $('.sortSelect').val();
+                var range = $('#amount_price').val().split(' ');
+                var from = range[0];
+                var to = range[2];
+                var lastProduct = parseInt($.cookie('last'));
+                sendData('append','<?=$id?>','sort',from,to,sortVal,lastProduct);
+                lastProduct = lastProduct + 9;
+                $.cookie('last', lastProduct, { expires: 7 });
+                if(lastProduct > <?=$total_rows?>){
+                    $(this).css({'display':'none'});
+                }
+            });
         });
         </script>
 
@@ -102,7 +130,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         </div>
         <div id="catProduct">
             <?php
-                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC";
+                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC LIMIT 0,9";
                 $result = $conn->query($sql);
                 while ($record = $result->fetch_object()){
                     $product = new Product();
@@ -110,7 +138,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     printProductCart($product);
                 }
             ?>
+            <span style="cursor: pointer" class="showMore">Показать еще</span>
         </div>
-        <span>Показать еще</span>
     </div>
 </div>

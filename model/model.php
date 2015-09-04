@@ -4,14 +4,17 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 function printProductCart($product){?>
     <div class="productPreview">
-<!--        <div class="labels">
-            <span class="label new" title="Новинка">
+        <div class="labels">
+            <?php
+                $labels = explode(',', $product->labels);
+                foreach ($labels as $label):
+                    $label = explode('+', $label);
+            ?>
+            <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
                 <i class="fa fa-star"></i>
             </span>
-            <span class="label sale" title="Акция">
-                <i class="fa fa-star"></i>
-            </span>
-        </div>-->
+            <?php endforeach;?>
+        </div>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
             <img src="<?=$product->photo?>" class="big"/>
         </a>

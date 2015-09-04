@@ -4,6 +4,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 class Label {
     var $id;
     var $title;
+    var $class;
     
     function __construct() {}
     /**
