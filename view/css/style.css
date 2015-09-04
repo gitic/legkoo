@@ -572,9 +572,18 @@ a.catPreviewBlock img {
 }
 
 .productAbout p {
-    font-size:14px;
+    font-size:16px;
     font-weight:300;
     line-height:20px;
+}
+
+img.newsImage {
+    max-width:100%;
+    margin:30px 0 0 0;
+}
+
+.newsProduct {
+    text-align:center;
 }
 
 .increase {
@@ -1076,4 +1085,20 @@ label {
     -moz-appearance: none;
     appearance: none;
     cursor:pointer;
+}
+
+#news {
+    max-width:1000px;
+    margin:0 auto;
+}
+
+#page {
+    max-width:1000px;
+    margin:0 auto;
+}
+
+.text {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
 }
