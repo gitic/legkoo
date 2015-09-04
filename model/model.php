@@ -11,7 +11,7 @@ function printProductCart($product){?>
                     $label = explode('+', $label);
             ?>
             <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
-                <i class="fa fa-star"></i>
+                <?=$label[0]?>
             </span>
             <?php endforeach;?>
         </div>

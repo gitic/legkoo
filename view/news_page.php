@@ -2,7 +2,7 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 
-//Запросы в Controller
+
 ?>
 
 <div id="breadcrumbs">

@@ -426,7 +426,7 @@ $_SESSION['KCFINDER'] = array(
                         ?>
                         <div style="display: inline-block"><input value="<?=$label->title?>+<?=$label->class?>" id="label_<?=$label->id?>" class="label" <?=$check?> type="checkbox" /><label for="label_<?=$label->id?>"><?=$label->title?></label></div>
                         <?php endwhile;?>
-                            <input id="labels" name="labels" type="text" />
+                            <input id="labels" name="labels" type="hidden" />
                     </div>
 
             </div>
