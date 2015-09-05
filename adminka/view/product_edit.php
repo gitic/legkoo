@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
     else{
         $category = preg_replace('/[^0-9]+/ui', '', $_POST['category']);
     }
-    $articul = preg_replace('/[^0-9]+/ui', '', $_POST['articul']);
+    $articul = clear($conn, htmlentities($_POST['articul'],ENT_QUOTES));
     $quantity = preg_replace('/[^0-9]+/ui', '', $_POST['quantity']);
     $video = clear($conn, htmlentities($_POST['video'],ENT_QUOTES));
     $description = $_POST['description'];
@@ -471,7 +471,7 @@ $_SESSION['KCFINDER'] = array(
 
             <div id="bottom-btn">
                 <input name="id" type="hidden" value="">
-                <input name="submit" type="submit" value="сохранить" />
+                <input id="submit" name="submit" type="submit" value="сохранить" />
                 <a href="?view=product_edit&id=<?=$product->id?>&cancel=1" class="cancel">отмена</a>
             </div>
             

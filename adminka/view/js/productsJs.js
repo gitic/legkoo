@@ -1,6 +1,34 @@
 $(function(){
     var page = 'products';
     
+    //Проверка артикула
+    $('#articul').on('change',function (){
+        var rowId = $('.rowId').val();
+        var articul = $(this).val();
+        $.ajax({
+            url:'./?ajax='+page,
+            type:'POST',
+            data: {type:'articul',rowID:rowId,articul:articul},
+            success: function (data, textStatus, jqXHR) {
+                if(data.trim() === 'error'){
+                    $('#articul').css({'color':'red'});
+                    $('#articul').addClass('errorClass');
+                    $('#submit').attr('disabled',true);
+                    $('#submit').addClass('disabled');
+                }
+                else{
+                    $('#articul').css({'color':'black'});
+                    $('#articul').removeClass('errorClass');
+                    $('#submit').attr('disabled',false);
+                    $('#submit').removeClass('disabled');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
+    });
+    
     //Поиск по товарам
     $('.sbox').keyup(function (){
         var sbox = $(this).val();

@@ -740,3 +740,10 @@ input.add:hover {
 .fa-times:hover {
 	opacity:1;
 }
+.errorClass{
+    border:1px solid red !important;
+}
+.disabled {
+    background-color:#bbb !important;
+    cursor: not-allowed !important;
+}
