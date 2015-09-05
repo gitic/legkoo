@@ -38,23 +38,11 @@ function redirect($http = false){
 /* ===Отправка Email с кодом активации=== */
 /**
  * @param type $email email пользователя
- * @param type $url обратная ссылка
+ * @param type $subject тема письма
+ * @param type $message сообщение
  * @return boolean
  */
-function sendAuthMail($email,$url){
-    $subject = "Подтверждение регистрации на ".TITLE."";//тема сообщения
-    $message = "
-        <html>
-            <head>
-                <title>Подтверждение регистрации на ".TITLE."</title>
-            </head>
-            <body>
-                <p>Здравствуйте! Спасибо за регистрацию на сайте ".TITLE." Перейдите по ссылке, чтобы активировать ваш профиль:</p>
-                <p>{$url}</p>
-                <p>С уважением, Администрация сайта ".TITLE."</p>
-            </body>
-        </html>
-    ";
+function sendMail($email,$subject,$message){
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=utf-8\r\n";
     $headers .= "From: no-reply@".$_SERVER['HTTP_HOST']."\r\n";
@@ -65,7 +53,7 @@ function sendAuthMail($email,$url){
 }
 /* ===Отправка Email с кодом активации=== */
 
-/* ===Отправка Email с кодом активации=== */
+/* ===Хэшируем пароль=== */
 /**
  * Возвращает захешированный пароль
  * @param type $password
@@ -77,7 +65,7 @@ function hashPassword($password){
     $password = $password."9q8w7e3";
     return $password;
 }
-/* ===Отправка Email с кодом активации=== */
+/* ===Хэшируем пароль=== */
 
 /* ===Рекурсивное удаление папки с файлами=== */
 function delDir($folder) {
@@ -160,3 +148,128 @@ function request_url()
   return $result;
 }
 /* ===Текущий URL страницы=== */
+
+/* ===Отправка Email через SMTP=== */
+/**
+ * Функция для отправки почты через ssl Gmail
+ * @param type $from_name от кого пишем письмо
+ * @param type $to_mail адрес получателя (можно указать через запятую)
+ * @param type $subject тема сообщения
+ * @param type $message текст сообщения
+ * @return boolean (true/false)
+ */
+function sendSMTPgmail($from_name,$to_mail,$subject,$message){
+    $mailSMTP = new SendMailSmtpClass(MAIL, MAIL_PASS, 'ssl://smtp.gmail.com', $from_name, 465);                      
+    // заголовок письма
+    $headers= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html; charset=utf-8\r\n"; // кодировка письма
+    $headers .= "From: $from_name <".MAIL.">\r\n"; // от кого письмо
+    $result =  $mailSMTP->send($to_mail, $subject, $message, $headers); // отправляем письмо
+    // $result =  $mailSMTP->send('Кому письмо', 'Тема письма', 'Текст письма', 'Заголовки письма');
+    return $result;
+}
+/* ===Отправка Email через SMTP=== */
+
+function templateNewOrder($title,$orderHref,$name,$email,$phone,$comment,$sum,$discountSum,$deliverySum,$totalSum,$products){
+    $pText = '';
+    foreach ($products as $product) {
+        $pText .= '<tr>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['articul'].'</td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left;width:50px">
+                                <img src="http://legkoo.com.ua/'.$product['img'].'" style="width:50px">
+                        </td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">
+                                <div>'.$product['title'].'</div>
+                        </td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['count'].'</td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['price'].' грн</td>
+                </tr>';
+    }
+    return '
+<table border="0" cellpadding="0" cellspacing="0" width="70%" align="center">
+    <tbody>
+            <tr>
+                    <td>
+                            <div style="border:1px solid #b6b6b6;background:#fff;border-top:3px solid #4285cc;border-radius:0 0 6px 6px">
+                                    <div style="padding:15px 25px">
+                                            <div style="font-size:12px;font-family:tahoma">
+                                                    <div style="font-weight:bold;font-size:14px;padding:0 0 10px;margin:0 0 10px;border-bottom:1px solid #b6b6b6">
+                                                            '.$title.'
+                                                    </div>
+                                                    <div style="font-size:11px;font-weight:normal">
+                                                            <a href="'.$orderHref.'">Ссылка на заказ в панели администрирования</a>
+                                                    </div>
+                                                    <div>
+                                                            <div style="padding:10px 0 5px;font-weight:bold">Информация о покупателе</div>
+                                                            <table cellpadding="5" cellspacing="0" style="font-size:12px;font-family:tahoma">
+                                                                    <tbody>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">Имя</td>
+                                                                                    <td>'.$name.'</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">E-mail</td>
+                                                                                    <td><a href="mailto:'.$email.'">'.$email.'</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;">Телефон</td>
+                                                                                    <td><a href="tel:'.$phone.'" value="'.$phone.'" target="_blank">'.$phone.'</a></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">Комментарий клиента</td>
+                                                                                    <td>'.$comment.'</td>
+                                                                            </tr>
+                                                                    </tbody>
+                                                            </table>
+                                                    </div>
+                                                    <div>
+                                                            <div style="padding:10px 0 5px;font-weight:bold">Заказанные товары</div>
+                                                            <table cellpadding="0" cellspacing="0" style="width:100%;font-size:11px">
+                                                                    <thead>
+                                                                            <tr>
+                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Артикул</td>
+                                                                                    <td colspan="2" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Название</td>
+                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Количество</td>
+                                                                                    <td width="15%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Цена</td>
+                                                                            </tr>
+                                                                    </thead>
+                                                                    <tbody>'.$pText.'</tbody>
+                                                            </table>
+                                                    </div>
+                                                    <div>
+                                                            <div style="padding:10px 0 5px;font-weight:bold">Сумма заказа</div>
+                                                            <table cellpadding="5" cellspacing="0" style="font-size:12px;font-family:tahoma">
+                                                                    <tbody>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">Товары</td>
+                                                                                    <td>'.$sum.' грн</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;">Скидка</td>
+                                                                                    <td>'.$discountSum.' грн</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;">Доставка</td>
+                                                                                    <td>'.$deliverySum.' грн</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;font-weight:bold">Всего</td>
+                                                                                    <td>'.$totalSum.' грн</td>
+                                                                            </tr>
+                                                                    </tbody>
+                                                            </table>
+                                                    </div>
+                                            </div>
+                                    </div>
+                            </div>
+                    </td>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+
+            </tr>
+    </tbody>
+</table>
+';}

@@ -4,10 +4,15 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 function printForm(){
 ?>
-<form id='fileForm' action='' method='post' enctype='multipart/form-data' onsubmit="return confirm('Выполнить обновление товаров?');">
-    <input type='file' name='uploadfile'>
-    <input type='submit' value='Загрузить'>
-</form>
+<h1>
+    Загрузка файла товаров
+</h1>
+<div id="content" style='min-width: 800px'>
+    <form id='fileForm' action='' method='post' enctype='multipart/form-data' onsubmit="return confirm('Выполнить обновление товаров?');">
+        <input type='file' name='uploadfile'>
+        <input type='submit' value='Загрузить'>
+    </form>
+</div>
 <?php    
 }
 require_once '../lib/simple_html_dom.php';
@@ -69,7 +74,7 @@ if(isset($_FILES['uploadfile']['name'])){
                     print_arr($articul);
                 }
             }
-
+            echo "<a href='?view=parser'>назад</a>";
             $html->clear(); 
             unset($html);
             delDir($newname);
