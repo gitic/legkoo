@@ -100,11 +100,11 @@ $(function(){
         switch (cName){
             case 'f1':
                 iWidth = 1000;
-                iHeight = 600;
+                iHeight = 300;
                 break;
             case 'f2':
-                iWidth = 700;
-                iHeight = 467;
+                iWidth = 300;
+                iHeight = 300;
                 break;
         }
 
@@ -142,11 +142,11 @@ $(function(){
         switch (cName){
             case 'f1':
                 iWidth = 1000;
-                iHeight = 600;
+                iHeight = 300;
                 break;
             case 'f2':
-                iWidth = 700;
-                iHeight = 467;
+                iWidth = 300;
+                iHeight = 300;
                 break;
         }
         if((url.indexOf('http://') !== -1) || (url.indexOf('https://') !== -1)){

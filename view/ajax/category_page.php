@@ -29,7 +29,7 @@ if(isset($_POST['type'])){
             }
             $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id "
                     . "WHERE t1.visible='1' AND t1.category='$id' AND t1.price >= $from AND t1.price <=$to ORDER BY $s LIMIT $fromProduct,9";
-            $result = $conn->query("SELECT COUNT(*) FROM products WHERE visible='1' AND category='$id' AND price >= $from AND price <=$to ORDER BY $s LIMIT $fromProduct,9");
+            $result = $conn->query("SELECT COUNT(*) FROM products WHERE visible='1' AND category='$id' AND price >= $from AND price <=$to ORDER BY $s");
             $total_rows = $result->fetch_array()[0];
             search($sql,$conn,$fromProduct,$total_rows);
             break;
@@ -54,7 +54,7 @@ function search($sql,$conn,$fromProduct,$total_rows){
             $product = $record;
             printProductCart($product);
         }
-        if($fromProduct < $total_rows && $total_rows > 9){
+        if(($fromProduct+9) < $total_rows && $total_rows > 9){
             echo '<span style="cursor: pointer" class="showMore">Показать еще</span>';
         }
     }

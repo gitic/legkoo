@@ -371,27 +371,38 @@ a.catPreviewBlock img {
 
 .labels {
     position:absolute;
-    right:10px;
-    top:10px;
+    right:-5px;
+    text-align:right;
+    top:-5px;
 }
 
 .label {
-    border-radius:50%;
+    border-radius:3px;
     color:#fff;
-    display:block;
-    height:32px;
-    font-size:20px;
-    padding:8px 0 0 0;
-    text-align:center;
-    width:40px;
+    font-size:16px;
+    margin:0 0 5px 4px;
+    padding:5px 10px;
+    display:inline-block;
 }
 
 .label.new {
-    background-color:rgba(76,175,80,0.7);
+    background-color:rgba(76,175,80,1);
 }
 
 .label.sale {
-    background-color:rgba(255,152,0,0.7);
+    background-color:rgba(255,152,0,1);
+}
+
+.label.exclusive {
+    background-color:blue;
+}
+
+.label.soon {
+    background-color:green;
+}
+
+.label.hit {
+    background-color:yellow;
 }
 
 .productPreview:hover {
@@ -1101,4 +1112,18 @@ label {
     font-size: 16px;
     font-weight: 300;
     line-height: 20px;
+}
+
+.showMore {
+    background-color:#f5f5f5;
+    color:#888;
+    display:block;
+    margin:20px 0;
+    padding:15px 15px;
+    text-transform:uppercase;
+}
+
+.showMore:hover {
+    background-color:#ccc;
+    color:#fff;
 }
