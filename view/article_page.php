@@ -9,7 +9,7 @@ $article->getFomDb(array('id'=>$id), $conn);
 
 <div id="breadcrumbs">
     <div id="breadcrumbsBody">
-        <a href="<?=PATH?>">главная</a> / <a href="news">новости и акции</a> / <a href="news"><?=$article->title?></a>
+        <a href="<?=PATH?>">главная</a> / <a href="#">новости и акции</a> / <a href="news"><?=$article->title?></a>
     </div>
 </div>
 
