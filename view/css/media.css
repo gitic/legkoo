@@ -148,7 +148,19 @@
     }
 
     .btn span {
-        padding:15px 10px;
+        padding: 10px 5px;
+        font-size: 13px;
+        margin:8px 0 0 0;
+    }
+
+    .label {
+        border-radius:3px;
+        color:#fff;
+        font-size:14px;
+        font-weight:300;
+        margin:0 0 5px 4px;
+        padding:5px 10px;
+        display:inline-block;
     }
     
     

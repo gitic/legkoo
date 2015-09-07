@@ -19,17 +19,6 @@ defined(ACCESS_VALUE) or die('Access denied');
         <div class="productGallery">
             <?php $gArr = explode(',', $product->gallery);?>
             <img data-zoom-image="<?=$gArr[1]?>" src="<?=$gArr[1]?>" class="bigFoto" itemprop="image" alt="<?=$product->title?>" title="<?=$product->title?>"/>
-            <div class="labels">
-                <?php
-                    $labels = explode(',', $product->labels);
-                    foreach ($labels as $label):
-                        $label = explode('+', $label);
-                ?>
-                <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
-                    <i class="fa fa-star"></i>
-                </span>
-                <?php endforeach;?>
-            </div>
             <?php
                 for($i=1;$i<count($gArr);$i++):
             ?>
@@ -49,6 +38,19 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <?php if($product->size != ''):?>
                     <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
                     <?php endif;?>
+                </div>
+                <div class="block">
+                    <div class="labels product">
+                        <?php
+                            $labels = explode(',', $product->labels);
+                            foreach ($labels as $label):
+                                $label = explode('+', $label);
+                        ?>
+                        <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
+                            <?=$label[0]?>
+                        </span>
+                        <?php endforeach;?>
+                    </div>
                 </div>
                 <div class="block">
                     <div class="productPrice">
