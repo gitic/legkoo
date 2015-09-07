@@ -74,7 +74,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                             $text = 'В КОРЗИНУ';
                             if($product->quantity <=0){
                                 $addClass = "class='disabled'";
-                                $text = 'НЕТ В НАЛИЧИИ';
+                                $text = 'ОЖИДАЕТСЯ';
                             }
                         ?>
                         <input type="hidden" value="<?=$product->title?>">

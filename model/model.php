@@ -32,7 +32,7 @@ function printProductCart($product){?>
                 $text = 'В КОРЗИНУ';
                 if($product->quantity <=0){
                     $addClass = "class='disabled'";
-                    $text = 'НЕТ В НАЛИЧИИ';
+                    $text = 'ОЖИДАЕТСЯ';
                 }
             ?>
             <span <?=$addClass?>>
