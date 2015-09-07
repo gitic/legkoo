@@ -4,18 +4,16 @@ defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <div id="content">
     <div id="main">
-<!--        <div id="slider">
-            <img src="images/banner.jpg" alt=""/>
-        </div>--><br/><br/>
-<center>
-    <?php
-        $article = new Article();
-        $article->getFomDb(array('id'=>'2'), $conn);
-    ?>
-    <a href="article-2-<?=$article->translit?>">
-        <img src="<?=$article->photo?>" alt="" style="max-width:100%;"/>
-    </a>
-    </center>
+        <div class="slider">
+            <?php
+                $article = new Article();
+                $article->getFomDb(array('id'=>'2'), $conn);
+            ?>
+            <a href="article-2-<?=$article->translit?>">
+                <p><?=$article->title?></p>
+                <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
+            </a>
+        </div>
         <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>
         <div id="newProduct">
             <?php
