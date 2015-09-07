@@ -371,27 +371,25 @@ a.catPreviewBlock img {
 
 .labels {
     position:absolute;
-    right:10px;
-    top:10px;
+    right:-5px;
+    top:-5px;
 }
 
 .label {
-    border-radius:50%;
+    border-radius:4px;
     color:#fff;
-    display:block;
-    height:32px;
-    font-size:20px;
-    padding:8px 0 0 0;
+    display:inline-block;
+    font-size:13px;
+    padding:5px 10px;
     text-align:center;
-    width:40px;
 }
 
 .label.new {
-    background-color:rgba(76,175,80,0.7);
+    background-color:rgba(76,175,80,1);
 }
 
 .label.sale {
-    background-color:rgba(255,152,0,0.7);
+    background-color:rgba(255,152,0,1);
 }
 
 .productPreview:hover {
@@ -428,7 +426,7 @@ a.catPreviewBlock img {
 .previewPrice {
     color:#333;
     float:left;
-    font-size:30px;
+    font-size:24px;
     padding:0 0 0 10px;
     text-align:left;
     width:110px;
@@ -451,7 +449,7 @@ a.catPreviewBlock img {
     cursor:pointer;
     display:inline-block;
     font-weight:300;
-    font-size:15px;
+    font-size:13px;
     opacity:0.7;
     padding:10px 10px;
         -webkit-transition: all .4s ease-in-out;
