@@ -5,7 +5,6 @@ defined(ACCESS_VALUE) or die('Access denied');
 //запросы в Controller
 $result = $conn->query("SELECT COUNT(*) FROM products WHERE visible='1' AND category='$id'");
 $total_rows = $result->fetch_array()[0];
-echo $total_rows;
 ?>
 
 <div id="breadcrumbs">
