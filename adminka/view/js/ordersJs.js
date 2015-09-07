@@ -132,20 +132,30 @@ $(function(){
 });
 
 function onChangeProduct(){
-    var total = 0;
+    var str = "";
     $('.inp.count').each(function (){
         var id = $(this).attr('class').split(' ')[2];
         var v1 = parseInt($(this).val());$(this).val(v1);
         var v2 = parseFloat($('.inp.price.'+id).val());
-        var sum = v1*v2*100;
-        sum = sum.toFixed(2);
-        total = (total+sum)/100;
+        str += ','+v1+'x'+v2;
     });
-    $('#orderSum').val(total);
+    str = str.substr(1);
+    
     var discount = parseFloat($('#orderDiscount').val());
     var delivery = parseFloat($('#orderDelivery').val());
-    total = total-discount+delivery;
-    $('#orderTotal').val(total);
+    $.ajax({
+            url:'./?ajax=orders',
+            type:'POST',
+            data: {type:'count',rowId:'0',string:str,discount:discount,delivery:delivery},
+            success: function (data, textStatus, jqXHR) {
+                data = data.split('+');
+                $('#orderSum').val(data[0]);
+                $('#orderTotal').val(data[1]);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
 }
 
 //Функция автозаполнения

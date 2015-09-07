@@ -102,6 +102,19 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             $status = $_POST['state'];
             $conn->query("UPDATE $pageDir SET status='{$status}' WHERE id='{$rowId}'");
             break;
+        case 'count':
+            $str = $_POST['string'];
+            $discount = $_POST['discount'];
+            $delivery = $_POST['delivery'];
+            $str = explode(',', $str);
+            $value1 = 0;
+            foreach ($str as $x) {
+                $x = explode('x', $x);
+                $value1 = $value1+($x[0]*$x[1]);
+            }
+            $value2 = $value1 - $discount + $delivery;
+            echo $value1.'+'.$value2;
+            break;
     }
 }
 else {
