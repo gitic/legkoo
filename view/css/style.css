@@ -238,12 +238,25 @@ a#basketSmall em {
     text-decoration:none;
 }
 
-#slider {
+.slider {
     margin:30px 0 0 0;
+    position:relative;
+    width:100%;
 }
 
-#slider img {
-    width:100%;
+.slider img {
+    max-width:100%;
+}
+
+.slider p {
+    position:absolute;
+    color:#fff;
+    right:50px;
+    top:50px;
+    font-weight:700;
+    font-size:30px;
+    width:40%;
+    text-align:right;
 }
 
 #content {
@@ -380,6 +393,7 @@ a.catPreviewBlock img {
     border-radius:3px;
     color:#fff;
     font-size:16px;
+    font-weight:300;
     margin:0 0 5px 4px;
     padding:5px 10px;
     display:inline-block;
@@ -439,7 +453,7 @@ a.catPreviewBlock img {
 .previewPrice {
     color:#333;
     float:left;
-    font-size:30px;
+    font-size:24px;
     padding:0 0 0 10px;
     text-align:left;
     width:110px;
@@ -462,7 +476,7 @@ a.catPreviewBlock img {
     cursor:pointer;
     display:inline-block;
     font-weight:300;
-    font-size:15px;
+    font-size:13px;
     opacity:0.7;
     padding:10px 10px;
         -webkit-transition: all .4s ease-in-out;

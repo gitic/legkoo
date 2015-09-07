@@ -3,7 +3,7 @@
 defined(ACCESS_VALUE) or die('Access denied');
 
 //домен
-define('PATH', 'http://localhost/lego');
+define('PATH', 'http://legkoo.com.ua');
 
 //админка
 define('ADMIN', PATH.'adminka/');
