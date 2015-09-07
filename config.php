@@ -30,10 +30,10 @@ define('MAIL_PASS', 'mlqricettio777mlq');
 define('HOST', 'localhost');
 
 //пользователь
-define('DB_USER', 'root');
+define('DB_USER', 'ricettio');
 
 //пароль
-define('PASS', '');
+define('PASS', 'qricettio777q');
 
 //БД
 define('DB_NAME', 'lego');
