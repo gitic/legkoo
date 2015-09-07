@@ -5,6 +5,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 //запросы в Controller
 $result = $conn->query("SELECT COUNT(*) FROM products WHERE visible='1' AND category='$id'");
 $total_rows = $result->fetch_array()[0];
+echo $total_rows;
 ?>
 
 <div id="breadcrumbs">
@@ -93,9 +94,6 @@ $total_rows = $result->fetch_array()[0];
                 sendData('append','<?=$id?>','sort',from,to,sortVal,lastProduct);
                 lastProduct = lastProduct + 9;
                 $.cookie('last', lastProduct, { expires: 7 });
-                if(lastProduct > <?=$total_rows?>){
-                    $(this).css({'display':'none'});
-                }
             });
         });
         </script>
@@ -130,7 +128,7 @@ $total_rows = $result->fetch_array()[0];
         </div>
         <div id="catProduct">
             <?php
-                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC";
+                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY id DESC LIMIT 0,9";
                 $result = $conn->query($sql);
                 while ($record = $result->fetch_object()){
                     $product = new Product();
@@ -138,7 +136,9 @@ $total_rows = $result->fetch_array()[0];
                     printProductCart($product);
                 }
             ?>
-            <!--<span style="cursor: pointer" class="showMore">Показать еще</span>-->
+            <?php if($total_rows > 9):?>
+                <span style="cursor: pointer" class="showMore">Показать еще</span>
+            <?php endif;?>
         </div>
     </div>
 </div>

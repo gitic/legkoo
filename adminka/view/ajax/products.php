@@ -49,6 +49,25 @@ if(isset($_POST['type']) && isset($_POST['rowID'])){
             print_products($conn,$sbox);
             ////////
             break;
+        
+        //Проверка артикула
+        case 'articul':
+            $rowID = $_POST['rowID'];
+            $articul = $_POST['articul'];
+            $result = $conn->query("SELECT id FROM products WHERE articul='$articul'");
+            $record = $result->fetch_object();
+            if(isset($record->id)){
+                if($rowID == $record->id){
+                    die('ok');
+                }
+                else{
+                    die('error'); 
+                }
+            }
+            else{
+                die('ok');
+            }
+            break;
     }
 }
 else if(!isset($_POST['cat_id'])){

@@ -8,8 +8,12 @@ defined(ACCESS_VALUE) or die('Access denied');
             <img src="images/banner.jpg" alt=""/>
         </div>--><br/><br/>
 <center>
-    <a href="http://legkoo.com.ua/category-16-lego-ninjago">
-        <img src="<?=VIEW?>images/ninjagobanner.jpg" alt="" style="max-width:100%;"/>
+    <?php
+        $article = new Article();
+        $article->getFomDb(array('id'=>'2'), $conn);
+    ?>
+    <a href="article-2-<?=$article->translit?>">
+        <img src="<?=$article->photo?>" alt="" style="max-width:100%;"/>
     </a>
     </center>
         <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>

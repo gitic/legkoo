@@ -100,11 +100,11 @@ $(function(){
         switch (cName){
             case 'f1':
                 iWidth = 1000;
-                iHeight = 600;
+                iHeight = 300;
                 break;
             case 'f2':
-                iWidth = 700;
-                iHeight = 467;
+                iWidth = 300;
+                iHeight = 300;
                 break;
         }
 
@@ -142,11 +142,11 @@ $(function(){
         switch (cName){
             case 'f1':
                 iWidth = 1000;
-                iHeight = 600;
+                iHeight = 300;
                 break;
             case 'f2':
-                iWidth = 700;
-                iHeight = 467;
+                iWidth = 300;
+                iHeight = 300;
                 break;
         }
         if((url.indexOf('http://') !== -1) || (url.indexOf('https://') !== -1)){
@@ -230,8 +230,8 @@ function setAutocomplete(element){
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
         var photo = '';
         if(item.photo != ''){photo = '../'+item.photo;}
-        return $( "<li><img src='"+photo+"' width='50' border='0'>" )
-        .append( "<a style='float:right'>" + item.value + "<br><i>артикул: " + item.articul + "</i></a>" )
+        return $( "<li style='width:700px;'><img style='position:relative;left:0px;' src='"+photo+"' width='50' border='0'>" )
+        .append( "<a style='position:absolute;top:0;left:65px'>" + item.value + "<br><i>артикул: " + item.articul + "</i></a>" )
         .appendTo( ul );
     };
 }

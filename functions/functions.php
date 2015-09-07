@@ -264,12 +264,6 @@ function templateNewOrder($title,$orderHref,$name,$email,$phone,$comment,$sum,$d
                             </div>
                     </td>
             </tr>
-            <tr>
-
-            </tr>
-            <tr>
-
-            </tr>
     </tbody>
 </table>
 ';}
