@@ -112,6 +112,15 @@ else{
             $meta['keywords'] = "";
             break;
         
+        case 'article_page':
+            $id = $_GET['id'];
+            $article = new Article();
+            $article->getFomDb(array('id'=>$id), $conn);
+            $meta['title'] = "$article->title";
+            $meta['description'] = "$article->preview";
+            $meta['keywords'] = "$article->title";
+            break;
+        
         default :
             $meta['title'] = 'Lego';
             $meta['description'] = 'Lego';

@@ -2,9 +2,7 @@
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
 
-$id = $_GET['id'];
-$article = new Article();
-$article->getFomDb(array('id'=>$id), $conn);
+//Запросы в контроллере
 ?>
 
 <div id="breadcrumbs">

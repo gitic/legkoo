@@ -20,14 +20,20 @@ define('CONTROLLER', 'controller/controller.php');
 //вид
 define('VIEW', 'view/');
 
+//email адрес сайта
+define('MAIL', 'legkoo.com.ua');
+
+//пароль к почтовому аккаунту
+define('MAIL_PASS', 'mlqricettio777mlq');
+
 //сервер БД
 define('HOST', 'localhost');
 
 //пользователь
-define('DB_USER', 'ricettio');
+define('DB_USER', 'root');
 
 //пароль
-define('PASS', 'qricettio777q');
+define('PASS', '');
 
 //БД
 define('DB_NAME', 'lego');
