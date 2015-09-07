@@ -6,13 +6,13 @@ php_value max_input_time 1600
 DirectoryIndex index.php
 php_flag display_errors on
 
-ErrorDocument 404 /lego/404.html
-#ErrorDocument 404 /404.html
+#ErrorDocument 404 /lego/404.html
+ErrorDocument 404 /404.html
 
 #Options +FollowSymLinks
 RewriteEngine on
-RewriteBase /lego
-#RewriteBase /
+#RewriteBase /lego
+RewriteBase /
 
 RewriteCond %{HTTP_HOST} (.*)
 RewriteCond %{REQUEST_URI} /$ [NC]
@@ -30,8 +30,8 @@ RewriteRule ^(.*)$ %1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-RewriteCond %{REQUEST_URI} ^/lego/(.*)[/]{1}(.*)$ [NC]
-#RewriteCond %{REQUEST_URI} ^/(.*)[/]{1}(.*)$ [NC]
+#RewriteCond %{REQUEST_URI} ^/lego/(.*)[/]{1}(.*)$ [NC]
+RewriteCond %{REQUEST_URI} ^/(.*)[/]{1}(.*)$ [NC]
 
 RewriteRule ^(.*)$ http://%1/$1 [R=404,L]
 
