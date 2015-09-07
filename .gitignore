@@ -54,5 +54,5 @@ Temporary Items
 /content/tmp/recipes/
 /content/tmp/sites/
 /content/tmp/users/
-*_log
 /config.php
+*_log
