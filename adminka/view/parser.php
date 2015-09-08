@@ -58,7 +58,11 @@ if(isset($_FILES['uploadfile']['name'])){
             $values = substr($values, 1);
             $sql = "INSERT INTO products (articul,quantity) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity)";
             $result = $conn->query($sql);
-//            $rowsUpdated = $conn->affected_rows;
+            
+            //Обновляем дату
+            $date = date('Y-m-d H:i:s');
+            $sql = "UPDATE products SET date_add='$date',date_edit='$date' WHERE date_add='0000-00-00 00:00:00'";
+            $conn->query($sql);
             
             //Ставим отсутствующие товары в Ноль
             $sql = "SELECT articul FROM products";
