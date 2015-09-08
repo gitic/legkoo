@@ -163,6 +163,10 @@
         display:inline-block;
     }
     
+    .catAbout {
+        display:none;
+    }
+    
     
 }
 
@@ -214,5 +218,16 @@
         margin: 0 0 10px 5px;
         width: 20px;
         text-align: center;
+    }
+
+    #contactsLineBody {
+        text-align:center;
+    }
+
+    #contactsLineBody span {
+        clear:both;
+        display:block;
+        padding:0 0 10px 0;
+        width:100%;
     }
 }

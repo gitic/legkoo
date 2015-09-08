@@ -105,13 +105,6 @@ $total_rows = $result->fetch_array()[0];
                     <div style='margin: 0 40px' id="slider-price"></div>
                 </p>
             </div>
-<!--            <div class="block mid">
-                <p style='margin: 0 40px'>
-                    <label for="amount_age">Возраст:</label>
-                    <input type="text" id="amount_age" readonly style="border:0; color:#f6931f; font-weight:bold;"><br><br>
-                    <div style='margin: 0 40px' id="slider-age"></div>
-                </p>
-            </div>-->
             <div class="block">
                 <i class="fa fa-angle-down"></i>
                 <p>Сортировать по: </p>
@@ -138,6 +131,9 @@ $total_rows = $result->fetch_array()[0];
             <?php if($total_rows > 9):?>
                 <span style="cursor: pointer" class="showMore">Показать еще</span>
             <?php endif;?>
+        </div>
+        <div class="catAbout">
+            <?=$category->description?>
         </div>
     </div>
 </div>
