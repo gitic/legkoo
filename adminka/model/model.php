@@ -18,7 +18,8 @@ function print_orders($conn){
                 . "<td><span>{$record->fio}</span></td>"
                 . "<td>{$record->phone}</td>"
                 . "<td>{$record->email}</td>"
-                . "<td>{$record->sum}</td>"
+                . "<td><b>{$record->sum}</b></td>"
+                . "<td>{$record->p_unique}тов. - {$record->p_total}ед.</td>"
                 . "<td><a class='row edit {$record->id}' href='?view=order_edit&id={$record->id}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
 //                . "<td><a style='display:none' class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
                 . "</tr>";

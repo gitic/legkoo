@@ -36,6 +36,8 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             $delivery_adress = clear($conn, htmlentities($_POST['delivery_adress']));
             $payment_type = preg_replace('/[^0-9]+/ui', '', $_POST['payment_type']);
             $products = $_POST['products'];
+            $p_unique = $_POST['p_unique'];
+            $p_total = $_POST['p_total'];
             $sum = preg_replace('/[^0-9 .]+/ui', '', $_POST['sum']);
             $discount = preg_replace('/[^0-9 .]+/ui', '', $_POST['discount']);
             $delivery = preg_replace('/[^0-9 .]+/ui', '', $_POST['delivery']);
@@ -87,7 +89,9 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
                 'discount'=>$discount,
                 'delivery'=>$delivery,
                 'total'=>$total,
-                'products'=>$products
+                'products'=>$products,
+                'p_unique'=>$p_unique,
+                'p_total'=>$p_total
             );
             $success = Order::update($values, array('id'=>$rowId), $conn);
             if(!$success){

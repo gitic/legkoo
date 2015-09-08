@@ -9,6 +9,8 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
     $postCart = json_decode($postCookie);
     $sum = 0;
     $values = '';
+    $p_unique = count($postCart);
+    $p_total = 0;
     foreach ($postCart as $x) {
         $product = new Product();
         $product->getFomDb(array('id'=>$x->id), $conn);
@@ -17,6 +19,7 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
         
         $newQuantity = ($product->quantity) - ($x->count);
         $values .= ",($product->id,$newQuantity)";
+        $p_total = $p_total + $x->count;
     }
     //Обновляем количество товаров
         $values = substr($values, 1);
@@ -36,6 +39,8 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
     $order->delivery_adress = clear($conn, htmlentities($_POST['delivery_adress']));
     $order->payment_type = preg_replace('/[^0-9]+/ui', '', $_POST['payment_type']);
     $order->products = $products;
+    $order->p_unique = $p_unique;
+    $order->p_total = $p_total;
     $order->sum = $sum;
     $order->total = $sum;
     $order->date_add = date('Y-m-d H:i:s');

@@ -51,6 +51,8 @@ $(function(){
                 //СОХРАНИТЬ
                 var i=0;
                 var products = new Array();
+                var p_unique = 0;
+                var p_total = 0;
                 $('.product').each(function (){
                     var pId = $(this).children('td:nth-child(1)').children('.pId').val();
                     var pCat = $(this).children('td:nth-child(1)').children('.pCat').val();
@@ -61,12 +63,14 @@ $(function(){
                     var price = $(this).children('td:nth-child(4)').children('input').val();
                     products[i] = {id:pId,title:title,articul:articul,category:pCat,count:count,price:price,img:src};
                     i++;
+                    p_unique++;
+                    p_total = parseInt(p_total) + parseInt(count);
                 });
                 products = JSON.stringify(products);
                 $('#products').val(products);
                 $('.loaderGif').css({'display':'block'});
                 var mdata = $('#edit_form').serialize();
-                mdata+= "&type=save";
+                mdata+= "&type=save&p_unique="+p_unique+"&p_total="+p_total;
                 $.ajax({
                     url:'./?ajax='+page,
                     type:'POST',

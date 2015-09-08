@@ -27,6 +27,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                             <td>Телефон</td>
                             <td>E-mail</td>
                             <td>Сумма заказа</td>
+                            <td>Товаров</td>
                             <td></td>
                             <!--<td></td>-->
                         </tr>

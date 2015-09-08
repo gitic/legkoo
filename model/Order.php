@@ -13,6 +13,8 @@ class Order {
     var $delivery_adress;
     var $payment_type;
     var $products;
+    var $p_unique;
+    var $p_total;
     var $sum;
     var $discount;
     var $delivery;
