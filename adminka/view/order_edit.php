@@ -47,7 +47,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <div class="block">
                 <label>IP адрес</label>
-                <span><?=$order->client_ip?></span>
+                <span><a href="http://whatismyipaddress.com/ip/<?=$order->client_ip?>" target="_blank"><?=$order->client_ip?></a></span>
             </div>
             
             <div class="block">

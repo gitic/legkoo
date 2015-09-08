@@ -16,7 +16,7 @@ $(function(){
     $('#basketSmall span').html(total);
     
     //В Корзину
-    $('.previewBtn span').on('click', function (){
+    $('body').on('click','.previewBtn span', function (){
         var bClass = $(this).attr('class');
         if(bClass !== 'disabled'){
             var productID = $(this).parent().attr('class').split(' ')[1];
