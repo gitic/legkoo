@@ -173,8 +173,9 @@ function setAutocomplete(element){
             var articul = ui.item.articul;
             var photo = ui.item.photo;
             var price = ui.item.price;
+            var cat = ui.item.category;
             var node = "<tr class='product "+title+"'>\n\
-                            <td><input hidden class='pId "+id+"' value='"+id+"'/><span>"+articul+"</span></td>\n\
+                            <td><input hidden class='pId "+id+"' value='"+id+"'/><input hidden class='pCat "+cat+"' value='"+cat+"'/><span>"+articul+"</span></td>\n\
                             <td valign='top'><img style='float: left' width='70' src='../"+photo+"'><span>"+title+"</span></td>\n\
                             <td><input class='inp count "+id+"' value='1'/></td>\n\
                             <td><input class='inp price "+id+"' value='"+price+"'/></td>\n\
