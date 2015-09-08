@@ -11,6 +11,7 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
     $values = '';
     $p_unique = count($postCart);
     $p_total = 0;
+    $categories = array();
     foreach ($postCart as $x) {
         $product = new Product();
         $product->getFomDb(array('id'=>$x->id), $conn);
@@ -20,6 +21,9 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
         $newQuantity = ($product->quantity) - ($x->count);
         $values .= ",($product->id,$newQuantity)";
         $p_total = $p_total + $x->count;
+        if(!in_array($product->category, $categories)){
+            $categories[] = $product->category;
+        }
     }
     //Обновляем количество товаров
         $values = substr($values, 1);
@@ -62,6 +66,34 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
         unset($_COOKIE['mlscartnum']);
         setcookie("mlscartnum", '', time()-300);
         setcookie("notify", 'orderSend', time()+60*60*24*7);
+        //Создание клиента
+            $client = new Client();
+            if($client->getFomDb(array('email'=>$order->email), $conn)){
+                $phones = json_decode($client->phone);
+                    foreach ($phones as $value) {
+                        if(!in_array($order->phone, $phones)){
+                            $phones[] = $order->phone;
+                        }
+                    }
+                    $client->phone = json_encode($phones);
+                $oldCat = json_decode($client->categories);
+                    foreach ($categories as $value) {
+                        if(!in_array($value, $oldCat)){
+                            $oldCat[] = $value;
+                        }
+                    }
+                    $client->categories = json_encode($oldCat);
+                $client->order_ids .= ','.$orderId;
+                Client::update(array('phone'=>$client->phone,'order_ids'=>$client->order_ids,'categories'=>$client->categories), array('email'=>$order->email), $conn);
+            }else{
+                $client->email = $order->email;
+                $client->name = $order->fio;
+                $client->phone = json_encode(array($order->phone));
+                $client->order_ids = $orderId;
+                $client->categories = json_encode($categories);
+                $client->insert($conn);
+            }
+        //Создание клиента
         echo '<script type="text/javascript">window.location = "'.PATH.'"</script>';
         die();
     }

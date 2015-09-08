@@ -1,12 +1,12 @@
 <?php
 //проверка доступа
 defined(ACCESS_VALUE) or die('Access denied');
-class Article {
+class Client {
     var $id;
     var $email;
     var $name;
     var $phone;
-    var $orders;
+    var $order_ids;
     var $categories;
     var $info;
     var $notes;

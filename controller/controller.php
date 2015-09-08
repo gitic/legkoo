@@ -17,6 +17,7 @@ require_once 'model/Infopage.php';
 require_once 'model/Product.php';
 require_once 'model/Order.php';
 require_once 'model/Label.php';
+require_once 'model/Client.php';
 
 // массив метаданных
 $meta = array();
