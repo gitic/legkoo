@@ -46,6 +46,11 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             
             <div class="block">
+                <label>IP адрес</label>
+                <span><?=$order->client_ip?></span>
+            </div>
+            
+            <div class="block">
                 <label>ФИО</label>
                 <input class="inp fio" id="fio" name="fio" style="width:494px" value="<?=$order->fio?>" placeholder="ФИО" required disabled="disabled"/>
             </div>

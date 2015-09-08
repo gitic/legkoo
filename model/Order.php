@@ -18,6 +18,7 @@ class Order {
     var $delivery;
     var $total;
     var $notes;
+    var $client_ip;
     
     function __construct() {}
     /**

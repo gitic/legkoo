@@ -39,6 +39,7 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
     $order->sum = $sum;
     $order->total = $sum;
     $order->date_add = date('Y-m-d H:i:s');
+    $order->client_ip = getRealIp();
     
     $success = $order->insert($conn);
     if(!$success){
