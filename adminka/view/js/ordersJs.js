@@ -122,11 +122,11 @@ $(function(){
     
     $('body').on('change','.inp.count,.inp.price,#orderDiscount,#orderDelivery',function (){
         var text = $(this).val();
-        if(text == ''){$(this).val(0);}
+        if(text === ''){$(this).val('0');text='0';}
         text = text.replace(/\,/, ".");
         text = text.replace(/[^0-9.]/g, "");
         text = parseFloat(text);
-        $(this).val(text.toFixed(2));
+        $(this).val(text);
         onChangeProduct();
     });
 });
@@ -135,14 +135,13 @@ function onChangeProduct(){
     var str = "";
     $('.inp.count').each(function (){
         var id = $(this).attr('class').split(' ')[2];
-        var v1 = parseInt($(this).val());$(this).val(v1);
-        var v2 = parseFloat($('.inp.price.'+id).val());
+        var v1 = $(this).val();$(this).val(v1);
+        var v2 = $('.inp.price.'+id).val();
         str += ','+v1+'x'+v2;
     });
     str = str.substr(1);
-    
-    var discount = parseFloat($('#orderDiscount').val());
-    var delivery = parseFloat($('#orderDelivery').val());
+    var discount = $('#orderDiscount').val();
+    var delivery = $('#orderDelivery').val();
     $.ajax({
             url:'./?ajax=orders',
             type:'POST',
