@@ -46,27 +46,38 @@ if(isset($_FILES['uploadfile']['name'])){
                     $dublicates[] = $row['articul'];
                 }
             }
-
-            $sql = "SELECT articul FROM products";
-            $result = $conn->query($sql);
+            
+            //Обновляем существующие товары
             $i=0;
             $values = '';
+            foreach ($products as $key => $value) {
+                $i++;
+                $values .= ",($key,$value)";
+            }
+            $values = substr($values, 1);
+            $sql = "INSERT INTO products (articul,quantity) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity)";
+            $result = $conn->query($sql);
+            
+            //Ставим отсутствующие товары в Ноль
+            $sql = "SELECT articul FROM products";
+            $result = $conn->query($sql);
+            $values = '';
             while ($row = $result->fetch_object()){
-                if(array_key_exists($row->articul, $products)){
+                if(!array_key_exists($row->articul, $products)){
                     $i++;
                     $articul = $row->articul;
-                    $count = $products[$row->articul];
+                    $count = 0;
                     $values .= ",($articul,$count)";
             //        echo $i.'. '.$row->articul.' - '.$products[$row->articul].'<br>';
                 }
             }
             $values = substr($values, 1);
-
             $sql = "INSERT INTO products (articul,quantity) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity)";
             $result = $conn->query($sql);
-            $rowsUpdated = $conn->affected_rows/2;
+            
+//            $rowsUpdated = $conn->affected_rows;
             echo 'Затронуто товаров: '.$i.'<br>';
-            echo 'Обновлено: '.$rowsUpdated.'<br>';
+            echo 'Обновлено <br>';
             $numDubl = count($dublicates);
             if($numDubl > 0){
                 echo "Найдены дубликаты артикулов в файле - $numDubl:<br>";
