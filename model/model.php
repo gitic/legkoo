@@ -19,7 +19,7 @@ function printProductCart($product){?>
             <img src="<?=$product->photo?>" class="big"/>
         </a>
         <div class="previewTitle">
-            <p><span>Арт. <?=$product->articul?></span>LEGO <?=$product->category?></p>
+            <p><span>Арт. <?=$product->articul?></span>LEGO® <?=$product->category?></p>
             <div class="clear"></div>
             <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>"><?=$product->title?></a>
         </div>

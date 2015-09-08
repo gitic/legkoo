@@ -73,6 +73,26 @@ h1 span {
     font-weight:300;
 }
 
+#contactsLine {
+    background-color:#f7f7f7;
+    color:#999;
+    font-weight:300;
+}
+
+#contactsLineBody {
+    max-width:1000px;
+    margin:0 auto;
+    padding:10px;
+}
+
+#contactsLineBody span {
+    float:right;
+}
+
+#contactsLineBody span a {
+    color:#2196F3;
+}
+
 #topMenuFirst {
     margin:0 auto;
     max-width:1000px;
@@ -267,6 +287,10 @@ a#basketSmall em {
 #main {
     margin:0 auto;
     max-width:1000px;
+    padding:0 10px;
+}
+
+#page {
     padding:0 10px;
 }
 
@@ -1150,4 +1174,13 @@ label {
 .showMore:hover {
     background-color:#ccc;
     color:#fff;
+}
+
+.catAbout {
+    text-align:left;
+    font-weight:300;
+}
+
+.catAbout p {
+    padding:0 0 15px 0;
 }
