@@ -53,12 +53,13 @@ $(function(){
                 var products = new Array();
                 $('.product').each(function (){
                     var pId = $(this).children('td:nth-child(1)').children('.pId').val();
+                    var pCat = $(this).children('td:nth-child(1)').children('.pCat').val();
                     var articul = $(this).children('td:nth-child(1)').children('span').html();
                     var src = $(this).children('td:nth-child(2)').children('img').attr('src').substring(3);
                     var title = $(this).children('td:nth-child(2)').children('span').html();
                     var count = $(this).children('td:nth-child(3)').children('input').val();
                     var price = $(this).children('td:nth-child(4)').children('input').val();
-                    products[i] = {id:pId,title:title,articul:articul,count:count,price:price,img:src};
+                    products[i] = {id:pId,title:title,articul:articul,category:pCat,count:count,price:price,img:src};
                     i++;
                 });
                 products = JSON.stringify(products);

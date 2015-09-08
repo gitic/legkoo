@@ -119,7 +119,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                             foreach ($arr as $product):
                         ?>
                         <tr class="product <?=$product->id?>">
-                            <td><input hidden class="pId <?=$product->id?>" value="<?=$product->id?>"/><span><?=$product->articul?></span></td>
+                            <td><input hidden class="pId <?=$product->id?>" value="<?=$product->id?>"/><input hidden class="pCat <?=$product->category?>" value="<?=$product->category?>"/><span><?=$product->articul?></span></td>
                             <td valign="top"><img style='float: left' width="70" src="../<?=$product->img?>"><span><?=$product->title?></span></td>
                             <td><input disabled="disabled" class="inp count <?=$product->id?>" value="<?=$product->count?>"/></td>
                             <td><input disabled="disabled" class="inp price <?=$product->id?>" value="<?=$product->price?>"/></td>
