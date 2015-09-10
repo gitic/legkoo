@@ -21,6 +21,7 @@ class Order {
     var $total;
     var $notes;
     var $client_ip;
+    var $ttn;
     
     function __construct() {}
     /**

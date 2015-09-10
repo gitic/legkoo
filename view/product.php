@@ -71,7 +71,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <div class="btn buy">
                         <?php 
                             $addClass = '';
-                            $text = 'В КОРЗИНУ';
+                            $text = 'КУПИТЬ';
                             if($product->quantity <=0){
                                 $addClass = "class='disabled'";
                                 $text = 'ОЖИДАЕТСЯ';

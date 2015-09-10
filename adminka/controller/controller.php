@@ -18,6 +18,7 @@ require_once '../model/Product.php';
 require_once '../model/Order.php';
 require_once '../model/Label.php';
 require_once '../model/State.php';
+require_once '../model/Client.php';
 
 //Обработка ajax запросов
 if(isset($_GET['ajax'])){

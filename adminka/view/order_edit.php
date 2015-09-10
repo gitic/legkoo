@@ -41,6 +41,15 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             
             <div class="block">
+                <label>ТТН (ЕН):</label>
+                <input class="inp ttn" id="ttn" name="ttn" style="width:150px" value="<?=$order->ttn?>" disabled="disabled"/>
+                <?php $vis = "display:none;"; if($order->ttn != ''){$vis = 'display:inline;';}?>
+                <span style="cursor:pointer;padding-right:10px;<?=$vis?>" id="checkState">Проверить статус</span>
+                <img id='ttn_loader' style="display:none" width='25px' src='../view/images/loader.GIF'>
+                <span class="notifyTtn" style="color:red;display:none"></span>
+            </div>
+            
+            <div class="block">
                 <label>Дата</label>
                 <input class="inp date_add" id="date_add" style="width:494px" value="<?=$order->date_add?>" disabled="disabled"/>
             </div>

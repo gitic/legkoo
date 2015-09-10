@@ -2,6 +2,7 @@ $(function(){
     var page = 'orders';
     setAutocomplete($('.productName'));
     
+    //Изменение статуса
     $('.state').on('change',function (){
         var val = $(this).val();
         var rowId = $('.rowId').val();
@@ -133,6 +134,46 @@ $(function(){
         text = parseFloat(text);
         $(this).val(text);
         onChangeProduct();
+    });
+    
+    $('.ttn').on('change',function (){
+        var value = $.trim($(this).val());
+        if(value == ''){
+            $('#checkState').css({'display':'none'});
+        }
+        else{
+            $('#checkState').css({'display':'inline'});
+        }
+    });
+    $('body').on('click','#checkState',function (){
+        $('#ttn_loader').css({'display':'inline'});
+        var ttn = $('.inp.ttn').val();
+        $.ajax({
+                url: "https://api.novaposhta.ua/v2.0/json/",
+                dataType: "jsonp",
+                data: {
+                    "modelName": "InternetDocument",
+                    "calledMethod": "documentsTracking",
+                    "methodProperties": {
+                        "Documents": [
+                            ""+ttn+""
+                        ]
+                    },
+                    "apiKey": "c676d6fb43bbd952ed71c119aed6417c"
+                },
+                success: function( data ) {
+                    $('#ttn_loader').css({'display':'none'});
+                    data = data.data;
+                    var state = data[0].StateName;
+                    $('.notifyTtn').html(state);
+                    $('.notifyTtn').css({'display':'inline','opacity':1});
+                    setTimeout (function(){
+                        $(".notifyTtn").animate({opacity: 0},1000,function (){
+                            $('.notifyTtn').css({'display':'none'});
+                        });
+                    }, 2000);
+                }
+            });
     });
 });
 

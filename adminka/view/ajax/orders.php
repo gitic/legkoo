@@ -27,7 +27,6 @@ if(isset($_GET['term'])){
 if(isset($_POST['type']) && isset($_POST['rowId'])){
     $type = $_POST['type'];
     switch ($type) {
-        //Удаление статьи
         case 'save':
             $rowId = $_POST['rowId'];
             $fio = clear($conn, htmlentities($_POST['fio']));
@@ -43,6 +42,7 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             $discount = preg_replace('/[^0-9 .]+/ui', '', $_POST['discount']);
             $delivery = preg_replace('/[^0-9 .]+/ui', '', $_POST['delivery']);
             $total = preg_replace('/[^0-9 .]+/ui', '', $_POST['total']);
+            $ttn = preg_replace('/[^0-9 .]+/ui', '', $_POST['ttn']);
             
             if(isset($_COOKIE['products'])){
                 $values = '';
@@ -92,7 +92,8 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
                 'total'=>$total,
                 'products'=>$products,
                 'p_unique'=>$p_unique,
-                'p_total'=>$p_total
+                'p_total'=>$p_total,
+                'ttn'=>$ttn
             );
             $success = Order::update($values, array('id'=>$rowId), $conn);
             if(!$success){
