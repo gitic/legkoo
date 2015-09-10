@@ -26,8 +26,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             <?php endfor;?>
                 
         </div>
-        <div class="productData">
-            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <div class="productData" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
                 <div class="block">
                     <?php
                         $till = '+';
@@ -82,15 +81,27 @@ defined(ACCESS_VALUE) or die('Access denied');
                     </div>
                     <div class="clear"></div>
                 </div>
-            </div>
-            <div class="block">
-                <div class="productAbout" itemprop="description">
-                    <p>Описание:</p> <?=$product->description?>
+                <div class="block">
+                    <p><strong><i class="fa fa-truck"></i> Доставка: </strong></p>
+                    <p>Условия доставки по всей Украине:</p>
+                    <p>- Бесплатная доставка на склад Новой почты при заказе от 1000 грн. <br/>
+                    - Адресная доставка курьером Новой почты - 50 грн. </p>
+                    <p>Условия доставки по Днепропетровску:</p>
+                    <p>- Самовывоз: просп. Карла Маркса 67-Д ТЦ «Гранд Плаза»<br/> 
+                    - Адресная доставка нашим курьером при заказе от 800 - бесплатно! </p>
                 </div>
-            </div>
-            <noindex>
+                <div class="block">
+                    <p><strong>Оплата: </strong></p>
+                    <p>- Кредитной картой<br/>
+                    - Приват24<br/>
+                    - При доставке в отделение Новой Почты</p>
+                </div>
+                </div>
+        </div>
+        <div class="clear"></div>
+        <div class="shareBtn">
+             <noindex>
                 <div>
-                
 <script type="text/javascript">(function(w,doc) {
 if (!w.__utlWdgt ) {
     w.__utlWdgt = true;
@@ -105,7 +116,11 @@ if (!w.__utlWdgt ) {
                 </div>
             </noindex>
         </div>
-        <div class="clear"></div>
+            <div class="prodAbout block">
+                <div class="productAbout" itemprop="description">
+                    <p>Описание:</p> <?=$product->description?>
+                </div>
+            </div>
         <input class='productID' type="hidden" hidden value="<?=$product->id?>">
     </div>
 </div>

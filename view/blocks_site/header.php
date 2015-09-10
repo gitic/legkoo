@@ -21,8 +21,8 @@ defined(ACCESS_VALUE) or die('Access denied');
 </noindex>
 <div id="contactsLine">
     <div id="contactsLineBody">
-        <span>EMail: <a href="mailto:legodnepr@gmail.com">legodnepr@gmail.com</a></span>
-        Тел: +38(067)567-82-44 (с 10:00 до 20:00)
+        <span><i class="fa fa-pencil-square"></i> <a href="mailto:legodnepr@gmail.com">legodnepr@gmail.com</a></span>
+        <i class="fa fa-phone-square"></i> +38(067)567-82-44 (с 10:00 до 20:00)
     </div>
 </div>
 <div id="topMenu">
