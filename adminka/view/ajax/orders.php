@@ -43,6 +43,7 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             $delivery = preg_replace('/[^0-9 .]+/ui', '', $_POST['delivery']);
             $total = preg_replace('/[^0-9 .]+/ui', '', $_POST['total']);
             $ttn = preg_replace('/[^0-9 .]+/ui', '', $_POST['ttn']);
+            $notes = clear($conn, htmlentities($_POST['notes']));
             
             if(isset($_COOKIE['products'])){
                 $values = '';
@@ -93,7 +94,8 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
                 'products'=>$products,
                 'p_unique'=>$p_unique,
                 'p_total'=>$p_total,
-                'ttn'=>$ttn
+                'ttn'=>$ttn,
+                'notes'=>$notes
             );
             $success = Order::update($values, array('id'=>$rowId), $conn);
             if(!$success){
