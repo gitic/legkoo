@@ -36,7 +36,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <div id="topMenuSecondBody">
             <noindex>
                 <a rel="nofollow" href="cart" id="basketSmall">
-                    <i class="fa fa-shopping-cart"></i> <em>ТОВАРОВ:</em> <span>0</span>
+                    <i class="fa fa-shopping-cart"></i> <em>КОРЗИНА:</em> <span>0</span> <em>тов.</em>
                 </a>
             </noindex>
             <nav class="clearfix">

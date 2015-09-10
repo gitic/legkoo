@@ -224,10 +224,11 @@ nav a#pull {
 
 a#basketSmall {
     color:rgba(255,255,255,1);
+    background-color:rgba(255,255,255,0.3);
     float:right;
     font-size:16px;
     font-weight:400;
-    padding:16px 10px 15px 10px;
+    padding:16px 10px 16px 10px;
     text-decoration:none;
 }
 
@@ -237,6 +238,16 @@ a#basketSmall i {
 
 a#basketSmall em {
     font-style:normal;
+    font-size:13px;
+    font-weight:300;
+}
+
+a#basketSmall span {
+    font-weight:700;
+}
+
+a#basketSmall:hover {
+    background-color:#E30613;
 }
 
 #breadcrumbs {
@@ -410,9 +421,9 @@ a.catPreviewBlock img {
 
 .labels {
     position:absolute;
-    right:-5px;
+    left:-10px;
     text-align:right;
-    top:-5px;
+    top:25px;
 }
 
 .labels.product {
@@ -426,7 +437,7 @@ a.catPreviewBlock img {
 .label {
     border-radius:3px;
     color:#fff;
-    font-size:16px;
+    font-size:13px;
     font-weight:300;
     margin:0 0 5px 4px;
     padding:5px 10px;
@@ -510,8 +521,7 @@ a.catPreviewBlock img {
     cursor:pointer;
     display:inline-block;
     font-weight:300;
-    font-size:13px;
-    opacity:0.7;
+    font-size:15px;
     padding:10px 10px;
         -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;

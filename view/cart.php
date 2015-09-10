@@ -90,7 +90,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <div class="block">
                             <strong><span style="color:red;display: inline">*</span> E-Mail</strong>
                             <input placeholder="E-Mail" name ="email" value="" type="email" class="inp email"/>
-                            <span>для отправки деталей заказа</span>
+<!--                            <span>для отправки деталей заказа</span>-->
                         </div>
                         <div class="block">
                             <strong><span style="color:red;display: inline">*</span> Телефон</strong>
