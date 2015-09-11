@@ -91,7 +91,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     - Адресная доставка нашим курьером при заказе от 1000 - бесплатно! </p>
                 </div>
                 <div class="block">
-                    <p><strong>Оплата: </strong></p>
+                    <p><strong><i class="fa fa-usd"></i> Оплата: </strong></p>
                     <p>- Кредитной картой<br/>
                     - Приват24<br/>
                     - При доставке в отделение Новой Почты</p>
