@@ -31,6 +31,12 @@ if(isset($_POST['submit'])){
 }
 $infoPage = new InfoPage();
 $infoPage->getFomDb(array('id'=>$rowId), $conn);
+
+$_SESSION['KCFINDER'] = array(
+    'disabled' => false,
+    'uploadURL' => "../../content/$pageDir/$infoPage->id",
+    'uploadDir' => ""
+);
 ?>
 
 <script src="../lib/tinymce/tinymce.min.js"></script>
@@ -46,11 +52,25 @@ $infoPage->getFomDb(array('id'=>$rowId), $conn);
             {title: 'Margin right', selector: 'img', styles: {'margin-right': '10px'}}
         ],
         plugins: [
-         "advlist autolink link lists charmap preview hr anchor pagebreak",
+         "advlist autolink link image lists charmap preview hr anchor pagebreak",
          "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking",
          "save table contextmenu directionality emoticons template paste textcolor",
         ],
-        toolbar: "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | print preview fullpage | forecolor backcolor emoticons",
+        toolbar: "insertfile undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview fullpage | forecolor backcolor emoticons",
+        file_browser_callback: function(field, url, type, win) {
+            tinyMCE.activeEditor.windowManager.open({
+                file: '../lib/kcfinder/browse.php?opener=tinymce4&field=' + field + '&type=' + type,
+                title: 'KCFinder',
+                width: 700,
+                height: 500,
+                inline: true,
+                close_previous: false
+            }, {
+                window: win,
+                input: field
+            });
+            return false;
+        }
     });
 </script>
 <h1>
