@@ -53,6 +53,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <li>
                         <a href="info-1"><span>доставка и оплата</span></a>
                     </li>
+                    <li>
+                        <a href="info-6"><span>о магазине</span></a>
+                    </li>
                     <div class="clear"></div>
                 </ul>
                 <a href="#" id="pull"><i class="fa fa-bars"></i></a>
