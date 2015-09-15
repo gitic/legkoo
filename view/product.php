@@ -38,6 +38,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
                     <?php endif;?>
                 </div>
+                <?php if($product->labels != ''):?>
                 <div class="block">
                     <div class="labels product">
                         <?php
@@ -51,6 +52,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <?php endforeach;?>
                     </div>
                 </div>
+                <?php endif;?>
                 <div class="block">
                     <div class="productPrice">
                         <?=$product->price?> <span>грн</span>
@@ -85,7 +87,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <p><strong><i class="fa fa-truck"></i> Доставка: </strong></p>
                     <p>Условия доставки по всей Украине:</p>
                     <p>- Бесплатная доставка на склад Новой почты при заказе от 1000 грн. <br/>
-                    - Адресная доставка курьером Новой почты - 50 грн. </p>
+                    - Адресная доставка курьером Новой почты - 40 грн. </p>
                     <p>Условия доставки по Днепропетровску:</p>
                     <p>- Самовывоз: просп. Карла Маркса 67-Д ТЦ «Гранд Плаза»<br/> 
                     - Адресная доставка нашим курьером при заказе от 1000 - бесплатно! </p>

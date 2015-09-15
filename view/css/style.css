@@ -339,6 +339,10 @@ a#basketSmall:hover {
     color:#2196F3;
 }
 
+.text img {
+    max-width:100%;
+}
+
 #catPreview {
     padding:30px 0;
     text-align:center;
