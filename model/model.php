@@ -12,7 +12,7 @@ function printProductCart($product){?>
             ?>
             <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
                 <?=$label[0]?>
-            </span>
+            </span><br/>
             <?php endforeach;?>
         </div>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
