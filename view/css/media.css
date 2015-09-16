@@ -1,3 +1,22 @@
+
+@media (max-width:800px) {
+    #searchField {
+        border:1px solid #f3f3f3;
+        border-radius:3px;
+        float:right;
+        margin:20px 0 0 0;
+        width:207px;
+    }
+    
+    #searchField input.inp {
+        width:100px;
+    }
+    
+    #searchField i {
+        display:none;
+    }
+}
+
 @media (max-width:700px) { 
     nav {
         border-bottom: 0;
@@ -125,7 +144,7 @@
         text-align:center;
         width:100%;
         padding:0 0 15px 0;
-    }
+    }  
 }
 
 @media (max-width:650px) { 
@@ -165,28 +184,16 @@
     
     .catAbout {
         display:none;
+    }     
+    
+    .slogan1 {
+        display:none;
     }
     
     
 }
 
 @media (max-width:550px) {
-    #searchField {
-        border:1px solid #f3f3f3;
-        border-radius:3px;
-        float:right;
-        margin:20px 0 0 0;
-        width:207px;
-    }
-    
-    #searchField input.inp {
-        width:100px;
-    }
-    
-    #searchField i {
-        display:none;
-    }
-    
     .productPreview {
         padding:5px;
         margin:0 0 20px 0;

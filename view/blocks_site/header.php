@@ -31,6 +31,10 @@ defined(ACCESS_VALUE) or die('Access denied');
             <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="поиск" type="submit" class="btn"/>
         </form>
         <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
+        <div class="slogan1">
+            <a href="<?=PATH?>">legkoo.com.ua</a> - интернет магазин детских конструкторов.
+        </div>
+        <div class="clear"></div>
     </div>
     <div id="topMenuSecond">
         <div id="topMenuSecondBody">

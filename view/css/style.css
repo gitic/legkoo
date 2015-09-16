@@ -102,9 +102,27 @@ h1 span {
 a#logo {
     display:block;
     height:60px;
+    float:left;
     overflow:hidden;
     padding:10px 0;
     width:60px;
+}
+
+.slogan1 {
+    float:left;
+    color:#666;
+    margin:0 0 0 30px;
+    line-height:20px;
+    padding:20px 0 0 0;
+    width:250px;
+    font-weight:300;
+}
+
+.slogan1 a {
+    color:rgba(33,150,243,0.9);
+    font-weight:bold;
+    font-size:20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a#logo img {
@@ -1217,4 +1235,18 @@ label {
     max-width:1000px;
     padding:10px;
     text-align:center;
+}
+
+#scrollUp {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    border-radius:5px;
+    font-weight:300;  
+}
+
+#scrollUp:hover {
+    background: rgba(0,0,0,0.7);
 }

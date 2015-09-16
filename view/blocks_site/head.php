@@ -18,6 +18,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <link rel='stylesheet' href='lib/icons/css/font-awesome.min.css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
 
 <script src="lib/jquery-1.11.2.min.js"></script>
 <script src="lib/jquery.cookie.js"></script>
@@ -25,6 +26,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <script src="lib/jquery-ui/jquery-ui.min.js"></script>
 <script src="lib/touch-punch.js"></script>
 <script src="lib/jquery.elevate_zoom-2.2.3.min.js"></script>
+<script src="lib/jquery.scrollUp.js"></script>
 <script src="<?=VIEW?>js/mainJs.js"></script>
 
 <script>
@@ -45,4 +47,12 @@ defined(ACCESS_VALUE) or die('Access denied');
             }
     });
     });
+    $(function () {
+        $.scrollUp({
+            animation: 'fade',
+            scrollText: 'НАВЕРХ',
+            topSpeed: 600,
+        });
+    });
+
 </script>
