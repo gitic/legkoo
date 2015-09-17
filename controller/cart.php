@@ -15,8 +15,14 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
     foreach ($postCart as $x) {
         $product = new Product();
         $product->getFomDb(array('id'=>$x->id), $conn);
-        $orderCart[] = array('id'=>$product->id,'title'=>$product->title,'articul'=>$product->articul,'category'=>$product->category,'count'=>$x->count,'price'=>$product->price,'img'=>$product->photo);
-        $sum = $sum + $x->count * $product->price;
+        if($product->new_price == 0){
+            $orderCart[] = array('id'=>$product->id,'title'=>$product->title,'articul'=>$product->articul,'category'=>$product->category,'count'=>$x->count,'price'=>$product->price,'img'=>$product->photo);
+            $sum = $sum + $x->count * $product->price;
+        }
+        else{
+            $orderCart[] = array('id'=>$product->id,'title'=>$product->title,'articul'=>$product->articul,'category'=>$product->category,'count'=>$x->count,'price'=>$product->new_price,'img'=>$product->photo);
+            $sum = $sum + $x->count * $product->new_price;
+        }
         
         $newQuantity = ($product->quantity) - ($x->count);
         $values .= ",($product->id,$newQuantity)";
