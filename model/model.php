@@ -4,6 +4,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 function printProductCart($product){?>
     <div class="productPreview">
+        <?php if($product->labels != ''):?>
         <div class="labels">
             <?php
                 $labels = explode(',', $product->labels);
@@ -12,9 +13,10 @@ function printProductCart($product){?>
             ?>
             <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
                 <?=$label[0]?>
-            </span>
+            </span><br/>
             <?php endforeach;?>
         </div>
+        <?php endif;?>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
             <img src="<?=$product->photo?>" class="big"/>
         </a>

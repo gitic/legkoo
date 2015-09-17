@@ -27,17 +27,8 @@ defined(ACCESS_VALUE) or die('Access denied');
                 
         </div>
         <div class="productData" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                <div class="block">
-                    <?php
-                        $till = '+';
-                        if($product->age_to != 0){$till = '-'.$product->age_to;}
-                    ?>
-                    <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
-                    <p>Количество деталей: <strong><?=$product->elements?></strong></p>
-                    <?php if($product->size != ''):?>
-                    <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
-                    <?php endif;?>
-                </div>
+            
+                <?php if($product->labels != ''):?>
                 <div class="block">
                     <div class="labels product">
                         <?php
@@ -45,12 +36,13 @@ defined(ACCESS_VALUE) or die('Access denied');
                             foreach ($labels as $label):
                                 $label = explode('+', $label);
                         ?>
-                        <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
+                        <span class="label pr <?=$label[1]?>" title="<?=$label[0]?>">
                             <?=$label[0]?>
                         </span>
                         <?php endforeach;?>
                     </div>
                 </div>
+                <?php endif;?>
                 <div class="block">
                     <div class="productPrice">
                         <?=$product->price?> <span>грн</span>
@@ -81,46 +73,60 @@ defined(ACCESS_VALUE) or die('Access denied');
                     </div>
                     <div class="clear"></div>
                 </div>
+            
                 <div class="block">
-                    <p><strong><i class="fa fa-truck"></i> Доставка: </strong></p>
-                    <p>Условия доставки по всей Украине:</p>
-                    <p>- Бесплатная доставка на склад Новой почты при заказе от 1000 грн. <br/>
-                    - Адресная доставка курьером Новой почты - 50 грн. </p>
-                    <p>Условия доставки по Днепропетровску:</p>
-                    <p>- Самовывоз: просп. Карла Маркса 67-Д ТЦ «Гранд Плаза»<br/> 
-                    - Адресная доставка нашим курьером при заказе от 1000 - бесплатно! </p>
+                    <?php
+                        $till = '+';
+                        if($product->age_to != 0){$till = '-'.$product->age_to;}
+                    ?>
+                    <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
+                    <p>Количество деталей: <strong><?=$product->elements?></strong></p>
+                    <?php if($product->size != ''):?>
+                    <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
+                    <?php endif;?>
                 </div>
-                <div class="block">
-                    <p><strong><i class="fa fa-usd"></i> Оплата: </strong></p>
-                    <p>- Кредитной картой<br/>
-                    - Приват24<br/>
-                    - При доставке в отделение Новой Почты</p>
-                </div>
-                </div>
+                <div class="block tabs">
+                    <ul>
+                        <li>Описание</li>
+                        <li class="invisibleTab">Инструкция</li>
+                        <li class="invisibleTab">Видео</li>
+                        <li>Оплата и доставка</li>
+                    </ul>
+                    <div>
+                        <div class="productAbout" itemprop="description">
+                            <?=$product->description?>
+                        </div>
+                        <div class="invisibleTab" style="text-align:center;">
+                            <?php if($product->instruction != ''):?>
+                            <i class="fa fa-file-pdf-o"></i> <a href="<?=$product->instruction?>" target="_blank">Смотреть инструкцию</a>
+                            <em>*некоторые инструкции могут превышать 10Мб (!)</em>
+                            <?php else:?>
+                            Инструкция отсутствует
+                            <?php endif;?>
+                        </div>
+                        <div class="invisibleTab"></div>
+                        <div>
+                            <p><strong>Доставка: </strong></p>
+                            <p>Условия доставки по всей Украине:</p>
+                            <p>- Бесплатная доставка на склад Новой почты при заказе от 1000 грн. <br/>
+                            - Адресная доставка курьером Новой почты - 40 грн. </p>
+                            <p>Условия доставки по Днепропетровску:</p>
+                            <p>- Самовывоз: просп. Карла Маркса 67-Д ТЦ «Гранд Плаза»<br/> 
+                            - Адресная доставка нашим курьером при заказе от 1000 - бесплатно! </p>
+                            <p><strong>Оплата: </strong></p>
+                            <p>- Кредитной картой<br/>
+                            - Приват24<br/>
+                            - При доставке в отделение Новой Почты</p>
+                        </div>
+                    </div>  
+                    <script>
+                    $(document).ready(function(){
+                        $(".tabs").lightTabs();
+                    });</script>
+                </div> 
         </div>
         <div class="clear"></div>
-        <div class="shareBtn">
-             <noindex>
-                <div>
-<script type="text/javascript">(function(w,doc) {
-if (!w.__utlWdgt ) {
-    w.__utlWdgt = true;
-    var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
-    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-    s.src = ('https:' == w.location.protocol ? 'https' : 'http')  + '://w.uptolike.com/widgets/v1/uptolike.js';
-    var h=d[g]('body')[0];
-    h.appendChild(s);
-}})(window,document);
-</script>
-<div data-background-alpha="0.0" data-buttons-color="#FFFFFF" data-counter-background-color="#ffffff" data-share-counter-size="12" data-top-button="false" data-share-counter-type="disable" data-share-style="1" data-mode="share" data-like-text-enable="false" data-mobile-view="true" data-icon-color="#ffffff" data-orientation="horizontal" data-text-color="#000000" data-share-shape="round" data-sn-ids="fb.vk.tw.ok.gp.mr." data-share-size="30" data-background-color="#ffffff" data-preview-mobile="false" data-mobile-sn-ids="fb.vk.tw.wh.ok.gp." data-pid="1409452" data-counter-background-alpha="1.0" data-following-enable="false" data-exclude-show-more="true" data-selection-enable="false" class="uptolike-buttons" ></div>
-                </div>
-            </noindex>
-        </div>
-            <div class="prodAbout block">
-                <div class="productAbout" itemprop="description">
-                    <p>Описание:</p> <?=$product->description?>
-                </div>
-            </div>
+        
         <input class='productID' type="hidden" hidden value="<?=$product->id?>">
     </div>
 </div>

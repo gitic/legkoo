@@ -102,9 +102,27 @@ h1 span {
 a#logo {
     display:block;
     height:60px;
+    float:left;
     overflow:hidden;
     padding:10px 0;
     width:60px;
+}
+
+.slogan1 {
+    float:left;
+    color:#666;
+    margin:0 0 0 30px;
+    line-height:20px;
+    padding:20px 0 0 0;
+    width:250px;
+    font-weight:300;
+}
+
+.slogan1 a {
+    color:rgba(33,150,243,0.9);
+    font-weight:bold;
+    font-size:20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a#logo img {
@@ -339,6 +357,10 @@ a#basketSmall:hover {
     color:#2196F3;
 }
 
+.text img {
+    max-width:100%;
+}
+
 #catPreview {
     padding:30px 0;
     text-align:center;
@@ -422,8 +444,8 @@ a.catPreviewBlock img {
 .labels {
     position:absolute;
     left:-10px;
-    text-align:right;
-    top:25px;
+    text-align:left;
+    top:5px;
 }
 
 .labels.product {
@@ -432,16 +454,24 @@ a.catPreviewBlock img {
     text-align:right;
     top:0;
     padding:0 0 5px 0;
+    right:-10px;
 }
 
 .label {
     border-radius:3px;
     color:#fff;
-    font-size:13px;
+    font-size:14px;
     font-weight:300;
     margin:0 0 5px 4px;
     padding:5px 10px;
     display:inline-block;
+    box-shadow:1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.label.pr {
+    opacity:0.6;
+    margin:0 0 5px 4px;
+        box-shadow:none;
 }
 
 .label.new {
@@ -608,9 +638,11 @@ a.catPreviewBlock img {
 }
 
 .productPrice {
-    color:#000;
-    font-size:40px;
+    color:rgba(0,0,0,0.8);
+    font-size:46px;
     padding:0 0 10px 0;
+    text-align:right;
+    font-weight:bold;
 }
 
 .productPrice span {
@@ -920,8 +952,7 @@ a.footLogo img {
     padding:0 3%;
     margin: 1px auto;
     margin-top: 15%;
-    box-shadow:0 2px 5px #777;
-    
+    box-shadow:0 2px 5px rgba(0,0,0,0.5);
 }
 
 .notify strong {
@@ -1212,4 +1243,78 @@ label {
     max-width:1000px;
     padding:10px;
     text-align:center;
+}
+
+#scrollUp {
+    bottom: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+    border-radius:5px;
+    font-weight:300;  
+}
+
+#scrollUp:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.tabs{
+    display:inline-block;
+}
+.tabs > div{
+    padding:20px 0 10px 0;
+}
+.tabs ul{
+    margin:0px;
+    padding:0px;
+}
+
+.tabs a {
+    color:#000;
+    font-size:20px;
+    font-weight:300;
+}
+
+.tabs a:hover {
+    text-decoration:underline;
+    color:#2196F3;
+}
+
+.tabs em {
+    display:block;
+    font-weight:300;
+    color:#777;
+    font-size:12px;
+}
+
+.tabs ul:after{
+    content:"";
+    display:block;
+    clear:both;
+    height:1px;
+    background:#f5f5f5;
+    top:0;
+    position:relative;
+}
+.tabs ul li{
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    display:block;
+    float:left;
+    padding:10px 10px 9px 10px;
+    font-weight:300;
+    font-size:16px;
+    color:#000;
+    top:1px;
+    position:relative;
+    z-index:1;
+    border-radius:5px 5px 0 0;
+}
+.tabs ul li.active, .tabs ul li.active:hover{
+    background:#e5e5e5;
+}
+.tabs ul li:hover{
+    background:#f5f5f5;
 }
