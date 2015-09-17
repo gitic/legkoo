@@ -1250,13 +1250,3 @@ label {
 #scrollUp:hover {
     background: rgba(0,0,0,0.7);
 }
-
-.opros {
-    text-align:center;
-    padding:0 0 30px 0;
-}
-
-#vk_poll {
-    margin:0 auto;
-    border:5px solid #DAE2E8;
-}
