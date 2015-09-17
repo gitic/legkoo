@@ -27,6 +27,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <script src="lib/touch-punch.js"></script>
 <script src="lib/jquery.elevate_zoom-2.2.3.min.js"></script>
 <script src="lib/jquery.scrollUp.js"></script>
+<script src="lib/productTabs.js"></script>
 <script src="<?=VIEW?>js/mainJs.js"></script>
 
 <script>
