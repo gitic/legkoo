@@ -110,6 +110,44 @@ $(function(){
             }
         });
     });
+    //Метки товара
+    $('body').on('click','.labels',function (e){
+        e.preventDefault();
+        var btn = $(this).children();
+        var className = btn.prop('class');
+        var rowID = className.split(' ')[2];
+        var labelClass = $(this).attr('class').split(' ')[1];
+        var visClass = btn.children().prop('class');
+        switch (visClass){
+            case 'fa fa-circle-o':
+                var setVisible = 1;
+                break;
+            case 'fa fa-circle':
+                var setVisible = 0;
+                break;
+        }
+//        alert(labelClass);
+        $.ajax({
+            url:'./?ajax='+page,
+            type:'POST',
+            data: {type:'labels',visible:setVisible,rowID:rowID,labelClass:labelClass},
+            success: function (data, textStatus, jqXHR) {
+//                alert(data);
+                if(data.trim() !== 'error'){
+                    if(data == 0){
+                        $('.row.'+labelClass+'.'+rowID+'').children().prop('class','fa fa-circle-o');
+                    }
+                    else{$('.row.'+labelClass+'.'+rowID+'').children().prop('class','fa fa-circle');}
+                }
+                else{
+                    showError('Произошла ошибка');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
+    });
     
     //AJAX загрузка иконки
     var iconDir = page;

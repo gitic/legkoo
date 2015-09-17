@@ -40,13 +40,31 @@ function print_products($conn,$search=''){
         }
         else {$q.="OR articul LIKE '$words[0]'";$q.=')';}
     }
-    $result = $conn->query("SELECT id,title,visible,articul,price,quantity FROM products $q ORDER BY id DESC");
-    while (list($id,$title,$visible,$articul,$price,$quantity) = $result->fetch_array()){
+    $result = $conn->query("SELECT id,title,visible,articul,price,quantity,labels FROM products $q ORDER BY id DESC");
+    while (list($id,$title,$visible,$articul,$price,$quantity,$labels) = $result->fetch_array()){
         if($visible == 1){$visClass = 'fa fa-circle';}
         else{$visClass = 'fa fa-circle-o';}
+        $newClass = 'fa fa-circle-o';
+        $saleClass = 'fa fa-circle-o';
+        $hitClass = 'fa fa-circle-o';
+        $exclusiveClass = 'fa fa-circle-o';
+        $soonClass = 'fa fa-circle-o';
+        $deliveryClass = 'fa fa-circle-o';
+        if(strpos($labels, 'new')){$newClass = 'fa fa-circle';}
+        if(strpos($labels, 'sale')){$saleClass = 'fa fa-circle';}
+        if(strpos($labels, 'hit')){$hitClass = 'fa fa-circle';}
+        if(strpos($labels, 'exclusive')){$exclusiveClass = 'fa fa-circle';}
+        if(strpos($labels, 'soon')){$soonClass = 'fa fa-circle';}
+        if(strpos($labels, 'delivery')){$deliveryClass = 'fa fa-circle';}
         echo    "<tr>"
                 . "<td class='visible' align='center'><a class='row visible {$id}' title='Видимость'><i class='{$visClass}'></i></a></td>"
                 . "<td>{$id}</td>"
+                . "<td class='labels new' align='center'><a class='row new {$id}' title='Видимость'><i class='{$newClass}'></i></a></td>"
+                . "<td class='labels sale' align='center'><a class='row sale {$id}' title='Видимость'><i class='{$saleClass}'></i></a></td>"
+                . "<td class='labels hit' align='center'><a class='row hit {$id}' title='Видимость'><i class='{$hitClass}'></i></a></td>"
+                . "<td class='labels exclusive' align='center'><a class='row exclusive {$id}' title='Видимость'><i class='{$exclusiveClass}'></i></a></td>"
+                . "<td class='labels soon' align='center'><a class='row soon {$id}' title='Видимость'><i class='{$soonClass}'></i></a></td>"
+                . "<td class='labels delivery' align='center'><a class='row delivery {$id}' title='Видимость'><i class='{$deliveryClass}'></i></a></td>"
                 . "<td>{$articul}</td>"
                 . "<td><span>{$title}</span></td>"
                 . "<td>{$quantity}</td>"

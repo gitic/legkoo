@@ -41,7 +41,31 @@ if(isset($_POST['type']) && isset($_POST['rowID'])){
                 echo $setVisible;
             }
             break;
-        
+        case 'labels':
+            $rowID = $_POST['rowID'];
+            $setVisible = $_POST['visible'];
+            $cName = $_POST['labelClass'];
+            
+            $result = $conn->query("SELECT * FROM labels WHERE class='$cName'");
+            $record = $result->fetch_object();
+            $search =  $record->title."+".$cName;
+            
+            $result = $conn->query("SELECT * FROM products WHERE id='$rowID'");
+            $record = $result->fetch_object();
+            $labels =  $record->labels;
+            switch ($setVisible) {
+                case 1:
+                    $labels.=",".$search;
+                    break;
+
+                case 0:
+                    $labels = str_replace($search.",", "", $labels);
+                    $labels = str_replace($search, "", $labels);
+                    break;
+            }
+            $conn->query("UPDATE products SET labels='$labels' WHERE id='$rowID'");
+            echo $setVisible;
+            break;
         //Поиск
         case 'search':
             $sbox = $_POST['sbox'];

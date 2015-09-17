@@ -43,7 +43,7 @@ $label->getFomDb(array('id'=>$rowId), $conn);
             </div>
             <div class="block">
                 <label>Класс</label>
-                <input class="inp" id="class" name="class" style="width:494px" value="<?=$label->class?>" placeholder="Класс метки" required />
+                <input class="inp" id="class" name="class" style="width:494px" value="<?=$label->class?>" placeholder="Класс метки" />
             </div>
            
             <div id="bottom-btn">
