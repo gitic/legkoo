@@ -8,7 +8,12 @@ if(isset($_POST['type']) && isset($_POST['rowID'])){
     $product = new Product();
     $success = $product->getFomDb(array('id'=>$rowId), $conn);
     if($success){
-        echo ($product->price)*$count; 
+        if($product->new_price == 0){
+            echo ($product->price)*$count; 
+        }
+        else{
+            echo ($product->new_price)*$count; 
+        }
     }
     else{
         echo 'error'; 
