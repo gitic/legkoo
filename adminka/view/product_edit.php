@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
     $age_from = preg_replace('/[^0-9 .]+/ui', '', $_POST['age_from']);
     $age_to = preg_replace('/[^0-9 .]+/ui', '', $_POST['age_to']);
     $price = preg_replace('/[^0-9 .]+/ui', '', $_POST['price']);
-    $old_price = preg_replace('/[^0-9 .]+/ui', '', $_POST['old_price']);
+    $new_price = preg_replace('/[^0-9 .]+/ui', '', $_POST['new_price']);
     if(isset($_POST['male'])){$male = 1;}else{$male = 0;}
     if(isset($_POST['female'])){$female = 1;}else{$female = 0;}
     $elements = preg_replace('/[^0-9]+/ui', '', $_POST['elements']);
@@ -96,7 +96,7 @@ if(isset($_POST['submit'])){
         'age_from'=>$age_from,
         'age_to'=>$age_to,
         'price'=>$price,
-        'old_price'=>$old_price,
+        'new_price'=>$new_price,
         'male'=>$male,
         'female'=>$female,
         'elements'=>$elements,
@@ -375,8 +375,8 @@ $_SESSION['KCFINDER'] = array(
             </div>
             
             <div class="block">
-                    <label class="left">Старая цена</label>
-                    <input class="inp" id="old_price" name="old_price" style="width:494px" value="<?=$product->old_price?>"/>
+                    <label class="left">Новая цена</label>
+                    <input class="inp" id="new_price" name="new_price" style="width:494px" value="<?=$product->new_price?>"/>
             </div>
             
             <div class="block">

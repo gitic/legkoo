@@ -55,11 +55,15 @@ if(isset($_POST['type']) && isset($_POST['rowID'])){
             $labels =  $record->labels;
             switch ($setVisible) {
                 case 1:
-                    $labels.=",".$search;
+                    if($labels != ''){
+                        $labels.=",".$search;
+                    }
+                    else{$labels.=$search;}
                     break;
 
                 case 0:
                     $labels = str_replace($search.",", "", $labels);
+                    $labels = str_replace(",".$search, "", $labels);
                     $labels = str_replace($search, "", $labels);
                     break;
             }

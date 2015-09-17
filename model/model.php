@@ -8,6 +8,11 @@ function printProductCart($product){?>
         <div class="labels">
             <?php
                 $labels = explode(',', $product->labels);
+                if($product->new_price != 0){
+                    if(!in_array("Акция+sale", $labels)){
+                        $labels[] = "Акция+sale";
+                    }
+                }
                 foreach ($labels as $label):
                     $label = explode('+', $label);
             ?>
@@ -16,6 +21,8 @@ function printProductCart($product){?>
             </span><br/>
             <?php endforeach;?>
         </div>
+        <?php elseif($product->new_price != 0):?>
+        <div class="labels"><span class="label sale" title="Акция">Акция</span><br/></div>
         <?php endif;?>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
             <img src="<?=$product->photo?>" class="big"/>
@@ -26,7 +33,12 @@ function printProductCart($product){?>
             <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>"><?=$product->title?></a>
         </div>
         <div class="previewPrice">
-            <?=$product->price?> <span>грн</span>
+            <?php if($product->new_price != 0):?>
+                <p><span style='text-decoration:line-through;color:gray'><?=$product->price?> грн</span></p>
+                <p><?=$product->new_price?> <span>грн</span></p>
+            <?php else:?>
+                <?=$product->price?> <span>грн</span>
+            <?php endif;?>
         </div>
         <div class="previewBtn <?=$product->id?>">
             <?php 
