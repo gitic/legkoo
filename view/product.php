@@ -121,7 +121,13 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                             Инструкция отсутствует
                             <?php endif;?>
                         </div>
-                        <div class="invisibleTab"></div>
+                        <div class="invisibleTab video">
+                            <?php if($product->video != ''):?>
+                            <iframe src="<?=$product->video?>" frameborder="0" allowfullscreen></iframe>
+                            <?php else:?>
+                            Видео отсутствует
+                            <?php endif;?>
+                        </div>
                         <div>
                             <p><strong>Доставка: </strong></p>
                             <p>Условия доставки по всей Украине:</p>

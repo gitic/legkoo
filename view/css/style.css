@@ -1305,7 +1305,7 @@ label {
     float:left;
     padding:10px 10px 9px 10px;
     font-weight:300;
-    font-size:16px;
+    font-size:14px;
     color:#000;
     top:1px;
     position:relative;
@@ -1317,4 +1317,13 @@ label {
 }
 .tabs ul li:hover{
     background:#f5f5f5;
+}
+
+#zoomContainer {
+    max-width:90%!important;
+}
+
+.tabs iframe {
+    width:100%!important;
+    height:250px!important;
 }
