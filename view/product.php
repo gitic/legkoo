@@ -33,7 +33,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <div class="labels product">
                         <?php
                             $labels = explode(',', $product->labels);
-                            if($product->new_price != 0){
+                            if($product->old_price != 0){
                                 if(!in_array("Акция+sale", $labels)){
                                     $labels[] = "Акция+sale";
                                 }
@@ -47,16 +47,16 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <?php endforeach;?>
                     </div>
                 </div>
-                <?php elseif($product->new_price != 0):?>
+                <?php elseif($product->old_price != 0):?>
                     <div class="block">
                         <div class="labels product"><span class="label pr sale" title="Акция">Акция</span></div>
                     </div>
                 <?php endif;?>
                 <div class="block">
                     <div class="productPrice">
-                        <?php if($product->new_price != 0):?>
-                            <span style='text-decoration:line-through;color:gray'><?=$product->price?> грн</span><br>
-                            <?=$product->new_price?> <span>грн</span>
+                        <?php if($product->old_price != 0):?>
+                            <span style='text-decoration:line-through;color:gray'><?=$product->old_price?> грн</span><br>
+                            <?=$product->price?> <span>грн</span>
                         <?php else:?>
                             <?=$product->price?> <span>грн</span>
                         <?php endif;?>

@@ -59,12 +59,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                             </td>
                             <td class="orderPrice <?=$i?>">
                                 <?php
-                                    if($product->new_price == 0){
-                                        $price = $product->price * $cookie[$i]->count;
-                                    }
-                                    else{
-                                        $price = $product->new_price * $cookie[$i]->count;
-                                    }
+                                    $price = $product->price * $cookie[$i]->count;
                                     $amount = $amount + $price;
                                 ?>
                                 <strong><?=$price?></strong> грн
