@@ -24,6 +24,8 @@ defined(ACCESS_VALUE) or die('Access denied');
         
         <?php require_once VIEW.'blocks_site/header.php'; ?>
         
+        <?php require_once VIEW.'blocks_site/ask_form.php'; ?>
+        
         <?php require_once $view.'.php';?>
               
         <?php require_once VIEW.'blocks_site/footer.php'; ?>
