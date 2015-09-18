@@ -10,18 +10,18 @@ $emailAddress = '';
 
 // Используем сессию, чтобы предотвратить флудинг:
 
-session_name('quickFeedback');
+//session_name('quickFeedback');
 //session_start();
 
 // Если последняя форма была отправлена меньше 10 секунд назад,
 // или пользователь уже послал 10 сообщений за последний час
 
-if(	$_SESSION['lastSubmit'] && ( time() - $_SESSION['lastSubmit'] < 10 || $_SESSION['submitsLastHour'][date('d-m-Y-H')] > 10 )){
-	die('Пожалуста, подождите несколько минут, прежде чем отправить соообщение снова.');
-}
-
-$_SESSION['lastSubmit'] = time();
-$_SESSION['submitsLastHour'][date('d-m-Y-H')]++;
+//if(	$_SESSION['lastSubmit'] && ( time() - $_SESSION['lastSubmit'] < 10 || $_SESSION['submitsLastHour'][date('d-m-Y-H')] > 10 )){
+//	die('Пожалуста, подождите несколько минут, прежде чем отправить соообщение снова.');
+//}
+//
+//$_SESSION['lastSubmit'] = time();
+//$_SESSION['submitsLastHour'][date('d-m-Y-H')]++;
 
 if(ini_get('magic_quotes_gpc')){
 	$_POST['message'] = stripslashes($_POST['message']);
