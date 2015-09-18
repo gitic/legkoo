@@ -1418,3 +1418,26 @@ label {
 #feedback .arrow.down i.fa-chevron-up {
     display:none;
 }
+
+.productIcon {
+    position:absolute;
+    right:5px;
+    top:5px;
+}
+
+.productIcon i {
+    display:inline-block;
+    cursor:pointer;
+    width:26px;
+    height:19px;
+    border:1px solid #f5f5f5;
+    border-radius:50% 50% 50% 0;
+    font-size:14px;
+    color:#ddd;
+    text-align:center;
+    padding:5px 0 0 0;
+}
+
+.videoTab {
+    text-align:center;
+}
