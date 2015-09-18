@@ -1261,6 +1261,7 @@ label {
 
 .tabs{
     display:inline-block;
+    width:100%;
 }
 .tabs > div{
     padding:20px 0 10px 0;
