@@ -1328,3 +1328,93 @@ label {
     width:100%!important;
     height:250px!important;
 }
+
+#feedback{
+	background-color:#2196F3;
+	width:310px;
+	height:330px;
+	position:fixed;
+	bottom:0;
+	right:120px;
+	margin-bottom:-280px;
+	z-index:10000;
+        box-shadow:0 0 4px rgba(0,0,0,0.3);
+        opacity:0.6;
+}
+
+#feedback:hover {
+        opacity:1;
+}
+
+#feedback .section{
+	border-bottom:none;
+	padding:10px 25px 10px 25px;
+}
+
+#feedback h6{
+	height:38px;
+	margin:5px 0 5px;
+        font-size:14px;
+        font-weight:300;
+        color:#fff;
+	cursor:pointer;
+}
+
+#feedback textarea{
+	background-color:#fff;
+	border:none;
+	color:#000;
+	height:100px;
+	padding:10px;
+        font-size:16px;
+	width:236px;
+	resize:none;
+	outline:none;
+	overflow:auto;
+}
+
+#feedback a.submit{
+	border:none;
+	display:block;
+	height:34px;
+	margin:10px auto 0;
+	text-decoration:none;
+	width:91px;
+        color:#fff;
+}
+
+#feedback a.submit:hover{
+	background-position:left bottom;
+}
+
+#feedback a.submit.working{
+	background-position:top right !important;
+	cursor:default;
+}
+
+#feedback .message{
+	color:#fff;
+	margin-bottom:20px;
+        font-weight:300;
+}
+
+#feedback .response{
+	font-size:21px;
+	margin-top:70px;
+	text-align:center;
+	text-shadow:2px 2px 0 #889889;
+	color:#FCFCFC;
+	display:block;
+}
+
+#feedback .arrow {
+    float:right;
+}
+
+#feedback .arrow.up i.fa-chevron-down {
+    display:none;
+}
+
+#feedback .arrow.down i.fa-chevron-up {
+    display:none;
+}

@@ -124,6 +124,7 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                         <div class="invisibleTab video">
                             <?php if($product->video != ''):?>
                             <iframe src="<?=$product->video?>" frameborder="0" allowfullscreen></iframe>
+                            <em>*все видео взято с сайта YouTube.com</em>
                             <?php else:?>
                             Видео отсутствует
                             <?php endif;?>

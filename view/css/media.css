@@ -32,6 +32,10 @@
         max-width:200px;
     }
     
+    #feedback {
+        display:none;
+    }
+    
     .slider p {
         display:none;
     }
