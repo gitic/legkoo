@@ -3,6 +3,9 @@
 defined(ACCESS_VALUE) or die('Access denied');
 
 //Запросы в Controller
+$numView = $product->views;
+$numView++;
+Product::update(array('views'=>$numView), array('id'=>$id), $conn);
 ?>
 <script src="<?=VIEW?>js/productJs.js"></script>
 <div id="breadcrumbs">
