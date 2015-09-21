@@ -32,6 +32,10 @@
         max-width:200px;
     }
     
+    #feedback {
+        display:none;
+    }
+    
     .slider p {
         display:none;
     }
@@ -195,6 +199,10 @@
         display:none;
     }
     
+    .productAbout p {
+        font-size:14px;
+    }
+    
     
 }
 
@@ -245,5 +253,8 @@
     
     .slider {
         display:none;
+    }
+    .tabs ul li {
+        padding:10px 9px;
     }
 }

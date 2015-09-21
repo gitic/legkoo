@@ -118,13 +118,21 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                 <div class="block tabs">
                     <ul>
                         <li>Описание</li>
+                        <li>Видео</li>
                         <li class="invisibleTab">Инструкция</li>
-                        <li class="invisibleTab">Видео</li>
                         <li>Оплата и доставка</li>
                     </ul>
                     <div>
                         <div class="productAbout" itemprop="description">
                             <?=$product->description?>
+                        </div>
+                        <div id="videoTab" class="videoTab">
+                            <?php if($product->video != ''):?>
+                            <iframe src="<?=$product->video?>" frameborder="0" allowfullscreen></iframe>
+                            <em>*видео взято с сайта YouTube.com</em>
+                            <?php else:?>
+                            Видео отсутствует
+                            <?php endif;?>
                         </div>
                         <div class="invisibleTab" style="text-align:center;">
                             <?php if($product->instruction != ''):?>
@@ -132,13 +140,6 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                             <em>*некоторые инструкции могут превышать 10Мб (!)</em>
                             <?php else:?>
                             Инструкция отсутствует
-                            <?php endif;?>
-                        </div>
-                        <div class="invisibleTab video">
-                            <?php if($product->video != ''):?>
-                            <iframe src="<?=$product->video?>" frameborder="0" allowfullscreen></iframe>
-                            <?php else:?>
-                            Видео отсутствует
                             <?php endif;?>
                         </div>
                         <div>
