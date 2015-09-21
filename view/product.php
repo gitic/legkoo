@@ -89,6 +89,19 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                         <span <?=$addClass?>><?=$text?></span>
                     </div>
                     <div class="clear"></div>
+                    <div style="cursor:pointer;" class="oneClickBtn">
+                        <?php 
+                            $addClass = '';
+                            $text = 'купить в 1 клик';
+                            if($product->quantity <=0){
+                                $addClass = "class='disabled'";
+                                $text = 'ОЖИДАЕТСЯ';
+                            }
+                        ?>
+                        <input type="hidden" value="<?=$product->title?>">
+                        <span ><?=$text?></span>
+                    </div>
+                    <div class="clear"></div>
                 </div>
             
                 <div class="block">
@@ -152,4 +165,5 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
         
         <input class='productID' type="hidden" hidden value="<?=$product->id?>">
     </div>
+    <input type="hidden" class="rowId" value="<?=$product->id?>">
 </div>

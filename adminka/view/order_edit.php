@@ -66,12 +66,12 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <div class="block">
                 <label>E-Mail</label>
-                <input class="inp" id="email" name="email" style="width:494px" value="<?=$order->email?>" placeholder="ФИО" disabled="disabled"/>
+                <input class="inp" id="email" name="email" style="width:494px" value="<?=$order->email?>" placeholder="E-mail" disabled="disabled"/>
             </div>
             
             <div class="block">
                 <label>Телефон</label>
-                <input class="inp" id="phone" name="phone" style="width:494px" value="<?=$order->phone?>" placeholder="ФИО" disabled="disabled"/>
+                <input class="inp" id="phone" name="phone" style="width:494px" value="<?=$order->phone?>" placeholder="Телефон" disabled="disabled"/>
             </div>
             
             <div class="block">

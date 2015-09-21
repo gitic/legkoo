@@ -38,6 +38,35 @@ $(function(){
         }
         
     });
+    //One Click Button
+    $('.oneClickBtn').on('click',function (){
+        $('.oneClick').css({'display':'block'});
+    });
+    $('#submitOneClick').on('click',function (){
+        var rowId = $('.rowId').val();
+        var phone = $('.oneClickPhone').val();
+        if($.trim(phone) === ''){
+            $('.oneClickPhone').addClass('errorClass');
+            return;
+        }
+        $.ajax({
+            url:'./?ajax=one_click',
+            type:'POST',
+            data: {rowId:rowId,phone:phone},
+            success: function (data, textStatus, jqXHR) {
+                if(data.trim() !== 'error'){
+                    $('.skipNotify').click();
+                    $('.orderSend').css({'display':'block'}); 
+                }
+                else{
+                    alert('Произошла ошибка');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
+    });
     //ZOOM
     if (screenWidth >= 768 && screenHeight >= 768){
         $('.bigFoto').elevateZoom();
