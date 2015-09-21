@@ -94,7 +94,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                         </div>
                         <div class="block">
                             <strong><span style="color:red;display: inline">*</span> Телефон</strong>
-                            <input placeholder="Телефон для связи" name="phone" value="" type="text" class="inp phone"/>
+                            <input placeholder="Телефон для связи" name="phone" value="" type="text" class="inp phone phoneMask"/>
                             <span>для уточнения деталей</span>
                         </div>
                         <div class="block">

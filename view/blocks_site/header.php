@@ -22,7 +22,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <div>
             <strong>Заказать в 1 клик</strong>
             <p><em>Введите номер телефона. Мы Вам перезвоним для оформления заказа.</em></p>
-            <input class="oneClickPhone" placeholder="Ваш номер телефона" value="" type="text"/>
+            <input class="oneClickPhone phoneMask" placeholder="Ваш номер телефона" value="" type="text"/>
             <p><span class="skipNotify cross"><i class="fa fa-times"></i></span><span id="submitOneClick">ЖДУ ЗВОНКА</span>
             <div class="clear"></div></p>
         </div>

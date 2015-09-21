@@ -59,7 +59,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         });
     });
     $(function(){
-        $(".oneClickPhone").mask("(999) 999-9999");
+        $(".phoneMask").mask("(999) 999-9999");
     });
 
 </script>
