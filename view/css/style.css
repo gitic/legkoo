@@ -930,6 +930,10 @@ a.footLogo img {
     margin:0 auto;
 }
 
+#copyright a {
+    color:#ccc;
+}
+
 .notify{
     display: none;
     position: fixed;
