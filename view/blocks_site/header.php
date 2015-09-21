@@ -14,7 +14,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <div>
             <strong>Спасибо за ваш заказ!</strong>
             <p><em>Наш менеджер свяжется с Вами для уточнения заказа в ближайшее время.</em></p>
-            <p><span class="skipNotify">ЗАКРЫТЬ</span>
+            <p><span class="skipNotify" style="float:right;">ЗАКРЫТЬ</span>
             <div class="clear"></div></p>
         </div>
     </div>
@@ -22,8 +22,8 @@ defined(ACCESS_VALUE) or die('Access denied');
         <div>
             <strong>Заказать в 1 клик</strong>
             <p><em>Введите номер телефона. Мы Вам перезвоним для оформления заказа.</em></p>
-            <input class="oneClickPhone" placeholder="067-123-45-67" value=""/>
-            <p><span class="skipNotify">Закрыть</span><span id="submitOneClick">ЖДУ ЗВОНКА</span>
+            <input class="oneClickPhone" placeholder="Ваш номер телефона" value="" type="text"/>
+            <p><span class="skipNotify cross"><i class="fa fa-times"></i></span><span id="submitOneClick">ЖДУ ЗВОНКА</span>
             <div class="clear"></div></p>
         </div>
     </div>

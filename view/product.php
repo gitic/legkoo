@@ -76,6 +76,7 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                             </div>
                         </div>
                     </div>
+                    <div class="buyBtnSet">
                     <div class="btn buy">
                         <?php 
                             $addClass = '';
@@ -88,19 +89,20 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                         <input type="hidden" value="<?=$product->title?>">
                         <span <?=$addClass?>><?=$text?></span>
                     </div>
-                    <div class="clear"></div>
-                    <div style="cursor:pointer;" class="oneClickBtn">
-                        <?php 
-                            $addClass = '';
-                            $text = 'купить в 1 клик';
-                            if($product->quantity <=0){
-                                $addClass = "class='disabled'";
-                                $text = 'ОЖИДАЕТСЯ';
-                            }
-                        ?>
-                        <input type="hidden" value="<?=$product->title?>">
-                        <span ><?=$text?></span>
-                    </div>
+                        
+                        <div style="cursor:pointer;" class="oneClickBtn">
+                            <?php 
+                                $addClass = '';
+                                $text = 'купить в 1 клик';
+                                if($product->quantity <=0){
+                                    $addClass = "class='disabled'";
+                                    $text = 'ОЖИДАЕТСЯ';
+                                }
+                            ?>
+                            <input type="hidden" value="<?=$product->title?>">
+                            <span ><?=$text?></span>
+                        </div>
+                        </div>
                     <div class="clear"></div>
                 </div>
             
@@ -142,7 +144,7 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                             Инструкция отсутствует
                             <?php endif;?>
                         </div>
-                        <div>
+                        <div class="deliveryTab">
                             <p><strong>Доставка: </strong></p>
                             <p>Условия доставки по всей Украине:</p>
                             <p>- Бесплатная доставка на склад Новой почты при заказе от 1000 грн. <br/>

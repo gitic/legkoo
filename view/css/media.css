@@ -175,12 +175,6 @@
         text-align:center;
     }
 
-    .btn span {
-        padding: 10px 5px;
-        font-size: 13px;
-        margin:8px 0 0 0;
-    }
-
     .label {
         border-radius:3px;
         color:#fff;
@@ -201,6 +195,9 @@
     
     .productAbout p {
         font-size:14px;
+    }
+    .deliveryTab p {
+        font-size:14px!important;
     }
     
     
