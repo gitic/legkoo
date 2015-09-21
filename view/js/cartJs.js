@@ -3,7 +3,7 @@ $(function(){
     //проверка телефона
     $('.phone').on('change',function (){
         var value = $(this).val();
-        value = value.replace(/[^0-9 () +]/g, "");
+        value = value.replace(/[^0-9 () + -]/g, "");
         $(this).val(value);
     });
     //Заполнение шага 4
