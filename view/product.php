@@ -58,8 +58,8 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                 <div class="block">
                     <div class="productPrice">
                         <?php if($product->old_price != 0):?>
-                            <span style='text-decoration:line-through;color:gray'><?=$product->old_price?> грн</span><br>
-                            <?=$product->price?> <span>грн</span>
+                            <span style='text-decoration:line-through;color:gray;font-size:14px;'><?=$product->old_price?> грн</span>
+                            <span style="color:red;font-weight:bold;font-size:46px;"><?=$product->price?> <span style="color:red">грн</span></span>
                         <?php else:?>
                             <?=$product->price?> <span>грн</span>
                         <?php endif;?>

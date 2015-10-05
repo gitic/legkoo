@@ -60,6 +60,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <li>
                         <a href="catalog"><span>каталог</span></a>
                     </li>
+                    <li>
+                        <a href="actions"><span>Акции</span></a>
+                    </li>
 <!--                    <li>
                         <a href="#"><span>новости и акции</span></a>
                     </li>-->

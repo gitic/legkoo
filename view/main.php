@@ -17,12 +17,20 @@ defined(ACCESS_VALUE) or die('Access denied');
         <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>
         <div id="newProduct">
             <?php
-                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.quantity AND (t1.labels LIKE '%new%') ORDER BY id DESC LIMIT 0,3";
+                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.quantity AND (t1.labels LIKE '%new%') ORDER BY id DESC";
                 $result = $conn->query($sql);
                 while ($record = $result->fetch_object()){
                     $product = new Product();
                     $product = $record;
-                    printProductCart($product);
+                    $resArr[] = $product;
+                }
+                $checkArr = array();
+                for($i=0;$i<3;$i++){
+                    $rand = rand(0, count($resArr)-1);
+                    if(!in_array($rand, $checkArr)){
+                        $checkArr[] = $rand;
+                        printProductCart($resArr[$rand]);
+                    }      
                 }
             ?>
         </div>

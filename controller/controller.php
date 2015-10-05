@@ -122,6 +122,12 @@ else{
             $meta['keywords'] = "$article->title";
             break;
         
+        case 'actions':
+            $meta['title'] = "Акционные товары в магазине Legkoo.com.ua";
+            $meta['description'] = "";
+            $meta['keywords'] = "";
+            break;
+        
         default :
             $meta['title'] = 'Lego';
             $meta['description'] = 'Lego';

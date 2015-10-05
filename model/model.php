@@ -42,8 +42,8 @@ function printProductCart($product){?>
         </div>
         <div class="previewPrice">
             <?php if($product->old_price != 0):?>
-                <p><span style='text-decoration:line-through;color:gray'><?=$product->old_price?> грн</span></p>
-                <p><?=$product->price?> <span>грн</span></p>
+                <p><span style='text-decoration:line-through;color:gray;font-size: 14px'><?=$product->old_price?> грн</span></p>
+                <p style="color:red"><?=$product->price?> <span style="color:red">грн</span></p>
             <?php else:?>
                 <?=$product->price?> <span>грн</span>
             <?php endif;?>
