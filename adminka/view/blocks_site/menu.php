@@ -7,7 +7,7 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="logo">
         <i class="fa fa-cubes"></i>
         <a href="<?=PATH?>" target="_blank">
-                LegoShop <i class="fa fa-external-link"></i>
+                Legkoo.com.ua <i class="fa fa-external-link"></i>
                 <span>перейти на сайт</span>
         </a>
         <div class="clear"></div>
