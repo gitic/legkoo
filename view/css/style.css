@@ -1483,3 +1483,9 @@ label {
 .videoTab {
     text-align:center;
 }
+
+.actionBtn {
+    text-align:center;
+    padding:10px 0;
+    background-color:#f5f5f5;
+}

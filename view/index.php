@@ -3,7 +3,8 @@
 defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" xmlns:fb="http://ogp.me/ns/fb#" 
+      xmlns:og="http://ogp.me/ns#">
     <head>
         <meta charset="UTF-8">
         <title><?=$meta['title']?></title>
@@ -16,6 +17,15 @@ defined(ACCESS_VALUE) or die('Access denied');
             <meta property="og:image" content="<?=PATH?>/<?=$product->photo?>" />
             <meta property="og:site_name" content="<?=TITLE?>" />
             <meta property="og:description" content="<?= mb_substr(strip_tags($product->description), 0, 150, 'UTF-8').'...'?>"/>
+        <?php endif;?>
+        <?php if($view == 'info_page' && $id=7):?>
+            <meta property="og:title" content="<?=$infopage->title?> от магазина Legkoo.com.ua" />
+            <meta property="og:description" content="Акция в магазине детских конструкторов Lego - 3% на все товары всего за 1 лайк! Успей и ты!"/>
+            <meta property="og:url" content="<?=PATH?>" />
+            <meta property="url" content="<?=PATH?>" />
+            <meta property="og:type" content="article" />  
+             <meta property="og:image" content="<?=VIEW?>images/discountLegkoo.jpg" />
+             <meta property="image" content="<?=VIEW?>images/discountLegkoo.jpg" />
         <?php endif;?>
         <?php require_once 'blocks_site/head.php'; ?>
     </head>

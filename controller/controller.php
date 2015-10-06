@@ -94,11 +94,22 @@ else{
         
         case 'info_page':
             $id=$_GET['id'];
-            $infopage = new Infopage();
-            $infopage->getFomDb(array('id'=>$id), $conn);
-            $meta['title'] = "$infopage->title";
-            $meta['description'] = "";
-            $meta['keywords'] = "";
+            if($id == 7){
+                $infopage = new Infopage();
+                $infopage->getFomDb(array('id'=>$id), $conn);
+                $meta['title'] = "$infopage->title от магазина Legkoo.com.ua";
+                $meta['description'] = "Акция в магазине детских конструкторов Lego - 3% на все товары всего за 1 лайк! Успей и ты!";
+                $meta['keywords'] = "Акция в магазине детских конструкторов Lego - 3% на все товары всего за 1 лайк! Успей и ты!";
+                
+
+            }
+            else{
+                $infopage = new Infopage();
+                $infopage->getFomDb(array('id'=>$id), $conn);
+                $meta['title'] = "$infopage->title";
+                $meta['description'] = "";
+                $meta['keywords'] = "";
+            }
             break;
         
         case 'cart':
