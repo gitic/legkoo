@@ -3,18 +3,19 @@
 defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <!DOCTYPE html>
-<html lang="ru" xmlns:fb="http://ogp.me/ns/fb#" 
-      xmlns:og="http://ogp.me/ns#">
+<html lang="ru" xmlns:og="http://ogp.me/ns#">
     <head>
         <meta charset="UTF-8">
         <title><?=$meta['title']?></title>
         <meta name="description" content="<?=$meta['description']?>">
         <meta name="keywords" content="<?=$meta['keywords']?>">	
+        <meta property="fb:admins" content="100000219033422" />
         <?php if($view == 'product'):?>
             <meta property="og:title" content="LEGO <?=$product->title?> <?=$product->articul?>" />
             <meta property="og:type" content="product" />
             <meta property="og:url" content="<?=request_url()?>" />
             <meta property="og:image" content="<?=PATH?>/<?=$product->photo?>" />
+            <meta property="image" content="<?=PATH?>/<?=$product->photo?>" />
             <meta property="og:site_name" content="<?=TITLE?>" />
             <meta property="og:description" content="<?= mb_substr(strip_tags($product->description), 0, 150, 'UTF-8').'...'?>"/>
         <?php endif;?>
