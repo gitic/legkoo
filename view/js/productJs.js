@@ -43,7 +43,7 @@ $(function(){
         $('.oneClick').css({'display':'block'});
     });
     $('#submitOneClick').on('click',function (){
-        var rowId = $('.rowId').val();
+        var rowId = $('.productID').val();
         var phone = $('.oneClickPhone').val();
         if($.trim(phone) === ''){
             $('.oneClickPhone').addClass('errorClass');
