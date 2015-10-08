@@ -25,8 +25,8 @@ defined(ACCESS_VALUE) or die('Access denied');
             <meta property="og:url" content="<?=PATH?>" />
             <meta property="url" content="<?=PATH?>" />
             <meta property="og:type" content="article" />  
-             <meta property="og:image" content="<?=PATH?>/<?=VIEW?>images/discountLegkoo.jpg" />
-             <meta property="image" content="<?=PATH?>/<?=VIEW?>images/discountLegkoo.jpg" />
+             <meta property="og:image" content="<?=PATH?>/<?=VIEW?>images/likeaction.jpg" />
+             <meta property="image" content="<?=PATH?>/<?=VIEW?>images/likeaction.jpg" />
         <?php endif;?>
         <?php require_once 'blocks_site/head.php'; ?>
     </head>

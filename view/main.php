@@ -5,13 +5,9 @@ defined(ACCESS_VALUE) or die('Access denied');
 <div id="content">
     <div id="main">
         <div class="slider">
-            <?php
-                $article = new Article();
-                $article->getFomDb(array('id'=>'2'), $conn);
-            ?>
-            <a href="article-2-<?=$article->translit?>">
-                <p><?=$article->title?></p>
-                <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
+            <a href="info-7">
+                <p>Лайкакция</p>
+                <img src="<?=VIEW?>images/likeaction.jpg" alt="Лайкакция"/>
             </a>
         </div>
         <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>
