@@ -6,7 +6,7 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="main">
         <div class="slider">
             <a href="info-7">
-                <p>Лайкакция</p>
+                <p>Лайк акция</p>
                 <img src="<?=VIEW?>images/likeaction.jpg" alt="Лайкакция"/>
             </a>
         </div>

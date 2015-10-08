@@ -308,8 +308,9 @@ a#basketSmall:hover {
     color:#fff;
     right:20px;
     top:20px;
-    font-weight:700;
-    font-size:20px;
+    font-weight:600;
+    font-size:28px;
+    text-shadow:0 0 3px #444;
     width:40%;
     text-align:right;
 }
