@@ -36,7 +36,7 @@
         display:none;
     }
     
-    .slider p {
+    #slider p {
         display:none;
     }
 
@@ -248,7 +248,12 @@
         width:100%;
     }
     
-    .slider {
+    #slider {
+        display:none;
+    }
+    
+    
+    .jshowoff p.jshowoff-slidelinks {
         display:none;
     }
     .tabs ul li {

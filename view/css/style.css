@@ -293,28 +293,6 @@ a#basketSmall:hover {
     text-decoration:none;
 }
 
-.slider {
-    margin:30px 0 0 0;
-    position:relative;
-    width:100%;
-}
-
-.slider img {
-    max-width:100%;
-}
-
-.slider p {
-    position:absolute;
-    color:#fff;
-    right:20px;
-    top:20px;
-    font-weight:600;
-    font-size:28px;
-    text-shadow:0 0 3px #444;
-    width:40%;
-    text-align:right;
-}
-
 #content {
     min-height:500px;
     width:100%;
@@ -1503,10 +1481,33 @@ label {
     color:#ccc;
 }
 
+.more-products h3 {
+    font-weight:300;
+    margin:35px 0 15px 0;
+}
 
-.slider {
+#slider {
+    margin:30px 0 0 0;
     width: 100%;
 	}
+
+#slider img {
+    max-width:100%;
+    overflow: hidden;
+}
+
+#slider p {
+    position:absolute;
+    color:#fff;
+    right:20px;
+    top:20px;
+    font-weight:600;
+    font-size:28px;
+    text-shadow:0 0 3px #444;
+    width:40%;
+    text-align:right;
+}  
+        
 .jshowoff {
     max-width: 100%;
 	}

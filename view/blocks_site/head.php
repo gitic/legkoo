@@ -31,7 +31,6 @@ defined(ACCESS_VALUE) or die('Access denied');
 <script src="lib/productTabs.js"></script>
 <script src="lib/feedback/script.js"></script>
 <script src="lib/jquery.maskedinput.min.js"></script>
-<script src="lib/jquery.jshowoff.min.js"></script>
 <script src="<?=VIEW?>js/mainJs.js"></script>
 
 <script>
@@ -77,3 +76,6 @@ defined(ACCESS_VALUE) or die('Access denied');
   ga('send', 'pageview');
 
 </script>
+
+
+<script src="lib/jquery.jshowoff.min.js"></script>
