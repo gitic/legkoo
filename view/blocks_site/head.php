@@ -76,3 +76,6 @@ defined(ACCESS_VALUE) or die('Access denied');
   ga('send', 'pageview');
 
 </script>
+
+
+<script src="lib/jquery.jshowoff.min.js"></script>
