@@ -185,7 +185,6 @@ if (!w.__utlWdgt ) {
         </div>
         <div class="clear"></div>
         <div class="more-products">
-            <h3>Похожие товары</h3>
             <?php
             $arrProducts = array();
             $checkArr = array();
@@ -194,6 +193,9 @@ if (!w.__utlWdgt ) {
             $result = $conn->query("SELECT * FROM products WHERE category='$product->category' AND (price>=$fromPrice AND price<=$toPrice) AND id!=$product->id");
             while($record = $result->fetch_object()){
                 $arrProducts[] = $record;
+            }
+            if(count($arrProducts)>0){
+                echo '<h3>Похожие товары</h3>';
             }
             if(count($arrProducts)>3){
                 $randArr = array();
