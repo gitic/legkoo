@@ -1502,3 +1502,43 @@ label {
     border-bottom:1px dashed #ccc;
     color:#ccc;
 }
+
+
+.slider {
+    width: 100%;
+	}
+.jshowoff {
+    max-width: 100%;
+	}
+.jshowoff div {	
+	width:100%;
+	}
+.jshowoff div img {	
+	 max-width:100%;
+	}
+.jshowoff p.jshowoff-slidelinks {
+	position: absolute;
+	bottom: 15px;
+	left: 10px;
+	margin: 0;
+	padding: 0;
+	}
+	
+.jshowoff-slidelinks a, .jshowoff-controls a {
+	background-color:#fff;
+	padding:2px 10px;
+	color:#fff;
+	text-decoration:none;
+	margin:0 5px 0 0;
+}
+.jshowoff-slidelinks a:hover, .jshowoff-controls a:hover {
+	color: #fff;
+	background-color:#2196F3;
+	}
+.jshowoff-slidelinks a.jshowoff-active, .jshowoff-slidelinks a.jshowoff-active:hover {
+	background-color: #2196F3;
+	color: #fff;
+	}
+p.jshowoff-controls {
+	display:none;
+	}

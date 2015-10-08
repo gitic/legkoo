@@ -4,11 +4,26 @@ defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <div id="content">
     <div id="main">
+        <div>
         <div class="slider">
-            <a href="info-7">
-                <p>Лайк акция</p>
-                <img src="<?=VIEW?>images/likeaction.jpg" alt="Лайкакция"/>
-            </a>
+            <div>        
+                <a href="info-7">
+                    <p>Лайк акция</p>
+                    <img src="<?=VIEW?>images/likeaction.jpg" alt="Лайкакция"/>
+                </a>
+            </div>
+            
+            <div>        
+                <a href="info-7">
+                    <p>Лайк акция</p>
+                    <img src="<?=VIEW?>images/likeaction.jpg" alt="Лайкакция"/>
+                </a>
+            </div>
+        </div>
+        <script type="text/javascript">		
+            $(document).ready(function(){ $('.slider').jshowoff({ speed:3000 }); });
+        </script>
+        
         </div>
         <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>
         <div id="newProduct">
