@@ -26,7 +26,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             $(document).ready(function(){
              $('.slider').slick({
                    autoplay: true,
-                   speed: 1000,
+                   speed: 3000,
                    arrows: false,
                    dots: true,
                    fade: true
