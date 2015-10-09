@@ -1477,8 +1477,9 @@ label {
     display:inline-block;
     font-size:14px;
     font-weight:300;
-    border-bottom:1px dashed #ccc;
-    color:#ccc;
+    border-bottom:1px dashed #FFD54F;
+    color:#FFD54F;
+    text-transform:uppercase;
 }
 
 .more-products {
