@@ -1475,11 +1475,18 @@ label {
 
 .discInfo {
     display:inline-block;
-    font-size:14px;
+    font-size:13px;
     font-weight:300;
-    border-bottom:1px dashed #FFD54F;
-    color:#FFD54F;
+    color:#fff;
+    border-radius:5px;
+    background-color:#FFD54F;
+    opacity:0.6;
+    padding:5px 10px;
     text-transform:uppercase;
+}
+
+.discInfo:hover {
+    opacity:1;
 }
 
 .more-products {
