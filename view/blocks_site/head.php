@@ -25,6 +25,8 @@ defined(ACCESS_VALUE) or die('Access denied');
 <script src="lib/jquery.cookie.js"></script>
 <link href="lib/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 <script src="lib/jquery-ui/jquery-ui.min.js"></script>
+<link href="lib/slick/slick.css" rel="stylesheet">
+<script src="lib/slick/slick.min.js"></script>
 <script src="lib/touch-punch.js"></script>
 <script src="lib/jquery.elevate_zoom-2.2.3.min.js"></script>
 <script src="lib/jquery.scrollUp.js"></script>
@@ -76,6 +78,3 @@ defined(ACCESS_VALUE) or die('Access denied');
   ga('send', 'pageview');
 
 </script>
-
-
-<script src="lib/jquery.jshowoff.min.js"></script>

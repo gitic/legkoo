@@ -8,9 +8,9 @@ defined(ACCESS_VALUE) or die('Access denied');
     Список заказов
 </h1>
 
-<div id="top-btn">
+<!--<div id="top-btn">
         <a href="?view=product_add"><i class="fa fa-plus"></i> Новый заказ</a>
-</div>
+</div>-->
 <p class='error'><span></span></p>
 <div id="content">
         <div style='display:none' class="block">

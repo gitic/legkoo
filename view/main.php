@@ -4,17 +4,35 @@ defined(ACCESS_VALUE) or die('Access denied');
 ?>
 <div id="content">
     <div id="main">
-        <div id="slider">
-            <div>        
+        <div class="slider">
+            <div>
                 <a href="info-7">
                     <p>Лайк акция</p>
                     <img src="<?=VIEW?>images/likeaction.jpg" alt="Лайкакция"/>
                 </a>
             </div>
+            <div>
+                <?php
+                    $article = new Article();
+                    $article->getFomDb(array('id'=>'2'), $conn);
+                ?>
+                <a href="article-2-<?=$article->translit?>">
+                    <p><?=$article->title?></p>
+                    <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
+                </a>
+            </div>
         </div>
-        <script type="text/javascript">		
-            $(document).ready(function(){ $('#slider').jshowoff({ speed:3000 }); });
-        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+             $('.slider').slick({
+                   autoplay: true,
+                   speed: 3000,
+                   arrows: false,
+                   dots: true,
+                   fade: true
+             });
+           });
+         </script>
         <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>
         <div id="newProduct">
             <?php
