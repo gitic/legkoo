@@ -184,7 +184,39 @@ if (!w.__utlWdgt ) {
                 </div> 
         </div>
         <div class="clear"></div>
-        
-        <input class='productID' type="hidden" hidden value="<?=$product->id?>">
+        <div class="more-products">
+            <?php
+            $arrProducts = array();
+            $checkArr = array();
+            $fromPrice = $product->price - 150;
+            $toPrice = $product->price + 150;
+            $result = $conn->query("SELECT * FROM products WHERE category='$product->category' AND (price>=$fromPrice AND price<=$toPrice) AND id!=$product->id");
+            while($record = $result->fetch_object()){
+                $arrProducts[] = $record;
+            }
+            if(count($arrProducts)>0){
+                echo '<h3>Похожие товары</h3>';
+            }
+            if(count($arrProducts)>3){
+                $randArr = array();
+                while (count($randArr)!=3){
+                    $rand = rand(0, count($arrProducts)-1);
+                    if(!in_array($rand, $checkArr)){
+                        $randArr[] = $arrProducts[$rand];
+                        $checkArr[] = $rand;
+                    }
+                }
+                foreach ($randArr as $product) {
+                    printProductCart($product);
+                }
+            }
+            else{
+                foreach ($arrProducts as $product) {
+                    printProductCart($product);
+                }
+            }
+            ?>
+        </div>
+        <input class='productID' type="hidden" hidden value="<?=$id?>">
     </div>
 </div>
