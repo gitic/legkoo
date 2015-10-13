@@ -65,14 +65,14 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                         <?php endif;?>
                         <?php if($product->old_price == 0):?>
                             <div style="font-size:14px;">
-                            <a href="http://legkoo.com.ua/info-7" target="_blank" class="discInfo">хотите скидку?</a></div>
+                            <a href="http://legkoo.com.ua/info-7" target="_blank" class="discInfo">хочу скидку!</a></div>
                         <?php endif;?>
                         
                         <meta itemprop="price" content="<?=$product->price?>">
                         <meta itemprop="priceCurrency" content="UAH">
                     </div>
                 </div>
-                <div class="block">
+                <div class="block btnbuy">
                     <div class="productBuy">
                         Количество: <div class="numbers"><input value="1" type="text" />
                             <div class="increase">
@@ -85,7 +85,7 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                     <div class="btn buy">
                         <?php 
                             $addClass = '';
-                            $text = 'КУПИТЬ';
+                            $text = '<i class="fa fa-hand-pointer-o fa-rotate-90"></i> КУПИТЬ';
                             if($product->quantity <=0){
                                 $addClass = "class='disabled'";
                                 $text = 'ОЖИДАЕТСЯ';
