@@ -21,7 +21,7 @@ $yml_catalog->appendChild($dom->createAttribute("date"))->appendChild($dom->crea
 
 $shop = $yml_catalog->appendChild($dom->createElement('shop'));
 $name = $shop->appendChild($dom->createElement('name'))->appendChild($dom->createTextNode("Legkoo.com.ua"));
-$company = $shop->appendChild($dom->createElement('company'))->appendChild($dom->createTextNode("Legkoo.com.ua"));
+$company = $shop->appendChild($dom->createElement('company'))->appendChild($dom->createTextNode("магазин детских конструкторов Лего"));
 $url = $shop->appendChild($dom->createElement('url'))->appendChild($dom->createTextNode("http://legkoo.com.ua"));
 
 $currencies = $shop->appendChild($dom->createElement('currencies'));
