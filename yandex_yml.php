@@ -1,4 +1,13 @@
 <?php
+header('Content-type: application/xml');
+header("Content-Type: text/xml; charset=utf-8");
+
+function translitIt($str) {
+    $tr = array("&reg;"=>'', "&trade;"=>'', "&nbsp;"=>'', "&mdash;"=>'-', "&ndash;"=>'-',"&hellip;"=>'...',"&laquo;"=>'',"&raquo;"=>'',"&rsquo;"=>"'");
+    $str = strtr($str,$tr);	
+    return $str;
+}
+
 //Переменная доступа
 define('ACCESS_VALUE', 'LegoShop');
 define(ACCESS_VALUE, TRUE);
@@ -34,7 +43,7 @@ $result = $conn->query("SELECT * FROM categories WHERE visible='1'");
 while ($record = $result->fetch_object()){
     $category = $categories->appendChild($dom->createElement("category"));
     $category->appendChild($dom->createAttribute('id'))->appendChild($dom->createTextNode($record->id));
-    $category->appendChild($dom->createTextNode(htmlspecialchars($record->title)));
+    $category->appendChild($dom->createTextNode(translitIt($record->title)));
 }
 
 $offers = $shop->appendChild($dom->createElement("offers"));
@@ -43,18 +52,16 @@ while($record = $result->fetch_object()){
     $offer = $offers->appendChild($dom->createElement("offer"));
         $offer->appendChild($dom->createAttribute('id'))->appendChild($dom->createTextNode($record->id));
         $offer->appendChild($dom->createAttribute('available'))->appendChild($dom->createTextNode("true"));
+        $offer->appendChild($dom->createAttribute('bid'))->appendChild($dom->createTextNode("10"));
     $url = $offer->appendChild($dom->createElement('url'))->appendChild($dom->createTextNode("http://legkoo.com.ua/product-$record->id-lego-$record->translit-$record->articul"));
-    if($record->old_price != 0){
-        $oldprice = $offer->appendChild($dom->createElement('oldprice'))->appendChild($dom->createTextNode($record->old_price));
-    }
     $price = $offer->appendChild($dom->createElement('price'))->appendChild($dom->createTextNode($record->price));
     $currencyId = $offer->appendChild($dom->createElement('currencyId'))->appendChild($dom->createTextNode("UAH"));
     $categoryId = $offer->appendChild($dom->createElement('categoryId'))->appendChild($dom->createTextNode($record->category));
     $picture = $offer->appendChild($dom->createElement('picture'))->appendChild($dom->createTextNode("http://legkoo.com.ua/".$record->photo));
-    $name = $offer->appendChild($dom->createElement('name'))->appendChild($dom->createTextNode(htmlspecialchars($record->title)));
+    $name = $offer->appendChild($dom->createElement('name'))->appendChild($dom->createTextNode(htmlspecialchars(translitIt($record->title))));
     $vendor = $offer->appendChild($dom->createElement('vendor'))->appendChild($dom->createTextNode("Lego"));
     $vendorCode = $offer->appendChild($dom->createElement('vendorCode'))->appendChild($dom->createTextNode($record->articul));
-    $description = $offer->appendChild($dom->createElement('description'))->appendChild($dom->createTextNode(htmlspecialchars(strip_tags($record->description))));
+    $description = $offer->appendChild($dom->createElement('description'))->appendChild($dom->createTextNode(htmlspecialchars(strip_tags(translitIt($record->description)))));
 }
 
 
