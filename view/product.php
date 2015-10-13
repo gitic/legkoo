@@ -82,32 +82,25 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                         </div>
                     </div>
                     <div class="buyBtnSet">
-                    <div class="btn buy">
-                        <?php 
-                            $addClass = '';
-                            $text = '<i class="fa fa-hand-pointer-o fa-rotate-90"></i> КУПИТЬ';
-                            if($product->quantity <=0){
-                                $addClass = "class='disabled'";
-                                $text = 'ОЖИДАЕТСЯ';
-                            }
-                        ?>
-                        <input type="hidden" value="<?=$product->title?>">
-                        <span <?=$addClass?>><?=$text?></span>
-                    </div>
-                        
-                        <div style="cursor:pointer;" class="oneClickBtn">
+                        <div class="btn buy">
                             <?php 
                                 $addClass = '';
-                                $text = 'купить в 1 клик';
+                                $text = '<i class="fa fa-hand-pointer-o fa-rotate-90"></i> КУПИТЬ';
                                 if($product->quantity <=0){
                                     $addClass = "class='disabled'";
                                     $text = 'ОЖИДАЕТСЯ';
                                 }
                             ?>
                             <input type="hidden" value="<?=$product->title?>">
-                            <span ><?=$text?></span>
+                            <span <?=$addClass?>><?=$text?></span>
                         </div>
+                        <?php if($product->quantity > 0):?>
+                        <div style="cursor:pointer;" class="oneClickBtn">
+                            <input type="hidden" value="<?=$product->title?>">
+                            <span >купить в 1 клик</span>
                         </div>
+                        <?php endif;?>
+                    </div>
                     <div class="clear"></div>
                 </div>
             
@@ -217,6 +210,6 @@ if (!w.__utlWdgt ) {
             }
             ?>
         </div>
-        <input class='productID' type="hidden" hidden value="<?=$product->id?>">
+        <input class='productID' type="hidden" hidden value="<?=$id?>">
     </div>
 </div>
