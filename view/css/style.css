@@ -435,7 +435,7 @@ a.catPreviewBlock img {
 
 .labels.product {
     position:relative;
-    right:0;
+    left:0;
     text-align:right;
     top:0;
     padding:0 0 5px 0;
@@ -479,6 +479,10 @@ a.catPreviewBlock img {
     background-color:#F4FF81;
 }
 
+.btnbuy {
+    padding:15px 0 25px 0!important;
+}
+
 .productPreview:hover {
     box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
 }
@@ -502,7 +506,7 @@ a.catPreviewBlock img {
     display:block;
     font-size:19px;
     font-weight:500;
-    margin:5px 0 10px 0;
+    margin:5px 0 5px 0;
     text-decoration:none;
 }
 
@@ -530,13 +534,14 @@ a.catPreviewBlock img {
 }
 
 .previewBtn span {
-    background-color:#4CAF50;
+    background-color:#81C784;
     border-radius:3px;
     color:#fff;
     cursor:pointer;
     display:inline-block;
     font-weight:300;
     font-size:15px;
+    opacity:0.9;
     padding:10px 10px;
         -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
@@ -705,7 +710,7 @@ img.newsImage {
     display:inline-block;
     font-size:17px;
     font-weight:300;
-    opacity:0.8;
+    opacity:0.7;
     padding:15px 20px;
     border-radius:4px;
         -webkit-transition: all .4s ease-in-out;
@@ -713,6 +718,10 @@ img.newsImage {
     -o-transition: all .4s ease-in-out;
     -ms-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+}
+
+.btn span i {
+    color:#fff;
 }
 
 .btn span:hover {
@@ -725,8 +734,13 @@ img.newsImage {
 
 .oneClickBtn {
     margin:5px 0 0 0;
-    color:#29B6F6;
-    border-bottom:1px dashed #29B6F6;
+    color:#999;
+    font-weight:300;
+    text-align:right;
+}
+
+.oneClickBtn span {
+    border-bottom:1px dashed #999;
 }
 
 #submitOneClick {
@@ -747,7 +761,8 @@ img.newsImage {
     display: inline-block;
 }
 .btn.buy span {
-    background-color:#4CAF50;
+    background-color:#E30512;
+    font-weight:bold;
 }
 
 #subscribe {
@@ -795,7 +810,7 @@ img.newsImage {
     text-align:center;
     padding:10px 0;
     color: #999;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 300;
 }
 
@@ -1477,16 +1492,26 @@ label {
     display:inline-block;
     font-size:13px;
     font-weight:300;
-    color:#fff;
-    border-radius:5px;
-    background-color:#FFD54F;
+    color:#333;
+    border-radius:3px;
     opacity:0.6;
-    padding:5px 10px;
-    text-transform:uppercase;
+    border-bottom:1px dashed #666;
 }
 
 .discInfo:hover {
     opacity:1;
+}
+
+.sum .discInfo {
+    color:#fff;
+    border:0;
+    opacity:1;
+    padding:5px 7px;
+    background-color:#ccc;
+}
+
+.sum .discInfo:hover {
+    background-color:#81C784;
 }
 
 .more-products {

@@ -21,7 +21,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <?php endif;?>
         <?php if($view == 'info_page' && $id=7):?>
             <meta property="og:title" content="<?=$infopage->title?> от магазина Legkoo.com.ua" />
-            <meta property="og:description" content="Акция в магазине детских конструкторов Lego - 3% на все товары всего за 1 лайк! Успей и ты!"/>
+            <meta property="og:description" content="Я получил(а) скидку 3% на конструкторы Lego в магазине Legkoo.com.ua! Успей и ты!"/>
             <meta property="og:url" content="<?=PATH?>" />
             <meta property="url" content="<?=PATH?>" />
             <meta property="og:type" content="article" />  

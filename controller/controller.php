@@ -98,8 +98,8 @@ else{
                 $infopage = new Infopage();
                 $infopage->getFomDb(array('id'=>$id), $conn);
                 $meta['title'] = "$infopage->title от магазина Legkoo.com.ua";
-                $meta['description'] = "Акция в магазине детских конструкторов Lego - 3% на все товары всего за 1 лайк! Успей и ты!";
-                $meta['keywords'] = "Акция в магазине детских конструкторов Lego - 3% на все товары всего за 1 лайк! Успей и ты!";
+                $meta['description'] = "Я получил(а) скидку 3% на конструкторы Lego в магазине Legkoo.com.ua! Успей и ты!";
+                $meta['keywords'] = "Я получил(а) скидку 3% на конструкторы Lego в магазине Legkoo.com.ua! Успей и ты!";
                 
 
             }

@@ -39,6 +39,11 @@ function printProductCart($product){?>
             <p><span>Арт. <?=$product->articul?></span>LEGO® <?=$product->category?></p>
             <div class="clear"></div>
             <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>"><?=$product->title?></a>
+            <?php
+                        $till = '+';
+                        if($product->age_to != 0){$till = '-'.$product->age_to;}
+                    ?>
+                    <p>Возраст: <?=$product->age_from.$till?></p>
         </div>
         <div class="previewPrice">
             <?php if($product->old_price != 0):?>

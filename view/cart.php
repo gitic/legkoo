@@ -73,7 +73,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <?php $i++;endwhile;?>
                         <tr>
                             <td class="orderFoto"></td>
-                            <td colspan="5" class="sum">Итого: <strong><?=$amount?></strong> грн</td>
+                            <td colspan="5" class="sum">Итого: <strong><?=$amount?></strong> грн <br> <a href="info-7" class="discInfo" target="_blank">хочу скидку!</a></td>
                         </tr>
                 </tbody>
             </table>
@@ -83,8 +83,8 @@ defined(ACCESS_VALUE) or die('Access denied');
                 <div class="step">
                     <span>Все поля (<span style="color:red;display: inline">*</span>) обязательны для заполнения.</span>
                         <div class="block">
-                            <strong><span style="color:red;display: inline">*</span> Имя</strong>
-                            <input placeholder="ФИО" name ="fio" value="" type="text" class="inp fio"/>
+                            <strong><span style="color:red;display: inline">*</span> Имя или фамилия</strong>
+                            <input placeholder="Имя или фамилия" name ="fio" value="" type="text" class="inp fio"/>
                             <span>для обращения к Вам</span>
                         </div>
                         <div class="block">
