@@ -36,7 +36,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 </div>
 <div id="topMenu">
     <div id="topMenuFirst">
-        <form id="searchField">
+        <form id="searchField" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
             <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="поиск" type="submit" class="btn"/>
         </form>
         <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
@@ -45,7 +45,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         </div>
         <div class="clear"></div>
     </div>
-    <div id="topMenuSecond">
+    <div id="topMenuSecond" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
         <div id="topMenuSecondBody">
             <noindex>
                 <a rel="nofollow" href="cart" id="basketSmall">

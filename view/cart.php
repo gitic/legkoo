@@ -4,7 +4,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 //внешний обработчик в папке controller
 ?>
 <script src="<?=VIEW?>js/cartJs.js"></script>
-<div id="breadcrumbs">
+<div id="breadcrumbs" style='display:none'>
     <div id="breadcrumbsBody">
         <a href="<?=PATH?>">главная</a> / <a href="cart">корзина</a>
     </div>
