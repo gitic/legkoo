@@ -166,6 +166,7 @@ if (!w.__utlWdgt ) {
                             <p><em>Условия доставки по Днепропетровску:</em></p>
                             <p>- Самовывоз: просп. Карла Маркса 67-Д ТЦ «Гранд Плаза»<br/> 
                             - Бесплатная доставка на ближайший к Вам склад «Новой почты» при заказе от 1000 грн</p>
+                            <p style="text-align:right;"><a href="https://novaposhta.ua/ru/delivery" target="_blank" style="font-size:14px;font-weight:500;"><i class="fa fa-calculator"></i> Рассчитать стоимость доставки</a></p>
                             <p><strong>Оплата: </strong></p>
                             <p>- Кредитной картой<br/>
                             - Приват24<br/>
