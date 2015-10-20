@@ -182,6 +182,10 @@ if (!w.__utlWdgt ) {
         <div class="clear"></div>
         
         <div class="guarant">
+            <h3>Почему мы?</h3>
+            <div class="block">
+                <i class="fa fa-check"></i> Офлайновый магазин в Днепропетровске
+            </div>
             <div class="block">
                 <i class="fa fa-check"></i> 3 года в Украине
             </div>
