@@ -91,6 +91,10 @@ h1 span {
     padding:10px;
 }
 
+#contactsLineBody i {
+    color:#ddd;
+}
+
 #contactsLineBody span {
     float:right;
 }
