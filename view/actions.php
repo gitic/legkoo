@@ -15,7 +15,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <h1>Акционные товары</h1>
         <div id="catPreview">            
             <?php
-                $result = $conn->query("SELECT * FROM products WHERE visible='1' AND old_price != '0' ORDER BY title ASC");
+                $result = $conn->query("SELECT * FROM products WHERE visible='1' AND old_price != '0' AND quantity>0 ORDER BY title ASC");
                 while ($record = $result->fetch_object()){
                     $product = new Product();
                     $product = $record;

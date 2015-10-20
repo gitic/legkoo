@@ -208,7 +208,9 @@ if (!w.__utlWdgt ) {
             $checkArr = array();
             $fromPrice = $product->price - 150;
             $toPrice = $product->price + 150;
-            $result = $conn->query("SELECT * FROM products WHERE category='$product->category' AND (price>=$fromPrice AND price<=$toPrice) AND id!=$product->id");
+            $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id "
+                  ."WHERE t1.visible='1' AND t1.quantity>0 AND t1.category='$product->category' AND (t1.price>=$fromPrice AND t1.price<=$toPrice) AND t1.id!=$product->id";
+            $result = $conn->query($sql);
             while($record = $result->fetch_object()){
                 $arrProducts[] = $record;
             }
