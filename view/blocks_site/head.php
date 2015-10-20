@@ -33,6 +33,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <script src="lib/productTabs.js"></script>
 <script src="lib/feedback/script.js"></script>
 <script src="lib/jquery.maskedinput.min.js"></script>
+<script type="text/javascript" src="lib/instagram/instafeed.min.js"></script>
 <script src="<?=VIEW?>js/mainJs.js"></script>
 
 <script>
