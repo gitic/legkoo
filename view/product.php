@@ -180,6 +180,24 @@ if (!w.__utlWdgt ) {
                 </div> 
         </div>
         <div class="clear"></div>
+        
+        <div class="guarant">
+            <div class="block">
+                <i class="fa fa-check"></i> 3 года в Украине
+            </div>
+            <div class="block">
+                <i class="fa fa-check"></i> Доставка по всей Украине перевозчиком «Новая почта»
+            </div>
+            <div class="block">
+                <i class="fa fa-check"></i> Прямая работа с представительством Lego в Украине
+            </div>
+            <div class="block">
+                <i class="fa fa-check"></i> Эксклюзивные коллекции
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        
         <div class="more-products">
             <?php
             $arrProducts = array();

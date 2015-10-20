@@ -1539,3 +1539,27 @@ label {
     width:40%;
     text-align:right;
 } 
+
+.guarant {
+    background-color:#f7f7f7;
+    box-shadow:0 4px 7px rgba(0,0,0,0.1);
+    margin:0 auto;
+    padding:0 2% 2% 2%;
+    width:50%;
+    color:#777;
+    font-size:20px;
+}
+
+.guarant .block {
+    font-weight:300;
+    padding:20px 0 0 0;
+}
+
+.guarant i {
+    color:#eee;
+    margin:0 5px 0 0;
+}
+
+.guarant p {
+    text-align:left;
+}

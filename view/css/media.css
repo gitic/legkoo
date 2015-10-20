@@ -210,6 +210,16 @@
         width:260px;
     }
     
+    .previewTitle a {
+        font-size:17px;
+    }
+    
+    .guarant {
+        width:90%;
+        font-size:16px;
+        padding:0 5% 5% 5%;
+    }
+    
     .productPreview:hover {
         box-shadow: none;
     }
