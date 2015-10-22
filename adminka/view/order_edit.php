@@ -41,6 +41,20 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             
             <div class="block">
+                <label>добавлен в 1С</label>
+                <select id='sverka' class="inp sverka" name="sverka">
+                    <option value="0">нет</option>
+                    <option value="1">да</option>
+                </select>
+                <span class="notifySverka" style="color:red;display:none">Сохранено</span>
+                <script>
+                    $(function() {
+                        $(".inp.sverka").val('<?=$order->sverka?>');
+                    });
+                </script>
+            </div>
+            
+            <div class="block">
                 <label>ТТН (ЕН):</label>
                 <input class="inp ttn" id="ttn" name="ttn" style="width:150px" value="<?=$order->ttn?>" disabled="disabled"/>
                 <?php $vis = "display:none;"; if($order->ttn != ''){$vis = 'display:inline;';}?>
@@ -103,7 +117,8 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                     <select disabled="disabled" class="inp payment_type" name="payment_type" style="min-width: 300px">
                         <option value="0">---</option>
                         <option value="1">Наличными при получении</option>
-                        <option value="2">Кредитная карта</option>
+                        <option value="2">Перевод на карту</option>
+                        <option value="3">Оплата в магазине</option>
                     </select>
                     <script>
                         $(function() {

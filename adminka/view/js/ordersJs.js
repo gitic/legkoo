@@ -23,6 +23,27 @@ $(function(){
             }
         });
     });
+    //Изменение статуса 1C
+    $('.sverka').on('change',function (){
+        var val = $(this).val();
+        var rowId = $('.rowId').val();
+        $.ajax({
+            url:'./?ajax='+page,
+            type:'POST',
+            data: {type:'sverka',rowId:rowId,sverka:val},
+            success: function (data, textStatus, jqXHR) {
+                $('.notifySverka').css({'display':'inline-block','opacity':1});
+                setTimeout (function(){
+                    $(".notifySverka").animate({opacity: 0},800,function (){
+                        $('.notifySverka').css({'display':'none'});
+                    });
+                }, 2000);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(textStatus+' '+errorThrown);
+            }
+        });
+    });
     $('.editOrder,.save').on('click',function (e){
         e.preventDefault();
         var val = $('.inp.fio').attr('disabled');

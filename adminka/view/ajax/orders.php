@@ -110,6 +110,11 @@ if(isset($_POST['type']) && isset($_POST['rowId'])){
             $status = $_POST['state'];
             $conn->query("UPDATE $pageDir SET status='{$status}' WHERE id='{$rowId}'");
             break;
+        case 'sverka':
+            $rowId = $_POST['rowId'];
+            $status = $_POST['sverka'];
+            $conn->query("UPDATE $pageDir SET sverka='{$status}' WHERE id='{$rowId}'");
+            break;
         case 'count':
             $str = $_POST['string'];
             $discount = $_POST['discount'];

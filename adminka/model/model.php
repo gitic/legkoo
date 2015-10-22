@@ -11,11 +11,14 @@ function print_orders($conn){
             . "ORDER BY id DESC";
     $result = $conn->query($sql);
     while ($record = $result->fetch_object()){
+        if($record->sverka == 1){$colorClass = 'fa fa-circle';}
+        else{$colorClass = 'fa fa-circle-o';}
         echo    "<tr>"
                 . "<td>{$record->id}</td>"
                 . "<td>{$record->date_add}</td>"
                 . "<td style='background-color:#{$record->sColour};color:black;text-align:center'>{$record->sTitle}</td>"
                 . "<td><span>{$record->fio}</span></td>"
+                . "<td class='1c'><i class='{$colorClass}'></i></td>"
                 . "<td>{$record->phone}</td>"
                 . "<td>{$record->email}</td>"
                 . "<td><b>{$record->sum}</b></td>"

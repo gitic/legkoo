@@ -4,6 +4,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 class Order {
     var $id;
     var $status;
+    var $sverka;
     var $date_add;
     var $fio;
     var $email;
