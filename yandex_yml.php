@@ -47,7 +47,7 @@ while ($record = $result->fetch_object()){
 }
 
 $offers = $shop->appendChild($dom->createElement("offers"));
-$result = $conn->query("SELECT * FROM products WHERE visible = '1' AND quantity > '0'");
+$result = $conn->query("SELECT t1.*,t2.title AS cat_name FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible = '1' AND t1.quantity > '0'");
 while($record = $result->fetch_object()){
     $offer = $offers->appendChild($dom->createElement("offer"));
         $offer->appendChild($dom->createAttribute('id'))->appendChild($dom->createTextNode($record->id));
@@ -58,10 +58,12 @@ while($record = $result->fetch_object()){
     $currencyId = $offer->appendChild($dom->createElement('currencyId'))->appendChild($dom->createTextNode("UAH"));
     $categoryId = $offer->appendChild($dom->createElement('categoryId'))->appendChild($dom->createTextNode($record->category));
     $picture = $offer->appendChild($dom->createElement('picture'))->appendChild($dom->createTextNode("http://legkoo.com.ua/".$record->photo));
-    $name = $offer->appendChild($dom->createElement('name'))->appendChild($dom->createTextNode(htmlspecialchars(translitIt($record->title))));
+    $nameString = "Конструктор LEGO ".translitIt($record->cat_name)." ".$record->articul." ".htmlspecialchars(translitIt($record->title));
+    $name = $offer->appendChild($dom->createElement('name'))->appendChild($dom->createTextNode($nameString));
     $vendor = $offer->appendChild($dom->createElement('vendor'))->appendChild($dom->createTextNode("Lego"));
     $vendorCode = $offer->appendChild($dom->createElement('vendorCode'))->appendChild($dom->createTextNode($record->articul));
     $description = $offer->appendChild($dom->createElement('description'))->appendChild($dom->createTextNode(htmlspecialchars(strip_tags(translitIt($record->description)))));
+    $marketCat = $offer->appendChild($dom->createElement('market_category'))->appendChild($dom->createTextNode('Детские товары/Игрушки и игровые комплексы/Конструкторы'));
 }
 
 
