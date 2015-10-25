@@ -1599,6 +1599,18 @@ label {
     margin:0 0 10px 0;
 }
 
+#instafeed a {
+    position:relative;
+}
+
+#instafeed span {
+    position:absolute;
+    bottom:15px;
+    right:15px;
+    text-shadow:1px 1px 1px rgba(0,0,0,0.3);
+    color:#fff;
+}
+
 #instafeed img {
     margin:5px 1%;
     opacity:0.7;
