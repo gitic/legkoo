@@ -55,9 +55,6 @@ defined(ACCESS_VALUE) or die('Access denied');
             <nav class="clearfix">
                 <ul class="clearfix">
                     <li>
-                        <a href="<?=PATH?>"><span>главная</span></a>
-                    </li>
-                    <li>
                         <a href="catalog"><span>каталог</span></a>
                     </li>
                     <li>
