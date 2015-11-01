@@ -64,8 +64,8 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                             <?=$product->price?> <span>грн</span>
                         <?php endif;?>
                         <?php if($product->old_price == 0):?>
-                            <div style="font-size:14px;">
-                            <a href="http://legkoo.com.ua/info-7" target="_blank" class="discInfo">хочу скидку!</a></div>
+<!--                            <div style="font-size:14px;">
+                            <a href="http://legkoo.com.ua/info-7" target="_blank" class="discInfo">хочу скидку!</a></div>-->
                         <?php endif;?>
                         
                         <meta itemprop="price" content="<?=$product->price?>">

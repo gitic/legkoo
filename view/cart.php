@@ -73,7 +73,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <?php $i++;endwhile;?>
                         <tr>
                             <td class="orderFoto"></td>
-                            <td colspan="5" class="sum">Итого: <strong><?=$amount?></strong> грн <br> <a href="info-7" class="discInfo" target="_blank">хочу скидку!</a></td>
+                            <td colspan="5" class="sum">Итого: <strong><?=$amount?></strong> грн <br></td>
                         </tr>
                 </tbody>
             </table>
