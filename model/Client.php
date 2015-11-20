@@ -25,9 +25,11 @@ class Client {
         }
         $selectorStr = substr_replace($str, '', strripos($str," AND "));
         $result = $connection->query("SELECT *  FROM clients WHERE ({$selectorStr}) LIMIT 1");
-
+        if($result->num_rows < 1){return FALSE;}
+        
         $record = $result->fetch_object();$result->free();
         if(is_null($record)){return FALSE;}
+        
         foreach ($record as $name => $value) {
             $this->$name = $value;
         }

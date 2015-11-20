@@ -3,8 +3,15 @@
 defined(ACCESS_VALUE) or die('Access denied');
 
 $pageDir = 'clients';
+
+if(isset($_SERVER["HTTP_REFERER"])){
+    $referer_url = $_SERVER["HTTP_REFERER"];
+}
+else{
+    $referer_url = $pageDir;
+}
 if(!isset($_GET['email'])){
-    die("Клиент не найден <br> <a href='?view=$pageDir'>назад</a>");
+    die("Клиент не найден <br> <a href='".$referer_url."'>назад</a>");
 }
 else{  
     $email = $_GET['email'];
@@ -12,26 +19,33 @@ else{
 
 //Обработка формы
 if(isset($_POST['submit'])){
+    $refererPage = $_POST['refererPage'];
     $name = clear($conn, htmlentities($_POST['name'],ENT_QUOTES));
     $phone = clear($conn, htmlentities($_POST['phone'],ENT_QUOTES));
-//    $category = clear($conn, htmlentities($_POST['category'],ENT_QUOTES));
+    $info = clear($conn, htmlentities($_POST['info'],ENT_QUOTES));
+    $notes = clear($conn, htmlentities($_POST['notes'],ENT_QUOTES));
     
     $values = array(
         'name'=>$name,
-        'phone'=>$phone
+        'phone'=>  json_encode(explode(",", $phone),JSON_UNESCAPED_UNICODE),
+        'info'=>$info,
+        'notes'=>$notes
     );
 //    print_arr($values);
     $success = Client::update($values, array('email'=>$email), $conn);
     if(!$success){
-        die("Ошибка при обновлении <br> <a href='?view={$pageDir}'>назад</a>");
+        die("Ошибка при обновлении <br> <a href='?view={$refererPage}'>назад</a>");
     }
     else{
-        echo '<script type="text/javascript">window.location = "?view='.$pageDir.'"</script>';
+        echo '<script type="text/javascript">window.location = "'.$refererPage.'"</script>';
         die();
     }    
 }
 $client = new Client();
-$client->getFomDb(array('email'=>$email), $conn);
+$success = $client->getFomDb(array('email'=>$email), $conn);
+if(!$success){
+    die("Клиент не найден <br> <a href='".$referer_url."'>назад</a>");
+}
 ?>
 <script src="../lib/tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
@@ -59,6 +73,7 @@ $client->getFomDb(array('email'=>$email), $conn);
 </h1>
 <div id="content">
         <form id='edit_form' name="edit_form" action="" method="post" enctype="multipart/form-data">
+            <input type="hidden" name='refererPage' value="<?=$referer_url?>">
             <input type="text" hidden name="rowId" class="rowId" value="<?=$client->id?>"/>
 
             <div class="block">
@@ -146,16 +161,12 @@ $client->getFomDb(array('email'=>$email), $conn);
                         <?php endfor;?>
                     </tbody>
                 </table>
-                <input disabled="disabled" style="width:400px;display:none" type="text" value="" placeholder="Артикул или название товара" class="inp productName"/>
-                <input hidden type='hidden' id='products' name='products' value=''/>
-                <div class="clear"></div>
             </div>
-
-<!--            <div id="bottom-btn">
+            <div id="bottom-btn">
                 <input name="id" type="hidden" value="">
                 <input name="submit" type="submit" value="сохранить" />
-                <a href="#" class="cancel">отмена</a>
-            </div>-->
+                <a href="<?=$referer_url?>" class="cancel">назад</a>
+            </div>
             
         </form>
 </div>
