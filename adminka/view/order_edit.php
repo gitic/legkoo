@@ -16,7 +16,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
 ?>
 <script src="<?=VIEW?>js/ordersJs.js"></script>
 <h1>
-        Редактирование заказа
+        Редактирование заказа № <?=$rowId?> (<?=$order->fio?>)
 </h1>
 <div id="content">
         <form id="edit_form" name="edit_form" action="" method="post" enctype="multipart/form-data">
