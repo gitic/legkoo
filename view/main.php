@@ -6,12 +6,6 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="main">
         <div class="slider">
             <div>
-                <a href="info-7">
-                    <p>Лайк акция</p>
-                    <img src="<?=VIEW?>images/likeaction.jpg" alt="Лайкакция"/>
-                </a>
-            </div>
-            <div>
                 <?php
                     $article = new Article();
                     $article->getFomDb(array('id'=>'2'), $conn);
