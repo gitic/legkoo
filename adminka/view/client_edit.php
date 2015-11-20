@@ -116,27 +116,34 @@ $client->getFomDb(array('email'=>$email), $conn);
                 <div class="clear"></div>
             </div>
             <br>
-            <?php
-                $order = new Order();
-                $order->getFomDb(array('id'=>8), $conn);
-            ?>
             <div class="block table">
                 <table>
                     <tbody>
                         <tr>
                             <td>Номер</td>
                             <td>Дата</td>
-                            <td>Статус</td>
-                            <td>Стоимость</td>
+                            <td>Статус заказа</td>
+                            <td>Сумма заказа</td>
                             <td></td>
                         </tr>
-                        <tr class="product <?=$order->id?>">
+                        <?php
+                            $orderIdArr = explode(",", $client->order_ids);
+                            for ($i=0;$i<count($orderIdArr);$i++):
+                            $order = new Order();
+                            $order->getFomDb(array('id'=>$orderIdArr[$i]), $conn);
+                        ?>
+                            <tr class="product <?=$order->id?>">
                             <td><input hidden class="pId <?=$order->id?>" value="<?=$order->id?>"/><span><?=$order->id?></span></td>
                             <td valign="top"><span><?=$order->date_add?></span></td>
-                            <td><?=$order->status?></td>
+                            <?php
+                                $status = new State();
+                                $status->getFomDb(array('id'=>$order->status), $conn);
+                            ?>
+                            <td><?=$status->title?></td>
                             <td><?=$order->total?></td>
-                            <td>удалить</td>
+                            <td><a href="?view=order_edit&id=<?=$orderIdArr[$i]?>">просмотр</a></td>
                         </tr>
+                        <?php endfor;?>
                     </tbody>
                 </table>
                 <input disabled="disabled" style="width:400px;display:none" type="text" value="" placeholder="Артикул или название товара" class="inp productName"/>

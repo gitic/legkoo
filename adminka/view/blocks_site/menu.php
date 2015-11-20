@@ -20,6 +20,9 @@ defined(ACCESS_VALUE) or die('Access denied');
     <li>
         <a href="?view=orders" class="<?php if($view == 'orders'){echo 'sel';}?>">Заказы <i class="fa fa-shopping-cart"></i></a>
     </li>
+    <li>
+        <a href="?view=clients" class="<?php if($view == 'clients'){echo 'sel';}?>">Клиенты <i class="fa fa-shopping-cart"></i></a>
+    </li>
 </ul>
 <ul>
     <li class="tl">

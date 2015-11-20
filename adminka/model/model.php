@@ -98,6 +98,24 @@ function print_articles($conn){
     ////////
 }
 
+function print_clients($conn){
+    //////// Вывод списка статей
+    $result = $conn->query('SELECT id,name,email,order_ids FROM clients ORDER BY id DESC');
+    while (list($id,$name,$email,$order_ids) = $result->fetch_array()){
+        $order_count = count(explode(",", $order_ids));
+        echo    "<tr>"
+                . "<td>{$id}</td>"
+                . "<td>{$name}</td>"
+                . "<td>{$email}</td>"
+                . "<td>{$order_count}</td>"
+                . "<td><a class='row edit {$id}' href='?view=client_edit&email={$email}' title='Редактировать'><i class='fa fa-pencil'></i></a></td>"
+//                . "<td><a class='row del {$id}' href='#' title='Удалить'><i class='fa fa-times'></i></a></td>"
+                . "</tr>";
+    }
+    $result->free();
+    ////////
+}
+
 //Отображение списка категорий блюд
 function showCatDishesRows(array $cat_dishes,$sub=0){
     foreach ($cat_dishes as $row) {

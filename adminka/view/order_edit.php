@@ -75,7 +75,16 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             
             <div class="block">
                 <label>ФИО</label>
-                <input class="inp fio" id="fio" name="fio" style="width:494px" value="<?=$order->fio?>" placeholder="ФИО" required disabled="disabled"/>
+                <input class="inp fio" id="fio" name="fio" style="width:494px" value="<?=$order->fio?>" placeholder="ФИО" required disabled="disabled"/><a href="?view=client_edit&email=<?=$order->email?>">просмотреть</a>
+            </div>
+            <div class="block">
+                <label>Количество заказов</label>
+                <?php
+                    $client = new Client();
+                    $client->getFomDb(array("email"=>$order->email), $conn);
+                    $nOrders = count(explode(",", $client->order_ids));
+                ?>
+                <a href="?view=client_edit&email=<?=$order->email?>"><span><?=$nOrders?></span></a>
             </div>
             
             <div class="block">
