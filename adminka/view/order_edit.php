@@ -74,8 +74,8 @@ $order->getFomDb(array('id'=>$rowId), $conn);
             </div>
             
             <div class="block">
-                <label>ФИО</label>
-                <input class="inp fio" id="fio" name="fio" style="width:494px" value="<?=$order->fio?>" placeholder="ФИО" required disabled="disabled"/><a href="?view=client_edit&email=<?=$order->email?>">просмотреть</a>
+                <label>ФИО</label><a href="?view=client_edit&email=<?=$order->email?>" target="_blank" alt="Смотреть профиль" title="Смотреть профиль"><i class="fa fa-eye"></i></a>
+                <input class="inp fio" id="fio" name="fio" style="width:494px" value="<?=$order->fio?>" placeholder="ФИО" required disabled="disabled"/>
             </div>
             <div class="block">
                 <label>Количество заказов</label>
@@ -84,7 +84,7 @@ $order->getFomDb(array('id'=>$rowId), $conn);
                     $client->getFomDb(array("email"=>$order->email), $conn);
                     $nOrders = count(explode(",", $client->order_ids));
                 ?>
-                <a href="?view=client_edit&email=<?=$order->email?>"><span><?=$nOrders?></span></a>
+                <a href="?view=client_edit&email=<?=$order->email?>" target="_blank"><span><?=$nOrders?></span></a>
             </div>
             
             <div class="block">

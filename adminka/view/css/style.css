@@ -390,6 +390,10 @@ a#madeby {
 	margin:0 0 10px 0;
 }
 
+#content form div.block a {
+	color:#4495CC;
+}
+
 .block table {
     width:100%;
     text-align:left;
