@@ -1541,9 +1541,9 @@ label {
     color:#fff;
     right:20px;
     top:20px;
-    font-weight:600;
+    font-weight:400;
     font-size:28px;
-    text-shadow:0 0 3px #444;
+    text-shadow:1px 1px 3px #000;
     width:40%;
     text-align:right;
 } 
