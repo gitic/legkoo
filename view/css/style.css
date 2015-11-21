@@ -637,7 +637,7 @@ a.catPreviewBlock img {
     color:rgba(0,0,0,0.8);
     font-size:46px;
     padding:0 0 10px 0;
-    text-align:right;
+    text-align:left;
     font-weight:bold;
 }
 
@@ -650,7 +650,7 @@ a.catPreviewBlock img {
 .productBuy {
     font-size:16px;
     font-weight:300;
-    float:left;
+    float:right;
 }
 
 .numbers {
@@ -735,7 +735,7 @@ img.newsImage {
 }
 
 .buyBtnSet {
-    float:right;
+    float:left;
 }
 
 .oneClickBtn {
@@ -1553,10 +1553,10 @@ label {
     box-shadow:0 4px 7px rgba(0,0,0,0.1);
     border-radius:4px;
     margin:20px auto;
-    padding:2%;
-    width:50%;
-    color:#777;
-    font-size:20px;
+    padding:1%;
+    width:98%;
+    color:#444;
+    font-size:16px;
 }
 
 .guarant h3 {
@@ -1568,13 +1568,19 @@ label {
 }
 
 .guarant .block {
+    display:inline-block;
     font-weight:300;
     padding:0 0 10px 0;
+    width:19%;
+    vertical-align:top;
+    text-align:center;
 }
 
 .guarant i {
     color:#eee;
-    margin:0 5px 0 0;
+    margin:0 0 10px 0;
+    display:block;
+    font-size:50px;
 }
 
 .guarant p {

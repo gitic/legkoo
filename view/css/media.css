@@ -20,6 +20,9 @@
     #searchField i {
         display:none;
     }
+    .guarant {
+        font-size:12px;
+    }
 }
 
 @media (max-width:700px) { 
@@ -204,6 +207,9 @@
 }
 
 @media (max-width:550px) {
+    .guarant {
+        display:none;
+    }
     .productPreview {
         padding:5px;
         margin:0 0 20px 0;

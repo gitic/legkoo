@@ -63,10 +63,6 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                         <?php else:?>
                             <?=$product->price?> <span>грн</span>
                         <?php endif;?>
-                        <?php if($product->old_price == 0):?>
-<!--                            <div style="font-size:14px;">
-                            <a href="http://legkoo.com.ua/info-7" target="_blank" class="discInfo">хочу скидку!</a></div>-->
-                        <?php endif;?>
                         
                         <meta itemprop="price" content="<?=$product->price?>">
                         <meta itemprop="priceCurrency" content="UAH">
@@ -184,19 +180,19 @@ if (!w.__utlWdgt ) {
         <div class="guarant">
             <h3>Почему мы?</h3>
             <div class="block">
-                <i class="fa fa-check"></i> Офлайновый магазин в Днепропетровске
+                <i class="fa fa-home"></i> Офлайновый магазин в Днепропетровске
             </div>
             <div class="block">
-                <i class="fa fa-check"></i> 3 года в Украине
+                <i class="fa fa-cubes"></i> 3 года в Украине
             </div>
             <div class="block">
-                <i class="fa fa-check"></i> Доставка по всей Украине перевозчиком «Новая почта»
+                <i class="fa fa-truck"></i> Доставка по всей Украине перевозчиком «Новая почта»
             </div>
             <div class="block">
-                <i class="fa fa-check"></i> Прямая работа с представительством Lego в Украине
+                <i class="fa fa-certificate"></i> Прямая работа с представительством Lego в Украине
             </div>
             <div class="block">
-                <i class="fa fa-check"></i> Эксклюзивные коллекции
+                <i class="fa fa-diamond"></i> Эксклюзивные коллекции
             </div>
             <div class="clear"></div>
         </div>
