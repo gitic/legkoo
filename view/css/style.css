@@ -100,7 +100,7 @@ h1 span {
 }
 
 #contactsLineBody span a {
-    color:#2196F3;
+    color:#00A2DB;
 }
 
 #topMenuFirst {
@@ -112,10 +112,11 @@ h1 span {
 a#logo {
     display:block;
     height:60px;
-    float:left;
+    float:right;
     overflow:hidden;
     padding:10px 0;
     width:60px;
+    margin:0 0 0 20px;
 }
 
 .slogan1 {
@@ -124,7 +125,7 @@ a#logo {
     margin:0 0 0 30px;
     line-height:20px;
     padding:20px 0 0 0;
-    width:250px;
+    width:300px;
     font-weight:300;
 }
 
@@ -133,6 +134,13 @@ a#logo {
     font-weight:bold;
     font-size:20px;
     font-family: 'Montserrat', sans-serif;
+}
+
+.slogan1 i {
+    font-size:40px;
+    color:#eee;
+    margin:0 10px 0 0;
+    float:left;
 }
 
 a#logo img {
@@ -187,7 +195,7 @@ border-radius:0 3px 3px 0;}
 }
 
 #topMenuSecond {
-    background-color:#2196F3;
+    background-color:#00A2DB;
     background-image:url(../images/bgCircle.png);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     position:relative;
@@ -276,7 +284,7 @@ a#basketSmall span {
 }
 
 a#basketSmall:hover {
-    background-color:#E30613;
+    background-color:#EE1D23;
 }
 
 #breadcrumbs {
@@ -344,7 +352,7 @@ a#basketSmall:hover {
 }
 
 .text a {
-    color:#2196F3;
+    color:#00A2DB;
 }
 
 .text img {
@@ -466,7 +474,7 @@ a.catPreviewBlock img {
 }
 
 .label.new {
-    background-color:#81C784;
+    background-color:#00A54F;
 }
 
 .label.sale {
@@ -540,7 +548,7 @@ a.catPreviewBlock img {
 }
 
 .previewBtn span {
-    background-color:#81C784;
+    background-color:#00A54F;
     border-radius:3px;
     color:#fff;
     cursor:pointer;
@@ -767,12 +775,12 @@ img.newsImage {
     display: inline-block;
 }
 .btn.buy span {
-    background-color:#E30512;
+    background-color:#EE1D23;
     font-weight:bold;
 }
 
 #subscribe {
-    background-color:#2196F3;
+    background-color:#00A2DB;
     background-image:url(../images/bgCircle.png);
     width:100%;
 }
@@ -1087,7 +1095,7 @@ a.footLogo img {
 }
 
 #steps a {
-    color:#2196F3;
+    color:#00A2DB;
 }
 
 .step {
@@ -1322,7 +1330,7 @@ label {
 
 .tabs a:hover {
     text-decoration:underline;
-    color:#2196F3;
+    color:#00A2DB;
 }
 
 .tabs em {
@@ -1373,7 +1381,7 @@ label {
 }
 
 #feedback{
-	background-color:#2196F3;
+	background-color:#00A2DB;
         background-image:url(../images/bgCircle.png);
 	width:310px;
 	height:330px;
@@ -1519,7 +1527,7 @@ label {
 }
 
 .sum .discInfo:hover {
-    background-color:#81C784;
+    background-color:#00A54F;
 }
 
 .more-products {
@@ -1560,7 +1568,7 @@ label {
 }
 
 .guarant h3 {
-    color:#2196F3;
+    color:#00A2DB;
     font-size: 30px;
     font-weight:300;
     margin:0 0 2% 0;

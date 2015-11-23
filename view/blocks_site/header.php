@@ -36,12 +36,12 @@ defined(ACCESS_VALUE) or die('Access denied');
 </div>
 <div id="topMenu">
     <div id="topMenuFirst">
+        <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
         <form id="searchField" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
             <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="поиск" type="submit" class="btn"/>
         </form>
-        <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
         <div class="slogan1">
-            <a href="<?=PATH?>">legkoo.com.ua</a> - интернет магазин детских конструкторов.
+            <a href="<?=PATH?>"><i class="fa fa-cubes"></i></a><a href="<?=PATH?>">legkoo.com.ua</a> - интернет магазин детских конструкторов.
         </div>
         <div class="clear"></div>
     </div>
