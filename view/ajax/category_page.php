@@ -12,19 +12,19 @@ if(isset($_POST['type'])){
             $fromProduct = $_POST['lastEl'];
             switch ($sort) {
                 case 1:
-                    $s = 'old_price DESC,title ASC';
+                    $s = 'old_price DESC,quantity DESC,title ASC';
                     break;
                 case 2:
-                    $s = 'old_price DESC,title DESC';
+                    $s = 'old_price DESC,quantity DESC,title DESC';
                     break;
                 case 3:
-                    $s = 'old_price DESC,price ASC';
+                    $s = 'old_price DESC,quantity DESC,price ASC';
                     break;
                 case 4:
-                    $s = 'old_price DESC,price DESC';
+                    $s = 'old_price DESC,quantity DESC,price DESC';
                     break;
                 default:
-                    $s = 'old_price DESC,id DESC';
+                    $s = 'old_price DESC,quantity DESC';
                     break;
             }
             $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id "
