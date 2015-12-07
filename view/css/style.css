@@ -119,6 +119,12 @@ a#logo {
     margin:0 0 0 20px;
 }
 
+.mainLogo {
+        float:left;
+        padding:0 10px 0 0;
+    width:50px;
+}
+
 .slogan1 {
     float:left;
     color:#666;
@@ -133,7 +139,7 @@ a#logo {
     color:rgba(33,150,243,0.9);
     font-weight:bold;
     font-size:20px;
-    font-family: 'Montserrat', sans-serif;
+    line-height:26px;
 }
 
 .slogan1 i {
@@ -191,7 +197,7 @@ border-radius:0 3px 3px 0;}
     background-color:#F5F5F5;
     color:#ccc;
     float:left;
-    padding:13px 15px 13px 15px;
+    padding:15px 15px 13px 15px;
 }
 
 #topMenuSecond {

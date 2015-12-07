@@ -41,7 +41,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="поиск" type="submit" class="btn"/>
         </form>
         <div class="slogan1">
-            <a href="<?=PATH?>"><i class="fa fa-cubes"></i></a><a href="<?=PATH?>">legkoo.com.ua</a> - интернет магазин детских конструкторов.
+            <a href="<?=PATH?>"><img src="<?=VIEW?>images/legkooLego.png" class="mainLogo"/></a><a href="<?=PATH?>">legkoo.com.ua</a> - интернет магазин детских конструкторов.
         </div>
         <div class="clear"></div>
     </div>
