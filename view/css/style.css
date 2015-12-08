@@ -37,7 +37,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:-mo
     color:#999;
     font-family:'Roboto', sans-serif;
     font-weight:300;
-    font-size:16px;
+    font-size:15px;
 }
 #searchField input::-webkit-input-placeholder {
     color:#ccc;
@@ -62,7 +62,7 @@ input.oneClickPhone::-webkit-input-placeholder {
     color:#999;
     font-family:'Roboto', sans-serif;
     font-weight:300;
-    font-size:16px;
+    font-size:15px;
 }
 
 h1 {
@@ -75,7 +75,7 @@ h1 {
 h1 span {
     color:#999;
     display:block;
-    font-size:16px;
+    font-size:15px;
     font-weight:300;
 }
 
@@ -168,7 +168,7 @@ a#logo img {
     float:left;
     font-family:'Roboto', sans-serif;
     font-weight:500;
-    font-size:16px;
+    font-size:15px;
     padding:11px 5px 9px 5px;
     width:250px;
 }
@@ -179,7 +179,7 @@ a#logo img {
     color:#ccc;
     cursor:pointer;
     font-family:'Roboto', sans-serif;
-    font-size:16px;
+    font-size:15px;
     font-weight:300;
     padding:11px 5px 10px 5px;
     width:97px;
@@ -227,7 +227,7 @@ nav li {
 nav a {
     border-bottom:3px solid transparent;
     color:#fff;
-    font-size:16px;
+    font-size:15px;
     font-weight:400;
     display:block;
     padding:17px 0 12px 0;
@@ -638,7 +638,7 @@ a.catPreviewBlock img {
 }
 
 .productData p {
-    font-size:16px;
+    font-size:15px;
     font-weight:300;
     padding:0 0 10px 0;
 }
@@ -662,7 +662,7 @@ a.catPreviewBlock img {
 }
 
 .productBuy {
-    font-size:16px;
+    font-size:15px;
     font-weight:300;
     float:right;
 }
@@ -676,7 +676,7 @@ a.catPreviewBlock img {
 .numbers input {
     border:1px solid #eee;
     padding:15px;
-    font-size:16px;
+    font-size:15px;
     margin:0 0 10px 10px;
     width:30px;
     text-align:center;
@@ -687,7 +687,7 @@ a.catPreviewBlock img {
 }
 
 .productAbout p {
-    font-size:16px;
+    font-size:15px;
     font-weight:300;
     line-height:20px;
     padding:0 0 15px 0;
@@ -773,7 +773,7 @@ img.newsImage {
     padding:10px 2%;
     margin:20px 0 0 0;
     border:1px solid #ccc;
-    font-size:16px;
+    font-size:15px;
     text-align:center;
 }
 
@@ -991,7 +991,7 @@ a.footLogo img {
 .notify em{
     font-style:normal;
     font-weight:300;
-    font-size:16px;
+    font-size:15px;
     text-align:center;
 }
 .notify > div{
@@ -1151,7 +1151,7 @@ a.footLogo img {
     font-weight:300;
     color:#000;
     padding:0 0 10px 0;
-    font-size:16px;
+    font-size:15px;
 }
 
 .step .block.conf strong {
@@ -1424,7 +1424,7 @@ label {
 	color:#000;
 	height:100px;
 	padding:10px;
-        font-size:16px;
+        font-size:15px;
 	width:236px;
 	resize:none;
 	outline:none;
@@ -1570,7 +1570,7 @@ label {
     padding:1%;
     width:98%;
     color:#444;
-    font-size:16px;
+    font-size:15px;
 }
 
 .guarant h3 {
