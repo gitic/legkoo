@@ -57,11 +57,8 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <li>
                         <a href="catalog"><span>каталог</span></a>
                     </li>
-                    <li>
-                        <a href="actions"><span style="color:#FFD54F"><strong>Акции</strong></span></a>
-                    </li>
 <!--                    <li>
-                        <a href="#"><span>новости и акции</span></a>
+                        <a href="actions"><span style="color:#FFD54F"><strong>Акции</strong></span></a>
                     </li>-->
                     <li>
                         <a href="info-1"><span>доставка и оплата</span></a>

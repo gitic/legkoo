@@ -17,7 +17,7 @@ $total_rows = $result->fetch_array()[0];
 
 <div id="content">
     <div id="main">
-        <h1>Купить конструктор LEGO® <?=$category->title?></h1>
+        <h1>Конструкторы LEGO® <?=$category->title?></h1>
         <div class="catLogo">
             <img src="<?=$category->logo?>"/>
         </div>
