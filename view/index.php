@@ -11,7 +11,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <meta name="keywords" content="<?=$meta['keywords']?>">	
         <meta property="fb:admins" content="100000219033422" />
         <?php if($view == 'product'):?>
-            <meta property="og:title" content="LEGO <?=$product->title?> <?=$product->articul?>" />
+            <meta property="og:title" content="Конструктор LEGO <?=$product->articul?> <?=$product->title?>" />
             <meta property="og:type" content="product" />
             <meta property="og:url" content="<?=request_url()?>" />
             <meta property="og:image" content="<?=PATH?>/<?=$product->photo?>" />
