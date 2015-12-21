@@ -100,8 +100,8 @@ $(function(){
                 iHeight = 150;
                 break;
             case 'f2':
-                iWidth = 300;
-                iHeight = 400;
+                iWidth = 360;
+                iHeight = 570;
                 break;
         }
 
@@ -115,6 +115,7 @@ $(function(){
                 files: { photos: files[0] },
                 filecomplete: function (err, xhr){
                     $(".loadstatus."+cName).hide();
+                    $(el).val('');
                     if( !err ){
                         var str = xhr.responseText;
                         result = JSON.parse(str);
