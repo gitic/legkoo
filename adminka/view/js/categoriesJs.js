@@ -100,7 +100,7 @@ $(function(){
                 iHeight = 150;
                 break;
             case 'f2':
-                iWidth = 360;
+                iWidth = 362;
                 iHeight = 570;
                 break;
         }
@@ -143,8 +143,8 @@ $(function(){
                 iHeight = 150;
                 break;
             case 'f2':
-                iWidth = 300;
-                iHeight = 400;
+                iWidth = 362;
+                iHeight = 570;
                 break;
         }
         if((url.indexOf('http://') !== -1) || (url.indexOf('https://') !== -1)){

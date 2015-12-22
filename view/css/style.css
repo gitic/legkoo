@@ -128,7 +128,7 @@ a#logo {
 .slogan1 {
     float:left;
     color:#666;
-    margin:0 0 0 30px;
+    margin:0 0 0 0;
     line-height:20px;
     padding:20px 0 0 0;
     width:300px;
@@ -405,7 +405,7 @@ a.catPreviewBlock {
     border-radius:5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display:inline-block;
-    height:294px;
+    height:350px;
     margin:0 10px 23px 10px;
     width:220px;
     -webkit-transition: all .4s ease-in-out;
@@ -421,7 +421,7 @@ a.catPreviewBlock:hover {
 
 a.catPreviewBlock img {
     border-radius:5px;
-    height:294px;
+    height:350px;
     width:220px;
 }
 
