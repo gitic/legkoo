@@ -1656,3 +1656,7 @@ label {
     background-color:rgba(227,6,19,0.05);
     color:rgba(227,6,19,1);
 }
+
+.hcc.hc__footer {
+    display:none!important;
+}
