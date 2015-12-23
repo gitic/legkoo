@@ -49,9 +49,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                     $product = $record;
                     $arrProducts[] = $product;
                 }
-                if(count($arrProducts)>3){
+                if(count($arrProducts)>6){
                     $randArr = array();
-                    while (count($randArr)!=3){
+                    while (count($randArr)!=6){
                         $rand = rand(0, count($arrProducts)-1);
                         if(!in_array($rand, $checkArr)){
                             $randArr[] = $arrProducts[$rand];

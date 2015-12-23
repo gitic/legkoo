@@ -18,7 +18,7 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
 
 <div id="content">
     <div id="product" itemscope itemtype="http://schema.org/Product">
-        <h1 itemprop="name">Конструктор <?=$product->title?> LEGO® <?=$category->title?><span>артикул: <?=$product->articul?></span></h1>
+        <h1 itemprop="name">LEGO <?=$category->title?> <?=$product->title?> <?=$product->articul?></h1>
         <div class="productGallery">
             <?php $gArr = explode(',', $product->gallery);?>
             <img data-zoom-image="<?=$gArr[1]?>" src="<?=$gArr[1]?>" class="bigFoto" itemprop="image" alt="<?=$product->title?>" title="<?=$product->title?>"/>
@@ -161,7 +161,8 @@ if (!w.__utlWdgt ) {
                             <p><em>Условия доставки по Днепропетровску:</em></p>
                             <p>- Самовывоз: просп. Карла Маркса 67-Д ТЦ «Гранд Плаза»<br/> 
 - Доставка на ближайший к Вам склад «Новой почтой» - от 25 грн<br/> 
-- Доставка на ближайший к Вам склад «Новой почтой» при заказе от 1000 грн - Бесплатно (Обязательная предоплата!)</p>
+- Доставка на ближайший к Вам склад «Новой почтой» при заказе от 1000 грн - Бесплатно (Обязательная предоплата!)<br/>
+                            - Внимание: если Вы оплачиваете Заказ при получении - Наложенный платёж «Новой почтой» оплачиваете Вы - 2% от стоимости заказа + 20 гривен за оформление.</p>
                             <p style="text-align:right;"><a href="https://novaposhta.ua/ru/delivery" target="_blank" style="font-size:14px;font-weight:500;"><i class="fa fa-calculator"></i> Рассчитать стоимость доставки</a></p>
                             <p><strong>Оплата: </strong></p>
                             <p>- Кредитной картой<br/>
@@ -189,7 +190,7 @@ if (!w.__utlWdgt ) {
                 <i class="fa fa-truck"></i> Доставка по всей Украине перевозчиком «Новая почта»
             </div>
             <div class="block">
-                <i class="fa fa-certificate"></i> Прямая работа с представительством Lego в Украине
+                <i class="fa fa-certificate"></i> Прямая работа с представительством LEGO в Украине
             </div>
             <div class="block">
                 <i class="fa fa-diamond"></i> Эксклюзивные коллекции
