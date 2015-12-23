@@ -179,6 +179,7 @@ if (!w.__utlWdgt ) {
         <div class="clear"></div>
         
         <div class="comments">
+        <h3>Отзыв о товаре</h3>
         <div id="hypercomments_widget"></div>
             <script type="text/javascript">
             _hcwp = window._hcwp || [];
