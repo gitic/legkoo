@@ -1656,3 +1656,17 @@ label {
     background-color:rgba(227,6,19,0.05);
     color:rgba(227,6,19,1);
 }
+
+.hcc.hc__footer {
+    display:none!important;
+}
+
+.hcc.hc__top__left {
+    display:none!important;
+}
+
+.comments h3 {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 20px 0 0 0;
+}

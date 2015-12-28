@@ -66,6 +66,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <li>
                         <a href="info-6"><span><strong>кто мы?</strong></span></a>
                     </li>
+                    <li>
+                        <a href="reviews"><span>отзывы</span></a>
+                    </li>
                     <div class="clear"></div>
                 </ul>
                 <a href="#" id="pull"><i class="fa fa-bars"></i></a>
