@@ -96,8 +96,8 @@ $(function(){
         var iHeight;
         switch (cName){
             case 'f1':
-                iWidth = 500;
-                iHeight = 150;
+                iWidth = 1000;
+                iHeight = 300;
                 break;
             case 'f2':
                 iWidth = 362;
