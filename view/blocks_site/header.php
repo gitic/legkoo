@@ -38,7 +38,7 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="topMenuFirst">
         <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
         <form id="searchField" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
-            <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp"/><input value="поиск" type="submit" class="btn"/>
+            <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp searchField"/><input value="поиск" type="submit" class="btn"/>
         </form>
         <div class="slogan1">
             <a href="<?=PATH?>"><img src="<?=VIEW?>images/logo.jpg" class="mainLogo"/></a><a href="<?=PATH?>">legkoo.com.ua</a> - интернет магазин детских конструкторов.
