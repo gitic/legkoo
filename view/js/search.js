@@ -8,11 +8,18 @@ function setAutocompleteSearch(element){
         source: "./?ajax=search",
         minLength: 1,
         select: function( event, ui ) {
-            var query = $('.inp.searchField').val();
+            
             var id = ui.item.id;
             if(id == 'fullSearch'){
                 event.preventDefault();
+                var query = ui.item.query;
                 window.location.href = "search="+query;
+            }
+            else{
+                var query = $('.inp.searchField').val();
+                var translit = ui.item.translit;
+                var articul = ui.item.articul;
+                window.location.href = "product-"+id+"-lego-"+translit+"-"+articul;
             }
         },
         close: function( event, ui ) {$('.searchField').val('');}

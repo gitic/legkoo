@@ -19,6 +19,7 @@ if(isset($_GET['term'])){
         $row_set[] = $row;//build an array
     }
     $row['value'] = 'Показать все результаты';
+    $row['query']=$term;
     $row['id'] = 'fullSearch';
     $row_set[] = $row;
     echo json_encode($row_set,JSON_UNESCAPED_UNICODE);//format the array into json data
