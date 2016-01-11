@@ -684,6 +684,7 @@ a.catPreviewBlock img {
 
 .productAbout {
     padding:0 0 10px 0;
+    text-align:left;
 }
 
 .productAbout p {
@@ -691,6 +692,7 @@ a.catPreviewBlock img {
     font-weight:300;
     line-height:20px;
     padding:0 0 15px 0;
+    text-align:left;
 }
 
 img.newsImage {
@@ -1282,6 +1284,7 @@ label {
 .catAbout {
     text-align:left;
     font-weight:300;
+    padding:10px 0;
 }
 
 .catAbout p {

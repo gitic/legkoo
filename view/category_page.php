@@ -21,6 +21,9 @@ $total_rows = $result->fetch_array()[0];
         <div class="catLogo">
             <img src="<?=$category->logo?>"/>
         </div>
+        <div class="catAbout">
+            <?=$category->description?>
+        </div>
         <?php 
             $result = $conn->query("SELECT MIN(price) AS minPrice, MAX(price) AS maxPrice,MIN(age_from) AS ageFrom, MAX(age_to) AS ageTo FROM products WHERE category = '$id';");
             $record = $result->fetch_object();
@@ -131,9 +134,6 @@ $total_rows = $result->fetch_array()[0];
             <?php if($total_rows > 9):?>
                 <span style="cursor: pointer" class="showMore">Показать еще</span>
             <?php endif;?>
-        </div>
-        <div class="catAbout">
-            <?=$category->description?>
         </div>
     </div>
 </div>

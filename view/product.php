@@ -27,7 +27,12 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
             ?>
                 <span><img src="<?=$gArr[$i]?>" alt="<?=$product->title?>" title="<?=$product->title?>"/></span>
             <?php endfor;?>
-                
+            
+            
+            <div class="productAbout" itemprop="description">
+                <h3>Описание</h3>
+                <p><?=$product->description?></p>
+            </div>
         </div>
         <div class="productData" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             
@@ -127,31 +132,11 @@ if (!w.__utlWdgt ) {
     </div>
                 <div class="block tabs">
                     <ul>
-                        <li>Описание</li>
+                        <li>Оплата и доставка</li>
                         <li>Видео</li>
                         <li class="invisibleTab">Инструкция</li>
-                        <li>Оплата и доставка</li>
                     </ul>
                     <div>
-                        <div class="productAbout" itemprop="description">
-                            <?=$product->description?>
-                        </div>
-                        <div id="videoTab" class="videoTab">
-                            <?php if($product->video != ''):?>
-                            <iframe src="<?=$product->video?>" frameborder="0" allowfullscreen></iframe>
-                            <em>*видео взято с сайта YouTube.com</em>
-                            <?php else:?>
-                            Видео отсутствует
-                            <?php endif;?>
-                        </div>
-                        <div class="invisibleTab" style="text-align:center;">
-                            <?php if($product->instruction != ''):?>
-                            <i class="fa fa-file-pdf-o"></i> <a href="<?=$product->instruction?>" target="_blank">Смотреть инструкцию</a>
-                            <em>*некоторые инструкции могут превышать 10Мб (!)</em>
-                            <?php else:?>
-                            Инструкция отсутствует
-                            <?php endif;?>
-                        </div>
                         <div class="deliveryTab">
                             <p><strong>Доставка: </strong></p>
                             <p><em>Условия доставки по всей Украине:</em></p>
@@ -168,6 +153,22 @@ if (!w.__utlWdgt ) {
                             <p>- Кредитной картой<br/>
                             - Приват24<br/>
                             - При доставке в отделение Новой Почты</p>
+                        </div>
+                        <div id="videoTab" class="videoTab">
+                            <?php if($product->video != ''):?>
+                            <iframe src="<?=$product->video?>" frameborder="0" allowfullscreen></iframe>
+                            <em>*видео взято с сайта YouTube.com</em>
+                            <?php else:?>
+                            Видео отсутствует
+                            <?php endif;?>
+                        </div>
+                        <div class="invisibleTab" style="text-align:center;">
+                            <?php if($product->instruction != ''):?>
+                            <i class="fa fa-file-pdf-o"></i> <a href="<?=$product->instruction?>" target="_blank">Смотреть инструкцию</a>
+                            <em>*некоторые инструкции могут превышать 10Мб (!)</em>
+                            <?php else:?>
+                            Инструкция отсутствует
+                            <?php endif;?>
                         </div>
                     </div>  
                     <script>
