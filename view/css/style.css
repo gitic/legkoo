@@ -181,7 +181,7 @@ a#logo img {
     font-family:'Roboto', sans-serif;
     font-size:15px;
     font-weight:300;
-    padding:11px 5px 10px 5px;
+    padding:11px 5px 11px 5px;
     width:97px;
     -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
@@ -1672,4 +1672,30 @@ label {
     font-size: 30px;
     font-weight: 300;
     margin: 20px 0 0 0;
+}
+
+.ui-autocomplete, .ui-autocomplete .ui-menu-item, .ui-autocomplete .ui-menu-item a {
+  background:none;
+}
+.ui-autocomplete {
+  background:#fff;
+  border:0;
+}
+.ui-widget-content{
+  border:0!important;
+  box-shadow:0 2px 3px rgba(0,0,0,0.1);
+}
+.ui-autocomplete .ui-menu-item {
+  font-weight:300;
+  font-family:'Roboto', sans-serif;
+  background:#fff;
+}
+.ui-autocomplete .ui-menu-item a:hover {
+  background:#eee;
+}
+.ui-autocomplete .ui-menu-item a {
+  padding:5px 0;
+  border-top:1px solid #eee;
+  font-weight:300;
+  font-family:'Roboto', sans-serif;
 }
