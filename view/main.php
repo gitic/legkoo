@@ -8,16 +8,6 @@ defined(ACCESS_VALUE) or die('Access denied');
             <div>
                 <?php
                     $article = new Article();
-                    $article->getFomDb(array('id'=>'4'), $conn);
-                ?>
-                <a href="article-4-<?=$article->translit?>">
-                    <p><?=$article->title?></p>
-                    <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
-                </a>
-            </div>
-            <div>
-                <?php
-                    $article = new Article();
                     $article->getFomDb(array('id'=>'5'), $conn);
                 ?>
                 <a href="article-5-<?=$article->translit?>">
