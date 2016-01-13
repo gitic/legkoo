@@ -36,7 +36,11 @@ function printProductCart($product){?>
             <img src="<?=$product->photo?>" class="big"/>
         </a>
         <div class="previewTitle">
-            <p><span>Арт. <?=$product->articul?></span>LEGO® <?=$product->category?></p>
+            <?php if(!isset($product->catName)):?>
+                <p><span>Арт. <?=$product->articul?></span>LEGO® <?=$product->category?></p>
+            <?php else:?>
+                <p><span>Арт. <?=$product->articul?></span>LEGO® <?=$product->catName?></p>
+            <?php endif;?>
             <div class="clear"></div>
             <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>"><?=$product->title?></a>
             <?php

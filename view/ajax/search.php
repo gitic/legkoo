@@ -53,12 +53,12 @@ if(isset($_POST['searchData'])){
         for($i=1;$i<count($words);$i++){$q2.="OR t1.articul LIKE '%$words[$i]%'";}$q2.=')';
     }
     else {$q2.=')';}
-    $sql = "SELECT t1.*,t2.title AS category,t2.id AS catId FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE ($q OR $q2) AND t1.visible='1' "
+    $sql = "SELECT t1.*,t2.title AS catName,t2.id AS catId FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE ($q OR $q2) AND t1.visible='1' "
             . "AND t1.price >= $pF AND t1.price <=$pT "
             . "AND t1.age_from >= $aF AND t1.age_to <=$aT "
             . "AND t1.elements >= $eF AND t1.elements <=$eT "
             . "AND t1.category IN ($cats) "
-        . "ORDER BY id DESC";
+        . "ORDER BY category ASC,id DESC";
     $result = $conn->query($sql);
     while($record = $result->fetch_object()){
         $product = new Product();
