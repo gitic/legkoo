@@ -57,6 +57,7 @@ if(isset($_POST['searchData'])){
             . "AND t1.price >= $pF AND t1.price <=$pT "
             . "AND t1.age_from >= $aF AND t1.age_to <=$aT "
             . "AND t1.elements >= $eF AND t1.elements <=$eT "
+            . "AND t1.category IN ($cats)"
         . "UNION SELECT t1.*,t2.title AS catName,t2.id AS catId FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.category IN ($cats) AND t1.visible='1' "
             . "AND t1.price >= $pF AND t1.price <=$pT "
             . "AND t1.age_from >= $aF AND t1.age_to <=$aT "
