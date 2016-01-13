@@ -21,8 +21,7 @@ function setAutocompleteSearch(element){
                 var articul = ui.item.articul;
                 window.location.href = "product-"+id+"-lego-"+translit+"-"+articul;
             }
-        },
-        close: function( event, ui ) {$('.searchField').val('');}
+        }
     })
     .autocomplete( "instance" )._renderItem = function( ul, item ) {
         var result = '';
