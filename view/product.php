@@ -115,6 +115,9 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                     <?php if($product->size != ''):?>
                     <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
                     <?php endif;?>
+                    <?php if($product->figurka != 0):?>
+                    <p>Минифигурок: <strong><?=$product->figurka?></strong></p>
+                    <?php endif;?>
                 </div>
             <div class="shareBtn">
         

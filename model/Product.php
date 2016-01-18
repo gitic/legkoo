@@ -24,6 +24,7 @@ class Product {
     var $male;
     var $female;
     var $elements;
+    var $figurka;
     var $size;
     var $labels;
     var $seo_description;

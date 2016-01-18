@@ -38,6 +38,7 @@ if(isset($_POST['submit'])){
     if(isset($_POST['male'])){$male = 1;}else{$male = 0;}
     if(isset($_POST['female'])){$female = 1;}else{$female = 0;}
     $elements = preg_replace('/[^0-9]+/ui', '', $_POST['elements']);
+    $figurka = preg_replace('/[^0-9]+/ui', '', $_POST['figurka']);
     $size = clear($conn, htmlentities($_POST['size'],ENT_QUOTES));
     $labels = clear($conn, htmlentities($_POST['labels'],ENT_QUOTES));
     $galleryUpload = clear($conn, htmlentities($_POST['galleryUpload'],ENT_QUOTES));
@@ -100,6 +101,7 @@ if(isset($_POST['submit'])){
         'male'=>$male,
         'female'=>$female,
         'elements'=>$elements,
+        'figurka'=>$figurka,
         'size'=>$size,
         'labels'=>$labels,
         'gallery'=>$galleryRow
@@ -408,6 +410,11 @@ $_SESSION['KCFINDER'] = array(
             <div class="block">
                     <label class="left">Размер коробки</label>
                     <input class="inp" id="size" name="size" style="width:494px" value="<?=$product->size?>"/>
+            </div>
+            
+            <div class="block">
+                    <label class="left">Минифигурки</label>
+                    <input class="inp" id="figurka" name="figurka" style="width:494px" value="<?=$product->figurka?>"/>
             </div>
             
             <div class="block">
