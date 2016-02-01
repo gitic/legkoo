@@ -1313,6 +1313,7 @@ label {
     color: #fff;
     border-radius:5px;
     font-weight:300;  
+    z-index:99!important;
 }
 
 #scrollUp:hover {
