@@ -77,4 +77,8 @@ defined(ACCESS_VALUE) or die('Access denied');
         </div>
     </div>
 </div>
-
+<br/>
+<center>
+    <noindex><a rel="nofollow" href="http://goo.gl/0ZMZpY" target="_blank"><img src="<?=VIEW?>images/catalog.jpg" style="max-width:100%;"/></a></noindex>
+</center>
+<br/>
