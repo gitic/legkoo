@@ -19,7 +19,7 @@ $total_rows = $result->fetch_array()[0];
     <div id="main">
         <h1>Конструкторы LEGO® <?=$category->title?></h1>
         <div class="catLogo">
-            <img src="<?=$category->logo?>"/>
+            <img src="<?=$category->logo?>" alt="LEGO® <?=$category->title?>" title="LEGO® <?=$category->title?>"/>
         </div>
         <div class="catAbout">
             <?=$category->description?>
