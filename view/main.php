@@ -10,9 +10,19 @@ defined(ACCESS_VALUE) or die('Access denied');
                     $article = new Article();
                     $article->getFomDb(array('id'=>'5'), $conn);
                 ?>
-                <a href="article-5-<?=$article->translit?>">
+                <a href="category-28-lego-nexo-knights">
                     <p><?=$article->title?></p>
                     <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
+                </a>
+            </div>
+            <div>
+                <?php
+                    $article = new Article();
+                    $article->getFomDb(array('id'=>'6'), $conn);
+                ?>
+                <a href="category-1-lego-architecture">
+                    <p><?=$article->title?></p>
+                    <img src="<?=VIEW?>/images/architectureBanner.jpg" alt="<?=$article->title?>"/>
                 </a>
             </div>
         </div>

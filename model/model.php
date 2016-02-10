@@ -36,13 +36,7 @@ function printProductCart($product){?>
             <img src="<?=$product->photo?>" class="big"/>
         </a>
         <div class="previewTitle">
-            <?php if(!isset($product->catName)):?>
-                <p><span>Арт. <?=$product->articul?></span>LEGO® <?=$product->category?></p>
-            <?php else:?>
-                <p><span>Арт. <?=$product->articul?></span>LEGO® <?=$product->catName?></p>
-            <?php endif;?>
-            <div class="clear"></div>
-            <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>"><?=$product->title?></a>
+            <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">LEGO <?=$product->category?> <?=$product->title?> <?=$product->articul?></a>
             <?php
                         $till = '+';
                         if($product->age_to != 0){$till = '-'.$product->age_to;}
