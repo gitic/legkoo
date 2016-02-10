@@ -30,7 +30,7 @@ if(isset($_FILES['uploadfile']['name'])){
                 if($row->find('td', 3) && $row->find('td', 6)){
                     $item['articul'] = intval($row->find('td', 3)->plaintext); // парсим артикул в html формате
                     $item['count'] = intval($row->find('td', 6)->plaintext); // парсим количество
-            //        $item['price'] = floatval($row->find('td', 7)->plaintext); // парсим цену
+                    $item['price'] = intval($row->find('td', 7)->plaintext); // парсим цену
                     if($item['articul'] != 0){
                         $rows[] = $item; // пишем в массив
                     }
@@ -40,7 +40,9 @@ if(isset($_FILES['uploadfile']['name'])){
             $dublicates = array();
             foreach ($rows as $row) {
                 if(!array_key_exists($row['articul'], $products)){
-                    $products[$row['articul']] = $row['count'];
+                    $data['count'] = $row['count'];
+                    $data['price'] = $row['price'];
+                    $products[$row['articul']] = $data;
                 }
                 else{
                     $dublicates[] = $row['articul'];
@@ -52,11 +54,13 @@ if(isset($_FILES['uploadfile']['name'])){
             $values = '';
             foreach ($products as $key => $value) {
                 $i++;
-                $values .= ",($key,$value)";
-//                echo $i.'. '.$key.' - '.$value.'<br>';
+                $count = $value['count'];
+                $price = $value['price'];
+                $values .= ",($key,$count,$price)";
+//                echo $i.'. '.$key.' - '.$count.' - '.$price.'<br>';
             }
             $values = substr($values, 1);
-            $sql = "INSERT INTO products (articul,quantity) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity)";
+            $sql = "INSERT INTO products (articul,quantity,price) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity),price=VALUES(price)";
             $result = $conn->query($sql);
             
             //Обновляем дату
