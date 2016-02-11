@@ -60,7 +60,7 @@ if(isset($_FILES['uploadfile']['name'])){
 //                echo $i.'. '.$key.' - '.$count.' - '.$price.'<br>';
             }
             $values = substr($values, 1);
-            $sql = "INSERT INTO products (articul,quantity,price) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity),price=VALUES(price)";
+            $sql = "INSERT INTO products (articul,quantity,price) VALUES $values ON DUPLICATE KEY UPDATE quantity=VALUES(quantity),price=IF(old_price=0,VALUES(price),price)";
             $result = $conn->query($sql);
             
             //Обновляем дату
