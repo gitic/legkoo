@@ -85,3 +85,17 @@ function showError(text){
     $('.error').html(text);
     $('.error').css({'display':'block'});
 }
+
+function checkMail(email){
+    var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+    if(!pattern.test(email)){
+        return false;
+    }
+    return true;
+}
+function checkPass(password){
+    if(! (/^[a-zA-Z0-9]+$/.test(password))){
+        return false;
+    }
+    return true;
+}
