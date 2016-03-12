@@ -33,7 +33,7 @@ if(mb_strlen($_POST['message'],'utf-8') < 5){
 
 $msg = nl2br(strip_tags($_POST['message']));
 
-sendSMTPgmail(TITLE, 'glink0504@gmail.com', 'Отзыв о сайте Legkoo.com.ua', $msg);
+sendSMTPgmail(TITLE, 'glink0504@gmail.com,zymainfo@gmail.com,legodnepr@gmail.com', 'Отзыв о сайте Legkoo.com.ua', $msg);
 
 echo 'Спасибо!';
 ?>
