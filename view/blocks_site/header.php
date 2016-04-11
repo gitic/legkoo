@@ -31,6 +31,11 @@ defined(ACCESS_VALUE) or die('Access denied');
 <div id="contactsLine">
     <div id="contactsLineBody">
         <span><i class="fa fa-pencil-square"></i> <a href="mailto:legodnepr@gmail.com">legodnepr@gmail.com</a></span>
+        
+        <div class="live">
+            <a href="info-6"><i class="fa fa-video-camera"></i> Магазин LIVE</a>
+        </div>
+        
         <i class="fa fa-phone-square"></i> +38(067)567-82-44 (с 10:00 до 20:00)
     </div>
 </div>
