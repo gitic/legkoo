@@ -522,12 +522,12 @@ a.catPreviewBlock img {
 }
 
 .previewTitle a {
-    color:#0277BD;
-    display:block;
-    font-size:19px;
-    font-weight:500;
-    margin:5px 0 5px 0;
-    text-decoration:none;
+    color:#0277BD!important;
+    display:block!important;
+    font-size:19px!important;
+    font-weight:500!important;
+    margin:5px 0 5px 0!important;
+    text-decoration:none!important;
 }
 
 .previewTitle span {
@@ -1720,4 +1720,20 @@ label {
 
 #info iframe {
     width:100%;
+}
+
+.mainTabs ul {
+    margin:40px 0 0 0;
+    text-align:center;
+}
+
+.mainTabs ul li {
+    float:none;
+    display: inline-block;
+}
+
+.mainTabs ul li.active, .tabs ul li.active:hover {
+    background-color:#00A2DB;
+    color:#fff;
+    font-size:20px;
 }

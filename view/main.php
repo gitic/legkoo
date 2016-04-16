@@ -37,7 +37,7 @@ defined(ACCESS_VALUE) or die('Access denied');
              });
            });
          </script>
-         <div class="block tabs">
+         <div class="block tabs mainTabs">
                     <ul>
                         <li>Акции</li>
                         <li>Новинки</li>
@@ -56,9 +56,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                                         $product = $record;
                                         $arrProducts[] = $product;
                                     }
-                                    if(count($arrProducts)>6){
+                                    if(count($arrProducts)>9){
                                         $randArr = array();
-                                        while (count($randArr)!=6){
+                                        while (count($randArr)!=9){
                                             $rand = rand(0, count($arrProducts)-1);
                                             if(!in_array($rand, $checkArr)){
                                                 $randArr[] = $arrProducts[$rand];
@@ -90,9 +90,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                                         $product = $record;
                                         $arrProducts[] = $product;
                                     }
-                                    if(count($arrProducts)>6){
+                                    if(count($arrProducts)>9){
                                         $randArr = array();
-                                        while (count($randArr)!=6){
+                                        while (count($randArr)!=9){
                                             $rand = rand(0, count($arrProducts)-1);
                                             if(!in_array($rand, $checkArr)){
                                                 $randArr[] = $arrProducts[$rand];
