@@ -37,38 +37,86 @@ defined(ACCESS_VALUE) or die('Access denied');
              });
            });
          </script>
-        <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>
-        <div id="newProduct">
-            <?php
-                $arrProducts = array();
-                $checkArr = array();
-                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.quantity AND (t1.labels LIKE '%new%') ORDER BY id DESC";
-                $result = $conn->query($sql);
-                while ($record = $result->fetch_object()){
-                    $product = new Product();
-                    $product = $record;
-                    $arrProducts[] = $product;
-                }
-                if(count($arrProducts)>6){
-                    $randArr = array();
-                    while (count($randArr)!=6){
-                        $rand = rand(0, count($arrProducts)-1);
-                        if(!in_array($rand, $checkArr)){
-                            $randArr[] = $arrProducts[$rand];
-                            $checkArr[] = $rand;
-                        }
-                    }
-                    foreach ($randArr as $product) {
-                        printProductCart($product);
-                    }
-                }
-                else{
-                    foreach ($arrProducts as $product) {
-                        printProductCart($product);
-                    }
-                }
-            ?>
-        </div>
+         <div class="block tabs">
+                    <ul>
+                        <li>Акции</li>
+                        <li>Новинки</li>
+                    </ul>
+                    <div>
+                        <div class="actionTab">
+                            <h1>АКЦИОННЫЕ ТОВАРЫ</h1>
+                            <div id="newProduct">
+                                <?php
+                                    $arrProducts = array();
+                                    $checkArr = array();
+                                    $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.old_price != '0' AND t1.quantity>0 ORDER BY title ASC";
+                                    $result = $conn->query($sql);
+                                    while ($record = $result->fetch_object()){
+                                        $product = new Product();
+                                        $product = $record;
+                                        $arrProducts[] = $product;
+                                    }
+                                    if(count($arrProducts)>6){
+                                        $randArr = array();
+                                        while (count($randArr)!=6){
+                                            $rand = rand(0, count($arrProducts)-1);
+                                            if(!in_array($rand, $checkArr)){
+                                                $randArr[] = $arrProducts[$rand];
+                                                $checkArr[] = $rand;
+                                            }
+                                        }
+                                        foreach ($randArr as $product) {
+                                            printProductCart($product);
+                                        }
+                                    }
+                                    else{
+                                        foreach ($arrProducts as $product) {
+                                            printProductCart($product);
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                        <div class="newsTab">
+                            <h1>НОВИНКИ КОНСТРУКТОРОВ LEGO®</h1>
+                            <div id="newProduct">
+                                <?php
+                                    $arrProducts = array();
+                                    $checkArr = array();
+                                    $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.quantity AND (t1.labels LIKE '%new%') ORDER BY id DESC";
+                                    $result = $conn->query($sql);
+                                    while ($record = $result->fetch_object()){
+                                        $product = new Product();
+                                        $product = $record;
+                                        $arrProducts[] = $product;
+                                    }
+                                    if(count($arrProducts)>6){
+                                        $randArr = array();
+                                        while (count($randArr)!=6){
+                                            $rand = rand(0, count($arrProducts)-1);
+                                            if(!in_array($rand, $checkArr)){
+                                                $randArr[] = $arrProducts[$rand];
+                                                $checkArr[] = $rand;
+                                            }
+                                        }
+                                        foreach ($randArr as $product) {
+                                            printProductCart($product);
+                                        }
+                                    }
+                                    else{
+                                        foreach ($arrProducts as $product) {
+                                            printProductCart($product);
+                                        }
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                    </div>  
+                    <script>
+                    $(document).ready(function(){
+                        $(".tabs").lightTabs();
+                    });</script>
+                </div> 
         <h2>СЕРИИ LEGO®</h2>
         <div id="catPreview"> 
             <?php
