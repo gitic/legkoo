@@ -17,6 +17,7 @@ defined(ACCESS_VALUE) or die('Access denied');
         <p class="error">Произошла ошибка</p>
         <div id="order">
             <?php if(isset($cookie) && count($cookie) != 0):?>
+            <div class="min-basket"><p>Минимальная сумма заказа <strong>200 грн</strong></p></div>
             <table cellspacing="0">
                 <thead>
                     <tr>
