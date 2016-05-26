@@ -20,7 +20,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     $article = new Article();
                     $article->getFomDb(array('id'=>'7'), $conn);
                 ?>
-                <a href="category-28-lego-nexo-knights">
+                <a href="category-13-lego-minecraft">
                     <p><?=$article->title?></p>
                     <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
                 </a>
@@ -30,7 +30,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     $article = new Article();
                     $article->getFomDb(array('id'=>'5'), $conn);
                 ?>
-                <a href="category-13-lego-minecraft">
+                <a href="category-28-lego-nexo-knights">
                     <p><?=$article->title?></p>
                     <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
                 </a>

@@ -81,9 +81,11 @@ defined(ACCESS_VALUE) or die('Access denied');
             <div class="clear"></div>
         </div>
     </div>
-</div>
 <br/>
+<div style="max-width: 1000px;margin: 0 auto;padding: 10px;">
 <center>
-    <noindex><a rel="nofollow" href="http://goo.gl/0ZMZpY" target="_blank"><img src="<?=VIEW?>images/catalog.jpg" style="max-width:100%;"/></a></noindex>
-</center>
-<br/>
+    <noindex><a rel="nofollow" href="https://goo.gl/YikPni" target="_blank" style="float:left;"><img src="<?=VIEW?>images/build.jpg" style="max-width:100%;"/></a></noindex>
+    <noindex><a rel="nofollow" href="http://goo.gl/0ZMZpY" target="_blank" style="float:right;"><img src="<?=VIEW?>images/catalog.jpg" style="max-width:100%;"/></a></noindex>
+    <div class="clear"></div>
+</center></div>
+</div>
