@@ -1567,18 +1567,19 @@ label {
 } 
 
 .guarant {
-    background-color:#fafafa;
+    background-color:#00A2DB;
     box-shadow:0 4px 7px rgba(0,0,0,0.1);
     border-radius:4px;
     margin:20px auto;
-    padding:1%;
+    padding:30px 1%;
     width:98%;
     color:#444;
     font-size:15px;
+    background-image: url(../images/bgCircle.png);
 }
 
 .guarant h3 {
-    color:#00A2DB;
+    color:#fff;
     font-size: 30px;
     font-weight:300;
     margin:0 0 2% 0;
@@ -1587,15 +1588,16 @@ label {
 
 .guarant .block {
     display:inline-block;
-    font-weight:300;
-    padding:0 0 10px 0;
-    width:19%;
+    font-weight:400;
+    padding:0 0 10px 1%;
+    width:18%;
     vertical-align:top;
     text-align:center;
+    color:#fff;
 }
 
 .guarant i {
-    color:#eee;
+    color:rgba(255,255,255,0.8);
     margin:0 0 10px 0;
     display:block;
     font-size:50px;
@@ -1732,7 +1734,7 @@ label {
     display: inline-block;
 }
 
-.mainTabs ul li.active, .tabs ul li.active:hover {
+.mainTabs ul li.active, .mainTabs .tabs ul li.active:hover {
     background-color:#00A2DB;
     color:#fff;
     font-size:20px;

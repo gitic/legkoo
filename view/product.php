@@ -181,7 +181,25 @@ if (!w.__utlWdgt ) {
                 </div> 
         </div>
         <div class="clear"></div>
-        
+        <div class="guarant">
+            <h3>Почему мы?</h3>
+            <div class="block">
+                <i class="fa fa-home"></i> У нас есть офлайновый магазин в Днепропетровске
+            </div>
+            <div class="block">
+                <i class="fa fa-cubes"></i> Мы уже 3 года в Украине
+            </div>
+            <div class="block">
+                <i class="fa fa-truck"></i> Доставляем по всей Украине перевозчиком «Новая почта»
+            </div>
+            <div class="block">
+                <i class="fa fa-certificate"></i> Работаем напрямую с представительством LEGO в Украине
+            </div>
+            <div class="block">
+                <i class="fa fa-diamond"></i> У нас есть эксклюзивные коллекции
+            </div>
+            <div class="clear"></div>
+        </div>
         <div class="comments">
         <h3>Отзыв о товаре</h3>
         <div id="hypercomments_widget"></div>
@@ -198,26 +216,6 @@ if (!w.__utlWdgt ) {
             s.parentNode.insertBefore(hcc, s.nextSibling);
             })();
             </script>
-        </div>
-        
-        <div class="guarant">
-            <h3>Почему мы?</h3>
-            <div class="block">
-                <i class="fa fa-home"></i> Офлайновый магазин в Днепропетровске
-            </div>
-            <div class="block">
-                <i class="fa fa-cubes"></i> 3 года в Украине
-            </div>
-            <div class="block">
-                <i class="fa fa-truck"></i> Доставка по всей Украине перевозчиком «Новая почта»
-            </div>
-            <div class="block">
-                <i class="fa fa-certificate"></i> Прямая работа с представительством LEGO в Украине
-            </div>
-            <div class="block">
-                <i class="fa fa-diamond"></i> Эксклюзивные коллекции
-            </div>
-            <div class="clear"></div>
         </div>
         
         

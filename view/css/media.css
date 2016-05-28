@@ -35,6 +35,10 @@
         max-width:200px;
     }
     
+    .constr {
+        display:none;
+    }
+    
     #feedback {
         display:none;
     }
