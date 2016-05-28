@@ -27,15 +27,37 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
             ?>
                 <span><img src="<?=$gArr[$i]?>" alt="<?=$product->title?>" title="<?=$product->title?>"/></span>
             <?php endfor;?>
-            
-            
-            <div class="productAbout" itemprop="description">
-                <h3>Описание</h3>
-                <p><?=$product->description?></p>
-            </div>
+                <div class="shareBtn">
+        
+<script type="text/javascript">(function(w,doc) {
+if (!w.__utlWdgt ) {
+    w.__utlWdgt = true;
+    var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
+    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
+    s.src = ('https:' == w.location.protocol ? 'https' : 'http')  + '://w.uptolike.com/widgets/v1/uptolike.js';
+    var h=d[g]('body')[0];
+    h.appendChild(s);
+}})(window,document);
+</script>
+<div data-background-alpha="0.0" data-buttons-color="#FFFFFF" data-counter-background-color="#ffffff" data-share-counter-size="12" data-top-button="false" data-share-counter-type="disable" data-share-style="1" data-mode="share" data-like-text-enable="false" data-mobile-view="false" data-icon-color="#ffffff" data-orientation="horizontal" data-text-color="#000000" data-share-shape="round-rectangle" data-sn-ids="fb.vk.tw.ok.gp.mr." data-share-size="30" data-background-color="#ffffff" data-preview-mobile="false" data-mobile-sn-ids="fb.vk.tw.wh.ok.gp." data-pid="1409452" data-counter-background-alpha="1.0" data-following-enable="false" data-exclude-show-more="true" data-selection-enable="false" class="uptolike-buttons" ></div>
+    </div>
         </div>
         <div class="productData" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
             
+                <div class="block">
+                    <?php
+                        $till = '+';
+                        if($product->age_to != 0){$till = '-'.$product->age_to;}
+                    ?>
+                    <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
+                    <p>Количество деталей: <strong><?=$product->elements?></strong></p>
+                    <?php if($product->size != ''):?>
+                    <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
+                    <?php endif;?>
+                    <?php if($product->figurka != 0):?>
+                    <p>Минифигурок: <strong><?=$product->figurka?></strong></p>
+                    <?php endif;?>
+                </div>
                 <?php if($product->labels != ''):?>
                 <div class="block">
                     <div class="labels product">
@@ -64,7 +86,7 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                     <div class="productPrice">
                         <?php if($product->old_price != 0):?>
                             <span style='text-decoration:line-through;color:gray;font-size:14px;'><?=$product->old_price?> грн</span>
-                            <span style="color:red;font-weight:bold;font-size:46px;"><?=$product->price?> <span style="color:red">грн</span></span>
+                            <span style="color:#E67E22;font-weight:bold;font-size:46px;"><?=$product->price?> <span style="color:#E67E22">грн</span></span>
                         <?php else:?>
                             <?=$product->price?> <span>грн</span>
                         <?php endif;?>
@@ -104,35 +126,6 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                     </div>
                     <div class="clear"></div>
                 </div>
-            
-                <div class="block">
-                    <?php
-                        $till = '+';
-                        if($product->age_to != 0){$till = '-'.$product->age_to;}
-                    ?>
-                    <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
-                    <p>Количество деталей: <strong><?=$product->elements?></strong></p>
-                    <?php if($product->size != ''):?>
-                    <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
-                    <?php endif;?>
-                    <?php if($product->figurka != 0):?>
-                    <p>Минифигурок: <strong><?=$product->figurka?></strong></p>
-                    <?php endif;?>
-                </div>
-            <div class="shareBtn">
-        
-<script type="text/javascript">(function(w,doc) {
-if (!w.__utlWdgt ) {
-    w.__utlWdgt = true;
-    var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
-    s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-    s.src = ('https:' == w.location.protocol ? 'https' : 'http')  + '://w.uptolike.com/widgets/v1/uptolike.js';
-    var h=d[g]('body')[0];
-    h.appendChild(s);
-}})(window,document);
-</script>
-<div data-background-alpha="0.0" data-buttons-color="#FFFFFF" data-counter-background-color="#ffffff" data-share-counter-size="12" data-top-button="false" data-share-counter-type="disable" data-share-style="1" data-mode="share" data-like-text-enable="false" data-mobile-view="false" data-icon-color="#ffffff" data-orientation="horizontal" data-text-color="#000000" data-share-shape="round-rectangle" data-sn-ids="fb.vk.tw.ok.gp.mr." data-share-size="30" data-background-color="#ffffff" data-preview-mobile="false" data-mobile-sn-ids="fb.vk.tw.wh.ok.gp." data-pid="1409452" data-counter-background-alpha="1.0" data-following-enable="false" data-exclude-show-more="true" data-selection-enable="false" class="uptolike-buttons" ></div>
-    </div>
                 <div class="block tabs">
                     <ul>
                         <li>Оплата и доставка</li>
@@ -181,45 +174,14 @@ if (!w.__utlWdgt ) {
                 </div> 
         </div>
         <div class="clear"></div>
-        <div class="guarant">
-            <h3>Почему мы?</h3>
-            <div class="block">
-                <i class="fa fa-home"></i> У нас есть офлайновый магазин в Днепропетровске
-            </div>
-            <div class="block">
-                <i class="fa fa-cubes"></i> Мы уже 3 года в Украине
-            </div>
-            <div class="block">
-                <i class="fa fa-truck"></i> Доставляем по всей Украине перевозчиком «Новая почта»
-            </div>
-            <div class="block">
-                <i class="fa fa-certificate"></i> Работаем напрямую с представительством LEGO в Украине
-            </div>
-            <div class="block">
-                <i class="fa fa-diamond"></i> У нас есть эксклюзивные коллекции
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="comments">
-        <h3>Отзыв о товаре</h3>
-        <div id="hypercomments_widget"></div>
-            <script type="text/javascript">
-            _hcwp = window._hcwp || [];
-            _hcwp.push({widget:"Stream", widget_id: 68368});
-            (function() {
-            if("HC_LOAD_INIT" in window)return;
-            HC_LOAD_INIT = true;
-            var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
-            var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
-            hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/68368/"+lang+"/widget.js";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hcc, s.nextSibling);
-            })();
-            </script>
-        </div>
         
-        
-        <div class="more-products">
+            
+            
+            <div class="productAbout" itemprop="description">
+                <h3>Описание</h3>
+                <p><?=$product->description?></p>
+            </div>
+         <div class="more-products">
             <?php
             $arrProducts = array();
             $checkArr = array();
@@ -254,6 +216,45 @@ if (!w.__utlWdgt ) {
             }
             ?>
         </div>
+        <div class="comments">
+        <h3>Отзыв о товаре</h3>
+        <div id="hypercomments_widget"></div>
+            <script type="text/javascript">
+            _hcwp = window._hcwp || [];
+            _hcwp.push({widget:"Stream", widget_id: 68368});
+            (function() {
+            if("HC_LOAD_INIT" in window)return;
+            HC_LOAD_INIT = true;
+            var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+            var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+            hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/68368/"+lang+"/widget.js";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hcc, s.nextSibling);
+            })();
+            </script>
+        </div>
+        <div class="guarant">
+            <h3>Почему мы?</h3>
+            <div class="block">
+                <i class="fa fa-home"></i> У нас есть офлайновый магазин в Днепропетровске
+            </div>
+            <div class="block">
+                <i class="fa fa-cubes"></i> Мы уже 3 года в Украине
+            </div>
+            <div class="block">
+                <i class="fa fa-truck"></i> Доставляем по всей Украине перевозчиком «Новая почта»
+            </div>
+            <div class="block">
+                <i class="fa fa-certificate"></i> Работаем напрямую с представительством LEGO в Украине
+            </div>
+            <div class="block">
+                <i class="fa fa-diamond"></i> У нас есть эксклюзивные коллекции
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+        
+       
         <input class='productID' type="hidden" hidden value="<?=$id?>">
     </div>
 </div>

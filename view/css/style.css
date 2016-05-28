@@ -91,6 +91,16 @@ h1 span {
     padding:10px;
 }
 
+#contactsLineBody a {
+    color:#3498DB;
+    font-weight:400;
+        font-size:16px;
+}
+
+#contactsLineBody a:hover {
+    text-decoration:underline;
+}
+
 #contactsLineBody i {
     color:#ddd;
 }
@@ -100,7 +110,12 @@ h1 span {
 }
 
 #contactsLineBody span a {
-    color:#00A2DB;
+    color:#3498DB;
+    font-weight:400;
+}
+
+#contactsLineBody img {
+    margin-top:-4px;
 }
 
 #topMenuFirst {
@@ -190,7 +205,7 @@ a#logo img {
     transition: all .4s ease-in-out;
 }
 
-#searchField input.btn:hover {background-color:#4CAF50;    color:#fff;
+#searchField input.btn:hover {background-color:#2ECC71;    color:#fff;
 border-radius:0 3px 3px 0;}
 
 #searchField i {
@@ -290,7 +305,9 @@ a#basketSmall span {
 }
 
 a#basketSmall:hover {
-    background-color:#EE1D23;
+    background-color:rgba(231,76,60,1);    
+    background-image: url(../images/bgCircle.png);
+    
 }
 
 #breadcrumbs {
@@ -377,7 +394,7 @@ a#basketSmall:hover {
 }
 
 #main h1 {
-    color:#666;
+    color:#34495E;
     font-size:30px;
     font-weight:500;
     text-align:left;
@@ -385,7 +402,7 @@ a#basketSmall:hover {
 }
 
 #main h2 {
-    color:#666;
+    color:#34495E;
     font-size:30px;
     font-weight:500;
     text-align:left;
@@ -444,13 +461,15 @@ a.catPreviewBlock img {
     -ms-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
     vertical-align:top;
+    overflow:hidden;
 }
 
 .labels {
     position:absolute;
-    left:-10px;
+    left:-6px;
     text-align:left;
     top:5px;
+    z-index:9;
 }
 
 .labels.product {
@@ -463,18 +482,17 @@ a.catPreviewBlock img {
 }
 
 .label {
-    border-radius:3px;
+    border-radius:0 3px 3px 0;
     color:#fff;
     font-size:14px;
     font-weight:300;
     margin:0 0 5px 4px;
     padding:5px 10px;
     display:inline-block;
-    box-shadow:1px 1px 1px rgba(0,0,0,0.2);
 }
 
 .label.pr {
-    opacity:0.6;
+    opacity:0.9;
     margin:0 0 5px 4px;
         box-shadow:none;
 }
@@ -510,6 +528,15 @@ a.catPreviewBlock img {
 .productPreview img.big {
     width:100%;
     display:block;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+}
+
+.productPreview:hover img.big {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
 }
 
 .previewTitle {
@@ -519,10 +546,12 @@ a.catPreviewBlock img {
     height:140px;
     padding:10px;
     text-align:left;
+    position: relative;
+    z-index:3;
 }
 
 .previewTitle a {
-    color:#0277BD!important;
+    color:#2980B9!important;
     display:block!important;
     font-size:19px!important;
     font-weight:500!important;
@@ -535,15 +564,25 @@ a.catPreviewBlock img {
 }
 
 .previewPrice {
-    color:#333;
+    color:#34495E;
     float:left;
-    font-size:24px;
+    font-size:28px;
     padding:0 0 0 10px;
     text-align:left;
     width:110px;
+    font-weight:600;
+}
+
+.previewPrice p {
+    line-height:10px;
 }
 
 .previewPrice span {
+    font-weight:300;
+    font-size:18px;
+}
+
+.previewPrice span p {
     color:#333;
     font-size:20px;
     font-weight:300;
@@ -554,12 +593,12 @@ a.catPreviewBlock img {
 }
 
 .previewBtn span {
-    background-color:#00A54F;
+    background-color:#F39C12;
     border-radius:3px;
     color:#fff;
     cursor:pointer;
     display:inline-block;
-    font-weight:300;
+    font-weight:400;
     font-size:15px;
     opacity:0.9;
     padding:10px 10px;
@@ -619,10 +658,10 @@ a.catPreviewBlock img {
 }
 
 #product h1 {
-    color:#0277BD;
+    color:#2980B9;
     margin:0 0 15px 0;
     padding:0 0 15px 0;
-    font-weight:300;
+    font-weight:400;
 }
 
 .productGallery img.bigFoto {
@@ -648,11 +687,12 @@ a.catPreviewBlock img {
 }
 
 .productPrice {
-    color:rgba(0,0,0,0.8);
+    color:#34495E;
     font-size:46px;
     padding:0 0 10px 0;
     text-align:left;
     font-weight:bold;
+    text-align:center;
 }
 
 .productPrice span {
@@ -731,8 +771,8 @@ img.newsImage {
     cursor:pointer;
     display:inline-block;
     font-size:17px;
-    font-weight:300;
-    opacity:0.7;
+    font-weight:400;
+    opacity:1;
     padding:15px 20px;
     border-radius:4px;
         -webkit-transition: all .4s ease-in-out;
@@ -747,7 +787,7 @@ img.newsImage {
 }
 
 .btn span:hover {
-    opacity:1;
+    opacity:0.8;
 }
 
 .buyBtnSet {
@@ -766,7 +806,7 @@ img.newsImage {
 }
 
 #submitOneClick {
-    background-color:#4CAF50;
+    background-color:#2ECC71;
     float:right;
 }
 
@@ -783,7 +823,7 @@ img.newsImage {
     display: inline-block;
 }
 .btn.buy span {
-    background-color:#EE1D23;
+    background-color:#F39C12;
     font-weight:bold;
 }
 
@@ -838,9 +878,9 @@ img.newsImage {
 }
 
 #order table td.sum strong {
-    color: #0277BD;
+    color: #2980B9;
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .orderFoto {
@@ -857,7 +897,7 @@ img.newsImage {
 }
 
 .orderTitle a {
-    color: #0277BD;
+    color: #2980B9;
     font-size: 16px;
     font-weight: 500;
     margin: 5px 0 10px 0;
@@ -899,7 +939,7 @@ img.newsImage {
 }
 
 .orderPrice strong {
-    color:#000;
+    color:#34495E;
     font-size:20px;
     font-weight:400;
 }
@@ -1021,7 +1061,7 @@ a.footLogo img {
 
 .notify p a.btn {
     float:right;
-    background-color:#4CAF50;
+    background-color:#2ECC71;
     color:#fff;
     cursor:pointer;
     display:inline-block;
@@ -1167,7 +1207,7 @@ a.footLogo img {
 }
 
 input.send {
-    background-color:#4CAF50;
+    background-color:#2ECC71;
     border:0;
     color:#fff;
     cursor:pointer;
@@ -1485,6 +1525,7 @@ label {
     position:absolute;
     right:5px;
     top:5px;
+    z-index:9;
 }
 
 .productIcon i {
@@ -1709,11 +1750,12 @@ label {
     position:relative;
     margin-top:-10px;
     margin-right:15px;
-    background-color:#EE1D23;
-    padding:10px 15px;
-    font-weight:300;
+    background-color:#E74C3C;
+    padding:11px 15px;
+    font-weight:300!important;
+    font-size:14px!important;
     text-decoration:none;
-    color:#fff;
+    color:#fff!important;
 }
 
 .live a i {
@@ -1741,12 +1783,18 @@ label {
 }
 
 .min-basket {
-    border:1px solid rgba(255,55,0,1);
-    background-color:rgba(255,55,0,0.6);
+    border:1px solid rgba(46,204,113,0.9);
+    background-color:rgba(46,204,113,0.7);
     color:#fff;
     font-size:20px;
     font-weight:300;
     padding:10px 0;
     text-align:center;
     margin-top:15px;
+}
+
+.constr {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
 }

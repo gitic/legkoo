@@ -30,13 +30,13 @@ defined(ACCESS_VALUE) or die('Access denied');
 </noindex>
 <div id="contactsLine">
     <div id="contactsLineBody">
-        <span><i class="fa fa-pencil-square"></i> <a href="mailto:legodnepr@gmail.com">legodnepr@gmail.com</a></span>
+        <span><i class="fa fa-phone-square"></i> <a href="tel:+380675678244">(067)567-82-44</a> <img src="<?=VIEW?>images/viber.png" valign="middle"/> (с 10:00 до 20:00)</span>
         
-        <div class="live">
+        <div class="live" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
             <a href="info-6"><i class="fa fa-video-camera"></i> Магазин LIVE</a>
         </div>
         
-        <i class="fa fa-phone-square"></i> +38(067)567-82-44 (с 10:00 до 20:00)
+        <i class="fa fa-pencil-square"></i> <a href="mailto:legodnepr@gmail.com">legodnepr@gmail.com</a>
     </div>
 </div>
 <div id="topMenu">
@@ -81,10 +81,9 @@ defined(ACCESS_VALUE) or die('Access denied');
             <div class="clear"></div>
         </div>
     </div>
-<br/>
-<div style="max-width: 1000px;margin: 0 auto;padding: 10px;">
+<div class="constr" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
 <center>
-    <noindex><a rel="nofollow" href="https://goo.gl/YikPni" target="_blank" style="float:left;" class="constr"><img src="<?=VIEW?>images/build.jpg" style="max-width:100%;"/></a></noindex>
+    <noindex><a rel="nofollow" href="https://goo.gl/YikPni" target="_blank" style="float:left;"><img src="<?=VIEW?>images/build.jpg" style="max-width:100%;"/></a></noindex>
     <noindex><a rel="nofollow" href="http://goo.gl/0ZMZpY" target="_blank" style="float:right;"><img src="<?=VIEW?>images/catalog.jpg" style="max-width:100%;"/></a></noindex>
     <div class="clear"></div>
 </center></div>

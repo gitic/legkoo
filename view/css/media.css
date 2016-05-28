@@ -161,6 +161,14 @@
         width:100%;
         padding:0 0 15px 0;
     }  
+    
+    .live {
+        display:none;
+    }
+
+    #contactsLineBody {
+        text-align:left!important;
+    }
 }
 
 @media (max-width:650px) { 
