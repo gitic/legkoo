@@ -54,7 +54,7 @@ function printProductCart($product){?>
         <div class="previewBtn <?=$product->id?>">
             <?php 
                 $addClass = '';
-                $text = 'КУПИТЬ';
+                $text = 'В КОРЗИНУ';
                 if($product->quantity <=0){
                     $addClass = "class='disabled'";
                     $text = 'ОЖИДАЕТСЯ';

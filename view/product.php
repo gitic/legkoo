@@ -108,7 +108,7 @@ if (!w.__utlWdgt ) {
                         <div class="btn buy">
                             <?php 
                                 $addClass = '';
-                                $text = '<i class="fa fa-hand-pointer-o fa-rotate-90"></i> КУПИТЬ';
+                                $text = '<i class="fa fa-hand-pointer-o fa-rotate-90"></i> В КОРЗИНУ';
                                 if($product->quantity <=0){
                                     $addClass = "class='disabled'";
                                     $text = 'ОЖИДАЕТСЯ';
