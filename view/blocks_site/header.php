@@ -42,7 +42,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <div id="topMenu">
     <div id="topMenuFirst">
         <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
-        <form id="searchField" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
+        <form id="searchField" class="search-desc" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
             <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp searchField"/><input value="поиск" type="submit" class="btn"/>
         </form>
         <div class="slogan1">
@@ -60,6 +60,9 @@ defined(ACCESS_VALUE) or die('Access denied');
             <nav class="clearfix">
                 <ul class="clearfix">
                     <li>
+                        <a href="http://legkoo.com.ua/"><span>главная</span></a>
+                    </li>
+                    <li>
                         <a href="catalog"><span>каталог</span></a>
                     </li>
                     <li>
@@ -70,9 +73,6 @@ defined(ACCESS_VALUE) or die('Access denied');
                     </li>
                     <li>
                         <a href="info-6"><span><strong>кто мы?</strong></span></a>
-                    </li>
-                    <li>
-                        <a href="reviews"><span>отзывы</span></a>
                     </li>
                     <div class="clear"></div>
                 </ul>

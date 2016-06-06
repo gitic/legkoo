@@ -86,7 +86,7 @@ if (!w.__utlWdgt ) {
                     <div class="productPrice">
                         <?php if($product->old_price != 0):?>
                             <span style='text-decoration:line-through;color:gray;font-size:14px;'><?=$product->old_price?> грн</span>
-                            <span style="color:#E67E22;font-weight:bold;font-size:46px;"><?=$product->price?> <span style="color:#E67E22">грн</span></span>
+                            <span style="color:#FFD740;font-weight:bold;font-size:46px;"><?=$product->price?> <span style="color:#FFD740">грн</span></span>
                         <?php else:?>
                             <?=$product->price?> <span>грн</span>
                         <?php endif;?>
@@ -108,7 +108,7 @@ if (!w.__utlWdgt ) {
                         <div class="btn buy">
                             <?php 
                                 $addClass = '';
-                                $text = '<i class="fa fa-hand-pointer-o fa-rotate-90"></i> В КОРЗИНУ';
+                                $text = '<i class="fa fa-shopping-cart" aria-hidden="true"></i> В КОРЗИНУ';
                                 if($product->quantity <=0){
                                     $addClass = "class='disabled'";
                                     $text = 'ОЖИДАЕТСЯ';

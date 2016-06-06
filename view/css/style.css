@@ -171,7 +171,7 @@ a#logo img {
 
 #searchField {
     border:1px solid #f3f3f3;
-    border-radius:3px;
+    border-radius:0;
     float:right;
     margin:20px 0 0 0;
     width:400px;
@@ -205,7 +205,7 @@ a#logo img {
     transition: all .4s ease-in-out;
 }
 
-#searchField input.btn:hover {background-color:#2ECC71;    color:#fff;
+#searchField input.btn:hover {background-color:#00A54F;    color:#fff;
 border-radius:0 3px 3px 0;}
 
 #searchField i {
@@ -242,10 +242,10 @@ nav li {
 nav a {
     border-bottom:3px solid transparent;
     color:#fff;
-    font-size:15px;
-    font-weight:400;
+    font-size:16px;
+    font-weight:600;
     display:block;
-    padding:17px 0 12px 0;
+    padding:18px 0 13px 0;
     text-transform:uppercase;
     -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
@@ -482,7 +482,7 @@ a.catPreviewBlock img {
 }
 
 .label {
-    border-radius:0 3px 3px 0;
+    border-radius:0;
     color:#fff;
     font-size:14px;
     font-weight:300;
@@ -502,11 +502,11 @@ a.catPreviewBlock img {
 }
 
 .label.sale {
-    background-color:#FFD54F;
+    background-color:#FFF176;
 }
 
 .label.exclusive {
-    background-color:#29B6F6;
+    background-color:#4FC3F7;
 }
 
 .label.soon {
@@ -528,15 +528,15 @@ a.catPreviewBlock img {
 .productPreview img.big {
     width:100%;
     display:block;
-    -moz-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
-    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+    -webkit-transition: all 0.7s ease-out;
 }
 
 .productPreview:hover img.big {
-    -webkit-transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -o-transform: scale(1.5);
+    -webkit-transform: scale(1.3);
+    -moz-transform: scale(1.3);
+    -o-transform: scale(1.3);
 }
 
 .previewTitle {
@@ -548,6 +548,7 @@ a.catPreviewBlock img {
     text-align:left;
     position: relative;
     z-index:3;
+    background-color:#fff;
 }
 
 .previewTitle a {
@@ -593,8 +594,8 @@ a.catPreviewBlock img {
 }
 
 .previewBtn span {
-    background-color:#F39C12;
-    border-radius:3px;
+    background-color:#00A54F;
+    border-radius:0;
     color:#fff;
     cursor:pointer;
     display:inline-block;
@@ -774,7 +775,7 @@ img.newsImage {
     font-weight:400;
     opacity:1;
     padding:15px 20px;
-    border-radius:4px;
+    border-radius:0;
         -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
@@ -806,7 +807,7 @@ img.newsImage {
 }
 
 #submitOneClick {
-    background-color:#2ECC71;
+    background-color:#00A54F;
     float:right;
 }
 
@@ -823,8 +824,12 @@ img.newsImage {
     display: inline-block;
 }
 .btn.buy span {
-    background-color:#F39C12;
+    background-color:#00A54F;
     font-weight:bold;
+}
+
+.sh_logo_btn {
+    display:none!important;
 }
 
 #subscribe {
@@ -1061,7 +1066,7 @@ a.footLogo img {
 
 .notify p a.btn {
     float:right;
-    background-color:#2ECC71;
+    background-color:#00A54F;
     color:#fff;
     cursor:pointer;
     display:inline-block;
@@ -1069,7 +1074,7 @@ a.footLogo img {
     font-weight:300;
     opacity:0.8;
     padding:15px 20px;
-    border-radius:4px;
+    border-radius:0;
 }
 
 .notify p a.btn:hover {
@@ -1085,7 +1090,7 @@ a.footLogo img {
     font-weight:300;
     opacity:0.8;
     padding:15px 20px;
-    border-radius:4px;
+    border-radius:0;
 }
 
 .notify p span:hover {
@@ -1207,7 +1212,7 @@ a.footLogo img {
 }
 
 input.send {
-    background-color:#2ECC71;
+    background-color:#00A54F;
     border:0;
     color:#fff;
     cursor:pointer;
@@ -1351,7 +1356,7 @@ label {
     padding: 10px 20px;
     background: rgba(0,0,0,0.3);
     color: #fff;
-    border-radius:5px;
+    border-radius:0;
     font-weight:300;  
     z-index:99!important;
 }
@@ -1412,7 +1417,7 @@ label {
     top:1px;
     position:relative;
     z-index:1;
-    border-radius:5px 5px 0 0;
+    border-radius:0;
 }
 .tabs ul li.active, .tabs ul li.active:hover{
     background:#e5e5e5;
@@ -1442,6 +1447,7 @@ label {
 	z-index:10000;
         box-shadow:0 0 4px rgba(0,0,0,0.3);
         opacity:0.6;
+        display:none;
 }
 
 #feedback:hover {
@@ -1777,7 +1783,7 @@ label {
 }
 
 .mainTabs ul li.active, .mainTabs .tabs ul li.active:hover {
-    background-color:#00A2DB;
+    background-color:#00A2DB!important;
     color:#fff;
     font-size:20px;
 }
