@@ -693,7 +693,7 @@ a.catPreviewBlock img {
     padding:0 0 10px 0;
     text-align:left;
     font-weight:bold;
-    text-align:center;
+    text-align:left;
 }
 
 .productPrice span {
@@ -792,14 +792,14 @@ img.newsImage {
 }
 
 .buyBtnSet {
-    float:left;
+    text-align:left;
 }
 
 .oneClickBtn {
     margin:5px 0 0 0;
     color:#999;
     font-weight:300;
-    text-align:right;
+    text-align:left;
 }
 
 .oneClickBtn span {
