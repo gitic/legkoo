@@ -96,14 +96,14 @@ if (!w.__utlWdgt ) {
                     </div>
                 </div>
                 <div class="block btnbuy">
-<!--                    <div class="productBuy">
-                        Количество: <div class="numbers"><input value="1" type="text" />
+                    <div class="productBuy">
+                        <div class="numbers"><input value="1" type="text" />
                             <div class="increase">
                                 <span class='plusBtn'>+</span>
                                 <span class='minusBtn'>-</span>
                             </div>
                         </div>
-                    </div>-->
+                    </div>
                     <div class="buyBtnSet">
                         <div class="btn buy">
                             <?php 
