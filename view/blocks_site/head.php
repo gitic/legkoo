@@ -80,3 +80,7 @@ defined(ACCESS_VALUE) or die('Access denied');
   ga('send', 'pageview');
 
 </script>
+
+
+
+<meta name="it-rating" content="it-rat-7040113d6428d33c2dfdb6e69da097fa" />

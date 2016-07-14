@@ -46,7 +46,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp searchField"/><input value="поиск" type="submit" class="btn"/>
         </form>
         <div class="slogan1">
-            <a href="<?=PATH?>"><img src="<?=VIEW?>images/logo.jpg" class="mainLogo"/></a><a href="<?=PATH?>">legkoo.com.ua</a> - интернет магазин детских конструкторов.
+            <a href="<?=PATH?>"><img src="<?=VIEW?>images/logo_1.jpg" class="mainLogo"/></a>
         </div>
         <div class="clear"></div>
     </div>
@@ -84,7 +84,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <div class="constr" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
 <center>
     <noindex><a rel="nofollow" href="https://goo.gl/YikPni" target="_blank" style="float:left;"><img src="<?=VIEW?>images/build.jpg" style="max-width:100%;"/></a></noindex>
-    <noindex><a rel="nofollow" href="http://goo.gl/0ZMZpY" target="_blank" style="float:right;"><img src="<?=VIEW?>images/catalog.jpg" style="max-width:100%;"/></a></noindex>
+    <noindex><a rel="nofollow" href="http://goo.gl/1VoyfS" target="_blank" style="float:right;"><img src="<?=VIEW?>images/catalog2016.jpg" style="max-width:100%;"/></a></noindex>
     <div class="clear"></div>
 </center></div>
 </div>
