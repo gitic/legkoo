@@ -8,9 +8,9 @@ defined(ACCESS_VALUE) or die('Access denied');
             <div>
                 <?php
                     $article = new Article();
-                    $article->getFomDb(array('id'=>'8'), $conn);
+                    $article->getFomDb(array('id'=>'9'), $conn);
                 ?>
-                <a href="article-8-novyie-igrovyie-naboryi-lego-the-angry-birds-movie">
+                <a href="article-9-novinki-2016-lego-ninjago">
                     <p><?=$article->title?></p>
                     <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
                 </a>
