@@ -189,27 +189,25 @@ $searchStr = clear($conn, $searchStr);
             <div class="block">
                 <p style='margin: 0 40px'>
                     <label for="amount_price">Цена:</label>
-                    <input type="text" id="amount_price" readonly style="border:0; color:#333; background-color:#f5f5f5; font-weight:bold;"><br><br>
+                    <input type="text" id="amount_price" readonly style="border:0; color:#333; background-color:#f5f5f5; font-weight:bold;"><br>
                     <input type="hidden" id="priceHide1" value="">
                     <input type="hidden" id="priceHide2" value="">
                     <div style='margin: 0 40px' id="slider-price"></div>
                 </p>
             </div>
-            <div class="clear"></div>
             <div class="block">
                 <p style='margin: 0 40px'>
                     <label for="amount_age">Возраст:</label>
-                    <input type="text" id="amount_age" readonly style="border:0; color:#333; background-color:#f5f5f5; font-weight:bold;"><br><br>
+                    <input type="text" id="amount_age" readonly style="border:0; color:#333; background-color:#f5f5f5; font-weight:bold;"><br>
                     <input type="hidden" id="ageHide1" value="">
                     <input type="hidden" id="ageHide2" value="">
                     <div style='margin: 0 40px' id="slider-age"></div>
                 </p>
             </div>
-            <div class="clear"></div>
             <div class="block">
                 <p style='margin: 0 40px'>
                     <label for="amount_elements">Деталей:</label>
-                    <input type="text" id="amount_elements" readonly style="border:0; color:#333; background-color:#f5f5f5; font-weight:bold;"><br><br>
+                    <input type="text" id="amount_elements" readonly style="border:0; color:#333; background-color:#f5f5f5; font-weight:bold;"><br>
                     <input type="hidden" id="elsHide1" value="">
                     <input type="hidden" id="elsHide2" value="">
                     <div style='margin: 0 40px' id="slider-elements"></div>
