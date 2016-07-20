@@ -35,6 +35,10 @@
         max-width:200px;
     }
     
+    #sh_button {
+        display:none;
+    }
+    
     .constr {
         display:none;
     }
