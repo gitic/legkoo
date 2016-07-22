@@ -139,6 +139,18 @@ else{
             $meta['keywords'] = "";
             break;
         
+        case 'new_products':
+            $meta['title'] = "Новые товары в магазине Legkoo.com.ua";
+            $meta['description'] = "";
+            $meta['keywords'] = "";
+            break;
+        
+        case 'sitemap':
+            $meta['title'] = "Карта сайта";
+            $meta['description'] = "";
+            $meta['keywords'] = "";
+            break;
+        
         default :
             $meta['title'] = 'Lego';
             $meta['description'] = 'Lego';
