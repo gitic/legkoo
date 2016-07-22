@@ -69,7 +69,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <a href="actions"><span style="color:#FFD54F"><strong>Акции</strong></span></a>
                     </li>
                     <li>
-                        <a href="new-products"><strong>Новинки</strong></span></a>
+                        <a href="new-products"><span><strong>Новинки</strong></span></a>
                     </li>
                     <li>
                         <a href="info-1"><span>доставка и оплата</span></a>
