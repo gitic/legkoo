@@ -268,6 +268,104 @@ function templateNewOrder($title,$orderHref,$name,$email,$phone,$comment,$sum,$d
 </table>
 ';}
 
+function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discountSum,$deliverySum,$totalSum,$products){
+    $pText = '';
+    foreach ($products as $product) {
+        $pText .= '<tr>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['articul'].'</td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left;width:50px">
+                                <img src="http://legkoo.com.ua/'.$product['img'].'" style="width:50px">
+                        </td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">
+                                <div>'.$product['title'].'</div>
+                        </td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['count'].'</td>
+                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['price'].' грн</td>
+                </tr>';
+    }
+    return '
+<table border="0" cellpadding="0" cellspacing="0" width="70%" align="center">
+    <tbody>
+            <tr>
+                    <td>
+                            <div style="border:1px solid #b6b6b6;background:#fff;border-top:3px solid #4285cc;border-radius:0 0 6px 6px">
+                                    <div style="padding:15px 25px">
+                                            <div style="font-size:12px;font-family:tahoma">
+                                                    <div style="font-weight:bold;font-size:14px;padding:0 0 10px;margin:0 0 10px;border-bottom:1px solid #b6b6b6">
+                                                            '.$title.'
+                                                    </div>
+                                                    <div style="font-size:11px;font-weight:normal">
+                                                            ТУТ МОЖНО ВСТАВИТЬ ССЫЛКИ
+                                                    </div>
+                                                    <div>
+                                                            <div style="padding:10px 0 5px;font-weight:bold">Информация о покупателе</div>
+                                                            <table cellpadding="5" cellspacing="0" style="font-size:12px;font-family:tahoma">
+                                                                    <tbody>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">Имя</td>
+                                                                                    <td>'.$name.'</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">E-mail</td>
+                                                                                    <td>'.$email.'</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;">Телефон</td>
+                                                                                    <td>'.$phone.'</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">Комментарий клиента</td>
+                                                                                    <td>'.$comment.'</td>
+                                                                            </tr>
+                                                                    </tbody>
+                                                            </table>
+                                                    </div>
+                                                    <div>
+                                                            <div style="padding:10px 0 5px;font-weight:bold">Заказанные товары</div>
+                                                            <table cellpadding="0" cellspacing="0" style="width:100%;font-size:11px">
+                                                                    <thead>
+                                                                            <tr>
+                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Артикул</td>
+                                                                                    <td colspan="2" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Название</td>
+                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Количество</td>
+                                                                                    <td width="15%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Цена</td>
+                                                                            </tr>
+                                                                    </thead>
+                                                                    <tbody>'.$pText.'</tbody>
+                                                            </table>
+                                                    </div>
+                                                    <div>
+                                                            <div style="padding:10px 0 5px;font-weight:bold">Сумма заказа</div>
+                                                            <table cellpadding="5" cellspacing="0" style="font-size:12px;font-family:tahoma">
+                                                                    <tbody>
+                                                                            <tr>
+                                                                                    <td style="color:#665;width:150px">Товары</td>
+                                                                                    <td>'.$sum.' грн</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;">Скидка</td>
+                                                                                    <td>'.$discountSum.' грн</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;">Доставка</td>
+                                                                                    <td>'.$deliverySum.' грн</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                    <td style="color:#665;font-weight:bold">Всего</td>
+                                                                                    <td>'.$totalSum.' грн</td>
+                                                                            </tr>
+                                                                    </tbody>
+                                                            </table>
+                                                    </div>
+                                            </div>
+                                    </div>
+                            </div>
+                    </td>
+            </tr>
+    </tbody>
+</table>
+';}
+
 
 //Получить ip адрес
 function getRealIp()
