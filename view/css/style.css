@@ -996,15 +996,12 @@ img.newsImage {
 
 a.footLogo {
     display:inline-block;
-    height:60px;
     overflow:hidden;
     padding:0;
-    width:60px;
 }
 
 a.footLogo img {
-    height:60px;
-    width:60px;
+    max-width:100%;
 }
 
 #copyright {
@@ -1827,4 +1824,19 @@ label {
     height: 1px;
     position: absolute;
     width: 20px;
+}
+
+.sitemap {
+    margin:20px 0 40px 0;
+}
+
+.sitemap a {
+    color: #009ED9;
+    font-weight: 400;
+    font-size: 14px;
+    display:block;
+}
+
+.sitemap a:hover {
+    text-decoration: underline;
 }
