@@ -351,15 +351,16 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
                             </div>
                     </td>
             </tr>
-            <tr>
             <div style="border:1px solid #eeeeee;background:#efefef;padding:15px 25px">
+            <tr>
             <td style="border-bottom:1px solid #eeeeee;color:#366ab8;">
             Надеемся, Вам было удобно пользоваться нашим магазином. Если остались вопросы по оплате или условиям покупки, пишите нам на legodnepr@gmail.com, будем рады помочь.<br/><br/>
 
 Приятной игры,<br/>
 команда Legkoo.com.ua.
 </td>
-</tr><td style="color:#fff;text-align:right;">
+</tr>
+<tr><td style="color:#fff;text-align:right;">
 Мы в социальных сетях: <a href="https://www.facebook.com/LegkooComUa" target="_blank">в Facebook</a>, <a href="https://instagram.com/legodnepr/" target="_blank">в Instagram</a>
 </td>
 </tr>
