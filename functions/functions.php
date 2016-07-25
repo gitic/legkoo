@@ -288,14 +288,15 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
     <tbody>
             <tr>
                     <td>
-                            <div style="border:1px solid #b6b6b6;background:#fff;border-top:3px solid #4285cc;">
+                            <div style="border:1px solid #eeeeee;background:#fff;border-top:3px solid #009ED9;">
                                     <div style="padding:15px 25px">
                                             <div style="font-size:12px;font-family:tahoma">
-                                                    <div style="font-weight:bold;font-size:14px;padding:0 0 10px;margin:0 0 10px;border-bottom:1px solid #b6b6b6">
+                                                    <div style="font-weight:bold;font-size:14px;padding:0 0 10px;margin:0 0 10px;border-bottom:1px solid #eeeeee">
                                                             '.$title.'
                                                     </div>
                                                     <div style="font-size:11px;font-weight:normal">
-                                                            Ваш заказ принят! 
+<img src="http://legkoo.com.ua/view/images/logo_1.jpg"/><br/>
+Ваш заказ принят. Спасибо за покупку!
                                                     </div>
                                                     <div>
                                                             <div style="padding:10px 0 5px;font-weight:bold">Ваша информация</div>
@@ -351,13 +352,18 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
                     </td>
             </tr>
             <tr>
-            <td style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;;padding:7px">
-            <p>Надеемся, Вам было удобно пользоваться нашим магазином. Если остались вопросы по оплате или условиям покупки, пишите нам на legodnepr@gmail.com, будем рады помочь.</p>
+            <div style="border:1px solid #eeeeee;background:#efefef;padding:15px 25px">
+            <td style="border-bottom:1px solid #eeeeee;color:#366ab8;">
+            Надеемся, Вам было удобно пользоваться нашим магазином. Если остались вопросы по оплате или условиям покупки, пишите нам на legodnepr@gmail.com, будем рады помочь.<br/><br/>
 
-<p>Приятной игры,<br/>
-команда Legkoo.com.ua.</p>
+Приятной игры,<br/>
+команда Legkoo.com.ua.
+</td>
+</tr><td style="color:#fff;text-align:right;">
+Мы в социальных сетях: <a href="https://www.facebook.com/LegkooComUa" target="_blank">в Facebook</a>, <a href="https://instagram.com/legodnepr/" target="_blank">в Instagram</a>
 </td>
 </tr>
+</div>
     </tbody>
 </table>
 ';}
