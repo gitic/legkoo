@@ -59,10 +59,11 @@ if(isset($_POST['submit']) && isset($_COOKIE['mlscart'])){
         $date = date("j.m.Y, H:i", strtotime($order->date_add));
         $subject = "Новый заказ №".$orderId." от $date - ".TITLE;
         $message = templateNewOrder($subject, PATH."/adminka/?view=order_edit&id=$orderId", $order->fio, $order->email, $order->phone, $order->comment, $sum, '0', '0', $sum, $orderCart);
-        sendSMTPgmail(TITLE, 'glink0504@gmail.com,zymainfo@gmail.com,legodnepr@gmail.com', $subject, $message);
+//        sendSMTPgmail(TITLE, 'glink0504@gmail.com,zymainfo@gmail.com,legodnepr@gmail.com', $subject, $message);
         
         $clientMessage = templateNewOrderClient($subject, $order->fio, $order->email, $order->phone, $order->comment, $sum, '0', '0', $sum, $orderCart);
 //        sendSMTPgmail(TITLE, $order->email, $subject, $clientMessage);
+        sendSMTPgmail(TITLE, 'glink0504@gmail.com,zymainfo@gmail.com', $subject, $clientMessage);
         
         unset($_COOKIE['mlscart']);
         setcookie("mlscart", '', time()-300);
