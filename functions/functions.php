@@ -174,15 +174,15 @@ function templateNewOrder($title,$orderHref,$name,$email,$phone,$comment,$sum,$d
     $pText = '';
     foreach ($products as $product) {
         $pText .= '<tr>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['articul'].'</td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left;width:50px">
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">'.$product['articul'].'</td>
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left;width:50px">
                                 <img src="http://legkoo.com.ua/'.$product['img'].'" style="width:50px">
                         </td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">
                                 <div>'.$product['title'].'</div>
                         </td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['count'].'</td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['price'].' грн</td>
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">'.$product['count'].'</td>
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">'.$product['price'].' грн</td>
                 </tr>';
     }
     return '
@@ -227,10 +227,10 @@ function templateNewOrder($title,$orderHref,$name,$email,$phone,$comment,$sum,$d
                                                             <table cellpadding="0" cellspacing="0" style="width:100%;font-size:11px">
                                                                     <thead>
                                                                             <tr>
-                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Артикул</td>
-                                                                                    <td colspan="2" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Название</td>
-                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Количество</td>
-                                                                                    <td width="15%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Цена</td>
+                                                                                    <td width="10%" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Артикул</td>
+                                                                                    <td colspan="2" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Название</td>
+                                                                                    <td width="10%" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Количество</td>
+                                                                                    <td width="15%" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Цена</td>
                                                                             </tr>
                                                                     </thead>
                                                                     <tbody>'.$pText.'</tbody>
@@ -272,15 +272,15 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
     $pText = '';
     foreach ($products as $product) {
         $pText .= '<tr>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['articul'].'</td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left;width:50px">
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">'.$product['articul'].'</td>
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left;width:50px">
                                 <img src="http://legkoo.com.ua/'.$product['img'].'" style="width:50px">
                         </td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">
                                 <div>'.$product['title'].'</div>
                         </td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['count'].'</td>
-                        <td style="border-bottom:1px solid #cccccc;padding:7px;vertical-align:top;text-align:left">'.$product['price'].' грн</td>
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">'.$product['count'].'</td>
+                        <td style="border-bottom:1px solid #eeeeee;padding:7px;vertical-align:top;text-align:left">'.$product['price'].' грн</td>
                 </tr>';
     }
     return '
@@ -288,17 +288,17 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
     <tbody>
             <tr>
                     <td>
-                            <div style="border:1px solid #b6b6b6;background:#fff;border-top:3px solid #4285cc;border-radius:0 0 6px 6px">
+                            <div style="border:1px solid #b6b6b6;background:#fff;border-top:3px solid #4285cc;">
                                     <div style="padding:15px 25px">
                                             <div style="font-size:12px;font-family:tahoma">
                                                     <div style="font-weight:bold;font-size:14px;padding:0 0 10px;margin:0 0 10px;border-bottom:1px solid #b6b6b6">
                                                             '.$title.'
                                                     </div>
                                                     <div style="font-size:11px;font-weight:normal">
-                                                            ТУТ МОЖНО ВСТАВИТЬ ССЫЛКИ
+                                                            Ваш заказ принят! 
                                                     </div>
                                                     <div>
-                                                            <div style="padding:10px 0 5px;font-weight:bold">Информация о покупателе</div>
+                                                            <div style="padding:10px 0 5px;font-weight:bold">Ваша информация</div>
                                                             <table cellpadding="5" cellspacing="0" style="font-size:12px;font-family:tahoma">
                                                                     <tbody>
                                                                             <tr>
@@ -325,10 +325,10 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
                                                             <table cellpadding="0" cellspacing="0" style="width:100%;font-size:11px">
                                                                     <thead>
                                                                             <tr>
-                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Артикул</td>
-                                                                                    <td colspan="2" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Название</td>
-                                                                                    <td width="10%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Количество</td>
-                                                                                    <td width="15%" style="border-top:1px solid #cccccc;border-bottom:1px solid #cccccc;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Цена</td>
+                                                                                    <td width="10%" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Артикул</td>
+                                                                                    <td colspan="2" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Название</td>
+                                                                                    <td width="10%" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Количество</td>
+                                                                                    <td width="15%" style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;font-weight:bold;padding:7px">Цена</td>
                                                                             </tr>
                                                                     </thead>
                                                                     <tbody>'.$pText.'</tbody>
@@ -338,18 +338,6 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
                                                             <div style="padding:10px 0 5px;font-weight:bold">Сумма заказа</div>
                                                             <table cellpadding="5" cellspacing="0" style="font-size:12px;font-family:tahoma">
                                                                     <tbody>
-                                                                            <tr>
-                                                                                    <td style="color:#665;width:150px">Товары</td>
-                                                                                    <td>'.$sum.' грн</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                    <td style="color:#665;">Скидка</td>
-                                                                                    <td>'.$discountSum.' грн</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                    <td style="color:#665;">Доставка</td>
-                                                                                    <td>'.$deliverySum.' грн</td>
-                                                                            </tr>
                                                                             <tr>
                                                                                     <td style="color:#665;font-weight:bold">Всего</td>
                                                                                     <td>'.$totalSum.' грн</td>
@@ -362,6 +350,14 @@ function templateNewOrderClient($title,$name,$email,$phone,$comment,$sum,$discou
                             </div>
                     </td>
             </tr>
+            <tr>
+            <td style="border-top:1px solid #eeeeee;border-bottom:1px solid #eeeeee;background:#efefef;color:#366ab8;;padding:7px">
+            <p>Надеемся, Вам было удобно пользоваться нашим магазином. Если остались вопросы по оплате или условиям покупки, пишите нам на legodnepr@gmail.com, будем рады помочь.</p>
+
+<p>Приятной игры,<br/>
+команда Legkoo.com.ua.</p>
+</td>
+</tr>
     </tbody>
 </table>
 ';}
