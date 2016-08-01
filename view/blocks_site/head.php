@@ -12,7 +12,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 <meta name='yandex-verification' content='401582a70e4711f0' />
 
-<link rel="shortcut icon" href="<?=VIEW?>images/favicon.png">
+<link rel="shortcut icon" href="<?=VIEW?>images/favicon.jpg">
 <link rel="stylesheet" type="text/css" href="<?=VIEW?>css/style.css?<?=time()?>" />
 <link rel="stylesheet" type="text/css" href="<?=VIEW?>css/media.css?<?=time()?>" />
 <link rel='stylesheet' href='lib/icons/css/font-awesome.min.css'>
