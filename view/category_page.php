@@ -133,8 +133,34 @@ $total_rows = $result->fetch_array()[0];
             <?php endif;?>
         </div>
         
+        <div class="guarant">
+            <h3>Почему мы?</h3>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant1.png"/> 
+                <p>У нас есть офлайновый магазин в Днепре</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant2.png"/>
+                <p>Мы уже 3 года в Украине</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant3.png"/>
+                <p>Доставляем по всей Украине перевозчиком «Новая почта»</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant4.png"/>
+                <p>Работаем напрямую с представительством LEGO в Украине</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant5.png"/>
+                <p>У нас есть эксклюзивные коллекции</p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
         <div class="catAbout">
             <?=$category->description?>
         </div>
+        
     </div>
 </div>

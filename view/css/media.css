@@ -237,6 +237,15 @@
     }
     
     
+
+    .step .block {
+        margin:0 auto;
+        width:100%;
+        padding:10px 0;
+        float:none;
+    }
+    
+    
 }
 
 @media (max-width:550px) {

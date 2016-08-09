@@ -1112,16 +1112,16 @@ a.footLogo img {
 }
 
 #steps {
-	background-color:#f8f8f8;
+    background-color:#f8f8f8;
     margin:30px auto;
     max-width:700px;
-	padding:20px;
+    padding:20px;
 }
 
 #steps h3 {
     font-size:20px;
     color:#777;
-    margin:0 0 20px 0;
+    margin:0;
 }
 
 #steps h3 em {
@@ -1159,44 +1159,44 @@ a.footLogo img {
 }
 
 .step {
-    padding:0 0 30px 0;
+    padding:20px 0 0 0;
+    border-bottom:2px solid #eee;
+    margin-bottom:20px;
 }
 
 .step .block {
     margin:0 auto;
-    max-width:600px;
-    padding:10px 10px;
+    width:48%;
+    padding:10px 1%;
+    float:left;
 }
 
 .step input.inp {
-    border: 1px solid #F3F3F3;
-    border-radius:3px;
+    border: 1px solid #eee;
     color: #111;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     padding: 11px 2% 9px 2%;
     width:96%;
 }
 
 .step textarea {
-    border: 1px solid #F3F3F3;
-    border-radius:3px;
+    border: 1px solid #eee;
     color: #111;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     padding: 11px 2% 9px 2%;
     width:96%;
 }
 
 .step select {
-    border: 1px solid #F3F3F3;
-    border-radius:3px;
+    border: 1px solid #eee;
     color: #111;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     padding: 11px 2% 9px 2%;
     width:100%;
 }
@@ -1627,19 +1627,17 @@ label {
 } 
 
 .guarant {
-    background-color:#00A2DB;
-    box-shadow:0 4px 7px rgba(0,0,0,0.1);
+    background-color:#f8f8f8;
     border-radius:4px;
     margin:20px auto;
     padding:30px 1%;
     width:98%;
     color:#444;
-    font-size:15px;
-    background-image: url(../images/bgCircle.png);
+    font-size:16px;
 }
 
 .guarant h3 {
-    color:#fff;
+    color:#424242;
     font-size: 30px;
     font-weight:300;
     margin:0 0 2% 0;
@@ -1648,23 +1646,16 @@ label {
 
 .guarant .block {
     display:inline-block;
-    font-weight:400;
+    font-weight:300;
     padding:0 0 10px 1%;
     width:18%;
     vertical-align:top;
     text-align:center;
-    color:#fff;
+    color:#424242;
 }
 
-.guarant i {
-    color:rgba(255,255,255,0.8);
-    margin:0 0 10px 0;
-    display:block;
-    font-size:50px;
-}
-
-.guarant p {
-    text-align:left;
+.guarant img {
+    margin:20px 0 10px 0;
 }
 
 #footerBody h3 {
@@ -1802,8 +1793,8 @@ label {
 }
 
 .min-basket {
-    border:1px solid rgba(46,204,113,0.9);
     background-color:rgba(46,204,113,0.7);
+    background-image:url(../images/bgCircle.png);
     color:#fff;
     font-size:20px;
     font-weight:300;

@@ -237,19 +237,24 @@ if (!w.__utlWdgt ) {
         <div class="guarant">
             <h3>Почему мы?</h3>
             <div class="block">
-                <i class="fa fa-home"></i> У нас есть офлайновый магазин в Днепропетровске
+                <img src="<?=VIEW?>images/guarant1.png"/> 
+                <p>У нас есть офлайновый магазин в Днепре</p>
             </div>
             <div class="block">
-                <i class="fa fa-cubes"></i> Мы уже 3 года в Украине
+                <img src="<?=VIEW?>images/guarant2.png"/>
+                <p>Мы уже 3 года в Украине</p>
             </div>
             <div class="block">
-                <i class="fa fa-truck"></i> Доставляем по всей Украине перевозчиком «Новая почта»
+                <img src="<?=VIEW?>images/guarant3.png"/>
+                <p>Доставляем по всей Украине перевозчиком «Новая почта»</p>
             </div>
             <div class="block">
-                <i class="fa fa-certificate"></i> Работаем напрямую с представительством LEGO в Украине
+                <img src="<?=VIEW?>images/guarant4.png"/>
+                <p>Работаем напрямую с представительством LEGO в Украине</p>
             </div>
             <div class="block">
-                <i class="fa fa-diamond"></i> У нас есть эксклюзивные коллекции
+                <img src="<?=VIEW?>images/guarant5.png"/>
+                <p>У нас есть эксклюзивные коллекции</p>
             </div>
             <div class="clear"></div>
         </div>

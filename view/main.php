@@ -136,24 +136,29 @@ defined(ACCESS_VALUE) or die('Access denied');
                     });</script>
                 </div> 
                         <div class="guarant">
-                            <h3>Почему мы?</h3>
-                            <div class="block">
-                                <i class="fa fa-home"></i> У нас есть офлайновый магазин в Днепропетровске
-                            </div>
-                            <div class="block">
-                                <i class="fa fa-cubes"></i> Мы уже 3 года в Украине
-                            </div>
-                            <div class="block">
-                                <i class="fa fa-truck"></i> Доставляем по всей Украине перевозчиком «Новая почта»
-                            </div>
-                            <div class="block">
-                                <i class="fa fa-certificate"></i> Работаем напрямую с представительством LEGO в Украине
-                            </div>
-                            <div class="block">
-                                <i class="fa fa-diamond"></i> У нас есть эксклюзивные коллекции
-                            </div>
-                            <div class="clear"></div>
-                        </div>
+            <h3>Почему мы?</h3>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant1.png"/> 
+                <p>У нас есть офлайновый магазин в Днепре</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant2.png"/>
+                <p>Мы уже 3 года в Украине</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant3.png"/>
+                <p>Доставляем по всей Украине перевозчиком «Новая почта»</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant4.png"/>
+                <p>Работаем напрямую с представительством LEGO в Украине</p>
+            </div>
+            <div class="block">
+                <img src="<?=VIEW?>images/guarant5.png"/>
+                <p>У нас есть эксклюзивные коллекции</p>
+            </div>
+            <div class="clear"></div>
+        </div>
         <h2>СЕРИИ LEGO®</h2>
         <div id="catPreview"> 
             <?php

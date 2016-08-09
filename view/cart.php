@@ -85,26 +85,27 @@ defined(ACCESS_VALUE) or die('Access denied');
                 <div class="step">
                     <span>Все поля (<span style="color:red;display: inline">*</span>) обязательны для заполнения.</span>
                         <div class="block">
-                            <strong><span style="color:red;display: inline">*</span> Имя или фамилия</strong>
+                            <strong><span style="color:red;display: inline">*</span> Как к Вам обращаться?</strong>
                             <input placeholder="Имя или фамилия" name ="fio" value="" type="text" class="inp fio"/>
-                            <span>для обращения к Вам</span>
                         </div>
                         <div class="block">
                             <strong><span style="color:red;display: inline">*</span> E-Mail</strong>
                             <input placeholder="E-Mail" name ="email" value="" type="email" class="inp email"/>
 <!--                            <span>для отправки деталей заказа</span>-->
                         </div>
+                        <div class="clear"></div>
                         <div class="block">
                             <strong><span style="color:red;display: inline">*</span> Телефон</strong>
-                            <input placeholder="Телефон для связи" name="phone" value="" type="text" class="inp phone phoneMask"/>
+                            <input placeholder="Телефон для связи" name="phone" value="" type="text" class="inp phone"/>
                             <span>для уточнения деталей</span>
                         </div>
                         <div class="block">
                             <strong>Комментарий к заказу</strong>
                             <textarea placeholder="Комментарий к заказу" name="comment" rows="5"></textarea>
                         </div>
+                        <div class="clear"></div>
                 </div>
-                <h3><em>2</em> Способ доставки:</h3>
+                <h3><em>2</em> Способ доставки и оплаты:</h3>
                 <div class="step">
                         <div class="block">
                             <strong><span style="color:red;display: inline">*</span> Выберите способ доставки:</strong>
@@ -122,9 +123,6 @@ defined(ACCESS_VALUE) or die('Access denied');
                             </div>
                             <input autocomplete="off" placeholder="Адрес доставки" id='delivery_adress' name="delivery_adress" value="" type="hidden" class="inp"/>
                         </div>
-                </div>
-                <h3><em>3</em> Способ оплаты:</h3>
-                <div class="step">
                         <div class="block">
                             <strong><span style="color:red;display: inline">*</span> Выберите способ оплаты:</strong>
                             <select class="payment_type" name="payment_type">
@@ -133,8 +131,11 @@ defined(ACCESS_VALUE) or die('Access denied');
                                 <option value="2">Кредитная карта</option>
                             </select>
                         </div>
+                    
+                        <div class="clear"></div>
                 </div>
-                <h3><em>4</em> Подтверждение:</h3>
+               
+                <h3><em>3</em> Подтверждение:</h3>
                 <div class="step">
                     <div class="block conf">
                         <p>Имя: <strong id='fio'></strong></p>
@@ -143,6 +144,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <p>Точное время доставки уточнит менеджер при согласовании деталей заказа</p>
                         <p>Цена: <strong id='price'><?=$amount?> грн</strong></p>
                     </div>
+                    <div class="clear"></div>
                 </div>
                 <div class="block">
                     <input type="checkbox" id="aggr"> <label for="aggr">Я прочитал и согласен с правилами <a href="info-4" target="_blank">Условия соглашения</a></label>
@@ -151,6 +153,8 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <input disabled disabled="disabled" class="send" name="submit" type="submit" value="ОФОРМИТЬ ЗАКАЗ" />
                     </div><div class="clear"></div>
                 </div>
+                
+                        <div class="clear"></div>
                 </form>
             </div>
             <?php else:?>
