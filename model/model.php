@@ -4,14 +4,6 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 function printProductCart($product){?>
     <div class="productPreview">
-        <div class="productIcon">
-            <?php if($product->video != ''):?>
-            <i class="fa fa-video-camera" alt="Видео обзор набора" title="Видео обзор набора"></i>
-            <?php endif;?>
-            <?php if($product->instruction != ''):?>
-            <i class="fa fa-file-text-o" alt="Можно скачать инструкцию по сборке" title="Можно скачать инструкцию по сборке"></i>
-            <?php endif;?>
-        </div>
         <?php if($product->labels != ''):?>
         <div class="labels">
             <?php

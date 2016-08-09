@@ -89,15 +89,13 @@ defined(ACCESS_VALUE) or die('Access denied');
                             <input placeholder="Имя или фамилия" name ="fio" value="" type="text" class="inp fio"/>
                         </div>
                         <div class="block">
-                            <strong><span style="color:red;display: inline">*</span> E-Mail</strong>
+                            <strong><span style="color:red;display: inline">*</span> E-Mail (на него придет номер заказа)</strong>
                             <input placeholder="E-Mail" name ="email" value="" type="email" class="inp email"/>
-<!--                            <span>для отправки деталей заказа</span>-->
                         </div>
                         <div class="clear"></div>
                         <div class="block">
-                            <strong><span style="color:red;display: inline">*</span> Телефон</strong>
-                            <input placeholder="Телефон для связи" name="phone" value="" type="text" class="inp phone"/>
-                            <span>для уточнения деталей</span>
+                            <strong><span style="color:red;display: inline">*</span> Телефон для уточнения деталей</strong>
+                            <input placeholder="Номер телефона" name="phone" value="" type="text" class="inp phone"/>
                         </div>
                         <div class="block">
                             <strong>Комментарий к заказу</strong>
