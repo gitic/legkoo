@@ -83,7 +83,7 @@ defined(ACCESS_VALUE) or die('Access denied');
     </div>
 <div class="constr" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
 <center>
-    <noindex><a rel="nofollow" href="https://goo.gl/YikPni" target="_blank" style="float:left;"><img src="<?=VIEW?>images/build.jpg" style="max-width:100%;"/></a></noindex>
+    <noindex><a rel="nofollow" href="http://goo.gl/dgfGfq" style="float:left;"><img src="<?=VIEW?>images/build1.jpg" style="max-width:100%;"/></a></noindex>
     <noindex><a rel="nofollow" href="http://goo.gl/1VoyfS" target="_blank" style="float:right;"><img src="<?=VIEW?>images/catalog2016.jpg" style="max-width:100%;"/></a></noindex>
     <div class="clear"></div>
 </center></div>
