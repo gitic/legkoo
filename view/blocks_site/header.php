@@ -32,10 +32,6 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="contactsLineBody">
         <span><i class="fa fa-phone-square"></i> <a href="tel:+380675678244">(067)567-82-44</a> <img src="<?=VIEW?>images/viber.png" valign="middle"/> (с 10:00 до 20:00)</span>
         
-        <div class="live" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
-            <a href="info-6"><i class="fa fa-video-camera"></i> Магазин LIVE</a>
-        </div>
-        
         <i class="fa fa-pencil-square"></i> <a href="mailto:legodnepr@gmail.com">legodnepr@gmail.com</a>
     </div>
 </div>

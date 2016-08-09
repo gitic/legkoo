@@ -105,7 +105,7 @@ if (!w.__utlWdgt ) {
                         </div>
                     </div>
                     <div class="buyBtnSet">
-                        <div class="btn buy">
+                        <div id="ya-btn-one" class="btn buy" onclick="yaCounter32188239.reachGoal('ya-btn-one'); return true;">
                             <?php 
                                 $addClass = '';
                                 $text = '<i class="fa fa-shopping-cart" aria-hidden="true"></i> В КОРЗИНУ';

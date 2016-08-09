@@ -60,7 +60,7 @@ function printProductCart($product){?>
                     $text = 'ОЖИДАЕТСЯ';
                 }
             ?>
-            <span <?=$addClass?>>
+            <span <?=$addClass?> onclick="yaCounter32188239.reachGoal('ya-btn-two'); return true;">
                 <input type="hidden" value="<?=$product->title?>">
                 <?=$text?>
             </span>

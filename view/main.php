@@ -6,6 +6,24 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="main">
         <div class="slider">
             <div>
+                <a href="category-28-lego-nexo-knights">
+                    <p>LEGO® NEXO KNIGHTS™</p>
+                    <img src="<?=VIEW?>images/nexoBanner.jpg" alt="Конструкторы LEGO® NEXO KNIGHTS™"/>
+                </a>
+            </div>
+            <div>
+                <a href="category-24-lego-super-heroes">
+                    <p>LEGO® Super Heroes</p>
+                    <img src="<?=VIEW?>images/superheroesBanner.jpg" alt="Конструкторы LEGO® Super Heroes"/>
+                </a>
+            </div>
+            <div>
+                <a href="category-7-lego-friends">
+                    <p>Конструкторы LEGO® Friends</p>
+                    <img src="<?=VIEW?>images/friendsBanner.jpg" alt="Конструкторы LEGO® Friends"/>
+                </a>
+            </div>
+            <div>
                 <?php
                     $article = new Article();
                     $article->getFomDb(array('id'=>'9'), $conn);
@@ -21,16 +39,6 @@ defined(ACCESS_VALUE) or die('Access denied');
                     $article->getFomDb(array('id'=>'7'), $conn);
                 ?>
                 <a href="category-13-lego-minecraft">
-                    <p><?=$article->title?></p>
-                    <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
-                </a>
-            </div>
-            <div>
-                <?php
-                    $article = new Article();
-                    $article->getFomDb(array('id'=>'5'), $conn);
-                ?>
-                <a href="category-28-lego-nexo-knights">
                     <p><?=$article->title?></p>
                     <img src="<?=$article->photo?>" alt="<?=$article->title?>"/>
                 </a>
