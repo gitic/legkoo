@@ -80,7 +80,6 @@ h1 span {
 }
 
 #contactsLine {
-    background-color:#f7f7f7;
     color:#999;
     font-weight:300;
 }
@@ -88,13 +87,19 @@ h1 span {
 #contactsLineBody {
     max-width:1000px;
     margin:0 auto;
-    padding:10px;
+    padding:5px 10px;
+    border-bottom:2px solid #f7f7f7;
+    color:#999;
+    font-weight:300;
+    font-size:13px;
+}
+
+#contactsLineBody sup {
+    font-size:8px;
 }
 
 #contactsLineBody a {
-    color:#3498DB;
-    font-weight:400;
-        font-size:16px;
+    color:#999;
 }
 
 #contactsLineBody a:hover {
@@ -102,20 +107,21 @@ h1 span {
 }
 
 #contactsLineBody i {
-    color:#ddd;
+    font-size:11px;
 }
 
 #contactsLineBody span {
+    display:inline-block;
+    margin-right:10px;
+}
+
+.contacts-menu {
     float:right;
 }
 
-#contactsLineBody span a {
-    color:#3498DB;
-    font-weight:400;
-}
-
-#contactsLineBody img {
-    margin-top:-4px;
+.contacts-menu a {
+    display:inline-block;
+    margin-left:10px;
 }
 
 #topMenuFirst {
@@ -135,7 +141,6 @@ a#logo {
 }
 
 .mainLogo {
-        float:left;
         padding:0 10px 0 0;
         width:200px;
 }
@@ -144,24 +149,18 @@ a#logo {
     float:left;
     color:#666;
     margin:0 0 0 0;
-    line-height:20px;
-    padding:20px 0 0 0;
+    padding:10px 0 0 0;
     width:300px;
+    font-size:12px;
     font-weight:300;
 }
 
 .slogan1 a {
-    color:rgba(33,150,243,0.9);
-    font-weight:bold;
-    font-size:20px;
-    line-height:26px;
+    color:#666;
 }
 
-.slogan1 i {
-    font-size:40px;
-    color:#eee;
-    margin:0 10px 0 0;
-    float:left;
+.slogan1 p {
+    padding:0 0 0 5px;
 }
 
 a#logo img {
@@ -746,7 +745,7 @@ img.newsImage {
 }
 
 .increase {
-    right:3px;
+    right:4px;
     position:absolute;
     top:0;
 }
@@ -760,6 +759,10 @@ img.newsImage {
     text-align:center;
     font-size:20px;
     border:1px solid #eee;
+}
+
+.increase .minusBtn {
+    border-top:0;
 }
 
 .increase span:hover {

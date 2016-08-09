@@ -30,19 +30,26 @@ defined(ACCESS_VALUE) or die('Access denied');
 </noindex>
 <div id="contactsLine">
     <div id="contactsLineBody">
-        <span><i class="fa fa-phone-square"></i> <a href="tel:+380675678244">(067)567-82-44</a> <img src="<?=VIEW?>images/viber.png" valign="middle"/> (с 10:00 до 20:00)</span>
-        
-        <i class="fa fa-pencil-square"></i> <a href="mailto:legodnepr@gmail.com">legodnepr@gmail.com</a>
+        <div class="contacts-menu">
+            <a href="info-1">Доставка и оплата</a>
+            <a href="info-6">О магазине</a>
+        </div>
+        <span><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+380675678244">(067)567-82-44</a></span> Пн-Вс 10<sup>00</sup> до 20<sup>00</sup>
     </div>
 </div>
 <div id="topMenu">
     <div id="topMenuFirst">
-        <a href="<?=PATH?>" id="logo"><img src="<?=VIEW?>images/logo.png"/></a>
+        <a href="<?=PATH?>" id="logo">
+            <img src="<?=VIEW?>images/logo.png"/>
+        </a>
         <form id="searchField" class="search-desc" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
             <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp searchField"/><input value="поиск" type="submit" class="btn"/>
         </form>
         <div class="slogan1">
-            <a href="<?=PATH?>"><img src="<?=VIEW?>images/logo_1.jpg" class="mainLogo"/></a>
+            <a href="<?=PATH?>">
+                <img src="<?=VIEW?>images/logo_1.jpg" class="mainLogo"/>
+                <p>интернет магазин конструкторов</p>
+            </a>
         </div>
         <div class="clear"></div>
     </div>
@@ -66,12 +73,6 @@ defined(ACCESS_VALUE) or die('Access denied');
                     </li>
                     <li>
                         <a href="new-products"><span style="color:#FFD54F"><strong>Новинки</strong></span></a>
-                    </li>
-                    <li>
-                        <a href="info-1"><span>доставка и оплата</span></a>
-                    </li>
-                    <li>
-                        <a href="info-6"><span><strong>кто мы?</strong></span></a>
                     </li>
                     <div class="clear"></div>
                 </ul>
