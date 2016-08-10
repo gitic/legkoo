@@ -20,6 +20,7 @@ defined(ACCESS_VALUE) or die('Access denied');
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
 <script src="lib/jquery-1.11.2.min.js"></script>
 <script src="lib/jquery.cookie.js"></script>

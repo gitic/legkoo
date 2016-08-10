@@ -139,11 +139,11 @@ defined(ACCESS_VALUE) or die('Access denied');
             <h3>Почему мы?</h3>
             <div class="block">
                 <img src="<?=VIEW?>images/guarant1.png"/> 
-                <p>У нас есть офлайновый магазин в Днепре</p>
+                <p>У нас есть офлайновый магазин в Днепре ТЦ «Гранд Плаза»</p>
             </div>
             <div class="block">
                 <img src="<?=VIEW?>images/guarant2.png"/>
-                <p>Мы уже 3 года в Украине</p>
+                <p>Мы уже 3 года работаем в Украине</p>
             </div>
             <div class="block">
                 <img src="<?=VIEW?>images/guarant3.png"/>

@@ -13,10 +13,9 @@
 @media (max-width:800px) {
     #searchField {
         border:1px solid #f3f3f3;
-        border-radius:3px;
         float:right;
         margin:20px 0 0 0;
-        width:207px;
+        width:187px;
     }
     
     #searchField input.inp {
@@ -51,6 +50,10 @@
     
     #feedback {
         display:none;
+    }
+    
+    .slider {
+        margin-top:20px!important;
     }
     
     .slider p {
@@ -232,11 +235,18 @@
         font-size:14px!important;
     }
     
-    .search-desc {
-        display:none;
+    #searchField {
+        float:none;
+        display: inline-block;
     }
     
+    #topMenuFirst {
+        text-align:center;
+    }
     
+    .contacts-menu {
+        display:none;
+    }
 
     .step .block {
         margin:0 auto;
@@ -244,8 +254,6 @@
         padding:10px 0;
         float:none;
     }
-    
-    
 }
 
 @media (max-width:550px) {
@@ -301,15 +309,12 @@
 
     #contactsLineBody span {
         clear:both;
-        display:block;
-        padding:0 0 10px 0;
-        width:100%;
+        padding:0;
     }
     
     #slider {
         display:none;
     }
-    
     
     .jshowoff p.jshowoff-slidelinks {
         display:none;

@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    font-family:'Roboto', sans-serif;
+    font-family:'Ubuntu', sans-serif;
     font-size:14px;
     height:100%;
     position:relative;
@@ -35,7 +35,7 @@ input[type=text], input[type=submit], input[type=email], textarea {
 }
 input::-webkit-input-placeholder, textarea::-webkit-input-placeholder, input:-moz-placeholder, textarea:-moz-placeholder {
     color:#999;
-    font-family:'Roboto', sans-serif;
+    font-family:'Ubuntu', sans-serif;
     font-weight:300;
     font-size:15px;
 }
@@ -60,7 +60,7 @@ input[disabled] {
 }
 input.oneClickPhone::-webkit-input-placeholder {
     color:#999;
-    font-family:'Roboto', sans-serif;
+    font-family:'Ubuntu', sans-serif;
     font-weight:300;
     font-size:15px;
 }
@@ -173,18 +173,18 @@ a#logo img {
     border-radius:0;
     float:right;
     margin:20px 0 0 0;
-    width:400px;
+    width:280px;
 }
 
 #searchField input.inp {
     border:none;
     color:#111;
     float:left;
-    font-family:'Roboto', sans-serif;
+    font-family:'Ubuntu', sans-serif;
     font-weight:500;
-    font-size:15px;
-    padding:11px 5px 9px 5px;
-    width:250px;
+    font-size:14px;
+    padding:12px 10px 10px 10px;
+    width:150px;
 }
 
 #searchField input.btn {
@@ -192,11 +192,11 @@ a#logo img {
     border:none;
     color:#ccc;
     cursor:pointer;
-    font-family:'Roboto', sans-serif;
-    font-size:15px;
+    font-family:'Ubuntu', sans-serif;
+    font-size:14px;
     font-weight:300;
-    padding:11px 5px 11px 5px;
-    width:97px;
+    padding:12px 5px 11px 5px;
+    width:77px;
     -webkit-transition: all .4s ease-in-out;
     -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
@@ -204,14 +204,14 @@ a#logo img {
     transition: all .4s ease-in-out;
 }
 
-#searchField input.btn:hover {background-color:#00A54F;    color:#fff;
-border-radius:0 3px 3px 0;}
+#searchField input.btn:hover {
+    background-color:#00C853;    
+    color:#fff;}
 
 #searchField i {
-    background-color:#F5F5F5;
     color:#ccc;
     float:left;
-    padding:15px 15px 13px 15px;
+    padding:14px 5px 11px 15px;
 }
 
 #topMenuSecond {
@@ -242,7 +242,7 @@ nav a {
     border-bottom:3px solid transparent;
     color:#fff;
     font-size:16px;
-    font-weight:600;
+    font-weight:400;
     display:block;
     padding:18px 0 13px 0;
     text-transform:uppercase;
@@ -254,7 +254,11 @@ nav a {
 }
 
 nav ul li a:hover {
-    border-bottom:3px solid #E64A19;
+    border-bottom:3px solid rgba(255,255,255,0.5);
+}
+
+nav ul li a.sel {
+    border-bottom:3px solid rgba(255,255,255,0.5);
 }
 
 nav ul li a span {
@@ -285,12 +289,12 @@ a#basketSmall {
     float:right;
     font-size:16px;
     font-weight:400;
-    padding:16px 10px 16px 10px;
+    padding:17px 10px 17px 10px;
     text-decoration:none;
 }
 
 a#basketSmall i {
-    color:rgba(255,255,255,0.7);
+    color:#fff;
 }
 
 a#basketSmall em {
@@ -304,13 +308,12 @@ a#basketSmall span {
 }
 
 a#basketSmall:hover {
-    background-color:rgba(231,76,60,1);    
-    background-image: url(../images/bgCircle.png);
+    background-color:#00C853;    
     
 }
 
 #breadcrumbs {
-    background-color:#F5F5F5;
+    background-color:#f8f8f8;
 }
 
 #breadcrumbsBody {
@@ -408,8 +411,8 @@ a#basketSmall:hover {
 #main h2 {
     color:#34495E;
     font-size:30px;
-    font-weight:500;
-    text-align:left;
+    font-weight:300;
+    text-align:center;
     margin:30px 0 0 0;
 }
 
@@ -487,7 +490,7 @@ a.catPreviewBlock img {
 
 .label {
     border-radius:0;
-    color:#fff;
+    color:#424242;
     font-size:14px;
     font-weight:300;
     margin:0 0 5px 4px;
@@ -502,11 +505,11 @@ a.catPreviewBlock img {
 }
 
 .label.new {
-    background-color:#00A54F;
+    background-color:#00C853;
 }
 
 .label.sale {
-    background-color:#FFF176;
+    background-color:#FFEB3B;
 }
 
 .label.exclusive {
@@ -556,10 +559,10 @@ a.catPreviewBlock img {
 }
 
 .previewTitle a {
-    color:#2980B9!important;
+    color:#424242!important;
     display:block!important;
     font-size:19px!important;
-    font-weight:500!important;
+    font-weight:400!important;
     margin:5px 0 5px 0!important;
     text-decoration:none!important;
 }
@@ -598,7 +601,7 @@ a.catPreviewBlock img {
 }
 
 .previewBtn span {
-    background-color:#E74C3C;
+    background-color:#00C853;
     border-radius:0;
     color:#fff;
     cursor:pointer;
@@ -663,7 +666,7 @@ a.catPreviewBlock img {
 }
 
 #product h1 {
-    color:#2980B9;
+    color:#424242;
     margin:0 0 15px 0;
     padding:0 0 15px 0;
     font-weight:400;
@@ -815,7 +818,7 @@ img.newsImage {
 }
 
 #submitOneClick {
-    background-color:#00A54F;
+    background-color:#00C853;
     float:right;
 }
 
@@ -832,8 +835,10 @@ img.newsImage {
     display: inline-block;
 }
 .btn.buy span {
-    background-color:#E74C3C;
+    background-color:#00C853;
     font-weight:bold;
+    border-radius:3px;
+    box-shadow:1px 1px 3px rgba(0,0,0,0.3);
 }
 
 .sh_logo_btn {
@@ -910,9 +915,9 @@ img.newsImage {
 }
 
 .orderTitle a {
-    color: #2980B9;
+    color: #424242;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     margin: 5px 0 10px 0;
     text-decoration: none;
 }
@@ -1071,19 +1076,19 @@ a.footLogo img {
 
 .notify p a.btn {
     float:right;
-    background-color:#00A54F;
+    background-color:#00C853;
     color:#fff;
     cursor:pointer;
     display:inline-block;
     font-size:17px;
     font-weight:300;
-    opacity:0.8;
+    opacity:1;
     padding:15px 20px;
     border-radius:0;
 }
 
 .notify p a.btn:hover {
-    opacity:1;
+    opacity:0.8;
 }
 
 .notify p span {
@@ -1120,7 +1125,8 @@ a.footLogo img {
 
 #steps h3 {
     font-size:20px;
-    color:#777;
+    color:#424242;
+    font-weight:300;
     margin:0;
 }
 
@@ -1149,8 +1155,8 @@ a.footLogo img {
 
 #steps strong {
     display:block;
-    color:#111;
-    font-weight:500;
+    color:#424242;
+    font-weight:400;
     padding:0 0 4px 0;
 }
 
@@ -1174,7 +1180,7 @@ a.footLogo img {
 .step input.inp {
     border: 1px solid #eee;
     color: #111;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     font-size: 14px;
     padding: 11px 2% 9px 2%;
@@ -1184,7 +1190,7 @@ a.footLogo img {
 .step textarea {
     border: 1px solid #eee;
     color: #111;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     font-size: 14px;
     padding: 11px 2% 9px 2%;
@@ -1194,7 +1200,7 @@ a.footLogo img {
 .step select {
     border: 1px solid #eee;
     color: #111;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     font-size: 14px;
     padding: 11px 2% 9px 2%;
@@ -1219,7 +1225,7 @@ a.footLogo img {
 }
 
 input.send {
-    background-color:#00A54F;
+    background-color:#00C853;
     border:0;
     color:#fff;
     cursor:pointer;
@@ -1292,7 +1298,7 @@ label {
     border-radius: 3px;
     color: #111;
     background-color:#fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     font-size: 16px;
     padding: 11px 2% 9px 2%;
@@ -1356,8 +1362,8 @@ label {
 }
 
 .shareBtn {
-    background-color:#f5f5f5;
-    margin:30px auto;
+    background-color:#f9f9f9;
+    margin:0 auto 10px auto;
     max-width:1000px;
     padding:10px;
     text-align:center;
@@ -1433,7 +1439,7 @@ label {
     border-radius:0;
 }
 .tabs ul li.active, .tabs ul li.active:hover{
-    background:#e5e5e5;
+    background:#f5f5f5;
 }
 .tabs ul li:hover{
     background:#f5f5f5;
@@ -1597,7 +1603,7 @@ label {
 }
 
 .sum .discInfo:hover {
-    background-color:#00A54F;
+    background-color:#00C853;
 }
 
 .more-products {
@@ -1611,7 +1617,7 @@ label {
 
 .slider {
     overflow:hidden;
-    margin:0!important;
+    margin:0;
 }
 
 .slider p {
@@ -1627,31 +1633,32 @@ label {
 } 
 
 .guarant {
-    background-color:#f8f8f8;
+    background-color:rgba(240,120,90,0.9);
     border-radius:4px;
     margin:20px auto;
     padding:30px 1%;
     width:98%;
-    color:#444;
+    color:#fff;
     font-size:16px;
 }
 
 .guarant h3 {
-    color:#424242;
+    color:#fff;
     font-size: 30px;
     font-weight:300;
     margin:0 0 2% 0;
     text-align:center;
+    text-transform:uppercase;
 }
 
 .guarant .block {
     display:inline-block;
-    font-weight:300;
+    font-weight:500;
     padding:0 0 10px 1%;
     width:18%;
     vertical-align:top;
     text-align:center;
-    color:#424242;
+    color:#fff;
 }
 
 .guarant img {
@@ -1741,7 +1748,7 @@ label {
 }
 .ui-autocomplete .ui-menu-item {
   font-weight:300;
-  font-family:'Roboto', sans-serif;
+  font-family:'Ubuntu', sans-serif;
   background:#fff;
 }
 .ui-autocomplete .ui-menu-item a:hover {
@@ -1751,7 +1758,7 @@ label {
   padding:5px 0;
   border-top:1px solid #eee;
   font-weight:300;
-  font-family:'Roboto', sans-serif;
+  font-family:'Ubuntu', sans-serif;
 }
 
 .live a {
@@ -1789,11 +1796,11 @@ label {
 .mainTabs ul li.active, .mainTabs .tabs ul li.active:hover {
     background-color:#00A2DB!important;
     color:#fff;
-    font-size:20px;
+    font-size:16px;
 }
 
 .min-basket {
-    background-color:rgba(46,204,113,0.7);
+    background-color:#00C853;
     background-image:url(../images/bgCircle.png);
     color:#fff;
     font-size:20px;

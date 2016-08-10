@@ -43,7 +43,7 @@ defined(ACCESS_VALUE) or die('Access denied');
             <img src="<?=VIEW?>images/logo.png"/>
         </a>
         <form id="searchField" class="search-desc" <?php if($view == 'cart'):?>style='display: none'<?php endif;?>>
-            <i class="fa fa-search"></i><input value="" type="text" placeholder="Введите название или артикул" class="inp searchField"/><input value="поиск" type="submit" class="btn"/>
+            <i class="fa fa-search"></i><input value="" type="text" placeholder="Артикул или название" class="inp searchField"/><input value="Поиск" type="submit" class="btn"/>
         </form>
         <div class="slogan1">
             <a href="<?=PATH?>">
@@ -69,10 +69,10 @@ defined(ACCESS_VALUE) or die('Access denied');
                         <a href="catalog"><span>каталог</span></a>
                     </li>
                     <li>
-                        <a href="actions"><span><strong>Акции</strong></span></a>
+                        <a href="actions"><span>Акции</span></a>
                     </li>
                     <li>
-                        <a href="new-products"><span style="color:#FFD54F"><strong>Новинки</strong></span></a>
+                        <a href="new-products"><span style="color:#FFD54F">Новинки</span></a>
                     </li>
                     <div class="clear"></div>
                 </ul>
