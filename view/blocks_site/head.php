@@ -12,14 +12,11 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 <meta name='yandex-verification' content='401582a70e4711f0' />
 
-<link rel="shortcut icon" href="<?=VIEW?>images/favicon.jpg">
+<link rel="shortcut icon" href="<?=VIEW?>images/favicon.png">
 <link rel="stylesheet" type="text/css" href="<?=VIEW?>css/style.css?<?=time()?>" />
 <link rel="stylesheet" type="text/css" href="<?=VIEW?>css/media.css?<?=time()?>" />
 <link rel='stylesheet' href='lib/icons/css/font-awesome.min.css'>
 <link rel="stylesheet" type="text/css" href="lib/feedback/styles.css" />
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
 <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
 <script src="lib/jquery-1.11.2.min.js"></script>
@@ -82,6 +79,3 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 </script>
 
-
-
-<meta name="it-rating" content="it-rat-7040113d6428d33c2dfdb6e69da097fa" />

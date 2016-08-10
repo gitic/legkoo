@@ -484,8 +484,9 @@ a.catPreviewBlock img {
     left:0;
     text-align:right;
     top:0;
-    padding:0 0 5px 0;
+    padding:0;
     right:-10px;
+    z-index:1;
 }
 
 .label {
@@ -500,8 +501,9 @@ a.catPreviewBlock img {
 
 .label.pr {
     opacity:0.9;
-    margin:0 0 5px 4px;
-        box-shadow:none;
+    margin:0 0 0 4px;
+    box-shadow:none;
+    color:#fff;
 }
 
 .label.new {
@@ -525,7 +527,7 @@ a.catPreviewBlock img {
 }
 
 .btnbuy {
-    padding:15px 0 25px 0!important;
+    padding:15px 0 25px 0;
 }
 
 .productPreview:hover {
@@ -578,7 +580,7 @@ a.catPreviewBlock img {
     padding:0 0 0 10px;
     text-align:left;
     width:110px;
-    font-weight:600;
+    font-weight:500;
 }
 
 .previewPrice p {
@@ -679,9 +681,13 @@ a.catPreviewBlock img {
 }
 
 .productData .block {
-    border-bottom:1px dashed #eee;
-    margin:0 0 15px 0;
-    padding:0 0 5px 0;
+    border-bottom:1px solid #fff;
+    padding:10px 0;
+}
+
+.productData .block.gray {
+    background-color:#f8f8f8;
+    padding:10px 15px;
 }
 
 .productData p {
@@ -697,10 +703,10 @@ a.catPreviewBlock img {
 .productPrice {
     color:#34495E;
     font-size:46px;
-    padding:0 0 10px 0;
+    padding:0;
     text-align:left;
-    font-weight:bold;
-    text-align:left;
+    font-weight:500;
+    text-align:center;
 }
 
 .productPrice span {
@@ -712,7 +718,7 @@ a.catPreviewBlock img {
 .productBuy {
     font-size:15px;
     font-weight:300;
-    float:right;
+    float:left;
 }
 
 .numbers {
@@ -804,6 +810,7 @@ img.newsImage {
 
 .buyBtnSet {
     text-align:left;
+    float:right;
 }
 
 .oneClickBtn {
@@ -1362,7 +1369,6 @@ label {
 }
 
 .shareBtn {
-    background-color:#f9f9f9;
     margin:0 auto 10px auto;
     max-width:1000px;
     padding:10px;
@@ -1634,6 +1640,7 @@ label {
 
 .guarant {
     background-color:rgba(240,120,90,0.9);
+    background-image:url(../images/bgCircleGray.png);
     border-radius:4px;
     margin:20px auto;
     padding:30px 1%;

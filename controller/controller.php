@@ -87,8 +87,8 @@ else{
             $category = new Category();
             $category->getFomDb(array('id'=>$product->category), $conn);
 
-            $meta['title'] = "Конструктор $product->title LEGO® $category->title $product->articul";
-            $meta['description'] = "Купить Конструктор $product->title LEGO® $category->title $product->articul доступная цена, доставка и самовывоз: описание, видео, обзор, инструкция";
+            $meta['title'] = "Конструктор LEGO $category->title $product->title $product->articul";
+            $meta['description'] = "Купить Конструктор LEGO $category->title $product->title $product->articul доступная цена, доставка и самовывоз: описание, видео, обзор, инструкция";
             $meta['keywords'] = "Конструктор $product->title LEGO® $category->title $product->articul";
             break;
         

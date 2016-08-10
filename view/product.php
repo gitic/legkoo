@@ -57,7 +57,7 @@ if (!w.__utlWdgt ) {
                     <?php endif;?>
                 </div>
                 <?php if($product->labels != ''):?>
-                <div class="block">
+                <div class="block gray">
                     <div class="labels product">
                         <?php
                             $labels = explode(',', $product->labels);
@@ -76,15 +76,15 @@ if (!w.__utlWdgt ) {
                     </div>
                 </div>
                 <?php elseif($product->old_price != 0):?>
-                    <div class="block">
+                    <div class="block gray">
                         <div class="labels product"><span class="label pr sale" title="Акция">Акция</span></div>
                     </div>
                 <?php endif;?>
-                <div class="block">
+                <div class="block gray">
                     <div class="productPrice">
                         <?php if($product->old_price != 0):?>
                             <span style='text-decoration:line-through;color:gray;font-size:14px;'><?=$product->old_price?> грн</span>
-                            <span style="color:#FFD740;font-weight:bold;font-size:46px;"><?=$product->price?> <span style="color:#FFD740">грн</span></span>
+                            <span style="color:#E30613;font-weight:500;font-size:46px;"><?=$product->price?> <span style="color:#E30613">грн</span></span>
                         <?php else:?>
                             <?=$product->price?> <span>грн</span>
                         <?php endif;?>
@@ -93,7 +93,7 @@ if (!w.__utlWdgt ) {
                         <meta itemprop="priceCurrency" content="UAH">
                     </div>
                 </div>
-                <div class="block btnbuy">
+                <div class="block btnbuy gray">
                     <div class="productBuy">
                         <div class="numbers"><input value="1" type="text" />
                             <div class="increase">
