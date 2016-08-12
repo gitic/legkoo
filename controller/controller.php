@@ -75,7 +75,7 @@ else{
             $id=$_GET['id'];
             $category = new Category();
             $category->getFomDb(array('id'=>$id), $conn);
-            $meta['title'] = "Лего $category->title: купить конструктор LEGO® $category->title на Legkoo";
+            $meta['title'] = "Конструкторы Лего $category->title";
             $meta['description'] = "Купить набор Лего $category->title в интернет-магазине с доставкой по Украине. Конструктор LEGO® $category->title в наличии и под заказ";
             $meta['keywords'] = "Лего $category->title купить конструктор набор LEGO® $category->title цена недорого продажа интернет-магазин";
             break;
@@ -89,7 +89,7 @@ else{
 
             $meta['title'] = "Конструктор LEGO $category->title $product->title $product->articul";
             $meta['description'] = "Купить Конструктор LEGO $category->title $product->title $product->articul доступная цена, доставка и самовывоз: описание, видео, обзор, инструкция";
-            $meta['keywords'] = "Конструктор $product->title LEGO® $category->title $product->articul";
+            $meta['keywords'] = "Конструктор LEGO $category->title $product->title $product->articul";
             break;
         
         case 'info_page':

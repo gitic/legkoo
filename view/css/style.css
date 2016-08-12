@@ -401,10 +401,10 @@ a#basketSmall:hover {
 }
 
 #main h1 {
-    color:#34495E;
-    font-size:30px;
-    font-weight:500;
-    text-align:left;
+color: #34495E;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
     margin:30px 0 0 0;
 }
 
@@ -429,7 +429,6 @@ a.catPreviewBlock {
     border-radius:5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display:inline-block;
-    height:350px;
     margin:0 10px 23px 10px;
     width:220px;
     -webkit-transition: all .4s ease-in-out;
@@ -1854,4 +1853,13 @@ label {
 
 .sitemap a:hover {
     text-decoration: underline;
+}
+
+.productPrice em {
+	font-size:13px;
+	display:block;
+	font-style:normal;
+	font-weight:300;
+	color:#888;
+	margin-top:10px;
 }

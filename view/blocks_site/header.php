@@ -74,6 +74,9 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <li>
                         <a href="new-products"><span style="color:#FFD54F">Новинки</span></a>
                     </li>
+                    <li>
+                        <a href="category-30-aksessuaryi"><span>Аксессуары</span></a>
+                    </li>
                     <div class="clear"></div>
                 </ul>
                 <a href="#" id="pull"><i class="fa fa-bars"></i></a>

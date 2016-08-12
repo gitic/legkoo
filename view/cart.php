@@ -148,7 +148,7 @@ defined(ACCESS_VALUE) or die('Access denied');
                     <input type="checkbox" id="aggr"> <label for="aggr">Я прочитал и согласен с правилами <a href="info-4" target="_blank">Условия соглашения</a></label>
                     <div class="clear"></div>
                     <div class="btn buy">
-                        <input disabled disabled="disabled" class="send" name="submit" type="submit" value="ОФОРМИТЬ ЗАКАЗ" />
+                        <input disabled disabled="disabled" class="send" name="submit" type="submit" value="ОФОРМИТЬ ЗАКАЗ"  onclick="yaCounter32188239.reachGoal('ya-btn-three'); return true;" />
                     </div><div class="clear"></div>
                 </div>
                 

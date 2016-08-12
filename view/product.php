@@ -48,7 +48,9 @@ if (!w.__utlWdgt ) {
                         if($product->age_to != 0){$till = '-'.$product->age_to;}
                     ?>
                     <p>Возраст: <strong><?=$product->age_from.$till?></strong></p>
+					<?php if($product->elements != '0'):?>
                     <p>Количество деталей: <strong><?=$product->elements?></strong></p>
+                    <?php endif;?>
                     <?php if($product->size != ''):?>
                     <p>Размеры (Д*Ш*В): <strong><?=$product->size?></strong></p>
                     <?php endif;?>
@@ -82,6 +84,7 @@ if (!w.__utlWdgt ) {
                 <?php endif;?>
                 <div class="block gray">
                     <div class="productPrice">
+					
                         <?php if($product->old_price != 0):?>
                             <span style='text-decoration:line-through;color:gray;font-size:14px;'><?=$product->old_price?> грн</span>
                             <span style="color:#E30613;font-weight:500;font-size:46px;"><?=$product->price?> <span style="color:#E30613">грн</span></span>
@@ -91,6 +94,8 @@ if (!w.__utlWdgt ) {
                         
                         <meta itemprop="price" content="<?=$product->price?>">
                         <meta itemprop="priceCurrency" content="UAH">
+						
+						<em>*при заказе от <strong>1000 грн</strong><br/> бесплатная доставка</em>
                     </div>
                 </div>
                 <div class="block btnbuy gray">

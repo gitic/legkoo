@@ -15,7 +15,7 @@
         border:1px solid #f3f3f3;
         float:right;
         margin:20px 0 0 0;
-        width:187px;
+        width:197px;
     }
     
     #searchField input.inp {
@@ -185,6 +185,29 @@
 }
 
 @media (max-width:650px) { 
+
+	.catLogo img {
+		display:none;
+	}
+	
+	#catSort {
+		margin:0 0 20px 0;
+	}
+	
+	.slider  {
+		display:none!important;
+	}
+	
+	a.catPreviewBlock {
+		width:45%;
+		margin:0 1% 23px 1%;
+	}
+	
+	a.catPreviewBlock img {
+		width:100%;
+		height:auto;
+	}
+
     #footerBody .block {
         font-size:14px;
         text-align:center;
