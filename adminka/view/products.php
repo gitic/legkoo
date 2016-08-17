@@ -23,11 +23,11 @@ defined(ACCESS_VALUE) or die('Access denied');
                             <td>видимость</td>
                             <td>id</td>
                             <td>Нов</td>
-                            <td>Акц</td>
+                            <!--<td>Акц</td>
                             <td>Хит</td>
                             <td>Экскл</td>
                             <td>Скоро</td>
-                            <td>Б/д</td>
+                            <td>Б/д</td>-->
                             <td>Артикул</td>
                             <td width="550">Название</td>
                             <td>Количество</td>

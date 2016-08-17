@@ -33,7 +33,7 @@ if(isset($_GET['view'])){
     $view = $_GET['view'];
 }
 else{
-    $view = 'info_pages';
+    $view = 'orders';
 }
 //Подключаем вид
 require_once VIEW.'index.php';
