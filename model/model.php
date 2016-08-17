@@ -28,7 +28,10 @@ function printProductCart($product){?>
         <div class="labels"><span class="label sale" title="Акция">Акция</span><br/></div>
         <?php endif;?>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
-            <img src="<?=$product->photo?>" class="big" alt="<?=$product->title?>" title="<?=$product->title?>"/>
+            <?php $gArr = explode(',', $product->gallery);?>
+            <img src="<?=$gArr[1]?>" class="big" alt="<?=$product->title?>" title="<?=$product->title?>"/>
+            
+            <!--<img src="<?=$product->photo?>" class="big" alt="<?=$product->title?>" title="<?=$product->title?>"/>-->
         </a>
         <div class="previewTitle">
             <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">LEGO <?=$product->category?> <?=$product->title?> <?=$product->articul?></a>

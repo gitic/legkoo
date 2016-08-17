@@ -50,7 +50,8 @@ defined(ACCESS_VALUE) or die('Access denied');
                     ?>
                         <tr>
                             <td class="orderFoto">
-                               <img src="<?=$product->photo?>"/> 
+                               <?php $gArr = explode(',', $product->gallery);?>
+                                <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>" target="_blank"><img src="<?=$gArr[1]?>" alt="<?=$product->title?>" title="<?=$product->title?>"/></a>
                             </td>
                             <td class="orderTitle">
                                 <span>Артикул: <?=$product->articul?></span>

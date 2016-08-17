@@ -141,7 +141,6 @@ a#logo {
 }
 
 .mainLogo {
-        padding:0 10px 0 0;
         width:200px;
 }
 
@@ -160,7 +159,7 @@ a#logo {
 }
 
 .slogan1 p {
-    padding:0 0 0 5px;
+    padding:0 0 0 8px;
 }
 
 a#logo img {
