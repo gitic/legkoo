@@ -138,7 +138,7 @@ if (!w.__utlWdgt ) {
                     </ul>
                     <div>
                         <div class="productAbout" itemprop="description">
-                            <p><?=$product->description?></p>
+                            <?=$product->description?>
                         </div>
                         <div class="deliveryTab">
                             <p><strong>Доставка: </strong></p>

@@ -14,10 +14,18 @@ defined(ACCESS_VALUE) or die('Access denied');
             <meta property="og:title" content="Конструктор LEGO <?=$product->articul?> <?=$product->title?>" />
             <meta property="og:type" content="product" />
             <meta property="og:url" content="<?=request_url()?>" />
-            <meta property="og:image" content="<?=PATH?>/<?=$product->photo?>" />
-            <meta property="image" content="<?=PATH?>/<?=$product->photo?>" />
+            <meta property="og:image" content="<?=PATH?><?=$product->photo?>" />
+            <meta property="image" content="<?=PATH?><?=$product->photo?>" />
             <meta property="og:site_name" content="<?=TITLE?>" />
             <meta property="og:description" content="<?= mb_substr(strip_tags($product->description), 0, 150, 'UTF-8').'...'?>"/>
+        <?php endif;?>
+        <?php if($view == 'category_page'):?>
+            <meta property="og:title" content="Конструкторы Лего <?=$category->title?>" />
+            <meta property="og:type" content="product" />
+            <meta property="og:url" content="<?=request_url()?>" />
+            <meta property="og:image" content="<?=PATH?><?=$category->photo?>" />
+            <meta property="image" content="<?=PATH?><?=$category->photo?>" />
+            <meta property="og:site_name" content="<?=TITLE?>" />
         <?php endif;?>
         <?php if($view == 'info_page' && $id=7):?>
             <meta property="og:title" content="<?=$infopage->title?> от магазина Legkoo.com.ua" />

@@ -89,6 +89,7 @@ if(isset($_POST['submit'])){
             }
             $img1 = $dir.'/logo.jpg';;
             $img2 = $dir.'/photo.jpg';;
+            $img3 = $dir.'/logo_small.jpg';;
             $image = new SimpleImage();
             
             if(file_exists($tmpImgDir.'f1.jpg')){        
@@ -100,8 +101,13 @@ if(isset($_POST['submit'])){
                 $succes = $image->load($tmpImgDir.'f2.jpg');
                 $image->save('../'.$img2);
             }else if(!file_exists('../'.$img2)){$img2='';}
+
+            if(file_exists($tmpImgDir.'f3.jpg')){
+                $succes = $image->load($tmpImgDir.'f3.jpg');
+                $image->save('../'.$img3);
+            }else if(!file_exists('../'.$img3)){$img3='';}
             
-            $pictures = array('logo'=>$img1,'photo'=>$img2);
+            $pictures = array('logo'=>$img1,'photo'=>$img2,'logo_small'=>$img3);
             Category::update($pictures, array('id'=>$rowId), $conn);
             delDir($tmpImgDir);
         }
@@ -170,7 +176,7 @@ $_SESSION['KCFINDER'] = array(
         <form name="edit_form" action="" method="post" enctype="multipart/form-data">
             <input type="text" hidden name="rowId" class="rowId" value="<?=$category->id?>"/>
             <div class="block">
-                <label>Логотип</label>
+                <label>Баннер</label>
                 <div class='uploader f1'>
                         <?php 
                             $link = '';
@@ -201,6 +207,23 @@ $_SESSION['KCFINDER'] = array(
                             <button type='button' class='loadUrlBtn f2'>Загрузить</button>
                         </div>
                         <div style='display: none' class='loadstatus f2'><img src='view/images/loader.gif' alt='Uploading....'/></div>
+                </div>
+            </div>
+            <div class="block">
+                <label>Логотип</label>
+                <div class='uploader f3'>
+                        <?php 
+                            $link = '';
+                            if($category->logo_small != ''){$link='../'.$category->logo_small;}
+                        ?>
+                        <img class='previewImg f3' src='<?=$link?>' width='150' border='0'>
+                        
+                        <div class="block">
+                            <input class='fileUpload f3' type='file' name='photos' />
+                            <input class='inp loadUrlInp f3' style="width: 300px;" name="pic1" value="" type="text" placeholder="Ссылка из интернета">
+                            <button type='button' class='loadUrlBtn f3'>Загрузить</button>
+                        </div>
+                        <div style='display: none' class='loadstatus f3'><img src='view/images/loader.gif' alt='Uploading....'/></div>
                 </div>
             </div>
             <div class="block">

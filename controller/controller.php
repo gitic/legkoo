@@ -67,7 +67,7 @@ else{
               
         case 'category':
             $meta['title'] = "Конструкторы Lego";
-            $meta['description'] = "";
+            $meta['description'] = "Полный каталог конструкторов LEGO (ЛЕГО), новинки 2016 года. Конструкторы купить с доставкой по всей Украине";
             $meta['keywords'] = "";
             break;
         
@@ -141,7 +141,7 @@ else{
         
         case 'new_products':
             $meta['title'] = "Новые товары в магазине Legkoo.com.ua";
-            $meta['description'] = "";
+            $meta['description'] = "Новинки 2016 года конструкторов Лего";
             $meta['keywords'] = "";
             break;
         

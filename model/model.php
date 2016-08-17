@@ -4,6 +4,9 @@ defined(ACCESS_VALUE) or die('Access denied');
 
 function printProductCart($product){?>
     <div class="productPreview">
+		<div style="position:absolute;right:0;top:0;">
+			
+		</div>
         <?php if($product->labels != ''):?>
         <div class="labels">
             <?php
