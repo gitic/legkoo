@@ -136,7 +136,9 @@ if (!w.__utlWdgt ) {
                         <?php if($product->video != ''):?>
                         <li>Видео</li>
                         <?php endif;?>
+						<?php if($product->description != ''):?>
                         <li>Описание</li>
+                        <?php endif;?>
                         <li>Оплата и доставка</li>
                         <li class="invisibleTab">Инструкция</li>
                     </ul>
@@ -151,9 +153,11 @@ if (!w.__utlWdgt ) {
                             <?php endif;?>
                         </div>
                         <?php endif;?>
-                        <div class="productAbout" itemprop="description">
-                            <?=$product->description?>
-                        </div>
+						<?php if($product->description != ''):?>
+							<div class="productAbout" itemprop="description">
+								<?=$product->description?>
+							</div>
+                        <?php endif;?>
                         <div class="deliveryTab">
                             <p><strong>Доставка: </strong></p>
                             <p><em>Условия доставки по всей Украине:</em></p>

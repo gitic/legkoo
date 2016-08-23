@@ -1862,3 +1862,11 @@ label {
 	color:#888;
 	margin-top:10px;
 }
+
+.sp-link-wrapper {
+	display:none!important;
+}
+
+.sendpulse-bell-icon {
+	display:none!important;
+}
