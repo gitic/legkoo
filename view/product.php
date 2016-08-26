@@ -136,11 +136,13 @@ if (!w.__utlWdgt ) {
                         <?php if($product->video != ''):?>
                         <li>Видео</li>
                         <?php endif;?>
-						<?php if($product->description != ''):?>
+			<?php if($product->description != ''):?>
                         <li>Описание</li>
                         <?php endif;?>
                         <li>Оплата и доставка</li>
-                        <li class="invisibleTab">Инструкция</li>
+                        <?php if($product->instruction != ''):?>
+                        <li>Инструкция</li>
+                        <?php endif;?>
                     </ul>
                     <div>
                         <?php if($product->video != ''):?>
@@ -153,10 +155,10 @@ if (!w.__utlWdgt ) {
                             <?php endif;?>
                         </div>
                         <?php endif;?>
-						<?php if($product->description != ''):?>
-							<div class="productAbout" itemprop="description">
-								<?=$product->description?>
-							</div>
+                        <?php if($product->description != ''):?>
+                            <div class="productAbout" itemprop="description">
+                                    <?=$product->description?>
+                            </div>
                         <?php endif;?>
                         <div class="deliveryTab">
                             <p><strong>Доставка: </strong></p>
@@ -175,14 +177,12 @@ if (!w.__utlWdgt ) {
                             - Приват24<br/>
                             - При доставке в отделение Новой Почты</p>
                         </div>
+                        <?php if($product->instruction != ''):?>
                         <div class="invisibleTab" style="text-align:center;">
-                            <?php if($product->instruction != ''):?>
                             <i class="fa fa-file-pdf-o"></i> <a href="<?=$product->instruction?>" target="_blank">Смотреть инструкцию</a>
                             <em>*некоторые инструкции могут превышать 10Мб (!)</em>
-                            <?php else:?>
-                            Инструкция отсутствует
-                            <?php endif;?>
                         </div>
+                        <?php endif;?>
                     </div>  
                     <script>
                     $(document).ready(function(){
