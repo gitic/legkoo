@@ -7,26 +7,32 @@ function printProductCart($product){?>
 		<div style="position:absolute;right:0;top:0;">
 			
 		</div>
-        <?php if($product->labels != ''):?>
+       
         <div class="labels">
-            <?php
-                $labels = explode(',', $product->labels);
-                if($product->old_price != 0){
-                    if(!in_array("Акция+sale", $labels)){
-                        $labels[] = "Акция+sale";
+            <?php if($product->labels != ''):?>
+                <?php
+                    $labels = explode(',', $product->labels);
+                    if($product->old_price != 0){
+                        if(!in_array("Акция+sale", $labels)){
+                            $labels[] = "Акция+sale";
+                        }
                     }
-                }
-                foreach ($labels as $label):
-                    $label = explode('+', $label);
-            ?>
-            <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
-                <?=$label[0]?>
-            </span><br/>
-            <?php endforeach;?>
+                    foreach ($labels as $label):
+                        $label = explode('+', $label);
+                ?>
+                <span class="label <?=$label[1]?>" title="<?=$label[0]?>">
+                    <?=$label[0]?>
+                </span><br/>
+                <?php endforeach;?>
+            <?php else:?>
+                <?php if($product->old_price != 0):?>
+                    <span class="label sale" title="Акция">Акция</span><br/>
+                <?php endif;?>
+            <?php endif;?> 
+            <?php if($product->price >= 1000):?>
+                <span class="label sale" title="Бесплатная доставка">Бесплатная доставка</span><br/>
+            <?php endif;?>
         </div>
-        <?php elseif($product->old_price != 0):?>
-        <div class="labels"><span class="label sale" title="Акция">Акция</span><br/></div>
-        <?php endif;?>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
             <?php $gArr = explode(',', $product->gallery);?>
             <img src="<?=$gArr[1]?>" class="big" alt="<?=$product->title?>" title="<?=$product->title?>"/>
