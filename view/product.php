@@ -65,8 +65,9 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
                         
                         <meta itemprop="price" content="<?=$product->price?>">
                         <meta itemprop="priceCurrency" content="UAH">
-						
-						<em>*при заказе от <strong>1000 грн</strong><br/> бесплатная доставка</em>
+			<?php if($product->price >= 1000 AND $product->old_price == 0):?>
+                           <em>*при заказе от <strong>1000 грн</strong><br/> бесплатная доставка</em>
+                        <?php endif;?>
                     </div>
                 </div>
                 <div class="block btnbuy gray">

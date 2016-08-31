@@ -9,7 +9,7 @@ function printProductCart($product){?>
 		</div>
        
         <div class="labels">
-            <?php if($product->price >= 1000):?>
+            <?php if($product->price >= 1000 AND $product->old_price == 0):?>
                 <span class="label free" title="Бесплатная доставка">Бесплатная доставка</span><br/>
             <?php endif;?>
             <?php if($product->labels != ''):?>
