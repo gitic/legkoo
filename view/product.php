@@ -216,8 +216,8 @@ if (!w.__utlWdgt ) {
             <?php
             $arrProducts = array();
             $checkArr = array();
-            $fromPrice = $product->price - 150;
-            $toPrice = $product->price + 150;
+            $fromPrice = $product->price - 500;
+            $toPrice = $product->price + 500;
             $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id "
                   ."WHERE t1.visible='1' AND t1.quantity>0 AND t1.category='$product->category' AND (t1.price>=$fromPrice AND t1.price<=$toPrice) AND t1.id!=$product->id";
             $result = $conn->query($sql);
@@ -225,7 +225,7 @@ if (!w.__utlWdgt ) {
                 $arrProducts[] = $record;
             }
             if(count($arrProducts)>0){
-                echo '<h3>Похожие товары</h3>';
+                echo '<h3>Похожие товары из серии</h3>';
             }
             if(count($arrProducts)>3){
                 $randArr = array();

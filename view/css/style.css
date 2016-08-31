@@ -1628,6 +1628,13 @@ label {
     margin:0;
 }
 
+.slider a {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+}
+
 .slider p {
     position:absolute;
     color:#fff;
@@ -1638,7 +1645,10 @@ label {
     text-shadow:1px 1px 3px #000;
     width:40%;
     text-align:right;
+    z-index:9;
 } 
+
+.slick-slide:focus { outline: none; }
 
 .guarant {
     background-color:rgba(240,120,90,0.9);

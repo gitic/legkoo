@@ -6,6 +6,18 @@ defined(ACCESS_VALUE) or die('Access denied');
     <div id="main">
         <div class="slider">
             <div>
+                <a href="category-25-lego-eksklyuziv">
+                    <p>LEGO® Эксклюзив</p>
+                    <img src="<?=VIEW?>images/exclusive.jpg" alt="LEGO® Эксклюзив"/>
+                </a>
+            </div>
+            <div>
+                <a href="product-651-lego-teoriya-bolshogo-vzryiva-21302">
+                    <p>Теория Большого Взрыва 21302</p>
+                    <img src="<?=VIEW?>images/bigbang.jpg" alt="Лего Теория Большого Взрыва 21302"/>
+                </a>
+            </div>
+            <div>
                 <a href="category-28-lego-nexo-knights">
                     <p>LEGO® NEXO KNIGHTS™</p>
                     <img src="<?=VIEW?>images/nexoBanner.jpg" alt="Конструкторы LEGO® NEXO KNIGHTS™"/>
@@ -48,10 +60,10 @@ defined(ACCESS_VALUE) or die('Access denied');
             $(document).ready(function(){
              $('.slider').slick({
                    autoplay: true,
-                   speed: 3000,
+                   speed: 1000,
                    arrows: false,
                    dots: true,
-                   fade: true
+                   fade: false
              });
            });
          </script>
