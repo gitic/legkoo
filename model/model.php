@@ -27,10 +27,8 @@ function printProductCart($product){?>
                     <?=$label[0]?>
                 </span><br/>
                 <?php endforeach;?>
-            <?php else:?>
-                <?php if($product->old_price != 0):?>
-                    <span class="label sale" title="Акция">Акция</span><br/>
-                <?php endif;?>
+            <?php elseif($product->old_price != 0):?>
+                <span class="label sale" title="Акция">Акция</span><br/>
             <?php endif;?> 
         </div>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">

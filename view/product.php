@@ -29,30 +29,32 @@ Product::update(array('views'=>$numView), array('id'=>$id), $conn);
             <?php endfor;?>
         </div>
         <div class="productData" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                <?php if($product->labels != ''):?>
+                
                 <div class="block gray">
                     <div class="labels product">
-                        <?php
-                            $labels = explode(',', $product->labels);
-                            if($product->old_price != 0){
-                                if(!in_array("Акция+sale", $labels)){
-                                    $labels[] = "Акция+sale";
+                        <?php if($product->price >= 1000 AND $product->old_price == 0):?>
+                            <span class="label free" title="Бесплатная доставка">Бесплатная доставка</span><br/>
+                        <?php endif;?>
+                        <?php if($product->labels != ''):?>
+                            <?php
+                                $labels = explode(',', $product->labels);
+                                if($product->old_price != 0){
+                                    if(!in_array("Акция+sale", $labels)){
+                                        $labels[] = "Акция+sale";
+                                    }
                                 }
-                            }
-                            foreach ($labels as $label):
-                                $label = explode('+', $label);
-                        ?>
-                        <span class="label pr <?=$label[1]?>" title="<?=$label[0]?>">
-                            <?=$label[0]?>
-                        </span>
-                        <?php endforeach;?>
+                                foreach ($labels as $label):
+                                    $label = explode('+', $label);
+                            ?>
+                            <span class="label pr <?=$label[1]?>" title="<?=$label[0]?>">
+                                <?=$label[0]?>
+                            </span>
+                            <?php endforeach;?>
+                        <?php elseif($product->old_price != 0):?>
+                            <span class="label pr sale" title="Акция">Акция</span>
+                        <?php endif;?>
                     </div>
-                </div>
-                <?php elseif($product->old_price != 0):?>
-                    <div class="block gray">
-                        <div class="labels product"><span class="label pr sale" title="Акция">Акция</span></div>
-                    </div>
-                <?php endif;?>
+                </div>                
                 <div class="block gray">
                     <div class="productPrice">
 					
