@@ -501,7 +501,6 @@ a.catPreviewBlock img {
     opacity:0.9;
     margin:0 0 0 4px;
     box-shadow:none;
-    color:#fff;
 }
 
 .label.new {
@@ -510,6 +509,10 @@ a.catPreviewBlock img {
 
 .label.sale {
     background-color:#FFEB3B;
+}
+
+.label.free {
+    background-color:#ccc;
 }
 
 .label.exclusive {
@@ -529,7 +532,8 @@ a.catPreviewBlock img {
 }
 
 .productPreview:hover {
-    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+    border:1px solid #ccc;
 }
 
 .productPreview img.big {
@@ -1183,7 +1187,7 @@ a.footLogo img {
 }
 
 .step input.inp {
-    border: 1px solid #eee;
+    border: 1px solid #bbb;
     color: #111;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
@@ -1193,7 +1197,7 @@ a.footLogo img {
 }
 
 .step textarea {
-    border: 1px solid #eee;
+    border: 1px solid #bbb;
     color: #111;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
@@ -1203,7 +1207,7 @@ a.footLogo img {
 }
 
 .step select {
-    border: 1px solid #eee;
+    border: 1px solid #bbb;
     color: #111;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;

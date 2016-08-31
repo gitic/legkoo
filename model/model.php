@@ -9,6 +9,9 @@ function printProductCart($product){?>
 		</div>
        
         <div class="labels">
+            <?php if($product->price >= 1000):?>
+                <span class="label free" title="Бесплатная доставка">Бесплатная доставка</span><br/>
+            <?php endif;?>
             <?php if($product->labels != ''):?>
                 <?php
                     $labels = explode(',', $product->labels);
@@ -29,9 +32,6 @@ function printProductCart($product){?>
                     <span class="label sale" title="Акция">Акция</span><br/>
                 <?php endif;?>
             <?php endif;?> 
-            <?php if($product->price >= 1000):?>
-                <span class="label sale" title="Бесплатная доставка">Бесплатная доставка</span><br/>
-            <?php endif;?>
         </div>
         <a href="product-<?=$product->id?>-lego-<?=$product->translit?>-<?=$product->articul?>">
             <?php $gArr = explode(',', $product->gallery);?>
