@@ -8,6 +8,7 @@ class Category {
     var $title;
     var $translit;
     var $logo;
+    var $logo_small;
     var $photo;
     var $description;
     var $promo_link;

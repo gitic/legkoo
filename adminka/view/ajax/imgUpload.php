@@ -51,7 +51,10 @@ if (isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST") {
                         die($data);
                     }
                 }
-                if (isset($setWidth) && isset($setHeight)) {
+                if($image_name == "f3"){
+                    $image->maxareafill($setWidth, $setHeight);
+                }
+                else if (isset($setWidth) && isset($setHeight)) {
                     $image->cutToSize($setWidth, $setHeight);
                 }
                 $image->save($newname);
@@ -128,13 +131,18 @@ if (isset($_POST) and $_SERVER['REQUEST_METHOD'] == "POST") {
                         if (isset($setWidth) && isset($setHeight)) {
                             $image = new SimpleImage();
                             $image->load($newname);
-                            switch ($sizeType) {
+                            if($image_name == "f3"){
+                                $image->maxareafill($setWidth, $setHeight);
+                            }
+                            else{
+                                switch ($sizeType) {
                                 case 'fill':
                                     $image->maxareafill($setWidth, $setHeight);
                                     break;
                                 default:
                                     $image->cutToSize($setWidth, $setHeight);
                                     break;
+                            }
                             }
                             $image->save($newname);
                         }

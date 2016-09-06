@@ -120,12 +120,12 @@ $total_rows = $result->fetch_array()[0];
         </div>
         <div id="catProduct">
             <?php
-                $sql = "SELECT t1.*,t2.title AS category FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY labels DESC,quantity DESC LIMIT 0,9";
+                $sql = "SELECT t1.*,t2.title AS category,t2.logo_small AS cat_logo FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.category='$id' ORDER BY labels DESC,quantity DESC LIMIT 0,9";
                 $result = $conn->query($sql);
                 while ($record = $result->fetch_object()){
                     $product = new Product();
                     $product = $record;
-                    printProductCart($product);
+                    printProductWithLogo($product);
                 }
             ?>
             <?php if($total_rows > 9):?>

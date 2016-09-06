@@ -216,7 +216,7 @@ $_SESSION['KCFINDER'] = array(
                             $link = '';
                             if($category->logo_small != ''){$link='../'.$category->logo_small;}
                         ?>
-                        <img class='previewImg f3' src='<?=$link?>' width='150' border='0'>
+                        <img class='previewImg f3' src='<?=$link?>' width='100' border='0'>
                         
                         <div class="block">
                             <input class='fileUpload f3' type='file' name='photos' />

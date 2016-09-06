@@ -34,7 +34,7 @@ if (!w.__utlWdgt ) {
         <div class="newsProduct">
             <?php
                 if($article->products !== ''){
-                    $sql = "SELECT * FROM products WHERE visible='1' AND id IN ($article->products)";
+                    $sql = "SELECT t1.*,t2.title AS category,t2.logo_small AS cat_logo FROM products AS t1 LEFT JOIN categories AS t2 ON t1.category=t2.id WHERE t1.visible='1' AND t1.id IN ($article->products)";
                     $result = $conn->query($sql);
                     while ($product = $result->fetch_object()){
                         printProductCart($product);

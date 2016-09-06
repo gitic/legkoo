@@ -103,6 +103,10 @@ $(function(){
                 iWidth = 362;
                 iHeight = 570;
                 break;
+            case 'f3':
+                iWidth = 100;
+                iHeight = 100;
+                break;
         }
 
         el = document.getElementsByClassName(uploaderName)[0];
@@ -145,6 +149,10 @@ $(function(){
             case 'f2':
                 iWidth = 362;
                 iHeight = 570;
+                break;
+            case 'f3':
+                iWidth = 100;
+                iHeight = 100;
                 break;
         }
         if((url.indexOf('http://') !== -1) || (url.indexOf('https://') !== -1)){
